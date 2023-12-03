@@ -40,7 +40,7 @@ pre-commit: ## run pre-commit on all files
 # Cleaning targets
 # --------------------------------------------------------------------------- #
 
-clean: clean-venv clean-build clean-pyc clean-linting clean-test ## remove all build, test, coverage and Python artifacts
+clean: clean-venv clean-build clean-pyc clean-linting ## remove all build, test, coverage and Python artifacts
 
 clean-venv: ## remove virtual environment
 	rm -rf $(VENV_NAME)
@@ -62,49 +62,14 @@ clean-pyc: ## remove Python file artifacts
 clean-linting: ## remove linting artifacts
 	find . -name '.ruff_cache' -exec rm -fr {} +
 
-clean-test: ## remove test and coverage artifacts
-	rm -fr .tox/
-	rm -fr .pytest_cache
-
-clean-log: ## remove log files in /log folder
-	rm -fr log/*.log
-
-# --------------------------------------------------------------------------- #
-# Testing targets
-# --------------------------------------------------------------------------- #
-
-test: install ## run tests quickly with the virtual environment's Python
-	source $(VENV_NAME)/bin/activate
-	pytest
-
-test-all: install ## run tests on every Python version with tox
-	source $(VENV_NAME)/bin/activate
-	tox
-
-# --------------------------------------------------------------------------- #
-# Setuptools targets (use on windows or when you have non-python files)
-# --------------------------------------------------------------------------- #
-
-venv: clean
-	python3 -m venv $(VENV_NAME)
-
-build: clean ## builds source and wheel package
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
-	ls -l dist
-
-release: clean build ## package and upload a release
-	twine upload dist/*
-
-install: venv ## install the packages in requirements.txt in the virtual environment
-	source $(VENV_NAME)/bin/activate
-	python setup.py install
-
 # --------------------------------------------------------------------------- #
 # Poetry targets (use on linux)
 # TODO poetry-install-standard is redundant
 # --------------------------------------------------------------------------- #
 
+poetry-shell: ## enter poetry enviroment
+	poetry shell
+	
 poetry-init: clean ## init poetry in existing project
 	poetry init
 
@@ -132,8 +97,6 @@ poetry-test: poetry-install ## run tests using poetry
 
 poetry-test-all: poetry-install ## run tests on every Python version with tox
 	poetry run tox
-
-
 
 poetry-clean:
 	poetry env remove --all

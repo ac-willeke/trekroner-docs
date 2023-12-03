@@ -13,6 +13,21 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 jupyter = "^1.0.0"
+sphinx = "7.2.6"
+sphinx-autodoc-typehints = "1.25.2"
+sphinx-copybutton = "0.5.2"
+sphinx-rtd-theme = "2.0.0"
+sphinxcontrib-applehelp = "1.0.7"
+sphinxcontrib-devhelp = "1.0.5"
+sphinxcontrib-htmlhelp = "2.0.4"
+sphinxcontrib-jquery = "4.1"
+sphinxcontrib-jsmath = "1.0.1"
+sphinxcontrib-qthelp = "1.0.6"
+sphinx-book-theme = {git = "https://github.com/executablebooks/sphinx-book-theme.git", rev = "1ae499bac6b2d3472280cbc84cb1aff51fa156aa"}
+sphinxcontrib-serializinghtml = "1.1.9"
+nbsphinx = "^0.9.3"
+myst-parser = "^2.0.0"
+sphinx-material = "^0.0.36"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
