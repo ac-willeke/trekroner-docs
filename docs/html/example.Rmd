@@ -1,0 +1,48 @@
+---
+title: "example docs"
+output:
+    html_document:
+        code_folding: show
+        self_contained: true
+        keep_md: false
+        toc: true
+        toc_depth: 3
+        toc_float:
+            collapsed: false
+            smooth_scroll: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    eval = FALSE
+    , echo = TRUE
+)
+```
+
+## Introduction
+
+This is some introductory text. It doesn't have any code chunks, it's just some basic text.
+
+## Some code examples {.tabset}
+
+Here, I'll document how to use some code. For example, getting a bunch of UUIDs and printing them.
+
+### R
+
+```{r}
+some_strings <- sapply(
+    1:10
+    , FUN = function(i){uuid::UUIDgenerate()}
+)
+for (string in some_strings){
+    print(string)
+}
+```
+
+## Other text
+
+This shows you can go back to normal text after the tabs
+
+### No really
+
+This shows you can use a header-3 that doesn't turn into a tab downstream of a tab.

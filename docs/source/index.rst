@@ -1,19 +1,51 @@
-.. Urban Climate documentation master file, created by
-   sphinx-quickstart on Sat Dec  2 12:28:42 2023.
+.. Trekroner Documentation documentation master file, created by
+   sphinx-quickstart on Sun Dec  3 13:59:49 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Urban Climate Documentation
-===========================
+Trekroner Dokumentasjon
+=======================
 
 .. toctree::
    :maxdepth: 2
 
-   modules
 
-Indices and tables
-==================
+.. important::
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+    Denne nettsiden er del av Trekroner prosjektet og vedlegg til 
+    `NINA Rapport xxxx <http://www.nina.no/>`_
+
+Sammendrag
+----------
+
+Prosjektbeskrivelse kommer her
+
+
+Sammendragsstatistikk
+---------------------
+.. toctree::
+   :maxdepth: 1
+
+   Rmd/index
+
+Metoder (EN)
+------------
+.. toctree::
+   :maxdepth: 2
+
+   methods/page_1
+
+GitHub Repositories (EN)
+------------------------
+.. toctree::
+   :maxdepth: 1
+
+   github/page_1
+   github/sphinx_dev_info
+
+Bytreatlas
+-----------
+.. toctree::
+   :maxdepth: 1
+
+   atlas/instruks
