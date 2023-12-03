@@ -34,6 +34,7 @@ Metoder (EN)
    :maxdepth: 2
 
    methods/page_1
+   methods/urban_climate
 
 GitHub Repositories (EN)
 ------------------------
