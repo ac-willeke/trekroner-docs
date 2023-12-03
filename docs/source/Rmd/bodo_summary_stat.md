@@ -17,11 +17,6 @@ Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bod
 
 ## Treslagsfordeling i Bodø
 
-
-<a href="bodo_img/SPECIES_PROBABILITY-1.png" target="_blank">
-  <img src="bodo_img/SPECIES_PROBABILITY-1.png" alt="species probability">
-</a>
-
 ![species probability](bodo_img/SPECIES_PROBABILITY-1.png)
 
 <br>
