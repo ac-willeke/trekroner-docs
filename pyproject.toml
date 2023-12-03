@@ -1,0 +1,56 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "trekroner-docs"
+version = "0.1.0"
+description = "Sphinx documentation for the Trekroner project."
+authors = ["Willeke A'Campo (linux vdi) <willeke.acampo@nina.no>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyter = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+isort = "^5.12.0"
+ruff = "^0.0.286"
+pyment = "^0.3.3"
+pytest = "^7.4.0"
+
+[tool.black]
+# https://github.com/psf/black
+line-length = 88
+color = true
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''
+
+[tool.isort]
+# https://pycqa.github.io/isort/docs/configuration/black_compatibility.html
+profile = "black"
+
+[tool.ruff]
+# https://beta.ruff.rs/docs/settings
+fix = true
+ignore = ["E501"]
+exclude = [
+    ".git",
+    ".env",
+    ".venv"
+]
