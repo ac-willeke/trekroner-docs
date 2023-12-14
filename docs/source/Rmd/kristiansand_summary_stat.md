@@ -1,0 +1,90 @@
+### Registrerte trær i Kristiansand's byggesonen
+
+Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Kristiansand's byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: [Bytræratlas Kristiansand](https://experience.arcgis.com/experience/6e047c5432e64b3f9abb1592d7907ff6/)
+
+| Gruppe                 | Beskrivelse                                            | Antall             |
+|------------------|------------------------------------|------------------|
+| Totalt registerte trær | Totalt antall registrerte trær i Kristiansand | 80       |
+| i-Tree Eco             | Totalt antall trær brukt i i-Tree Eco                  | 80 |
+| Sone 1                 | Trær i forurensnings sone 1 (grønn)                    | 70    |
+| Sone 2                 | Trær i forurensnings sone 2 (gull)                     | 10    |
+| Sone 3                 | Trær i forurensnings sone 3 (rød)                      | 0    |
+| Totalt trebestand      | Totalt antall trær i bestanden (basert på laserdata)   | 11081     |
+
+<br>
+
+### Treslagsfordeling i Kristiansand
+
+
+![species probability](kristiansand_img/SPECIES_PROBABILITY-1.png)
+
+<br>
+
+### Tre egenskaper
+
+------------------------------------------------------------------------
+
+![TREE ATTRIBUTES 1](kristiansand_img/TREE_ATTRIBUTES-1.png)
+![TREE ATTRIBUTES 2](kristiansand_img/TREE_ATTRIBUTES-2.png)
+![TREE ATTRIBUTES 3](kristiansand_img/TREE_ATTRIBUTES-3.png)
+
+<br>
+
+|Treslag       | Antall Trær| Kroneareal (m2)| Høyde (m)| Stammediameter (cm)|
+|:-------------|-----------:|---------------:|---------:|-------------------:|
+|Alm           |           3|          199.79|     25.04|               83.34|
+|Bjørk         |           3|           29.89|     11.26|               34.26|
+|Blodbøk       |           1|           94.11|     23.16|               53.15|
+|Bøk           |           2|          397.34|     25.92|              109.20|
+|Hestekastanje |           1|           53.49|     13.98|               35.13|
+|Kulelønn      |          43|           16.45|      3.99|               13.64|
+|Lind          |           8|          120.85|     14.61|               58.52|
+|Neverhegg     |           5|           20.29|      5.49|               17.93|
+|Rosehagtorn   |           2|           28.18|      5.33|               18.30|
+|Småbladlind   |           2|           55.14|     13.72|               41.38|
+|Spisslønn     |           1|          108.79|     17.35|               41.94|
+|Svenskeasal   |           5|           31.02|      6.86|               33.42|
+|Søylekirsebær |           4|            3.14|      5.00|               10.90|
+
+<br>
+### Regulerende økosystemtjenester
+
+------------------------------------------------------------------------
+
+
+
+
+![KARBON LAGRING](kristiansand_img/KARBON_LAGRING-1.png)
+
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig karbonlagring \< 100 kg vises ikke i plottet. </font>
+
+![KARBON BINDING](kristiansand_img/KARBON_BINDING-1.png)
+
+<font size="2.0" face="Arial">\*Treslag med årlig karbonbinding \< 5 kg/år vises ikke i plottet. </font>
+
+![OVERFLATEAVRENNING](kristiansand_img/OVERFLATEAVRENNING-1.png)
+
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig reduksjon av overflateavrenning \< 0.1 m3/år vises ikke i plottet. </font>
+
+![POLLUTION](kristiansand_img/POLLUTION-1.png)
+
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig reduksjon av luftforurensing \< 25 g/år vises ikke i plottet. </font>
+
+<br>
+
+|Kroneareal (m2) | Antall Trær| Karbonlagring (kg)| Årlig karbonbinding (kg/år)| Årlig karbonbinding (NKr/år)| CO2-utslipp unngått (kg/år)| CO2-utslipp unngått (NKr/år)| Reduksjon av overflateavrenning (m3/år)| Reduksjon av overflateavrenning (NKr/år)| Reduksjon av luftforurensing (g/år)| Reduksjon av luftforurensing (NKr/år)| Energibesparelse (Nkr/år)| Totalverdi Økosystemtjenester (NKr/år)|
+|:---------------|-----------:|------------------:|---------------------------:|----------------------------:|---------------------------:|----------------------------:|---------------------------------------:|----------------------------------------:|-----------------------------------:|-------------------------------------:|-------------------------:|--------------------------------------:|
+|0-50            |          63|             105.13|                        6.27|                        11.79|                        2.15|                         4.71|                                    0.19|                                     1.51|                               26.82|                                 17.08|                     42.00|                                  60.74|
+|50-100          |           5|             465.40|                       12.58|                        23.71|                        6.10|                        11.50|                                    1.92|                                    15.12|                              269.00|                                172.11|                     90.53|                                 312.96|
+|100-150         |           6|            2201.28|                       25.73|                        48.46|                        4.43|                         8.34|                                    2.85|                                    22.29|                              396.42|                                253.65|                     79.84|                                 412.58|
+|150-200         |           1|              89.50|                        8.80|                        16.64|                        0.00|                         0.00|                                    1.70|                                    13.04|                              231.90|                                148.37|                      0.00|                                 178.05|
+|200-250         |           1|            1810.00|                       25.80|                        48.51|                        0.00|                         0.00|                                    4.30|                                    33.59|                              601.90|                                362.53|                      0.00|                                 444.63|
+|250-300         |           1|            2433.20|                       30.50|                        57.50|                        0.00|                         0.00|                                    5.50|                                    42.93|                              763.60|                                488.59|                      0.00|                                 589.02|
+|350-400         |           2|            2199.25|                       40.35|                        76.04|                        0.00|                         0.00|                                    4.10|                                    31.72|                              564.20|                                360.98|                      0.00|                                 468.75|
+|400-450         |           1|            7500.00|                        8.10|                        15.31|                        0.00|                         0.00|                                    7.40|                                    57.64|                             1025.20|                                655.96|                      0.00|                                 728.91|
+
+<br>
+
+*Dette dokumentet er en del av prosjektet:*
+
+**TREKRONER Prosjektet** \| Trærs betydning for klimatilpasning, karbonbinding, økosystemtjenester og biologisk mangfold.

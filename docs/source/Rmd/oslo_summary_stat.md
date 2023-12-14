@@ -24,7 +24,7 @@ Treslag som har en sannsynlighet på mindre enn 2% er klassifisert som
 
 ![species probability](oslo_img/SPECIES_PROBABILITY-1.png)
 
-<font size="0.8" face="Arial">\*Treslag klassifisert som ‘Andre treslag’
+<font size="2.0" face="Arial">\*Treslag klassifisert som ‘Andre treslag’
 er: agnbøk, alm-art, amurkorktre, ask raywood, asklønn, balsampoppel,
 barlind, barlind-art, bjørkekirsebær, blodbøk, blodlønn, blodlønn
 crimson king, blågran, bøk, douglasgran, duetre, dvergfuru, edelgran,
@@ -286,22 +286,22 @@ vingenøtt-art, vintereik, virginiapoppel , vripil, weymouthfuru,
 
 ![KARBON LAGRING](oslo_img/KARBON_LAGRING-1.png)
 
-<font size="0.8" face="Arial">\*Treslag med gjennomsnittlig
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig
 karbonlagring \< 500 kg vises ikke i plottet. </font>
 
 ![KARBON BINDING](oslo_img/KARBON_BINDING-1.png)
 
-<font size="0.8" face="Arial">\*Treslag med årlig karbonbinding \< 8
+<font size="2.0" face="Arial">\*Treslag med årlig karbonbinding \< 8
 kg/år vises ikke i plottet. </font>
 
 ![OVERFLATEAVRENNING](oslo_img/OVERFLATEAVRENNING-1.png)
 
-<font size="0.8" face="Arial">\*Treslag med gjennomsnittlig reduksjon av
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig reduksjon av
 overflateavrenning \< 2 m3/år vises ikke i plottet. </font>
 
 ![POLLUTION](oslo_img/POLLUTION-1.png)
 
-<font size="0.8" face="Arial">\*Treslag med gjennomsnittlig reduksjon av
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig reduksjon av
 luftforurensing \< 800 g/år vises ikke i plottet. </font>
 <br>
 
