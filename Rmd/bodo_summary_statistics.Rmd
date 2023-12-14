@@ -1,0 +1,1071 @@
+---
+title: "Bodø sammendragsstatistikk"
+author: "David Barton, Bart Immerzeel og Willeke A'Campo"
+date: "13. november 2023"
+output:
+  html_document: default
+  pdf_document:  default
+sansfont: Arial
+
+params:
+  region_str:
+    label: "Kommune"
+    value: Bodø
+    input: select
+    choices: ["Bærum", "Bodø", "Kristiansand", "Oslo"]
+  region_var:
+    label: "Kommune variabel"
+    value: bodo
+    input: select
+    choices: ["baerum", "bodo", "kristiansand", "oslo"]
+  data: 
+    label: "Input dataset:"
+    value: bodo_registrerte_traer.csv
+    input: file
+  agol:
+    label: Bytraeratlas link (AGOL)
+    tag: ['baerum', 'bodo', 'kristiansand', 'oslo']
+    value: 5191adc2c4b34658aea227c9853c6ebb
+    input: select
+    choices: ['bærum', 
+    '5191adc2c4b34658aea227c9853c6ebb', 
+    '6e047c5432e64b3f9abb1592d7907ff6', 
+    'oslo']
+---
+
+```{r "SETUP", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+cwd <- getwd()
+project_path <- dirname(dirname(cwd))
+logger::log_info(paste0("Project path: ", project_path))
+
+# INSTALL AND LOAD R PACKAGES
+# ---------------------------
+libs <- c("modules", "logger", "extrafont", "ggplot2", "arrow", "magrittr")
+
+.installed_libs <- libs %in% rownames(
+    installed.packages()
+)
+
+
+if (any(.installed_libs == FALSE)) {
+    install.packages(libs[!installed_libs])
+}
+
+invisible(lapply(
+    libs, 
+    library, 
+    character.only = TRUE
+))
+
+logger::log_info(paste0("R packages loaded: ", paste(libs, collapse = ", ")))
+
+# LOAD LOCAL MODULES
+# ------------------
+modules <- c(
+    "config",
+    "nina_theme",
+    "nina_plot")
+
+.load_module <- function(module_name) {
+    modules::use(paste0(project_path, "/R/", module_name, ".R"))
+}
+
+invisible({
+  modules_list <- lapply(modules, .load_module)
+  names(modules_list) <- modules
+
+  list2env(modules_list, envir = .GlobalEnv)
+})
+
+logger::log_info(paste0("Local modules loaded: ", paste(modules, collapse = ", ")))
+
+# ENCODING 
+# ------
+Sys.setlocale("LC_CTYPE", "en_US.UTF-8")
+logger::log_info(paste0("Encoding: ", Sys.getlocale("LC_CTYPE")))
+
+# PARAMETERS
+# ----------
+#' Merge params from parameters.yaml with params from Rmd header
+.update_params <- function(project_path) {
+  yaml_parameters <- config$load_parameters(
+      parameters_filepath = file.path(project_path, "/config/parameters.yaml")
+  )
+    
+  parameters <- modifyList(params, yaml_parameters)
+
+  assign("parameters", parameters, envir = .GlobalEnv)
+  
+  return(parameters)
+}
+
+parameters <- .update_params(project_path)
+municipality = parameters$region_var
+logger::log_info(paste0("Parameters configured for: ", municipality))
+params_municipality = parameters[[municipality]]
+
+# CATALOG
+# ------
+catalog <- config$load_catalog(
+    catalog_filepath = file.path(project_path, "/config/catalog.yaml")
+ )
+
+catalog_municipality <- catalog[[municipality]]
+```
+
+```{r STYLE, echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+# STYLE
+# -----
+myfontPath <- catalog$fonts$filepath
+myfontName <- "Arial"
+config$set_font(font_path = myfontPath, font_name = myfontName, base_size = 12)
+
+
+# NINA STYLE
+# ----------
+nina_grafpalett <- unname(
+  NinaR::ninaColors( "purple", "orange", "dark blue", "light blue")
+  )
+nina_grafpalett_80 <- paste0(nina_grafpalett, "33")
+nina_grafpalett_60 <-  paste0(nina_grafpalett, "66")
+nina_grafpalett_40 <- paste0(nina_grafpalett, "99")
+nina_grafpalett_20 <- paste0(nina_grafpalett, "CC")
+nina_grafpalett <- c(nina_grafpalett, nina_grafpalett_20,
+                     nina_grafpalett_40, nina_grafpalett_60, 
+                     nina_grafpalett_80)
+```
+
+```{r "LOAD FUNCTIONS", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+# FUNCTIONS
+# ---------
+
+# Function ------------------------------------------------------------------- #
+#' Calculate summary statistics
+#' @param data: data frame
+#' @param x: variable name
+#' @param classify_other: logical, if TRUE, classify all values with less than 3%
+#' @return: a data frame with the summary statistics
+#' @example
+#' data <- data.frame(x = c("A", "B", "C", "C", "C"))
+#' calc_summary(data, "x", classify_other = TRUE)
+#' # A tibble: 3 x 3
+#'  x         n  Perc
+#' <chr> <int> <dbl>
+#' 1 C         3  60
+#' 2 A         1  20
+#' 3 B         1  20
+
+calc_summary <- function(data, x, classify_other = FALSE) {
+    # drop "" and " " and "NA"
+  data <- data %>%
+    dplyr::filter(!!rlang::sym(x) != "" & 
+                      !!rlang::sym(x) != " " & 
+                      !is.na(!!rlang::sym(x)))
+
+  # create summary dataframe df[x, n, perc]
+  summary <- data %>%
+    dplyr::count(!!rlang::sym(x)) %>%
+    dplyr::mutate(Probability = n / sum(n),
+                  Perc = round(Probability * 100, digits = 2)) %>%
+    dplyr::arrange(desc(Perc))
+
+  if (abs(sum(summary$Probability) - 1) > .Machine$double.eps^0.5) {
+    stop("Error: Probability SUM != 1")
+  }
+
+  data_summary <- summary %>% dplyr::select(-Probability)
+
+  if (classify_other) {
+    data_summary <- summary %>%
+      dplyr::filter(Perc >= 3) %>%
+      dplyr::bind_rows(dplyr::summarise(dplyr::filter(summary, Perc < 3), 
+                          # !! is used to unquote the variable name 
+                          # var_name <- "my_var" unquote: my_var 
+                          !!rlang::sym(x) := "Andre treslag*", 
+                          n = sum(n), 
+                          Perc = sum(Perc)))
+    return(data_summary)
+  }
+
+  return(data_summary)
+}
+
+# Function ------------------------------------------------------------------- #
+#' Calculate mean per class
+#' @param df Data frame
+#' @param category Category (tree species, DBH class, crown area class)
+#' @param value_col Value column
+#' @return Data frame with mean per class
+
+.mean_per_class <- function(df, category, value_col, digits = 0) {
+  df %>% 
+    # remove NA 
+    dplyr::filter(!is.na({{ value_col }})) %>%
+    dplyr::group_by(!!sym(category)) %>% 
+    dplyr::summarise(mean = round(mean(!!sym(value_col), na.rm = TRUE), digits)) %>% 
+    dplyr::arrange(desc(mean))
+}
+
+# FUNCTION ------------------------------------------------------------------- #
+#' Create a continuous  color palette
+#' @param df Data frame
+#' @param column Column name
+#' @param colors Vector of three colors
+
+create_color_palette <- function(df, 
+                                 column,
+                                 colors= c("#015c55","#7da37b", "#fae9a0")) {
+  palette_func <- colorRampPalette(colors)
+  n_classes <- length(unique(df[[column]]))
+  palette <- palette_func(n_classes)
+
+  return(palette)
+}
+```
+
+```{r "LOAD DATA", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+# LOAD DATA
+# TODO check convert functions (they do not convert datatypes!)
+# ---------
+
+lookup_attr <- readxl::read_excel(
+    path = catalog$lookup_attr$filepath,
+    sheet = catalog$lookup_attr$sheet_1,
+    col_names = TRUE,
+    col_types = NULL,
+    na = "",
+    skip = 0
+    )
+
+df <- config$convert_excel_to_parquet(
+    excel_file = catalog_municipality$bytraer$filepath,
+    pqt_file = catalog_municipality$bytraer$filepath_parquet,
+    lut_df = lookup_attr
+    )
+
+df_2 <- config$convert_csv_to_parquet(
+    csv_file = catalog_municipality$trekroner$filepath,
+    pqt_file = catalog_municipality$trekroner$filepath_parquet,
+    sep = ",",
+    lut_df = lookup_attr
+    )
+
+
+message <- paste(
+    "Data loaded.",
+    paste0("DF dimensions: ", 
+           paste(dim(df), collapse = " x ")),
+    paste0("DF2 dimensions: ", 
+           paste(dim(df_2), collapse = " x ")),
+    paste0("Lookup name-alias: ", 
+           lookup_attr[1,1]),
+    sep = "\n"
+  )
+logger::log_info(message)
+```
+
+```{r "DATA MANIPULATION", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+# CLEAN DATA
+# ----------
+
+# 0. Set DTYPES
+# -------------
+# set dtype pollution_zone to int
+df$pollution_zone <- as.integer(df$pollution_zone)
+
+# ITree Eco is not run for Baerum 
+pos_cols <- pos_cols <- c("height_total_tree", "dbh", "crown_area", 
+             "co2_storage_kg", "co2_storage_nkr",
+             "co2_seq_kg_yr", "co2_seq_nkr_yr",
+             "runoff_m3", "runoff_nkr_yr",
+             "co2_avoided_kg_yr", "co2_avoided_nkr_yr", 
+             "pollution_g", "pollution_nkr_yr",  
+             "energy_nkr_yr", 
+             "totben_cap")
+
+df[pos_cols] <- lapply(df[pos_cols], function(x) round(as.numeric(x), 2))
+df[pos_cols][df[pos_cols] < 0] <- NA
+
+# 1. Create <ID>
+# --------------
+# # tree_id: itree_3006 ID_ 3006
+df$ID <- as.numeric(gsub("itree_", "", df$tree_id))
+df <- df[order(df$ID),]
+
+# 2. Create <class>
+# -----------------
+df$class <- "Alle traer"
+
+# 3. Modify <percent_crown_missing>
+# ---------------------------------
+# if NA set to "15% - 20%"
+df$percent_crown_missing[is.na(df$percent_crown_missing)] <- "15% - 20%"
+
+
+# 4. Clean tree species
+# ---------------------
+
+logger::log_info(paste0("Data cleaned \n", toString(df[1,3:6])))
+
+# FILTER DATA
+# -----------
+
+# 1. i-Tree Eco trees
+# -------------------
+df_itree <- df[df$itree_spec == 1,]
+df_itree$class <- "i-Tree"
+
+# 2. Zone 1 trees
+# ---------------
+df_z1 <- df[df$pollution_zone == 1,]
+df_z1$class <- "Sone 1"
+
+# 3. Zone 2 trees
+# ---------------
+df_z2 <- df[df$pollution_zone == 2,]
+df_z2$class <- "Sone 2"
+
+# 4. Zone 3 trees
+# ---------------
+df_z3 <- df[df$pollution_zone == 3,]
+
+logger::log_info("Data grouped into separate dataframes:
+                 \ndf (Alle traer), df_itree (i-Tree), 
+                 df_z1 (Sone 1), df_z2 (Sone 2), df_z3 (Sone 3)")
+
+df_list = list(df = df, 
+               df_itree = df_itree, 
+               df_z1 = df_z1, 
+               df_z2 = df_z2)
+
+# MERGE DATA
+# ----------
+data_merged <- rbind(df, df_itree, df_z1, df_z2)
+dat <- tibble::as_tibble(data_merged)
+
+logger::log_info("Data merged into one tibble: dat")
+```
+
+### Registrerte trær i `r params$region_str`'s byggesonen
+
+Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor `r params$region_str`'s byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: [Bytræratlas `r params$region_str`](https://experience.arcgis.com/experience/`r params$agol`/)
+
+| Gruppe                 | Beskrivelse                                            | Antall             |
+|------------------|------------------------------------|------------------|
+| Totalt registerte trær | Totalt antall registrerte trær i `r params$region_str` | `r nrow(df)`       |
+| i-Tree Eco             | Totalt antall trær brukt i i-Tree Eco                  | `r nrow(df_itree)` |
+| Sone 1                 | Trær i forurensnings sone 1 (grønn)                    | `r nrow(df_z1)`    |
+| Sone 2                 | Trær i forurensnings sone 2 (gull)                     | `r nrow(df_z2)`    |
+| Sone 3                 | Trær i forurensnings sone 3 (rød)                      | `r nrow(df_z3)`    |
+| Totalt trebestand      | Totalt antall trær i bestanden (basert på laserdata)   | `r nrow(df_2)`     |
+
+<br>
+
+### Treslagsfordeling i `r params$region_str`
+
+Treslag som har en sannsynlighet på mindre enn 3% er klassifisert som "Andre treslag".
+
+```{r "SPECIES_PROBABILITY", echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=15, fig.width=14}
+# CALCULATE SPECIES PROBABILITY
+# -----------------------------
+# 1. Calc probability for each tree species per group
+# Groups: "Alle Traer", "i-Tree", "Sone 1" and "Sone 2"
+summary_list <- lapply(
+    X = df_list, 
+    FUN = function(df) calc_summary(
+        df, 
+        "norwegian_name", 
+        classify_other = params_municipality$norwegian_name$classify_other))
+
+# 2. Get species with probability < 3%
+other_trees <- df %>%
+    dplyr::filter(!!rlang::sym("norwegian_name") != "" & 
+                  !!rlang::sym("norwegian_name") != " " & 
+                  !is.na(!!rlang::sym("norwegian_name"))) %>%
+    dplyr::count(norwegian_name) %>%
+    dplyr::mutate(Probability = n / sum(n)) %>%
+    dplyr::filter(Probability < 0.03) %>%
+    dplyr::pull(norwegian_name)
+
+# PLOT SPECIES PROBABILITY
+# ------------------------
+plot_all <- nina_plot$probability_plot(
+    data = summary_list$df,
+    Var1 = "norwegian_name",
+    title = paste0("Trær i ", params$region_str, "'s byggesone"),
+    ymax = params_municipality$norwegian_name$ymax  
+    ) +
+    theme_minimal(base_family = "Arial", base_size = 12) +
+    nina_theme$theme_large()
+
+plot_itree <- nina_plot$probability_plot(
+    data = summary_list$df_itree,
+    Var1 = "norwegian_name",
+    title = "i-Tree Eco Trær",
+    ymax = params_municipality$norwegian_name$ymax
+    ) +
+    theme_minimal(base_family = "Arial", base_size = 12) +
+    nina_theme$theme_large()
+
+plot_z1 <- nina_plot$probability_plot(
+    data = summary_list$df_z1,
+    Var1 = "norwegian_name",
+    title = "Trær i forurensningssone 1",
+    ymax = params_municipality$norwegian_name$ymax
+    ) +
+    theme_minimal(base_family = "Arial", base_size = 12) +
+    nina_theme$theme_large()
+
+plot_z2 <- nina_plot$probability_plot(
+    data = summary_list$df_z2,
+    Var1 = "norwegian_name",
+    title = "Trær i forurensningssone 2", 
+    ymax = params_municipality$norwegian_name$ymax
+    ) +
+    theme_minimal(base_family = "Arial", base_size = 12) +
+    nina_theme$theme_large()
+
+plots <- ggpubr::ggarrange(
+    plot_all, 
+    plot_itree, 
+    plot_z1, 
+    plot_z2,
+    ncol = 2, nrow = 2, align = "v"
+)
+
+print(plots)
+```
+
+<font size="2.0" face="Arial">\*Treslag klassifisert som 'Andre treslag' er: `r other_trees` </font>
+
+<br>
+
+### Tre egenskaper
+
+------------------------------------------------------------------------
+
+```{r "TREE_ATTRIBUTES", echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=4, fig.width = 14}
+# PLOT HISTOGRAM: CROWN AREA, HEIGTH, DBH
+# ---------------------------------------
+
+# 1. Prepare plot parameters
+# --------------------------
+prepare_plot <- function(df_list, variable_name, params_municipality) {
+  
+    # Calc histogram parameters
+    hist_params_list <- lapply(
+        X = df_list, 
+        FUN = function(df) nina_plot$calculate_bins(
+            df = df,
+            column_name = variable_name, 
+            bin_method = "fd"))
+
+    # Set plot params for each data frame
+    params_histogram <- list(
+        hist_params_list$df, 
+        hist_params_list$df_itree, 
+        hist_params_list$df_z1, 
+        hist_params_list$df_z2)
+
+    # Investigate params and set manual values to improve plot
+    new_bin_max <- params_municipality[[variable_name]]$bin_max
+    new_bin_step <- params_municipality[[variable_name]]$bin_step
+    new_ymax <- params_municipality[[variable_name]]$ymax
+    titles <- params_municipality[[variable_name]]$title
+  
+    for (i in seq_along(params_histogram)) {
+        params_histogram[[i]]$bin_max <- new_bin_max[i]
+        params_histogram[[i]]$bin_step <- new_bin_step[i]
+        params_histogram[[i]]$ymax <- new_ymax[i]
+        params_histogram[[i]]$title <- titles[i]
+    }
+    return(params_histogram)
+}
+
+# 2. Plot histograms
+# ------------------
+plot <- function(params_histogram, variable_name, main_title) {
+    
+    # loop through each data frame
+    for (i in seq_along(params_histogram)) {
+        logger::log_info("Plotting histogram for ", main_title, " - ", params_histogram[[i]]$title)
+        #logger::log_info("Plotting params:")
+        #logger::log_info("bin_max: ", params_histogram[[i]]$bin_max)
+        #logger::log_info("bin_step: ", params_histogram[[i]]$bin_step)
+        #logger::log_info("ymax: ", params_histogram[[i]]$ymax)
+        
+        x_axis_title <- params_municipality[[variable_name]]$x_axis_title
+
+        # Create the subplots
+        plots <- lapply(seq_along(params_histogram), function(i) {
+            nina_plot$histogram(
+                data = params_histogram[[i]]$df_capped, 
+                value_col = variable_name, 
+                bin_max = params_histogram[[i]]$bin_max,
+                bin_step = params_histogram[[i]]$bin_step, 
+                ymax = params_histogram[[i]]$ymax,
+                title = params_histogram[[i]]$title,
+                axis_title_x = x_axis_title
+            ) + 
+                theme_minimal(base_family = "Roboto", base_size = 12) +
+                nina_theme$theme_medium()
+        })
+        
+        # Combine the subplots
+        sub_plot <- ggpubr::ggarrange(
+            plots[[1]], 
+            plots[[2]], 
+            plots[[3]], 
+            plots[[4]],
+            ncol = 4, nrow = 1, align = "v"
+        )
+        
+        # Create titles
+        # Create the labels
+        title <- cowplot::ggdraw() + cowplot::draw_label(main_title, 
+                                       fontfamily = "Arial", 
+                                       x = 0.45, y = 0.2, 
+                                       hjust = 0, vjust = 0, 
+                                       size = 14, color = "#000000",
+                                       fontface = "bold")
+        # Combine the labels and the plots
+        main_plot <- cowplot::plot_grid(title, sub_plot, ncol = 1, rel_heights = c(0.2, 1))
+    }
+
+  return(main_plot)
+}
+
+# prepare plot parameters
+params_histogram_CA <- prepare_plot(df_list, "crown_area", params_municipality)
+params_histogram_H <- prepare_plot(df_list, "height_total_tree", params_municipality)
+params_histogram_DBH <- prepare_plot(df_list, "dbh", params_municipality)
+
+
+# plot
+plot_CA <- plot(params_histogram_CA, "crown_area", "Kroneareal")
+plot_H <- plot(params_histogram_H, "height_total_tree", "Høyde")
+plot_DBH <- plot(params_histogram_DBH, "dbh", "Stammediameter")
+
+print(plot_CA)
+print(plot_H)
+print(plot_DBH)
+
+# write plots to file
+# code here
+```
+<br>
+
+
+```{r "summary_table", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+# Assuming df_itree is your data frame and it has columns for tree species, crown area, height, and stem diameter
+library(dplyr)
+summary_df <- df_itree %>%
+  group_by(Treslag = norwegian_name) %>%
+  summarise(
+    `Antall Trær` = n(),
+    `Kroneareal (m2)` = round(mean(crown_area, na.rm = TRUE),2),
+    `Høyde (m)` = round(mean(height_total_tree, na.rm = TRUE),2),
+    `Stammediameter (cm)` = round(mean(dbh, na.rm = TRUE),2)
+  )
+
+# Print the summary_df in a format suitable for markdown
+table_md <- knitr::kable(summary_df, format = "markdown")
+writeLines(table_md)
+
+# export to csv)
+path <- file.path(project_path, "reports", paste0(params$region_var, "_summary_table_structrual_values.csv"))
+print(path)
+write.csv(summary_df, file = path)
+```
+
+<br>
+
+
+### Regulerende økosystemtjenester
+
+------------------------------------------------------------------------
+```{r "MEAN PER CLASS", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
+# CALC MEAN PER CLASS
+# -------------------
+
+# 1. group continuous data into classes
+# -------------------------------------
+# dbh classes: classes of 10 cm increments till max +10
+df_itree$dbh_class <- cut(
+    df_itree$dbh, 
+    breaks = seq(0, max(df_itree$dbh) + 10, by = 10),
+    labels = paste(seq(0, max(df_itree$dbh), by = 10), 
+    seq(10, max(df_itree$dbh) + 10, by = 10),
+    sep = "-"))
+
+# crown area: classes of 50 m2 increments till max +50
+df_itree$CA_class <- cut(
+    df_itree$crown_area, 
+    breaks = seq(0, max(df_itree$crown_area) + 50, by = 50),
+    labels = paste(seq(0, max(df_itree$crown_area), by = 50), 
+                seq(50, max(df_itree$crown_area) + 50, by = 50), 
+                sep = "-"))
+
+# height: classes of 5 m till max +5
+df_itree$H_class <- cut(
+    df_itree$height_total_tree, 
+    breaks = seq(0, max(df_itree$height_total_tree) + 5, by = 5),
+    labels = paste(seq(0, max(df_itree$height_total_tree), by = 5), 
+                   seq(5, max(df_itree$height_total_tree) + 5, by = 5),
+                   sep = "-"))
+
+# 2. filter DF to only include columns of interest
+es_cols <- parameters$es_columns
+df_mean_per_class <- df_itree[, es_cols]
+
+```
+
+```{r "REGULATING ECOSYSTEM SERVICES", echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=3, fig.width = 14}
+# 1. Prepare plot parameters
+# --------------------------
+
+# barplot function
+# ----------------
+# todo move to nina_plot
+create_barplot <- function(
+        df,
+        x_title,
+        y_title, 
+        pal_continuous,
+        angle=0,
+        ymax=0) {
+    
+  ggplot(df, aes(x = class, y = mean, fill = class)) +
+    geom_bar(stat = "identity") +
+    labs(x = x_title, y = y_title) +
+    scale_fill_manual(values = pal_continuous) +
+    scale_y_continuous(limits = c(0, round(max(df$mean), -1) + ymax),
+                       expand = c(0,0)) + 
+    theme_minimal(base_family = "Roboto", base_size = 12) + 
+    nina_theme$theme_medium() +
+    # rotate x-axis labels    
+    theme(axis.text.y = element_text(angle = angle, hjust = 1)) + 
+    # flip x and y axis
+    coord_flip() 
+}
+
+
+# prepare treslag
+# ---------------
+prepare_plot_species <- function(df,
+                                class_var = "norwegian_name",
+                                value_var, 
+                                mean_threshold,
+                                vec_colors,
+                                y_axis_title, 
+                                x_axis_title, 
+                                ymax) {
+    # TRESLAG
+    df_species <- .mean_per_class(df, class_var, value_var, digits=2)
+    df_species <- df_species %>%
+      dplyr::filter(!is.na(mean)) %>%
+      dplyr::rename(class = names(df_species)[1]) %>% # rename to class
+      dplyr::filter(mean > mean_threshold) %>% # remove values with mean < 50
+      dplyr::arrange(desc(mean)) %>% # sort by mean
+      dplyr::mutate(class = factor(class, # reorder the levels of the class 
+                                   levels = unique(class))) 
+    
+    pal_continuous = create_color_palette(df_species, "class", vec_colors)
+    plot <- create_barplot(df = df_species, 
+                           x_title = x_axis_title, 
+                           y_title = y_axis_title, 
+                           pal_continuous = pal_continuous,
+                           angle = 0,
+                           ymax = ymax)
+    
+    return(plot)
+}
+
+# prepare other plots 
+# -------------------
+prepare_plot <- function(df, 
+                         class_var,
+                         value_var, 
+                         vec_colors, 
+                         y_axis_title, 
+                         x_axis_title, 
+                         ymax) {
+    print(y_axis_title)
+    print(x_axis_title)
+    df_tmp <- .mean_per_class(df, class_var, value_var, digits=2)
+    df_tmp <- df_tmp %>%
+        dplyr::filter(!is.na(mean)) %>%
+        dplyr::rename(class = names(df_tmp)[1]) %>%
+        dplyr::mutate(
+            max_value = as.numeric(gsub(".*-", "", class))) %>% 
+        dplyr::arrange(max_value) %>% # sort by max
+        dplyr::mutate(class = forcats::fct_rev(class))
+    
+    pal_continuous = create_color_palette(df_tmp, "class", vec_colors)
+    
+    plot <- create_barplot(df = df_tmp, 
+                   x_title = x_axis_title, 
+                   y_title = y_axis_title, 
+                   pal_continuous = pal_continuous,
+                   angle = 0,
+                   ymax = ymax)
+    
+    return(plot)
+}
+
+# 2. Plot
+# -------
+plot <- function(plot_species, plot_other, main_title) {
+
+        # Combine the subplots
+        sub_plot <- ggpubr::ggarrange(
+            plot_species, 
+            plot_other[[1]], 
+            plot_other[[2]], 
+            plot_other[[3]],
+            ncol = 4, nrow = 1, align = "v"
+        )
+        
+        # Create titles
+        # Create the labels
+        title <- cowplot::ggdraw() + cowplot::draw_label(main_title, 
+                                       fontfamily = "Arial", 
+                                       x = 0.1, y = 0.2, 
+                                       hjust = 0, vjust = 0, 
+                                       size = 14, color = "#000000",
+                                       fontface = "bold")
+        # Combine the labels and the plots
+        main_plot <- cowplot::plot_grid(
+            title,
+            sub_plot, 
+            ncol = 1, 
+            rel_heights = c(0.2, 1))
+  return(main_plot)
+}
+
+```
+
+```{r "KARBON_LAGRING", echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=6, fig.width = 14}
+# Karbonlagring (kg) per treslag/DBH-klasse/Kroneareal-klasse
+# ------------------------------------------------------------
+
+
+# Bar plot parameters
+# -------------------
+params_bar <- list()
+params_bar$class_vars <- c(
+    "norwegian_name",
+    "dbh_class", 
+    "CA_class",
+    "H_class")
+params_bar$y_axis_titles <- params_municipality$co2_storage_kg$y_axis_title
+params_bar$x_axis_title <- params_municipality$co2_storage_kg$x_axis_title
+params_bar$mean_threshold <- params_municipality$co2_storage_kg$mean_threshold
+params_bar$ymax <- params_municipality$co2_storage_kg$ymax
+params_bar$colors <- params_municipality$co2_storage_kg$colors
+
+# prepare plots 
+plot_species <- prepare_plot_species(
+    df = df_mean_per_class, 
+    class_var = params_bar$class_vars[1], 
+    value_var = "co2_storage_kg", 
+    mean_threshold = params_bar$mean_threshold,
+    vec_colors = params_bar$colors, 
+    y_axis_title = params_bar$x_axis_title,
+    x_axis_title = params_bar$y_axis_titles[1],
+    ymax = params_bar$ymax
+    )
+
+
+plot_other <- list()
+for (i in 2:4) {
+    plot_other[[i]] <- prepare_plot(
+        df = df_mean_per_class, 
+        class_var = params_bar$class_vars[i],
+        value_var = "co2_storage_kg",
+        vec_colors = params_bar$colors, 
+        y_axis_title = params_bar$x_axis_title,
+        x_axis_title = params_bar$y_axis_titles[i],
+        ymax = params_bar$ymax
+    )
+}
+
+# main plot 
+plot_co2_storage <- plot(
+    plot_species, 
+    plot_other[2:4], 
+    "Gjennomsnittlig karbonlagring (kg) per treslag, stammediameter, kroneareal, høyde")
+print(plot_co2_storage)
+```
+
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig karbonlagring \< `r params_bar$mean_threshold` kg vises ikke i plottet. </font>
+
+```{r "KARBON_BINDING", echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=6, fig.width = 14}
+# Karbonbinding (kg) per treslag/DBH-klasse/Kroneareal-klasse
+# ------------------------------------------------------------
+
+# Bar plot parameters
+# -------------------
+params_bar <- list()
+params_bar$class_vars <- c(
+    "norwegian_name",
+    "dbh_class", 
+    "CA_class",
+    "H_class")
+params_bar$y_axis_titles <- params_municipality$co2_seq_kg_yr$y_axis_title
+params_bar$x_axis_title <- params_municipality$co2_seq_kg_yr$x_axis_title
+params_bar$mean_threshold <- params_municipality$co2_seq_kg_yr$mean_threshold
+params_bar$ymax <- params_municipality$co2_seq_kg_yr$ymax
+params_bar$colors <- params_municipality$co2_seq_kg_yr$colors
+
+# prepare plots
+# -------------
+
+plot_species <- prepare_plot_species(
+    df = df_mean_per_class, 
+    class_var = params_bar$class_vars[1], 
+    value_var = "co2_seq_kg_yr", 
+    mean_threshold = params_bar$mean_threshold,
+    vec_colors = params_bar$colors, 
+    y_axis_title = params_bar$x_axis_title,
+    x_axis_title = params_bar$y_axis_titles[1],
+    ymax = params_bar$ymax
+    )
+
+plot_other <- list()
+for (i in 2:4) {
+    plot_other[[i]] <- prepare_plot(
+        df = df_mean_per_class, 
+        class_var = params_bar$class_vars[i],
+        value_var = "co2_seq_kg_yr",
+        vec_colors = params_bar$colors, 
+        y_axis_title = params_bar$x_axis_title,
+        x_axis_title = params_bar$y_axis_titles[i],
+        ymax = params_bar$ymax
+    )
+}
+
+# main plot
+# ---------
+
+plot_co2_binding <- plot(
+    plot_species, 
+    plot_other[2:4], 
+    "Gjennomsnittlig årlig karbonbinding (kg/år) per treslag, stammediameter, kroneareal, høyde")
+print(plot_co2_binding)
+```
+
+<font size="2.0" face="Arial">\*Treslag med årlig karbonbinding \< `r params_bar$mean_threshold` kg/år vises ikke i plottet. </font>
+
+```{r CARBON_AVOIDED, echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=6, fig.width = 14}
+
+# CO2-utslipp unngått (kg/år)
+# ----------------------------
+
+# Bar plot parameters
+# -------------------
+params_bar <- list()
+params_bar$class_vars <- c(
+    "norwegian_name",
+    "dbh_class", 
+    "CA_class",
+    "H_class")
+params_bar$y_axis_titles <- params_municipality$co2_avoided_kg_yr$y_axis_title
+params_bar$x_axis_title <- params_municipality$co2_avoided_kg_yr$x_axis_title
+params_bar$mean_threshold <- params_municipality$co2_avoided_kg_yr$mean_threshold
+params_bar$ymax <- params_municipality$co2_avoided_kg_yr$ymax
+params_bar$colors <- params_municipality$co2_avoided_kg_yr$colors
+
+# prepare plots
+# -------------
+plot_species <- prepare_plot_species(
+    df = df_mean_per_class, 
+    class_var = params_bar$class_vars[1], 
+    value_var = "co2_avoided_kg_yr", 
+    mean_threshold = params_bar$mean_threshold,
+    vec_colors = params_bar$colors, 
+    y_axis_title = params_bar$x_axis_title,
+    x_axis_title = params_bar$y_axis_titles[1],
+    ymax = params_bar$ymax
+    )
+
+plot_other <- list()
+for (i in 2:4) {
+    plot_other[[i]] <- prepare_plot(
+        df = df_mean_per_class, 
+        class_var = params_bar$class_vars[i],
+        value_var = "co2_avoided_kg_yr",
+        vec_colors = params_bar$colors, 
+        y_axis_title = params_bar$x_axis_title,
+        x_axis_title = params_bar$y_axis_titles[i],
+        ymax = params_bar$ymax
+    )
+}
+
+# main plot
+# ---------
+plot_co2_binding <- plot(
+    plot_species, 
+    plot_other[2:4], 
+    "CO2-utslipp unngått (kg/år) per treslag, stammediameter, kroneareal, høyde")
+print(plot_co2_binding)
+```
+
+<font size="2.0" face="Arial">\*Treslag med CO2-utslipp unngått \< `r params_bar$mean_threshold` kg/år vises ikke i plottet. </font>
+
+```{r OVERFLATEAVRENNING, echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=6, fig.width = 14}
+
+# Reduksjon av overflateavrenning (m3/år)
+# ----------------------------
+
+# Bar plot parameters
+# -------------------
+params_bar <- list()
+params_bar$class_vars <- c(
+    "norwegian_name",
+    "dbh_class", 
+    "CA_class",
+    "H_class")
+params_bar$y_axis_titles <- params_municipality$runoff_m3$y_axis_title
+params_bar$x_axis_title <- params_municipality$runoff_m3$x_axis_title
+params_bar$mean_threshold <- params_municipality$runoff_m3$mean_threshold
+params_bar$ymax <- params_municipality$runoff_m3$ymax
+params_bar$colors <- params_municipality$runoff_m3$colors
+
+# prepare plots
+# -------------
+plot_species <- prepare_plot_species(
+    df = df_mean_per_class, 
+    class_var = params_bar$class_vars[1], 
+    value_var = "runoff_m3", 
+    mean_threshold = params_bar$mean_threshold,
+    vec_colors = params_bar$colors, 
+    y_axis_title = params_bar$x_axis_title,
+    x_axis_title = params_bar$y_axis_titles[1],
+    ymax = params_bar$ymax
+    )
+
+plot_other <- list()
+for (i in 2:4) {
+    plot_other[[i]] <- prepare_plot(
+        df = df_mean_per_class, 
+        class_var = params_bar$class_vars[i],
+        value_var = "runoff_m3",
+        vec_colors = params_bar$colors, 
+        y_axis_title = params_bar$x_axis_title,
+        x_axis_title = params_bar$y_axis_titles[i],
+        ymax = params_bar$ymax
+    )
+}
+
+# main plot
+# ---------
+plot_co2_binding <- plot(
+    plot_species, 
+    plot_other[2:4], 
+    "Reduksjon av overflateavrenning (m3/år) per treslag, stammediameter, kroneareal, høyde")
+print(plot_co2_binding)
+```
+
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig reduksjon av overflateavrenning \< `r params_bar$mean_threshold` m3/år vises ikke i plottet. </font>
+
+```{r POLLUTION, echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=6, fig.width = 14}
+# Reduksjon av luftforurensing (g/år)
+# ----------------------------
+
+# Bar plot parameters
+# -------------------
+params_bar <- list()
+params_bar$class_vars <- c(
+    "norwegian_name",
+    "dbh_class", 
+    "CA_class",
+    "H_class")
+params_bar$y_axis_titles <- params_municipality$pollution_g$y_axis_title
+params_bar$x_axis_title <- params_municipality$pollution_g$x_axis_title
+params_bar$mean_threshold <- params_municipality$pollution_g$mean_threshold
+params_bar$ymax <- params_municipality$pollution_g$ymax
+params_bar$colors <- params_municipality$pollution_g$colors
+
+# prepare plots
+# -------------
+plot_species <- prepare_plot_species(
+    df = df_mean_per_class, 
+    class_var = params_bar$class_vars[1], 
+    value_var = "pollution_g", 
+    mean_threshold = params_bar$mean_threshold,
+    vec_colors = params_bar$colors, 
+    y_axis_title = params_bar$x_axis_title,
+    x_axis_title = params_bar$y_axis_titles[1],
+    ymax = params_bar$ymax
+    )
+
+plot_other <- list()
+for (i in 2:4) {
+    plot_other[[i]] <- prepare_plot(
+        df = df_mean_per_class, 
+        class_var = params_bar$class_vars[i],
+        value_var = "pollution_g",
+        vec_colors = params_bar$colors, 
+        y_axis_title = params_bar$x_axis_title,
+        x_axis_title = params_bar$y_axis_titles[i],
+        ymax = params_bar$ymax
+    )
+}
+
+# main plot
+# ---------
+plot_co2_binding <- plot(
+    plot_species, 
+    plot_other[2:4], 
+    "Reduksjon av luftforurensing (g/år) per treslag, stammediameter, kroneareal, høyde")
+print(plot_co2_binding)
+```
+
+<font size="2.0" face="Arial">\*Treslag med gjennomsnittlig reduksjon av luftforurensing \< `r params_bar$mean_threshold` g/år vises ikke i plottet. </font>
+
+
+<br>
+```{r, echo=FALSE, results='hide',message=FALSE, warning=FALSE, fig.height=12, fig.width = 7}
+# summary statistics 
+# Crown Area Class - Reduksjon av overflateavrenning (m3/år)	Reduksjon av overflateavrenning (NKr/år)
+
+print(es_cols)
+
+summary_df <- df_mean_per_class %>%
+  group_by(`Kroneareal (m2)` = CA_class) %>%
+  summarise(
+    `Antall Trær` = n(),
+    `Karbonlagring (kg)` = round(mean(co2_storage_kg, na.rm = TRUE),2),
+    `Årlig karbonbinding (kg/år)` = round(mean(co2_seq_kg_yr, na.rm = TRUE),2),
+    `Årlig karbonbinding (NKr/år)` = round(mean(co2_seq_nkr_yr, na.rm = TRUE),2),
+    `CO2-utslipp unngått (kg/år)` = round(mean(co2_avoided_kg_yr, na.rm = TRUE),2),
+    `CO2-utslipp unngått (NKr/år)` = round(mean(co2_avoided_nkr_yr, na.rm = TRUE),2),
+    `Reduksjon av overflateavrenning (m3/år)` = round(mean(runoff_m3, na.rm = TRUE),2), 
+    `Reduksjon av overflateavrenning (NKr/år)` = round(mean(runoff_nkr_yr, na.rm = TRUE),2),
+    `Reduksjon av luftforurensing (g/år)` = round(mean(pollution_g, na.rm = TRUE),2),
+    `Reduksjon av luftforurensing (NKr/år)` = round(mean(pollution_nkr_yr, na.rm = TRUE),2),
+    `Energibesparelse (Nkr/år)` = round(mean(energy_nkr_yr, na.rm = TRUE),2),
+    `Totalverdi Økosystemtjenester (NKr/år)` = round(mean(totben_cap, na.rm = TRUE),2)
+  )
+
+
+# Print the summary_df in a format suitable for markdown
+table_md <- knitr::kable(summary_df, format = "markdown")
+
+writeLines(table_md)
+
+# export to csv
+path <- file.path(project_path, "reports", paste0(params$region_var, "_summary_table_ecosystemservices.csv"))
+print(path)
+write.csv(summary_df, file = path)
+```
+
+```{r "knitt", echo=FALSE, results='hide',message=FALSE, warning=FALSE}  
+knitr::knit('bodo_summary_statistics.Rmd', 'bodo_summary_stat.md')
+```
+<br>
+
+*Dette dokumentet er en del av prosjektet:*
+
+**TREKRONER Prosjektet** \| Trærs betydning for klimatilpasning, karbonbinding, økosystemtjenester og biologisk mangfold.
