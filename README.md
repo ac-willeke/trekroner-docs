@@ -3,7 +3,7 @@ Trekroner Documentation
 
 This repository contains the documentation for the Trekroner project.
 
-[Link to documentation](https://ac-willeke.github.io/trekroner-docs/html/index.html)
+[Link to documentation](https://ninanor.github.io/trekroner-docs/html/index.html)
 
 
 ### **Contributors**
