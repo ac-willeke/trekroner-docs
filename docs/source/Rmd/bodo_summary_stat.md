@@ -39,9 +39,6 @@ Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bod
 
 <font size="1.0" face="Arial">\*Treslag med årlig karbonbinding \< 5 kg/år vises ikke i plottet. </font>
 
-![CARBON AVOIDED](bodo_img/CARBON_AVOIDED-1.png)
-
-<font size="1.0" face="Arial">\*Treslag med CO2-utslipp unngått \< 5 kg/år vises ikke i plottet. </font>
 
 ![OVERFLATEAVRENNING](bodo_img/OVERFLATEAVRENNING-1.png)
 

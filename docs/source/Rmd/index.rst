@@ -3,4 +3,5 @@
    :caption: Contents:
 
    bodo_summary_stat
+   oslo_summary_stat
    
