@@ -50,3 +50,10 @@ Bytreatlas
    :maxdepth: 1
 
    atlas/instruks
+
+Ikoner for urbane økosystemtjenester
+------------------------------------
+.. toctree::
+   :maxdepth: 1
+
+   ES_icons/ES_icons.md
