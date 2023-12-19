@@ -1,4 +1,4 @@
-### Registrerte trær i Bodø's byggesonen
+# Registrerte trær i Bodø
 
 Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bodø's byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: [Bytræratlas Bodø](https://experience.arcgis.com/experience/5191adc2c4b34658aea227c9853c6ebb/)
 
@@ -13,7 +13,7 @@ Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bod
 
 <br>
 
-### Treslagsfordeling i Bodø
+## Treslagsfordeling i Bodø
 
 Treslag som har en sannsynlighet på mindre enn 3% er klassifisert som "Andre treslag".
 
@@ -23,9 +23,7 @@ Treslag som har en sannsynlighet på mindre enn 3% er klassifisert som "Andre tr
 
 <br>
 
-### Tre egenskaper
-
-------------------------------------------------------------------------
+## Tre egenskaper
 
 ![TREE ATTRIBUTES 1](kristiansand_img/TREE_ATTRIBUTES-1.png)
 ![TREE ATTRIBUTES 2](kristiansand_img/TREE_ATTRIBUTES-2.png)
@@ -83,12 +81,7 @@ Treslag som har en sannsynlighet på mindre enn 3% er klassifisert som "Andre tr
 <br>
 
 
-### Regulerende økosystemtjenester
-
-------------------------------------------------------------------------
-
-
-
+## Regulerende økosystemtjenester
 
 ![KARBON LAGRING](kristiansand_img/KARBON_LAGRING-1.png)
 
@@ -119,7 +112,3 @@ Treslag som har en sannsynlighet på mindre enn 3% er klassifisert som "Andre tr
 |250-300         |           1|            3160.00|                       50.00|                        94.14|                         NaN|                          NaN|                                    0.20|                                     1.76|                              122.60|                                 83.58|                       NaN|                                 179.49|
 
 <br>
-
-*Dette dokumentet er en del av prosjektet:*
-
-**TREKRONER Prosjektet** \| Trærs betydning for klimatilpasning, karbonbinding, økosystemtjenester og biologisk mangfold.
