@@ -2,7 +2,7 @@
 
 Ikoner for urbane økosystemtjenester ble utviklet for Bymiljøetaten i Oslo kommune i prosjektet Fremtidens Byer. Ikonene er utviklet for kommunikasjon om økosystemtjenester med befolkningen og andre sektorer.
 
-Ikonene er tilgjengelige for nedlasting [her](/ES_icons/Oslo_ikoner.zip). De kan brukes av andre kommuner og organisasjoner.
+Ikonene er tilgjengelige for nedlasting **[her](https://github.com/NINAnor/trekroner-docs/tree/main/ES_icons)** og de kan brukes av andre kommuner og organisasjoner.
 
 <br>
 
