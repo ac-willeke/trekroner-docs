@@ -5,7 +5,8 @@ Urban Tree Detection
    :caption: Contents:
 
    01_tree_detection/README
-   01_tree_detection/readme_personal
+   01_tree_detection/installation
+   01_tree_detection/project_structure
 
 
 i-Tree Support tools
