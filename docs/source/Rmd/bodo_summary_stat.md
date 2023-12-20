@@ -1,4 +1,4 @@
-# Registrerte trær i Bodø
+# Sammendragsstatistikk | Registrerte trær i Bodø
 
 Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bodø's byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: [Bytræratlas Bodø](https://experience.arcgis.com/experience/5191adc2c4b34658aea227c9853c6ebb/)
 

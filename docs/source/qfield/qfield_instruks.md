@@ -1,4 +1,0 @@
-# Instruks
-
-
-tekst kommer her 

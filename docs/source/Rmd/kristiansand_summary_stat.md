@@ -1,4 +1,4 @@
-# Registrerte trær i Kristiansand
+# Sammendragsstatistikk |  Registrerte trær i Kristiansand
 
 Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Kristiansand's byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: [Bytræratlas Kristiansand](https://experience.arcgis.com/experience/6e047c5432e64b3f9abb1592d7907ff6/)
 

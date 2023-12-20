@@ -15,50 +15,16 @@ Trekroner Dokumentasjon
     Denne nettsiden er del av Trekroner prosjektet og vedlegg til 
     `NINA Rapport xxxx <http://www.nina.no/>`_
 
-Sammendrag
-----------
+Sammendrag tekst kommer her... 
 
-Prosjektbeskrivelse kommer her
 
-Ikoner for urbane økosystemtjenester
-------------------------------------
+Innhold
+-------
 .. toctree::
    :maxdepth: 1
 
-   ES_icons/ES_icons.md
-
-Bytre-atlas
-------------
-.. toctree::
-   :maxdepth: 1
-
-   atlas/agol_instruks
-
-QField Treregisteringsapp  
--------------------------
-.. toctree::
-   :maxdepth: 1
-
-   qfield/qfield_instruks 
-
-Sammendragsstatistikk
----------------------
-.. toctree::
-   :maxdepth: 1
-
-   Rmd/index
-
-Metoder (EN)
-------------
-.. toctree::
-   :maxdepth: 1
-
+   app_instruks/agol_instruks
+   app_instruks/qfield_instruks
    methods/index
-
-GitHub Repositories (EN)
-------------------------
-.. toctree::
-   :maxdepth: 1
-
-   github/page_1
-   github/sphinx_dev_info
+   Rmd/index
+   ES_icons/ES_icons.md

@@ -1,4 +1,4 @@
-# Registrerte trær i Bærum
+# Sammendragsstatistikk | Registrerte trær i Bærum
 
 Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bærum's byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: [Bytræratlas Bærum](https://experience.arcgis.com/experience/%60r%20params$agol%60/)
 

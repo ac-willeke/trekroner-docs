@@ -1,4 +1,4 @@
-# Registrerte trær i Oslo
+# Sammendragsstatistikk |  Registrerte trær i Oslo
 Dette dokumentet viser sammendragstatistikken for registrerte trær
 innenfor Oslo’s byggesone. Tilknyttede kartprodukter er synlige i
 bytræratlaset: [Bytræratlas

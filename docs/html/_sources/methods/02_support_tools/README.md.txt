@@ -1,5 +1,4 @@
-itree-support-tools
-==============================
+# Readme
 
 This repository provides a workflow for preparing municipal tree data for i-Tree Eco analysis and extrapolating the results to full the study area extent, using lidar-segmented tree crowns and auxiliary GIS datasets.
 
@@ -18,7 +17,7 @@ The repository is applied on the Norwegian municipalities: *Bærum, Bodø, Krist
 
 
 
-### Project Installation and Configuration
+## Project Installation and Configuration
 
 The code is build in an ArcGIS Pro 3.1.0. conda environment with the spatial analyst license enabled. 
 
@@ -62,7 +61,7 @@ The code is build in an ArcGIS Pro 3.1.0. conda environment with the spatial ana
     d. Run `config.py` in the conda env to test your project config.
 -------
 
-### Workflow | i-Tree Eco Data Preparation
+## Workflow | i-Tree Eco Data Preparation
 
 Detailed description of the workflow is provided in the [project note (in prep)](docs/data_preparation.md).
 

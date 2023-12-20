@@ -1,4 +1,4 @@
-# Ikoner for urbane økosystemtjenester
+# Ikoner for urbane økosystemtjenester (NO)
 
 Ikoner for urbane økosystemtjenester ble utviklet for Bymiljøetaten i Oslo kommune i prosjektet Fremtidens Byer. Ikonene er utviklet for kommunikasjon om økosystemtjenester med befolkningen og andre sektorer.
 
