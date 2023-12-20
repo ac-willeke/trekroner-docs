@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>urban-treeDetection &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installation" href="readme_personal.html" />
+    <link rel="prev" title="Urban Tree Detection" href="../index.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#methods/01_tree_detection/README" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> urban-treeDetection </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Urban Tree Detection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-01-tree-detection-readme--page-root" class="md-nav__link">urban-treeDetection</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#installation" class="md-nav__link">Installation</a>
+        </li>
+        <li class="md-nav__item"><a href="#configuration" class="md-nav__link">Configuration</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#env" class="md-nav__link">.env</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#workflow" class="md-nav__link">Workflow</a>
+        </li>
+        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
+        </li>
+        <li class="md-nav__item"><a href="#acknowledgments" class="md-nav__link">Acknowledgments</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="urban-treedetection">
+<h1 id="methods-01-tree-detection-readme--page-root">urban-treeDetection<a class="headerlink" href="#methods-01-tree-detection-readme--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>repo-status: work in progress</strong></p>
+<p>This project provides a workflow for detecting trees in urban areas using Airborne Laser Scanning (ALS) data and national geographic datasets. The output is a tree database with <strong>tree crown</strong> polygons and <strong>tree top</strong> points per neighbourhood.</p>
+<p>This tree database can be used as input for the <a class="reference external" href="https://www.itreetools.org/tools/i-tree-eco">i-Tree Eco</a> model to estimate the ecosystem services of trees in urban areas. However, the laser data must be supplemented with in situ tree data (e.g. tree species, dbh, etc.) and gis-derived data (e.g. land use, building footprints, etc.) to succesfully run the i-Tree Eco model. The repository <em><a class="reference external" href="https://github.com/ac-willeke/itree-supportTools">itree-supportTools</a></em> provides a workflow for preparing and linking in situ data and gis-derived data to the detected laser trees.</p>
+<p>In addition, the tree crowns can be used as an input to model other ecosystem services not included in the i-Tree Eco model, such as   local climate regulating services and tree crown visibility cultural services. These workflows are included in the following repositories:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ac-willeke">urban-climateServices</a> for urban heat modelling</p></li>
+<li><p><a class="reference external" href="https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure">r.viewshed.exposure</a> for estimating tree crown visibility.</p></li>
+<li><p><a class="reference external" href="https://github.com/zofie-cimburova/r.viewshed.impact">r.viewshed.impact</a> for estimating tree crown impact.</p></li>
+</ul>
+<hr class="docutils"/>
+<p>Code is provided for the following tasks:</p>
+<ol class="arabic simple">
+<li><p><strong>preparing Airborne laser scanning (ALS)</strong> data from <a class="reference external" href="https://hoydedata.no/">Kartverket</a>.</p></li>
+<li><p><strong>detecting tree crowns</strong> in the built-up zone of Norwegian municipalities using a watershed segmentation method following the workflow from <em>Hanssen et al. (2021)</em>.</p></li>
+<li><p><strong>detecing false positives</strong>  (e.g. objects that are detected as trees but are instead buildings, lamp posts, etc.) by identifying outliers in the geometrical shape of the tree crowns.</p></li>
+</ol>
+<p>The repository is applied on the Norwegian municipalities: <em>Bærum, Bodø, Kristiansand</em> and <em>Oslo.</em></p>
+<hr class="docutils"/>
+<section id="installation">
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>The code runs in an ArcGIS Pro 3.1.0. conda environment and depends on 3D analyst, image analyst, spatial analyst licenses.</p>
+<p>Here are the steps to create a conda env compatible with ArcGIS Pro 3.0.1 and to install the local project package <code class="docutils literal notranslate"><span class="pre">urban-treeDetection</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Create a new conda environment with the necessary dependencies described in <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></p></li>
+</ol>
+<ul>
+<li><p>Open the Anaconda Prompt and run the following commands:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  ```console
+  cd /d P:\%project_folder%\urban-tree-detection
+  cd ...\urban-tree-detection
+  conda env create -f environment.yml
+  conda activate urban-tree-detection
+  ```
+</pre></div>
+</div>
+</li>
+<li><p>OR clone your ArcGIS Pro 3.0.1 base env and manually install the dependencies listed in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> using conda or pip. <a class="reference external" href="https://pro.arcgis.com/en/pro-app/latest/arcpy/get-started/clone-an-environment.htm">ArcGIS Pro | Clone an environment</a></p></li>
+</ul>
+<ol class="arabic" start="2">
+<li><p>Install the urban-tree-detection (urban-tree-detection/src) as a local package using pip:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> pip install -e .
+ # installs project packages in development mode 
+ # this creates a folder urban-tree-detection.egg-info
+</pre></div>
+</div>
+</li>
+<li><p>In case you run into errors remove your conda env and reinstall</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda remove --name myenv --all
+ # verify name is deleted from list
+ conda info --envs
+</pre></div>
+</div>
+</li>
+<li><p>Install linters using pipx</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1"># install linters using make</span>
+<span class="w">    </span>make<span class="w"> </span>install-global
+<span class="w">    </span><span class="c1"># test linters</span>
+<span class="w">    </span>make<span class="w"> </span>codestyle
+</pre></div>
+</div>
+<p><strong>note:</strong> As <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> unfortunately gives acces-denied errors on Windows OS, I would recommend to run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">codestyle</span></code> command before you commit your changes. This command runs black, isort and ruff on all files.</p>
+</li>
+</ol>
+</section>
+<section id="configuration">
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<p>This project uses a .env and a config.yaml file to store configuration variables. The module <code class="docutils literal notranslate"><span class="pre">utils.config.py</span></code> and <code class="docutils literal notranslate"><span class="pre">yaml_utils.py</span></code> provides functions to read and write these files.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">src/test/test_config.py</span></code> to test the configuration and logger.</p>
+<section id="env">
+<h3 id="env">.env<a class="headerlink" href="#env" title="Link to this heading">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    # R GeoSpatialData
+    FKB_BUILDING_PATH="path/to/gdbfile"
+    FKB_WATER_PATH="path/to/gdbfile"
+    SSB_DISTRICT_PATH="path/to/gdbfile"
+    AR5_LANDUSE_PATH="path/to/filgdbfilee"
+
+    # Trekroner project 
+    RAW_DATA_PATH="path/to/raw/data/folder"
+    PROJECT="path/to/project/folder/which/contains/the/data/folder"   
+    LOCAL_GIT="path/to/the/local/version/of/this/repository" 
+</pre></div>
+</div>
+</section>
+</section>
+<section id="workflow">
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>TODO:</strong> Create Folder structure</p></li>
+<li><p><strong>TODO:</strong> Import Data using FME
+a. study area [vector - fileGDB feature class]
+b. laser data [laz - zipped las file]<br/>
+c. building footprints [vector - fileGDB feature class]
+d. water bodies [vector - fileGDB feature class]
+e. land use [vector - fileGDB feature class]</p></li>
+<li><p>Create a municipality-specific study area mask in ArcGIS Pro
+We recommend to create a study area mask manually, as it is specific to each municipality and you might want to mask out areas that are not relevant for your analysis (e.g. water bodies, buildings but that are not yet available in national datasets).
+<strong>Example of a mask formula:</strong>
+mask = study_area_200m_buffer - fkb_bygning_omr_1m_buffer - fkb_vann_omrade - ssb_lufthavn - ssb_bane</p></li>
+<li><p><strong>TODO:</strong> Pre-process the laser data
+script: <code class="docutils literal notranslate"><span class="pre">src\data\prepare_lidar.py</span></code></p></li>
+<li><p><strong>TODO:</strong> Detect tree crowns
+sub-package: <code class="docutils literal notranslate"><span class="pre">src\tree_detection</span></code>
+a. Create a Canopy Height Model (CHM) <code class="docutils literal notranslate"><span class="pre">model_chm.py</span></code>
+b. Detect trees using a watershed segmentation method <code class="docutils literal notranslate"><span class="pre">watershed_segmentation.py</span></code>
+c. Identify false positives <code class="docutils literal notranslate"><span class="pre">identify_false_positives.py</span></code></p></li>
+</ol>
+<p><strong>TODO:</strong>
+Step 1 can be run using makefile <code class="docutils literal notranslate"><span class="pre">src\Makefile</span></code>
+Steps 4 and 5 can be run using subroutines in <code class="docutils literal notranslate"><span class="pre">src\main.py</span></code></p>
+</section>
+<section id="references">
+<h2 id="references">References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Hanssen, F., Barton, D. N., Venter, Z. S., Nowell, M. S., &amp; Cimburova, Z. (2021). Utilizing LiDAR data to map tree canopy for urban ecosystem extent and condition accounts in Oslo. Ecological Indicators, 130, 108007. https://doi.org/10.1016/j.ecolind.2021.108007</p></li>
+</ul>
+</section>
+<section id="acknowledgments">
+<h2 id="acknowledgments">Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">¶</a></h2>
+<p><em>This repository is part of the project:</em></p>
+<p><strong>TREKRONER Prosjektet</strong> | Trærs betydning for klimatilpasning, karbonbinding, økosystemtjenester og biologisk mangfold.</p>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../index.html" title="Urban Tree Detection"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Urban Tree Detection </span>
+              </div>
+            </a>
+          
+          
+            <a href="readme_personal.html" title="Installation"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Installation </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

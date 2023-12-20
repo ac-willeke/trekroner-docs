@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Installation &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="itree-support-tools" href="../02_support_tools/README.html" />
+    <link rel="prev" title="urban-treeDetection" href="README.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#methods/01_tree_detection/readme_personal" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> Installation </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Urban Tree Detection</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-01-tree-detection-readme-personal--page-root" class="md-nav__link">Installation</a>
+        </li>
+        <li class="md-nav__item"><a href="#todo" class="md-nav__link">TODO</a>
+        </li>
+        <li class="md-nav__item"><a href="#variable-names" class="md-nav__link">variable names</a>
+        </li>
+        <li class="md-nav__item"><a href="#template-cookiecutter" class="md-nav__link">template_cookiecutter</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#project-organization" class="md-nav__link">Project Organization</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="installation">
+<h1 id="methods-01-tree-detection-readme-personal--page-root">Installation<a class="headerlink" href="#methods-01-tree-detection-readme-personal--page-root" title="Link to this heading">¶</a></h1>
+<p>The code is build in an ArcGIS Pro 3.1.0. conda environment with 3D analyst, image analyst, spatial analyst licensed.</p>
+<p>Here are the steps to create a conda env compatible with ArcGIS Pro 3.0.1 and to install the local project package <code class="docutils literal notranslate"><span class="pre">treeDetection</span></code>:</p>
+<ol class="arabic">
+<li><p>Create a new conda environment with the necessary dependencies described in <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> cd /d P:\%project_folder%\treeDetection
+ #REMOVE from public README 
+ cd /d P:\152022_itree_eco_ifront_synliggjore_trars_rolle_i_okosyst\treeDetection
+ cd ...\urban-treeDetection
+ conda env create environment.yml
+ conda activate treeDetection
+</pre></div>
+</div>
+</li>
+<li><p>Install the treeDetection (urban-treeDetection/src) as a local package using pip:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> pip install -e .
+ # installs project packages in development mode 
+ # this creates a folder treeDetection.egg-info
+</pre></div>
+</div>
+</li>
+<li><p>In case you run into errors remove your conda env and reinstall</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> conda remove --name myenv --all
+ # verify name is deleted from list
+ conda info --envs
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="todo">
+<h1 id="todo">TODO<a class="headerlink" href="#todo" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>update folder structure</p></li>
+<li><p>lookat makefile etc.</p></li>
+</ul>
+</section>
+<section id="variable-names">
+<h1 id="variable-names">variable names<a class="headerlink" href="#variable-names" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>study area extent</p></li>
+</ul>
+<ul class="simple">
+<li><p>stem_point</p></li>
+</ul>
+<ul class="simple">
+<li><p>crown_laser(tree crown polygon)</p></li>
+<li><p>top_laser (tree top point)</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## folder structure</span>
+<span class="c1">## raw data folder</span>
+P:/
+<span class="w">    </span>152022_itree_eco_ifront_synliggjore_trars_rolle_i_okosyst/
+<span class="w">    </span>│──<span class="w">	</span>raw_data/
+<span class="w">        </span>│──<span class="w">	</span>baerum/
+<span class="w">            </span>│──<span class="w"> </span>lidar/
+<span class="w">                </span>│──<span class="w"> </span>las_inside_BuildUpZone/
+<span class="w">                    </span>│──<span class="w"> </span>all/
+<span class="w">                    </span>│──<span class="w"> </span>inside_BuildUpZone/
+<span class="w">                    </span>└──<span class="w"> </span>outside_BuildUpZone/<span class="w">	</span>
+
+<span class="w">                </span>│──<span class="w"> </span>laz/
+<span class="w">                </span>└──<span class="w"> </span>raw/<span class="w">	</span>
+<span class="w">            </span>└──<span class="w"> </span>vector/<span class="w">	</span>
+<span class="w">        </span>│──<span class="w">	</span>bodo/
+<span class="w">        </span>│──<span class="w">	</span>kristiansand/
+<span class="w">        </span>└──<span class="w">	</span>oslo/
+<span class="w">        </span>
+
+<span class="c1">## modelling folder </span>
+P:/
+<span class="w">    </span>15220700_gis_samordning_2022_<span class="o">(</span>marea_spare_ecogaps<span class="o">)</span>/Willeke/
+<span class="w">        </span>│──<span class="w">	</span>baerum/
+<span class="w">        </span>│──<span class="w">	</span>treeDetection/
+<span class="w">            </span>│──<span class="w"> </span>arcgispro/
+<span class="w">            </span>│──<span class="w">	</span>data/
+<span class="w">            </span>│──<span class="w">	</span>docs/
+<span class="w">            </span>│──<span class="w">	</span>src/
+<span class="w">                </span>│──<span class="w">	</span>data/<span class="w">     </span>-&gt;<span class="w"> </span>scripts<span class="w"> </span><span class="k">for</span><span class="w"> </span>collecting,<span class="w"> </span>processing,<span class="w"> </span>and<span class="w"> </span>cleaning<span class="w"> </span>raw<span class="w"> </span>data.<span class="w"> </span>
+<span class="w">                </span>│──<span class="w">	</span>features/<span class="w"> </span>-&gt;<span class="w"> </span>scripts<span class="w"> </span><span class="k">for</span><span class="w"> </span>creating<span class="w"> </span>features<span class="w"> </span>from<span class="w"> </span>cleaned<span class="w"> </span>data
+<span class="w">                </span>│──<span class="w">	</span>models/<span class="w">   </span>-&gt;<span class="w"> </span>scripts<span class="w"> </span><span class="k">for</span><span class="w"> </span>training/evaluating<span class="w"> </span>models
+<span class="w">                </span>└──<span class="w">	</span>visualization/<span class="w">	</span>-&gt;<span class="w"> </span>scripts<span class="w"> </span><span class="k">for</span><span class="w"> </span>creating<span class="w"> </span>visualizations<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>cleaned<span class="w"> </span>data<span class="w"> </span>and<span class="w"> </span>the<span class="w"> </span>models.<span class="w"> </span>
+<span class="w">            </span>│──<span class="w">	</span>test/
+<span class="w">            </span>└──<span class="w">	</span>tools/<span class="w">	</span>
+<span class="w">        </span>│──<span class="w">	</span>bodo/
+<span class="w">        </span>│──<span class="w">	</span>kristiansand/
+<span class="w">        </span>└──<span class="w">	</span>oslo/
+<span class="w">        </span>
+</pre></div>
+</div>
+</section>
+<section id="template-cookiecutter">
+<h1 id="template-cookiecutter">template_cookiecutter<a class="headerlink" href="#template-cookiecutter" title="Link to this heading">¶</a></h1>
+<p>Python project folder structure template from cookiecutter</p>
+<section id="project-organization">
+<h2 id="project-organization">Project Organization<a class="headerlink" href="#project-organization" title="Link to this heading">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>├── LICENSE            **TODO** 
+├── README.md          &lt;- The top-level README for developers using this project.
+├── data
+│   ├── baerum
+│   │   ├── interim        &lt;- Intermediate data that has been transformed.
+│   │   ├── processed      &lt;- The final, canonical data sets for modeling.
+│   │   └── raw            &lt;- The original, immutable data dump.
+│   ├── bodo
+│   └── kristiansand
+├── docs               &lt;- A default Sphinx project; see sphinx-doc.org for details
+│
+│
+├── notebooks          &lt;- **TODO** Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator's initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── references         &lt;- **TODO** Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            &lt;- **TODO** Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        &lt;- **TODO** Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   &lt;- **TODO** The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze &gt; requirements.txt`
+│
+├── setup.py           &lt;- **TODO** makes project pip installable (pip install -e .) so src can be imported
+├── src                &lt;- Source code for use in this project.
+│   ├── __init__.py    &lt;- Makes src a Python module
+│   │
+│   ├── data           &lt;- Scripts to download or generate data
+│   │   └── make_dataset.py
+│   │
+│   ├── features       &lt;- Scripts to turn raw data into features for modeling
+│   │   └── build_features.py
+│   │
+│   ├── models         &lt;- Scripts to train models and then use trained models to make
+│   │   │                 predictions
+│   │   ├── predict_model.py
+│   │   └── train_model.py
+│   │
+│   └── visualization  &lt;- Scripts to create exploratory and results oriented visualizations
+│       └── visualize.py
+│
+└── tox.ini            &lt;- tox file with settings for running tox; see tox.readthedocs.io
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="README.html" title="urban-treeDetection"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> urban-treeDetection </span>
+              </div>
+            </a>
+          
+          
+            <a href="../02_support_tools/README.html" title="itree-support-tools"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> itree-support-tools </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

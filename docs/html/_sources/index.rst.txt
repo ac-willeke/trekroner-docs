@@ -7,7 +7,7 @@ Trekroner Dokumentasjon
 =======================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
 
 .. important::
@@ -51,10 +51,9 @@ Sammendragsstatistikk
 Metoder (EN)
 ------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   methods/page_1
-   methods/urban_climate
+   methods/index
 
 GitHub Repositories (EN)
 ------------------------
