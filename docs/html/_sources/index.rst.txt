@@ -20,6 +20,26 @@ Sammendrag
 
 Prosjektbeskrivelse kommer her
 
+Ikoner for urbane økosystemtjenester
+------------------------------------
+.. toctree::
+   :maxdepth: 1
+
+   ES_icons/ES_icons.md
+
+Bytre-atlas
+------------
+.. toctree::
+   :maxdepth: 1
+
+   atlas/agol_instruks
+
+QField Treregisteringsapp  
+-------------------------
+.. toctree::
+   :maxdepth: 1
+
+   qfield/qfield_instruks 
 
 Sammendragsstatistikk
 ---------------------
@@ -43,17 +63,3 @@ GitHub Repositories (EN)
 
    github/page_1
    github/sphinx_dev_info
-
-Bytreatlas
------------
-.. toctree::
-   :maxdepth: 1
-
-   atlas/instruks
-
-Ikoner for urbane økosystemtjenester
-------------------------------------
-.. toctree::
-   :maxdepth: 1
-
-   ES_icons/ES_icons.md
