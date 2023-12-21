@@ -10,25 +10,20 @@ Trekroner Dokumentasjon
    :maxdepth: 1
 
 Dette er dokumentasjonsiden for Trekroner-Prosjeket. Prosjektets mål er å kartlegge og 
-verdsette bytrær i byggesonene av Bodø, Bærum, Kristiansand og Oslo. Prosjektet utviklet 
+verdsette bytrær i byggesonene til Bodø, Bærum, Kristiansand og Oslo. Prosjektet utviklet 
 et verktøykasse for trekronekartlegging og verdisetting av bytrær, som består av tre deler:
 
 1. En app for datainnsamling i felt (QField Treregistreringsapp)
 
 2. Et digitalt atlas for datavisualisering av resultatene (Bytre-atlas AGOL). 
 
-3. En arbeidsflyt for å kombinere in situ-data med fjernmålingsdata for å estimere tæers
-økosystemtjenestene. 
+3. En arbeidsflyt som kombinere feltdata med fjernmålingsdata for å estimere økosystemtjenestene til trærne. 
 
-App-instruksjoner finnes under Instruks "QField Treregistringsapp" og "Bytre-atlas". 
-Arbeidsflyten og metodene er dokumentert under metoder. Statistiske resultater av de 
-registrerte trærne i kommunenes treregistre finnes under sammendragsstatistikk. 
+App-veiledere finnes under *Instruks QField Treregistringsapp* og *Instruks Bytre-atlas*. 
+Arbeidsflyten og metodene er dokumentert under *Metoder*. Statistiske resultater av de 
+registrerte trærne i kommunenes treregistre finnes under *Sammendragsstatistikk*. 
 I tillegg er det ikoner tilgjengelig for nedlasting som kan brukes til formidling.
 
-.. important::
-
-    Denne nettsiden er del av Trekroner prosjektet og vedlegg til 
-    `NINA Rapport xxxx <http://www.nina.no/>`_
 
 Innhold
 -------
@@ -40,3 +35,12 @@ Innhold
    methods/index
    Rmd/index
    ES_icons/ES_icons.md
+
+.. raw:: html
+
+   <br>
+
+.. important::
+
+    Denne nettsiden er del av Trekroner prosjektet og vedlegg til 
+    `NINA Rapport xxxx <http://www.nina.no/>`_
