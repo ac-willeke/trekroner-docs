@@ -18,10 +18,10 @@ som anslått alder og betydning som biotop for andre arter. Dette er variabler s
 vurdering i en standardisering av Standard Norge.
 
 Vi har testet QField appen på Android nettbrett i prosjektet. Detaljerte instrukser for hvordan man
-bruker appen fra felt-til-GIS er tilgjengelige [her](https://github.com/NINAnor/trekroner-docs/QField_treregisteringsapp). I tillegg finnes det informasjon om hvordan man oppretter et nytt prosjekt med samme mal for å kartlegge et nytt område i kommunen.
+bruker appen fra felt-til-GIS er tilgjengelige **[her](https://github.com/NINAnor/trekroner-docs/blob/main/QField_treregistreringsapp/QField_app_treregistrering_v3.pdf)**. I tillegg finnes det informasjon om hvordan man oppretter et nytt prosjekt med samme mal for å kartlegge et nytt område i kommunen.
 
 
 ```{note}
-Last ned instruks og QField mal-prosjektet fra [GitHub](https://github.com/NINAnor/trekroner-docs/QField_treregisteringsapp)
+Last ned instruks og QField mal-prosjektet fra [GitHub](https://github.com/NINAnor/trekroner-docs/tree/main/QField_treregistreringsapp)
 ```
 
