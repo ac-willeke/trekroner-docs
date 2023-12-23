@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Map tree visibility statistics per district &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sphinx Developer Information" href="../sphinx_dev_info.html" />
+    <link rel="prev" title="Caclulate tree visibility statistics per district" href="04a_tree_visibility_statistics_per_district.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#methods/04_tree_visibility/04c_map_3-30-300_rule" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> Map tree visibility statistics per district </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-04-tree-visibility-04c-map-3-30-300-rule--page-root" class="md-nav__link">Map tree visibility statistics per district</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Map-the-indicators-for-the-3-30-300-rule" class="md-nav__link">Map the indicators for the 3-30-300-rule</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="Map-tree-visibility-statistics-per-district">
+<h1 id="methods-04-tree-visibility-04c-map-3-30-300-rule--page-root">Map tree visibility statistics per district<a class="headerlink" href="#methods-04-tree-visibility-04c-map-3-30-300-rule--page-root" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/ac-willeke/urban-climate/blob/main/notebooks/01_FROST_extract_climate_data.ipynb"><img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a class="reference external" href="https://github.com/ac-willeke/"><img alt="github" src="https://img.shields.io/badge/GitHub-View%20on%20GitHub-blue?logo=github"/></a></p>
+<p><strong>Author</strong>: Willeke A’Campo</p>
+<p><strong>Description:</strong> This notebooks shows the results for the tree visibility analysis for the trekroner municipalities: Bodø, Bærum, Kristiansand and Oslo.</p>
+<p><strong>Documentation:</strong></p>
+<section id="Map-the-indicators-for-the-3-30-300-rule">
+<h2 id="Map-the-indicators-for-the-3-30-300-rule">Map the indicators for the 3-30-300-rule<a class="headerlink" href="#Map-the-indicators-for-the-3-30-300-rule" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">leafmap</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1"># TODO move</span>
+<span class="n">municipality</span> <span class="o">=</span> <span class="s2">"kristiansand"</span>
+<span class="n">src_crs</span> <span class="o">=</span> <span class="s2">"EPSG:25832"</span>
+<span class="n">reporting_dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"/workspaces/urban-climate/data/08_reporting/"</span>
+
+<span class="n">input_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">reporting_dir</span><span class="p">,</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">municipality</span><span class="si">}</span><span class="s2">_district_treeVis_stat.parquet"</span> <span class="p">)</span>
+<span class="c1"># add layers to gdf for mapping</span>
+<span class="n">gdf_mapping</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span>
+    <span class="n">input_file</span><span class="p">,</span>
+    <span class="n">return_type</span><span class="o">=</span><span class="s1">'gdf'</span><span class="p">,</span>
+    <span class="n">src_crs</span><span class="o">=</span> <span class="n">src_crs</span> <span class="p">,</span>
+    <span class="n">dst_crs</span><span class="o">=</span><span class="s2">"EPSG:4326"</span>
+    <span class="p">)</span>
+
+<span class="c1"># Calculate the center of the study_area GeoDataFrame</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">gdf_mapping</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">unary_union</span><span class="o">.</span><span class="n">centroid</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">gdf_mapping</span><span class="p">[[</span>
+    <span class="s2">"kommunenavn"</span><span class="p">,</span><span class="s2">"grunnkretsnummer"</span><span class="p">,</span> <span class="s2">"grunnkretsnavn"</span><span class="p">,</span>
+    <span class="s2">"n_trees"</span><span class="p">,</span> <span class="s2">"n_bldg"</span><span class="p">,</span> <span class="s2">"n_res_bldg"</span><span class="p">,</span>
+    <span class="s2">"n_trees_near_rbldg"</span><span class="p">,</span><span class="s2">"perc_near_rbldg"</span><span class="p">,</span><span class="s2">"labels_near_rbldg"</span><span class="p">,</span>
+    <span class="s2">"a_crown"</span><span class="p">,</span> <span class="s2">"perc_crown"</span><span class="p">,</span> <span class="s2">"labels_perc_crown"</span><span class="p">,</span>
+    <span class="s2">"n_res_bldg_near_gs"</span><span class="p">,</span><span class="s2">"perc_near_gs"</span><span class="p">,</span> <span class="s2">"labels_near_gs"</span><span class="p">,</span>
+    <span class="s2">"a_open_space"</span><span class="p">,</span> <span class="s2">"a_private_space"</span><span class="p">,</span> <span class="s2">"a_public_space"</span>
+    <span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>kommunenavn</th>
+<th>grunnkretsnummer</th>
+<th>grunnkretsnavn</th>
+<th>n_trees</th>
+<th>n_bldg</th>
+<th>n_res_bldg</th>
+<th>n_trees_near_rbldg</th>
+<th>perc_near_rbldg</th>
+<th>labels_near_rbldg</th>
+<th>a_crown</th>
+<th>perc_crown</th>
+<th>labels_perc_crown</th>
+<th>n_res_bldg_near_gs</th>
+<th>perc_near_gs</th>
+<th>labels_near_gs</th>
+<th>a_open_space</th>
+<th>a_private_space</th>
+<th>a_public_space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Kristiansand</td>
+<td>42040701</td>
+<td>Grim - Dueknipen</td>
+<td>298</td>
+<td>204</td>
+<td>87</td>
+<td>88</td>
+<td>30</td>
+<td>25-50%</td>
+<td>24228.22</td>
+<td>15.40</td>
+<td>0-25%</td>
+<td>61</td>
+<td>70.0</td>
+<td>50-75%</td>
+<td>104499.24</td>
+<td>32663.19</td>
+<td>71273.56</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Kristiansand</td>
+<td>42040702</td>
+<td>Grimsmyra</td>
+<td>632</td>
+<td>609</td>
+<td>310</td>
+<td>509</td>
+<td>81</td>
+<td>75-100%</td>
+<td>39153.62</td>
+<td>15.43</td>
+<td>0-25%</td>
+<td>286</td>
+<td>92.0</td>
+<td>75-100%</td>
+<td>161599.53</td>
+<td>83491.13</td>
+<td>75987.51</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Kristiansand</td>
+<td>42040704</td>
+<td>Møllevannet - Klappane</td>
+<td>154</td>
+<td>82</td>
+<td>40</td>
+<td>70</td>
+<td>45</td>
+<td>25-50%</td>
+<td>9176.21</td>
+<td>13.43</td>
+<td>0-25%</td>
+<td>40</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>47883.75</td>
+<td>16124.35</td>
+<td>31553.15</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Kristiansand</td>
+<td>42040705</td>
+<td>Enrum - Paradis</td>
+<td>433</td>
+<td>190</td>
+<td>78</td>
+<td>141</td>
+<td>33</td>
+<td>25-50%</td>
+<td>35490.59</td>
+<td>32.06</td>
+<td>25-50%</td>
+<td>77</td>
+<td>99.0</td>
+<td>75-100%</td>
+<td>58644.02</td>
+<td>27538.81</td>
+<td>30578.40</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Kristiansand</td>
+<td>42040801</td>
+<td>Kvadraturen Sørvest</td>
+<td>440</td>
+<td>307</td>
+<td>72</td>
+<td>108</td>
+<td>25</td>
+<td>0-25%</td>
+<td>25854.21</td>
+<td>5.59</td>
+<td>0-25%</td>
+<td>0</td>
+<td>0.0</td>
+<td>0-25%</td>
+<td>205287.23</td>
+<td>52343.63</td>
+<td>153860.23</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Kristiansand</td>
+<td>42040802</td>
+<td>Kvadraturen Nordvest</td>
+<td>439</td>
+<td>416</td>
+<td>104</td>
+<td>108</td>
+<td>25</td>
+<td>0-25%</td>
+<td>31861.02</td>
+<td>9.60</td>
+<td>0-25%</td>
+<td>0</td>
+<td>0.0</td>
+<td>0-25%</td>
+<td>194937.12</td>
+<td>47966.65</td>
+<td>147339.89</td>
+</tr>
+<tr>
+<th>6</th>
+<td>Kristiansand</td>
+<td>42040803</td>
+<td>Kvadraturen Sørøst</td>
+<td>432</td>
+<td>375</td>
+<td>170</td>
+<td>165</td>
+<td>38</td>
+<td>25-50%</td>
+<td>26190.16</td>
+<td>4.59</td>
+<td>0-25%</td>
+<td>13</td>
+<td>8.0</td>
+<td>0-25%</td>
+<td>190027.25</td>
+<td>57009.83</td>
+<td>132599.47</td>
+</tr>
+<tr>
+<th>7</th>
+<td>Kristiansand</td>
+<td>42040804</td>
+<td>Kvadraturen Nordøst</td>
+<td>216</td>
+<td>695</td>
+<td>382</td>
+<td>163</td>
+<td>75</td>
+<td>50-75%</td>
+<td>9775.37</td>
+<td>3.26</td>
+<td>0-25%</td>
+<td>54</td>
+<td>14.0</td>
+<td>0-25%</td>
+<td>145466.62</td>
+<td>60967.31</td>
+<td>84394.45</td>
+</tr>
+<tr>
+<th>8</th>
+<td>Kristiansand</td>
+<td>42040806</td>
+<td>Eg</td>
+<td>366</td>
+<td>86</td>
+<td>32</td>
+<td>158</td>
+<td>43</td>
+<td>25-50%</td>
+<td>23503.05</td>
+<td>24.93</td>
+<td>0-25%</td>
+<td>32</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>59291.48</td>
+<td>16598.72</td>
+<td>42233.00</td>
+</tr>
+<tr>
+<th>9</th>
+<td>Kristiansand</td>
+<td>42040807</td>
+<td>Sykehuset</td>
+<td>1291</td>
+<td>99</td>
+<td>1</td>
+<td>11</td>
+<td>1</td>
+<td>0-25%</td>
+<td>96850.88</td>
+<td>24.05</td>
+<td>0-25%</td>
+<td>1</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>257912.45</td>
+<td>159733.95</td>
+<td>97249.30</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Kristiansand</td>
+<td>42040901</td>
+<td>Galgeberg</td>
+<td>333</td>
+<td>285</td>
+<td>129</td>
+<td>173</td>
+<td>52</td>
+<td>50-75%</td>
+<td>15768.14</td>
+<td>6.06</td>
+<td>0-25%</td>
+<td>129</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>118018.59</td>
+<td>45730.00</td>
+<td>71898.16</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Kristiansand</td>
+<td>42040902</td>
+<td>Hamreheia</td>
+<td>481</td>
+<td>564</td>
+<td>250</td>
+<td>415</td>
+<td>86</td>
+<td>75-100%</td>
+<td>23997.30</td>
+<td>8.18</td>
+<td>0-25%</td>
+<td>248</td>
+<td>99.0</td>
+<td>75-100%</td>
+<td>173022.23</td>
+<td>90216.37</td>
+<td>81218.94</td>
+</tr>
+<tr>
+<th>12</th>
+<td>Kristiansand</td>
+<td>42040903</td>
+<td>Kuholmen</td>
+<td>332</td>
+<td>395</td>
+<td>160</td>
+<td>228</td>
+<td>69</td>
+<td>50-75%</td>
+<td>16465.98</td>
+<td>5.34</td>
+<td>0-25%</td>
+<td>160</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>188112.45</td>
+<td>64551.17</td>
+<td>122261.60</td>
+</tr>
+<tr>
+<th>13</th>
+<td>Kristiansand</td>
+<td>42040904</td>
+<td>Valhalla Sør</td>
+<td>128</td>
+<td>241</td>
+<td>124</td>
+<td>120</td>
+<td>94</td>
+<td>75-100%</td>
+<td>4095.61</td>
+<td>4.88</td>
+<td>0-25%</td>
+<td>114</td>
+<td>92.0</td>
+<td>75-100%</td>
+<td>62455.76</td>
+<td>34136.45</td>
+<td>27904.97</td>
+</tr>
+<tr>
+<th>14</th>
+<td>Kristiansand</td>
+<td>42040905</td>
+<td>Valhalla Midt</td>
+<td>276</td>
+<td>499</td>
+<td>261</td>
+<td>242</td>
+<td>88</td>
+<td>75-100%</td>
+<td>12991.49</td>
+<td>7.35</td>
+<td>0-25%</td>
+<td>82</td>
+<td>31.0</td>
+<td>25-50%</td>
+<td>124027.37</td>
+<td>64567.89</td>
+<td>58371.44</td>
+</tr>
+<tr>
+<th>15</th>
+<td>Kristiansand</td>
+<td>42040907</td>
+<td>Valhalla Nord - Kongsgård</td>
+<td>439</td>
+<td>303</td>
+<td>155</td>
+<td>328</td>
+<td>75</td>
+<td>50-75%</td>
+<td>25669.20</td>
+<td>12.04</td>
+<td>0-25%</td>
+<td>155</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>148043.27</td>
+<td>68896.92</td>
+<td>77977.48</td>
+</tr>
+<tr>
+<th>16</th>
+<td>Kristiansand</td>
+<td>42040908</td>
+<td>Solbygg</td>
+<td>122</td>
+<td>98</td>
+<td>50</td>
+<td>63</td>
+<td>52</td>
+<td>50-75%</td>
+<td>6955.10</td>
+<td>6.78</td>
+<td>0-25%</td>
+<td>50</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>73094.88</td>
+<td>29007.49</td>
+<td>43483.53</td>
+</tr>
+<tr>
+<th>17</th>
+<td>Kristiansand</td>
+<td>42040909</td>
+<td>Kjempegravane</td>
+<td>47</td>
+<td>132</td>
+<td>61</td>
+<td>45</td>
+<td>96</td>
+<td>75-100%</td>
+<td>2604.27</td>
+<td>5.22</td>
+<td>0-25%</td>
+<td>61</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>34834.33</td>
+<td>18410.68</td>
+<td>15887.13</td>
+</tr>
+<tr>
+<th>18</th>
+<td>Kristiansand</td>
+<td>42040910</td>
+<td>Tobienborg</td>
+<td>381</td>
+<td>302</td>
+<td>148</td>
+<td>164</td>
+<td>43</td>
+<td>25-50%</td>
+<td>23394.14</td>
+<td>12.40</td>
+<td>0-25%</td>
+<td>148</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>131510.67</td>
+<td>50772.92</td>
+<td>79382.28</td>
+</tr>
+<tr>
+<th>19</th>
+<td>Kristiansand</td>
+<td>42040911</td>
+<td>Nedre Lund</td>
+<td>402</td>
+<td>526</td>
+<td>187</td>
+<td>304</td>
+<td>76</td>
+<td>75-100%</td>
+<td>21780.21</td>
+<td>6.46</td>
+<td>0-25%</td>
+<td>177</td>
+<td>95.0</td>
+<td>75-100%</td>
+<td>205347.41</td>
+<td>89383.95</td>
+<td>114498.01</td>
+</tr>
+<tr>
+<th>20</th>
+<td>Kristiansand</td>
+<td>42040912</td>
+<td>Oddemarka</td>
+<td>118</td>
+<td>108</td>
+<td>31</td>
+<td>65</td>
+<td>55</td>
+<td>50-75%</td>
+<td>7577.51</td>
+<td>10.27</td>
+<td>0-25%</td>
+<td>31</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>54084.15</td>
+<td>21627.48</td>
+<td>32029.34</td>
+</tr>
+<tr>
+<th>21</th>
+<td>Kristiansand</td>
+<td>42040913</td>
+<td>Flaten</td>
+<td>103</td>
+<td>162</td>
+<td>80</td>
+<td>90</td>
+<td>87</td>
+<td>75-100%</td>
+<td>5368.99</td>
+<td>8.09</td>
+<td>0-25%</td>
+<td>80</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>45788.73</td>
+<td>23253.30</td>
+<td>22286.44</td>
+</tr>
+<tr>
+<th>22</th>
+<td>Kristiansand</td>
+<td>42040915</td>
+<td>Gimlemoen - Jegersberg</td>
+<td>580</td>
+<td>40</td>
+<td>1</td>
+<td>5</td>
+<td>1</td>
+<td>0-25%</td>
+<td>45532.23</td>
+<td>21.19</td>
+<td>0-25%</td>
+<td>1</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>145747.75</td>
+<td>31836.04</td>
+<td>113747.86</td>
+</tr>
+<tr>
+<th>23</th>
+<td>Kristiansand</td>
+<td>42040918</td>
+<td>Gimlevang</td>
+<td>34</td>
+<td>42</td>
+<td>19</td>
+<td>18</td>
+<td>53</td>
+<td>50-75%</td>
+<td>1886.51</td>
+<td>4.09</td>
+<td>0-25%</td>
+<td>19</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>28194.61</td>
+<td>10814.88</td>
+<td>17202.92</td>
+</tr>
+<tr>
+<th>24</th>
+<td>Kristiansand</td>
+<td>42040919</td>
+<td>Gimle</td>
+<td>1175</td>
+<td>21</td>
+<td>2</td>
+<td>18</td>
+<td>2</td>
+<td>0-25%</td>
+<td>89392.76</td>
+<td>48.56</td>
+<td>25-50%</td>
+<td>2</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>87002.41</td>
+<td>15415.42</td>
+<td>71380.45</td>
+</tr>
+<tr>
+<th>25</th>
+<td>Kristiansand</td>
+<td>42040920</td>
+<td>Marviksletta</td>
+<td>48</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0-25%</td>
+<td>3426.57</td>
+<td>18.12</td>
+<td>0-25%</td>
+<td>0</td>
+<td>NaN</td>
+<td>no data</td>
+<td>12271.83</td>
+<td>6491.21</td>
+<td>5721.18</td>
+</tr>
+<tr>
+<th>26</th>
+<td>Kristiansand</td>
+<td>42040921</td>
+<td>Lund Industriområde</td>
+<td>40</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0-25%</td>
+<td>2207.87</td>
+<td>8.89</td>
+<td>0-25%</td>
+<td>0</td>
+<td>NaN</td>
+<td>no data</td>
+<td>16471.13</td>
+<td>11996.89</td>
+<td>4519.13</td>
+</tr>
+<tr>
+<th>27</th>
+<td>Kristiansand</td>
+<td>42041101</td>
+<td>Nedre Kongsgård</td>
+<td>1008</td>
+<td>390</td>
+<td>29</td>
+<td>55</td>
+<td>5</td>
+<td>0-25%</td>
+<td>57912.16</td>
+<td>18.42</td>
+<td>0-25%</td>
+<td>29</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>218743.47</td>
+<td>87159.60</td>
+<td>130853.74</td>
+</tr>
+<tr>
+<th>28</th>
+<td>Kristiansand</td>
+<td>42041102</td>
+<td>Kongsgard 1 - Vige</td>
+<td>166</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0-25%</td>
+<td>11158.61</td>
+<td>49.82</td>
+<td>25-50%</td>
+<td>0</td>
+<td>NaN</td>
+<td>no data</td>
+<td>9656.72</td>
+<td>4293.83</td>
+<td>5215.83</td>
+</tr>
+<tr>
+<th>29</th>
+<td>Kristiansand</td>
+<td>42041103</td>
+<td>Bjørndalsheia</td>
+<td>129</td>
+<td>38</td>
+<td>12</td>
+<td>43</td>
+<td>33</td>
+<td>25-50%</td>
+<td>8886.66</td>
+<td>17.37</td>
+<td>0-25%</td>
+<td>12</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>40086.45</td>
+<td>5665.55</td>
+<td>34368.30</td>
+</tr>
+<tr>
+<th>30</th>
+<td>Kristiansand</td>
+<td>42041104</td>
+<td>Vestre Bjørndalen</td>
+<td>36</td>
+<td>20</td>
+<td>2</td>
+<td>4</td>
+<td>11</td>
+<td>0-25%</td>
+<td>1164.64</td>
+<td>2.24</td>
+<td>0-25%</td>
+<td>2</td>
+<td>100.0</td>
+<td>75-100%</td>
+<td>45113.70</td>
+<td>11336.80</td>
+<td>33673.90</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Rule 3 | all residents should be able to see at least 3 trees from their home.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_center</span><span class="p">(</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">"CartoDB.Positron"</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span>
+    <span class="n">gdf_mapping</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">'perc_near_rbldg'</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">'Quantiles'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greens'</span><span class="p">,</span> <span class="n">legend_title</span><span class="o">=</span><span class="s1">'Number of Trees near Residential Buildings'</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">/usr/local/lib/python3.10/dist-packages/leafmap/common.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(data, column, cmap, colors, labels, scheme, k, legend_kwds, classification_kwds)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4949</span>         <span class="ansi-green-fg">import</span> mapclassify
+<span class="ansi-green-intense-fg ansi-bold">   4950</span>     <span class="ansi-green-fg">except</span> ImportError<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 4951</span><span class="ansi-red-fg">         raise ImportError(
+</span><span class="ansi-green-intense-fg ansi-bold">   4952</span>             <span class="ansi-blue-fg">"mapclassify is required for this function. Install with `pip install mapclassify`."</span>
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'mapclassify'
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ImportError</span>                               Traceback (most recent call last)
+<span class="ansi-green-fg">/tmp/ipykernel_591/161069249.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> m <span class="ansi-blue-fg">=</span> leafmap<span class="ansi-blue-fg">.</span>Map<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> m<span class="ansi-blue-fg">.</span>set_center<span class="ansi-blue-fg">(</span>center<span class="ansi-blue-fg">.</span>x<span class="ansi-blue-fg">,</span> center<span class="ansi-blue-fg">.</span>y<span class="ansi-blue-fg">,</span> zoom<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">13</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> m<span class="ansi-blue-fg">.</span>add_basemap<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">"CartoDB.Positron"</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> m.add_data(
+</span><span class="ansi-green-intense-fg ansi-bold">      5</span>     gdf_mapping<span class="ansi-blue-fg">,</span> column<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'perc_near_rbldg'</span><span class="ansi-blue-fg">,</span> scheme<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'Quantiles'</span><span class="ansi-blue-fg">,</span> cmap<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'Greens'</span><span class="ansi-blue-fg">,</span> legend_title<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">'Number of Trees near Residential Buildings'</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> )
+<span class="ansi-green-intense-fg ansi-bold">      7</span> m
+
+<span class="ansi-green-fg">/usr/local/lib/python3.10/dist-packages/leafmap/leafmap.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(self, data, column, colors, labels, cmap, scheme, k, add_legend, legend_title, legend_position, legend_kwds, classification_kwds, layer_name, style, hover_style, style_callback, info_mode, encoding, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3839</span>             <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">:</span> Additional keyword arguments to <span class="ansi-green-fg">pass</span> to the GeoJSON <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">,</span> such <span class="ansi-green-fg">as</span> fields<span class="ansi-blue-fg">,</span> which can be a list of column names to be included <span class="ansi-green-fg">in</span> the popup<span class="ansi-blue-fg">.</span>
+<span class="ansi-green-intense-fg ansi-bold">   3840</span>
+<span class="ansi-green-intense-fg ansi-bold">   3841</span>         """
+<span class="ansi-green-intense-fg ansi-bold">   3842</span>
+<span class="ansi-green-fg">-&gt; 3843</span><span class="ansi-red-fg">         gdf, legend_dict = classify(
+</span><span class="ansi-green-intense-fg ansi-bold">   3844</span>             data<span class="ansi-blue-fg">=</span>data<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   3845</span>             column<span class="ansi-blue-fg">=</span>column<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   3846</span>             cmap<span class="ansi-blue-fg">=</span>cmap<span class="ansi-blue-fg">,</span>
+
+<span class="ansi-green-fg">/usr/local/lib/python3.10/dist-packages/leafmap/common.py</span> in <span class="ansi-cyan-fg">?</span><span class="ansi-blue-fg">(data, column, cmap, colors, labels, scheme, k, legend_kwds, classification_kwds)</span>
+<span class="ansi-green-intense-fg ansi-bold">   4947</span>
+<span class="ansi-green-intense-fg ansi-bold">   4948</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   4949</span>         <span class="ansi-green-fg">import</span> mapclassify
+<span class="ansi-green-intense-fg ansi-bold">   4950</span>     <span class="ansi-green-fg">except</span> ImportError<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 4951</span><span class="ansi-red-fg">         raise ImportError(
+</span><span class="ansi-green-intense-fg ansi-bold">   4952</span>             <span class="ansi-blue-fg">"mapclassify is required for this function. Install with `pip install mapclassify`."</span>
+<span class="ansi-green-intense-fg ansi-bold">   4953</span>         )
+<span class="ansi-green-intense-fg ansi-bold">   4954</span>
+
+<span class="ansi-red-fg">ImportError</span>: mapclassify is required for this function. Install with `pip install mapclassify`.
+</pre></div></div>
+</div>
+<p><strong>Rule 30: all neighbourhoods should have 30% tree canopy cover.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_center</span><span class="p">(</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">"CartoDB.Positron"</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span>
+    <span class="n">gdf_mapping</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">'perc_crown'</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">'Quantiles'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greens'</span><span class="p">,</span> <span class="n">legend_title</span><span class="o">=</span><span class="s1">'Crown Area (%)'</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "56de212cb69949ffb88fbac96ecf01a4", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p><strong>Rule 300: all residents should be able to access a green area within 300 m from their home.</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_mapping_gs</span> <span class="o">=</span> <span class="n">gdf_mapping</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'n_res_bldg_near_gs_norm'</span><span class="p">])</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_center</span><span class="p">(</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">"CartoDB.Positron"</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span>
+    <span class="n">gdf_mapping_gs</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">'perc_near_gs'</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s1">'Quantiles'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greens'</span><span class="p">,</span> <span class="n">legend_title</span><span class="o">=</span><span class="s1">'Number of Residential Buildings near green spaces'</span>
+<span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "43f355ff0fe449968df08049c040b06c", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<p><strong>TESTING OF LEAFMAP CUSTOM CATEGORICAL MAPPING</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="c1">#gdf_mapping_gs = gdf_mapping.dropna(subset=['n_res_bldg_near_gs_norm'])</span>
+<span class="n">gdf_mapping_gs</span> <span class="o">=</span> <span class="n">gdf_mapping</span>
+<span class="c1"># Define the bins</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IntervalIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span> <span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">)])</span>
+
+<span class="c1"># Create a new column 'categories' based on these bins</span>
+<span class="n">gdf_mapping_gs</span><span class="p">[</span><span class="s1">'bins'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">gdf_mapping_gs</span><span class="p">[</span><span class="s1">'n_res_bldg_near_gs_norm'</span><span class="p">],</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">gdf_mapping_gs</span><span class="p">[</span><span class="s1">'bins'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_mapping_gs</span><span class="p">[</span><span class="s1">'bins'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="c1"># Define a color mapping for categories</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"no residential buildings"</span><span class="p">,</span> <span class="s2">"0-25%"</span><span class="p">,</span> <span class="s2">"25-50%"</span><span class="p">,</span> <span class="s2">"50-75%"</span><span class="p">,</span> <span class="s2">"75-100%"</span><span class="p">]</span>
+<span class="n">color_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"nan"</span><span class="p">:</span><span class="s2">"no residential buildings"</span><span class="p">,</span> <span class="s2">"(-0.01, 25.0]"</span><span class="p">:</span> <span class="s2">"0-25%"</span><span class="p">,</span> <span class="s2">"(25.0, 50.0]"</span><span class="p">:</span> <span class="s2">"25-50%"</span><span class="p">,</span> <span class="s2">"(50.0, 75.0]"</span><span class="p">:</span> <span class="s2">"50-75%"</span><span class="p">,</span> <span class="s2">"(75.0, 100.0]"</span><span class="p">:</span> <span class="s2">"75-100%"</span><span class="p">}</span>
+
+<span class="c1"># Apply the color mapping to the 'color' column</span>
+<span class="n">gdf_mapping_gs</span><span class="p">[</span><span class="s1">'labels'</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_mapping_gs</span><span class="p">[</span><span class="s1">'bins'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">color_dict</span><span class="p">)</span>
+
+<span class="c1"># Display the DataFrame</span>
+<span class="n">display</span><span class="p">(</span><span class="n">gdf_mapping_gs</span><span class="p">[[</span>
+    <span class="s2">"kommunenavn"</span><span class="p">,</span><span class="s2">"grunnkretsnummer"</span><span class="p">,</span> <span class="s2">"grunnkretsnavn"</span><span class="p">,</span>
+    <span class="s2">"n_bldg"</span><span class="p">,</span> <span class="s2">"n_res_bldg"</span><span class="p">,</span> <span class="s2">"n_res_bldg_near_gs"</span><span class="p">,</span> <span class="s2">"n_res_bldg_near_gs_norm"</span><span class="p">,</span>
+    <span class="s2">"bins"</span><span class="p">,</span> <span class="s2">"labels"</span>
+<span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>kommunenavn</th>
+<th>grunnkretsnummer</th>
+<th>grunnkretsnavn</th>
+<th>n_bldg</th>
+<th>n_res_bldg</th>
+<th>n_res_bldg_near_gs</th>
+<th>n_res_bldg_near_gs_norm</th>
+<th>bins</th>
+<th>labels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Kristiansand</td>
+<td>42040701</td>
+<td>Grim - Dueknipen</td>
+<td>204</td>
+<td>87</td>
+<td>61</td>
+<td>70.0</td>
+<td>(50.0, 75.0]</td>
+<td>50-75%</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Kristiansand</td>
+<td>42040702</td>
+<td>Grimsmyra</td>
+<td>609</td>
+<td>310</td>
+<td>286</td>
+<td>92.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Kristiansand</td>
+<td>42040704</td>
+<td>Møllevannet - Klappane</td>
+<td>82</td>
+<td>40</td>
+<td>40</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Kristiansand</td>
+<td>42040705</td>
+<td>Enrum - Paradis</td>
+<td>190</td>
+<td>78</td>
+<td>77</td>
+<td>99.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Kristiansand</td>
+<td>42040801</td>
+<td>Kvadraturen Sørvest</td>
+<td>307</td>
+<td>72</td>
+<td>0</td>
+<td>0.0</td>
+<td>(-0.01, 25.0]</td>
+<td>0-25%</td>
+</tr>
+<tr>
+<th>5</th>
+<td>Kristiansand</td>
+<td>42040802</td>
+<td>Kvadraturen Nordvest</td>
+<td>416</td>
+<td>104</td>
+<td>0</td>
+<td>0.0</td>
+<td>(-0.01, 25.0]</td>
+<td>0-25%</td>
+</tr>
+<tr>
+<th>6</th>
+<td>Kristiansand</td>
+<td>42040803</td>
+<td>Kvadraturen Sørøst</td>
+<td>375</td>
+<td>170</td>
+<td>13</td>
+<td>8.0</td>
+<td>(-0.01, 25.0]</td>
+<td>0-25%</td>
+</tr>
+<tr>
+<th>7</th>
+<td>Kristiansand</td>
+<td>42040804</td>
+<td>Kvadraturen Nordøst</td>
+<td>695</td>
+<td>382</td>
+<td>54</td>
+<td>14.0</td>
+<td>(-0.01, 25.0]</td>
+<td>0-25%</td>
+</tr>
+<tr>
+<th>8</th>
+<td>Kristiansand</td>
+<td>42040806</td>
+<td>Eg</td>
+<td>86</td>
+<td>32</td>
+<td>32</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>9</th>
+<td>Kristiansand</td>
+<td>42040807</td>
+<td>Sykehuset</td>
+<td>99</td>
+<td>1</td>
+<td>1</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>10</th>
+<td>Kristiansand</td>
+<td>42040901</td>
+<td>Galgeberg</td>
+<td>285</td>
+<td>129</td>
+<td>129</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>11</th>
+<td>Kristiansand</td>
+<td>42040902</td>
+<td>Hamreheia</td>
+<td>564</td>
+<td>250</td>
+<td>248</td>
+<td>99.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>12</th>
+<td>Kristiansand</td>
+<td>42040903</td>
+<td>Kuholmen</td>
+<td>395</td>
+<td>160</td>
+<td>160</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>13</th>
+<td>Kristiansand</td>
+<td>42040904</td>
+<td>Valhalla Sør</td>
+<td>241</td>
+<td>124</td>
+<td>114</td>
+<td>92.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>14</th>
+<td>Kristiansand</td>
+<td>42040905</td>
+<td>Valhalla Midt</td>
+<td>499</td>
+<td>261</td>
+<td>82</td>
+<td>31.0</td>
+<td>(25.0, 50.0]</td>
+<td>25-50%</td>
+</tr>
+<tr>
+<th>15</th>
+<td>Kristiansand</td>
+<td>42040907</td>
+<td>Valhalla Nord - Kongsgård</td>
+<td>303</td>
+<td>155</td>
+<td>155</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>16</th>
+<td>Kristiansand</td>
+<td>42040908</td>
+<td>Solbygg</td>
+<td>98</td>
+<td>50</td>
+<td>50</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>17</th>
+<td>Kristiansand</td>
+<td>42040909</td>
+<td>Kjempegravane</td>
+<td>132</td>
+<td>61</td>
+<td>61</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>18</th>
+<td>Kristiansand</td>
+<td>42040910</td>
+<td>Tobienborg</td>
+<td>302</td>
+<td>148</td>
+<td>148</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>19</th>
+<td>Kristiansand</td>
+<td>42040911</td>
+<td>Nedre Lund</td>
+<td>526</td>
+<td>187</td>
+<td>177</td>
+<td>95.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>20</th>
+<td>Kristiansand</td>
+<td>42040912</td>
+<td>Oddemarka</td>
+<td>108</td>
+<td>31</td>
+<td>31</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>21</th>
+<td>Kristiansand</td>
+<td>42040913</td>
+<td>Flaten</td>
+<td>162</td>
+<td>80</td>
+<td>80</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>22</th>
+<td>Kristiansand</td>
+<td>42040915</td>
+<td>Gimlemoen - Jegersberg</td>
+<td>40</td>
+<td>1</td>
+<td>1</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>23</th>
+<td>Kristiansand</td>
+<td>42040918</td>
+<td>Gimlevang</td>
+<td>42</td>
+<td>19</td>
+<td>19</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>24</th>
+<td>Kristiansand</td>
+<td>42040919</td>
+<td>Gimle</td>
+<td>21</td>
+<td>2</td>
+<td>2</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>25</th>
+<td>Kristiansand</td>
+<td>42040920</td>
+<td>Marviksletta</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>NaN</td>
+<td>nan</td>
+<td>no residential buildings</td>
+</tr>
+<tr>
+<th>26</th>
+<td>Kristiansand</td>
+<td>42040921</td>
+<td>Lund Industriområde</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>NaN</td>
+<td>nan</td>
+<td>no residential buildings</td>
+</tr>
+<tr>
+<th>27</th>
+<td>Kristiansand</td>
+<td>42041101</td>
+<td>Nedre Kongsgård</td>
+<td>390</td>
+<td>29</td>
+<td>29</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>28</th>
+<td>Kristiansand</td>
+<td>42041102</td>
+<td>Kongsgard 1 - Vige</td>
+<td>9</td>
+<td>0</td>
+<td>0</td>
+<td>NaN</td>
+<td>nan</td>
+<td>no residential buildings</td>
+</tr>
+<tr>
+<th>29</th>
+<td>Kristiansand</td>
+<td>42041103</td>
+<td>Bjørndalsheia</td>
+<td>38</td>
+<td>12</td>
+<td>12</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+<tr>
+<th>30</th>
+<td>Kristiansand</td>
+<td>42041104</td>
+<td>Vestre Bjørndalen</td>
+<td>20</td>
+<td>2</td>
+<td>2</td>
+<td>100.0</td>
+<td>(75.0, 100.0]</td>
+<td>75-100%</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap</span>
+
+<span class="c1"># Initialize the map and set the center</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">set_center</span><span class="p">(</span><span class="n">center</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="c1"># Add the base map</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">"CartoDB.Positron"</span><span class="p">)</span>
+
+<span class="c1"># Add the data to the map</span>
+<span class="n">m</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">gdf_mapping_gs</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"test"</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">"labels"</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">'#169200'</span><span class="p">,</span><span class="s1">'#169200'</span><span class="p">,</span><span class="s1">'#FFFFFF'</span><span class="p">,</span><span class="s1">'#FFAA00'</span><span class="p">,</span><span class="s1">'#FF5500'</span><span class="p">],</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"no residential buildings"</span><span class="p">,</span> <span class="s2">"0-25%"</span><span class="p">,</span> <span class="s2">"25-50%"</span><span class="p">,</span> <span class="s2">"50-75%"</span><span class="p">,</span> <span class="s2">"75-100%"</span><span class="p">],</span>
+    <span class="n">legend_position</span><span class="o">=</span><span class="s1">'bottomright'</span><span class="p">,</span>
+    <span class="n">style_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"gray"</span><span class="p">,</span> <span class="n">LineWidth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mf">0.99</span><span class="p">),</span>
+    <span class="n">style</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"stroke"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"gray"</span><span class="p">,</span>
+        <span class="s2">"weight"</span><span class="p">:</span> <span class="mf">.5</span><span class="p">,</span>
+        <span class="s2">"opacity"</span><span class="p">:</span> <span class="mf">.5</span><span class="p">,</span>
+        <span class="s2">"fill"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">"fillOpacity"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Display the map</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8200b82d51034adc96321e6fce0d15e2", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color_map</span> <span class="o">=</span>  <span class="p">{</span>
+        <span class="s2">"no residential buildings"</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">55</span><span class="p">),</span>
+        <span class="s2">"0-25%"</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">136</span><span class="p">,</span> <span class="mi">55</span><span class="p">),</span>
+        <span class="s2">"25-50%"</span><span class="p">:</span> <span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+        <span class="s2">"50-75%"</span><span class="p">:</span> <span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+        <span class="s2">"75-100%"</span><span class="p">:</span> <span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
+    <span class="p">}</span>
+
+
+<span class="n">leafmap</span><span class="o">.</span><span class="n">view_vector</span><span class="p">(</span><span class="n">gdf_mapping_gs</span><span class="p">,</span> <span class="n">color_column</span><span class="o">=</span><span class="s1">'labels'</span><span class="p">,</span> <span class="n">color_map</span><span class="o">=</span><span class="n">color_map</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c1">#leafmap.Legend(title="Wetland Type", legend_dict=color_map)</span>
+<span class="c1">#display(gdf_mapping_gs)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e7ddacc694584bb69de09b181ff6d781", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="04a_tree_visibility_statistics_per_district.html" title="Caclulate tree visibility statistics per district"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Caclulate tree visibility statistics per district </span>
+              </div>
+            </a>
+          
+          
+            <a href="../sphinx_dev_info.html" title="Sphinx Developer Information"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Sphinx Developer Information </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

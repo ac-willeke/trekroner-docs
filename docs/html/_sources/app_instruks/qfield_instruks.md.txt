@@ -1,5 +1,6 @@
 # Instruks | QField Treregisteringsapp (NO)
 
+*arbeid pågår*
 
 QField Treregisteringsapp er et feltregisteringsverktøy til bruk i treregistering etter feltmetoder
 for i-Tree Eco og Verdsetting av Trær (VAT). QField Treregisteringsappen er utviklet av NINA i
@@ -18,7 +19,7 @@ som anslått alder og betydning som biotop for andre arter. Dette er variabler s
 vurdering i en standardisering av Standard Norge.
 
 Vi har testet QField appen på Android nettbrett i prosjektet. Detaljerte instrukser for hvordan man
-bruker appen fra felt-til-GIS er tilgjengelige [her](https://github.com/NINAnor/trekroner-docs/blob/main/QField_treregistreringsapp/QField_app_treregistrering_v3.pdf). I tillegg finnes det informasjon om hvordan man oppretter et nytt prosjekt med samme mal for å kartlegge et nytt område i kommunen.
+bruker appen fra felt-til-GIS er tilgjengelige **[her](https://github.com/NINAnor/trekroner-docs/blob/main/QField_treregistreringsapp/QField_app_treregistrering_v3.pdf)**. I tillegg finnes det informasjon om hvordan man oppretter et nytt prosjekt med samme mal for å kartlegge et nytt område i kommunen.
 
 
 ```{note}

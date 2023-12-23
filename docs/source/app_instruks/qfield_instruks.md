@@ -1,5 +1,6 @@
 # Instruks | QField Treregisteringsapp (NO)
 
+*arbeid pågår*
 
 QField Treregisteringsapp er et feltregisteringsverktøy til bruk i treregistering etter feltmetoder
 for i-Tree Eco og Verdsetting av Trær (VAT). QField Treregisteringsappen er utviklet av NINA i

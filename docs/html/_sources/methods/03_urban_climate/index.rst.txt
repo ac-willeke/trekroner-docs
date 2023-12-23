@@ -4,7 +4,6 @@ Local Climate Regulation
    :maxdepth: 1
 
    README
-   installation
-   project_structure
+   01_FROST_extract_climate_data.ipynb
 
 

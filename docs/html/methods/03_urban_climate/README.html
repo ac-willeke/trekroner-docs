@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Local Climate Regulation &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tree Visibility and Impact Modelling" href="../04_tree_visibility/index.html" />
+    <link rel="prev" title="Local Climate Regulation" href="index.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#methods/03_urban_climate/README" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> Local Climate Regulation </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Local Climate Regulation</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-03-urban-climate-readme--page-root" class="md-nav__link">Local Climate Regulation</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#getting-started" class="md-nav__link">Getting Started</a>
+        </li>
+        <li class="md-nav__item"><a href="#input-data" class="md-nav__link">Input Data</a>
+        </li>
+        <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#data-preparation" class="md-nav__link">Data Preparation</a>
+        </li>
+        <li class="md-nav__item"><a href="#data-analysis" class="md-nav__link">Data Analysis</a>
+        </li>
+        <li class="md-nav__item"><a href="#references" class="md-nav__link"><strong>References</strong></a>
+        </li>
+        <li class="md-nav__item"><a href="#contributors" class="md-nav__link"><strong>Contributors</strong></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="local-climate-regulation">
+<h1 id="methods-03-urban-climate-readme--page-root">Local Climate Regulation<a class="headerlink" href="#methods-03-urban-climate-readme--page-root" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://ac-willeke.github.io/kedro-geospatial/html/index.html"><img alt="Documentation Status" src="https://readthedocs.org/projects/kedro-geospatial/badge/?version=latest"/></a>
+<a class="reference external" href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"/></a></p>
+<p>This repository provides a workflow for analyzing the impact of urban trees on local climate regulation. This workflow is an adapted version of the methodolgy described in <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0048969719361893">Venter et al. (2020)</a>.</p>
+<p>Code is provided for the following tasks:</p>
+<ol class="arabic simple">
+<li><p><strong>Extract Data</strong>
+a. extract raster data from GEE: <code class="docutils literal notranslate"><span class="pre">extract_raster_data.js</span></code>
+b. extract climate data from MET Norway API FROST:  jupyter notebook</p></li>
+<li><p><strong>Raster Processing</strong></p>
+<ul class="simple">
+<li><p>kedro pipeline: <code class="docutils literal notranslate"><span class="pre">raster_processing</span></code></p></li>
+<li><p>load single GeoTIFFs into a rasterstack</p></li>
+<li><p>convert a raster stack to a GeoDataFrame, where each band becomes a colum, and each pixel value is a row.</p></li>
+</ul>
+</li>
+<li><p><strong>Land Surface Temperature (LST) counterfactual modelling</strong></p>
+<ul class="simple">
+<li><p>kedro pipeline: <code class="docutils literal notranslate"><span class="pre">lst_counterfactual</span></code></p></li>
+<li><p>calculate the LST counterfactual for each pixel in the study area</p></li>
+</ul>
+</li>
+<li><p><strong>Ecosystem service calculation</strong></p>
+<ul class="simple">
+<li><p>kedro pipeline: <code class="docutils literal notranslate"><span class="pre">ecosystem_services</span></code></p></li>
+<li><p>calculate the ecosystem services per district</p></li>
+</ul>
+</li>
+</ol>
+<p>Complete documentation is hosted on GitHub Pages: <a class="reference external" href="https://ac-willeke.github.io/urban-climate/html/index.html">Urban Climate Documentation</a></p>
+<section id="getting-started">
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
+<p>This project utilizes the <a class="reference external" href="https://docs.kedro.org/en/stable/index.html">Kedro Framework</a> to streamline data processing and analysis. See the documentation for detailed step by step instricutions on how to set up the project and run the project.</p>
+<ol class="arabic">
+<li><p><strong>Environment set up</strong></p>
+<p><strong>Docker</strong></p>
+<p>The project uses gdal, which can be hard to install. A Dockerfile is provided that uses a gdal image, so that he project can be run in a
+container. Documentation on how to build and run the Docker image for this project can be found <a class="reference external" href="https://ac-willeke.github.io/urban-climate/html/docker.html">here</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build container from Dockerfile</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>&lt;image-name&gt;:&lt;image-tag&gt;<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Note that the containter contains no data, so please ensure to mount your data into the container (see <code class="docutils literal notranslate"><span class="pre">template_devcontainer.json</span></code>).</p>
+<br/>
+<p><strong>Virtual Environement (.venv)</strong></p>
+<p>If you have gdal bindings installed on your pc, you can also run the project in a virtual environment. A virtual environment can be set up using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a virtual environment</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="c1"># Activate the virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="c1"># Install the requirements</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p><strong>Kedro | run the pipelines</strong></p>
+<p>The project contains three Kedro pipelines:</p>
+<ul class="simple">
+<li><p><strong>raster_processing</strong>: loads and processes the input data</p></li>
+<li><p><strong>lst_counterfactual</strong>: runs the LST counterfactual modelling</p></li>
+<li><p><strong>ecosystem_services</strong>: calculates the ecosystem services</p></li>
+</ul>
+<p>The pipelines can be run using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter the container</span>
+docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/host/directory:/container/directory:cached<span class="w"> </span>&lt;image-id&gt;<span class="w"> </span>kedro<span class="w"> </span>run<span class="w"> </span>--pipeline<span class="o">=</span>&lt;pipeline-name&gt;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kedro commands</span>
+<span class="n">kedro</span> <span class="n">run</span> <span class="o">--</span><span class="n">pipeline</span><span class="o">=</span><span class="n">raster_processing</span>
+<span class="n">kedro</span> <span class="n">run</span> <span class="o">--</span><span class="n">pipeline</span><span class="o">=</span><span class="n">lst_counterfactual</span>
+<span class="n">kedro</span> <span class="n">run</span> <span class="o">--</span><span class="n">pipeline</span><span class="o">=</span><span class="n">ecosystem_services</span>
+</pre></div>
+</div>
+<p>The pipelines can also be run in sequence using the following command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kedro</span> <span class="n">run</span>
+</pre></div>
+</div>
+</li>
+<li><p>** Kedro | visualize the workflow**</p>
+<p>The workflow can be visualized using the Kedro Viz tool. This tool can be accessed by running <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">viz</span></code> in the terminal.</p>
+<p><img alt="Kedro Viz" src="../../_images/kedro_viz.png"/></p>
+</li>
+</ol>
+</section>
+<hr class="docutils"/>
+<section id="input-data">
+<h2 id="input-data">Input Data<a class="headerlink" href="#input-data" title="Link to this heading">¶</a></h2>
+<p>The following table provides an overview of the input data used in this project.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Norwegian Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head text-center"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Source</p></th>
+<th class="head"><p>Download link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tree crowns</p></td>
+<td><p>Trekrone</p></td>
+<td><p>Vector - FileGDB feature</p></td>
+<td class="text-center"><p><ul style="list-style-type: none;"><li>Bærum 2022</li><li>Bodø 2017</li> <li>Kristiansand 2020</li><li>Oslo 2021</li></ul></p></td>
+<td><p>Tree crowns detected using ALS data following the workflow outlined in <em>Hanssen et al. (2021)</em> and Github repository <a class="reference external" href="https://github.com/NINAnor/urban-treeDetection">urban-treeDetection</a>.</p></td>
+<td><p>NINA</p></td>
+<td><p>download here</p></td>
+</tr>
+<tr class="row-odd"><td><p>Population statistics</p></td>
+<td><p>Befolkningsstatistikk på grunnkretser 2021</p></td>
+<td><p>Vector - FileGDB feature</p></td>
+<td class="text-center"><p><ul style="list-style-type: none;"><li>Bærum 2021</li><li>Bodø 2018</li> <li>Kristiansand 2020</li><li>Oslo 2021</li></ul></p></td>
+<td><p>National dataset of population numbers, startified by age at neighbourhood level (grunnkrets).</p></td>
+<td><p>Norwegian Mapping Authority, 2020</p></td>
+<td><p><a class="reference external" href="https://kartkatalog.geonorge.no/metadata/befolkning-paa-grunnkretsniv-2021/2f595e8b-d07d-49dd-80c4-38d6f1231fa3">Geonorge</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Land cover</p></td>
+<td><p>Arealdekke</p></td>
+<td><p>Raster</p></td>
+<td class="text-center"><p>2021</p></td>
+<td><p>WorldCover 10 m 2021. Global land cover map for 2021 at 10 m resolution based on Sentinel-1 and Sentinel-2 data.</p></td>
+<td><p>ESA</p></td>
+<td><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/ESA_WorldCover_v200">Google Earth Engine</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Terrain model</p></td>
+<td><p>Terrengmodell</p></td>
+<td><p>Raster</p></td>
+<td class="text-center"><p>2020</p></td>
+<td><p>Ditigital Terrain Model 10 m (DTM 10)</p></td>
+<td><p>Geonorge</p></td>
+<td><p><a class="reference external" href="https://kartkatalog.geonorge.no/metadata/dtm-10-terrengmodell-utm33-historiske-versjoner/342be245-1bd5-427d-9e46-1c6d0f510194">Geonorge</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Land Surface Temperature</p></td>
+<td><p>Overflatetemperatur</p></td>
+<td><p>Raster</p></td>
+<td class="text-center"><p>2020</p></td>
+<td><p>Land Surface Temperature from Landsat 8 following the workflow outlined in Ermida et al 2020.</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="methods">
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<section id="data-preparation">
+<h3 id="data-preparation">Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Land Surface Temperature (LST):</strong> (i) Import Landsat 8 LST data, (ii) calculate maximum composite and resample to 100m (original resolution) and, (iii) export to LST GeoTiff <code class="docutils literal notranslate"><span class="pre">%municipality%_lst_100m.tif</span></code>.</p></li>
+<li><p><strong>Land cover:</strong> (i) Import World Cover image, (ii) calculate fraction of cropland, grass/shrub, built-up and water surfaces within the 100m grid of the LST data and, (iii) export to land cover fraction GeoTiff <code class="docutils literal notranslate"><span class="pre">%municipality%_lcf_100m.tif</span></code>.</p></li>
+<li><p><strong>Terrain model:</strong> (i) Import national 10m terrain model, (ii) calculate average elevation within the 100m grid of the LST data and, (iii) export to average elevation GeoTiff <code class="docutils literal notranslate"><span class="pre">%municipality%_avg_dtm_100m.tif</span></code>.</p></li>
+<li><p><strong>Tree crown polygons:</strong> (i) import FileGDB feature to GeoPandas, (ii) rasterize tree crowns, (iii) calculate fraction of the tree canopy within the 100m grid and, (iv) export to tree canopy fraction GeoTiff <code class="docutils literal notranslate"><span class="pre">%municipality%_tcf_100m.tif</span></code></p></li>
+<li><p><strong>Neighbourhood polygons with population statistics:</strong> (i) Import FileGDB feature to GeoPandas, (ii) calculate the attribute <code class="docutils literal notranslate"><span class="pre">pop_elderly</span></code>, which is the sum of the population &gt; 75 years old (iii)  and calculate the attribute <code class="docutils literal notranslate"><span class="pre">count_trees</span></code> by counting the number of tree crowns within each neighbourhood polygon (spatial-join).</p></li>
+</ul>
+</section>
+<section id="data-analysis">
+<h3 id="data-analysis">Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">¶</a></h3>
+<p><strong>Land Surface Temperature counterfactual modelling</strong>
+Estimate the effect of tree crown coverage on land surface temperature (LST) using counterfactual modelling. Here a no-tree scenario is simulated by setting the tree crown coverage to zero.</p>
+<ol class="arabic simple">
+<li><p>Train the counterfactual model:</p>
+<ul class="simple">
+<li><p>Import the 100x100 m raster data. (LST, land cover fractions, averaged dtm, tree canopy fraction).</p></li>
+<li><p>Stack the raster data and convert it to a pandas dataframe. With rows presenting the 100x100 m grid cells and columns presenting the different features.</p></li>
+<li><p>Train a random forest regressor on the dataframe with the form: <code class="docutils literal notranslate"><span class="pre">LST</span> <span class="pre">=</span> <span class="pre">f(elevation,</span> <span class="pre">fraction_tree_canopy,</span> <span class="pre">fraction_built_up,</span> <span class="pre">fraction_grass_shrub,</span> <span class="pre">fraction_water,</span> <span class="pre">fraction_cropland)</span></code></p></li>
+</ul>
+</li>
+<li><p>Predict the counterfactual outcome:</p>
+<ul class="simple">
+<li><p>Create a copy of the dataframe and set the fractionTreeCanopy to zero.</p></li>
+<li><p>Predict LST for the no-tree scenario (fractionTreeCanopy = 0) using the trained model.</p></li>
+</ul>
+</li>
+<li><p>Calculate the effect of tree crown coverage on LST:</p>
+<ul class="simple">
+<li><p>Calculate the difference between the observed LST and the predicted LST for the no-tree scenario.</p></li>
+</ul>
+</li>
+<li><p>Generate Map Products:</p>
+<ul class="simple">
+<li><p>Map of the observed LST</p></li>
+<li><p>Map of the counterfactual LST (no-tree scenario)</p></li>
+<li><p>Map of the effect of tree crown coverage on LST (observed LST - counterfactual LST)</p></li>
+</ul>
+</li>
+</ol>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p><em>What is counterfactual modelling?</em></p>
+<p>Counterfactual modelling is a method to estimate the effect of a parameter (e.g. canopy cover) by comparing the observed outcome (e.g. LST) with a counterfactual outcome (e.g. LST without canopy cover). The counterfactual outcome is estimated by a model that predicts the outcome based on a set of features. In this case, the counterfactual outcome is estimated by a random forest model that predicts LST based on elevation, land cover fractions and tree canopy fraction. The effect of tree crown coverage on LST is then calculated as the difference between the observed LST and the counterfactual LST.</p>
+</div>
+<p><strong>Ecosystem service calculation</strong>
+Calculate the climate service of trees in terms of avoided heat risk persons. The avoided heat risk persons are calculated as the difference between the observed heat risk persons and the counterfactual heat risk persons (no-tree scenario). Heat risk is defined as the number of persons &gt; 75 years old living in neighbourhoods with LST &gt; 30°C.</p>
+<ol class="arabic">
+<li><p>Calculate the heat risk persons:</p>
+<ul class="simple">
+<li><p>Import the neighbourhood polygons with population and tree statistics (see Data Preparation) into a geopandas dataframe.</p></li>
+<li><p>Import the LST and counterfactul LST rasters and mask out pixels with LST &lt; 30°C.</p></li>
+<li><p>Add the following attributes to the neighbourhoods gpd dataframe.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">area_lst30_normal</span></code>: area of neighbourhood polygon covered by LST &gt; 30°C (non-masked pixels)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area_lst30_counterfac</span></code>: area of neighbourhood polygon covered by counterfactual LST &gt; 30°C</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fraction_lst30_normal</span></code>: fraction of neighbourhood polygon covered by LST &gt; 30°C</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fraction_lst30_counterfac</span></code>: fraction of neighbourhood polygon covered by counterfactual LST &gt; 30°C</p></li>
+</ul>
+</li>
+<li><p>Calculate the number of heat risk persons per neighbourhood using the formula: <code class="docutils literal notranslate"><span class="pre">hr_person</span> <span class="pre">=</span> <span class="pre">pop_elderly</span> <span class="pre">*</span> <span class="pre">fraction_lst30_normal</span></code></p></li>
+<li><p>Calculate the number of heat risk persons per neighbourhood in the counterfactual scenario using the formula: <code class="docutils literal notranslate"><span class="pre">hr_person_counterfac</span> <span class="pre">=</span> <span class="pre">pop_elderly</span> <span class="pre">*</span> <span class="pre">fraction_lst30_counterfac</span></code></p></li>
+<li><p>Calculate the additional heat risk persons per neighbourhood using the formula: <code class="docutils literal notranslate"><span class="pre">additional_hr_persons</span> <span class="pre">=</span> <span class="pre">hr_person</span> <span class="pre">-</span> <span class="pre">hr_person_counterfac</span></code></p></li>
+</ul>
+</li>
+<li><p>Calculate the climate service per neighbourhood:</p>
+<ul>
+<li><p>calculate the additional heat risk persons per tree removed using the formula:</p>
+<p><code class="docutils literal notranslate"><span class="pre">additional_hr_persons_per_tree_removed</span> <span class="pre">=</span> <span class="pre">((pop_elderly</span> <span class="pre">*</span> <span class="pre">fraction_lst30_counterfac)</span> <span class="pre">-</span> <span class="pre">(pop_elderly</span> <span class="pre">*</span> <span class="pre">fraction_lst30_normal))</span> <span class="pre">/</span> <span class="pre">count_trees)</span></code></p>
+<p>or</p>
+<p><code class="docutils literal notranslate"><span class="pre">additional_hr_persons_per_tree_removed</span> <span class="pre">=</span> <span class="pre">additional_hr_persons</span> <span class="pre">/</span> <span class="pre">count_trees</span></code></p>
+</li>
+</ul>
+</li>
+<li><p>Calculate the total climate service for the municipality:</p>
+<ul class="simple">
+<li><p>Sum the additional heat risk persons per tree removed for all neighbourhoods.</p></li>
+<li><p>Note that some neihgbourhoods have a null values, either there are no elderly living in the neighbourhood or the land surface temperature is below 30°C. These neighbourhoods are excluded from the calculation of the total climate service.</p></li>
+</ul>
+</li>
+<li><p>Generate Map Products:</p>
+<ul class="simple">
+<li><p>Map of the observed heat risk persons per neighbourhood (interim)</p></li>
+<li><p>Map of the counterfactual heat risk persons per neighbourhood (interim)</p></li>
+<li><p>Map of the additional heat risk persons per neighbourhood per tree removed</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="references">
+<h3 id="references"><strong>References</strong><a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Venter, Z.S., et al. (2020) Linking green infrastructure to urban heat and human health risk mitigation in Oslo, Norway. Science of The Total Environment, 709, 136193. https://doi.org/10.1016/j.scitotenv.2019.136193</p></li>
+<li><p>Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
+Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471</p></li>
+</ul>
+</section>
+<section id="contributors">
+<h3 id="contributors"><strong>Contributors</strong><a class="headerlink" href="#contributors" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Willeke A’Campo (NINA), willeke.acampo@nina.no</p></li>
+<li><p>Zander Venter (NINA), zander.venter@nina.no</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="index.html" title="Local Climate Regulation"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Local Climate Regulation </span>
+              </div>
+            </a>
+          
+          
+            <a href="../04_tree_visibility/index.html" title="Tree Visibility and Impact Modelling"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Tree Visibility and Impact Modelling </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Extract historical climate data from the Norwegian Meteorological Institute (MET)\n",
+    "## Extract historical climate data from the Norwegian Meteorological Institute (MET)\n",
     "\n",
     "[![colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ac-willeke/urban-climate/blob/main/notebooks/01_FROST_extract_climate_data.ipynb) [![github](https://img.shields.io/badge/GitHub-View%20on%20GitHub-blue?logo=github)](https://github.com/ac-willeke/)\n",
     "\n",

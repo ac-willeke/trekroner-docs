@@ -8,8 +8,9 @@ Contents
 
    01_tree_detection/index
    02_support_tools/index
-   03_urban_climate/index
-   04_tree_visibility/index
+   03_urban_climate/README
+   03_urban_climate/01_FROST_extract_climate_data
+   04_tree_visibility/README
    sphinx_dev_info
 
 Summary 

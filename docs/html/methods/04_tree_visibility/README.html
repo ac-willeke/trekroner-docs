@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Mapping of trees visibility and accessibiltiy &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sphinx Developer Information" href="../sphinx_dev_info.html" />
+    <link rel="prev" title="Extract historical climate data from the Norwegian Meteorological Institute (MET)" href="../03_urban_climate/01_FROST_extract_climate_data.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#methods/04_tree_visibility/README" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> Mapping of trees visibility and accessibiltiy </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-04-tree-visibility-readme--page-root" class="md-nav__link">Mapping of trees visibility and accessibiltiy</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#materials-and-methods" class="md-nav__link">Materials and Methods</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#data" class="md-nav__link">Data</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#viewshed-exposure-modelling" class="md-nav__link">Viewshed exposure modelling</a>
+        </li>
+        <li class="md-nav__item"><a href="#visual-impact-modelling" class="md-nav__link">Visual Impact Modelling</a>
+        </li>
+        <li class="md-nav__item"><a href="#calculating-measures-for-the-3-30-300-rule" class="md-nav__link">Calculating measures for the 3-30-300 rule</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#tree-visibility-count-for-residential-buildings-per-district-rule-3" class="md-nav__link">Tree visibility count for residential buildings per district (rule 3)</a>
+        </li>
+        <li class="md-nav__item"><a href="#tree-crown-area-percentage-per-district-rule-30" class="md-nav__link">Tree crown area percentage per district (rule 30)</a>
+        </li>
+        <li class="md-nav__item"><a href="#green-area-proximity-for-residential-buildings-per-district-rule-300" class="md-nav__link">Green area proximity for residential buildings per district (rule 300)</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="mapping-of-trees-visibility-and-accessibiltiy">
+<h1 id="methods-04-tree-visibility-readme--page-root">Mapping of trees visibility and accessibiltiy<a class="headerlink" href="#methods-04-tree-visibility-readme--page-root" title="Link to this heading">¶</a></h1>
+<p>This method appendix documents the methods for the task “Tree Visibility and Impact Mod-elling”.
+The resulting products of the task are: (i) a map that shows the visual exposure of tree crowns within the municipalities study area, (ii) a map for a case study site in Oslo, which shows the public and private visibility value per tree, and (iii) three indicators for the 3-30-300 rule calculated per district (grunnkrets).</p>
+<p><strong>The 3-30-300 green space rule</strong></p>
+<p>The 3-30-300 green space proposed by Cecil Konijnendijk, is an evidence-based guideline for guideline for creating healthier and more sustainable cities through the strategic use of urban green spaces. (Konijnendijk, C.C. 2023). The rule outlies three key objectives:</p>
+<p><strong>Rule 3:</strong> all residents should be able to see at least 3 trees from their home.</p>
+<p><strong>Rule 30:</strong> all neighbourhoods should have 30% tree canopy cover.</p>
+<p><strong>Rule 300:</strong>  all residents should be able to access a green area within 300 m from their home.</p>
+<section id="materials-and-methods">
+<h2 id="materials-and-methods">Materials and Methods<a class="headerlink" href="#materials-and-methods" title="Link to this heading">¶</a></h2>
+<section id="data">
+<h3 id="data">Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h3>
+<p>The following data sources were used within this project. See Appendix X for a detailed de-scription of each dataset.</p>
+<p><strong>Building footprints</strong></p>
+<p>The FKB-Buildings vector map (Kartverket, 2020) was used to extract building footprints from the map layer ‘fkb_bygning_omrade’. In addition, we classified these footprints into res-idential and non-residential buildings using the bygningstype attribute (Appendix X).</p>
+<p><strong>Water bodies</strong></p>
+<p>Water bodies were derived from the land resource map FKB-AR5 (NIBIO, 2020), category freshwater and sea.</p>
+<p><strong>Digital surface model, digital terrain difference model (DSM-DTM)</strong></p>
+<p>The Digital Surface Model (DSM) and Digital Terrain Model (DTM) are created from laser point cloud data. The DSM includes all points in the cloud, while the DTM only includes points classified as bare earth. The DSM-DTM is created by subtracting the DTM from the DSM, and it shows the height of all objects above the ground. The DSM-DTM model is down sampled to 1-meter resolution to improve processing speed.</p>
+<p><strong>Tree crown polygons and binary raster</strong></p>
+<p>Vector map of tree crown polygons detected from municipal laser data (see Tree Detection).
+The crown polygons were converted into a binary raster of 1x1 m resolution, where 1 repre-sents pixels covered by tree crown and NA represent pixels without tree crown coverage.</p>
+<p><strong>Open Space</strong></p>
+<p>Within this project open space is defined as any space within the study area which is not a building footprint, a tree canopy or a water surface as recommended by (REF – visual im-pact appendix). Areas smaller than 1 m² were excluded from the open space dataset. The open space dataset was classified into public and private open space using a land resource map FKB-AR5 (NIBIO, 2020) and a land use map (Statistics Norway, 2022). The classes transport, open land, green areas, wetlands, forest and unclassified were classified as open space. Private space was classified as any open space that is not public (Appendix X).</p>
+<p><strong>Green space</strong></p>
+<p>Green space is defined by Statistics Norway (Statistisk sentralbyrå, SSB) as urban nature areas, nærturterreng, larger than 200 000 m2 and urban recreation areas ,leke- rekreasjon-sareal, between 5 000 – 200 000 m2 (REF SSB). The World Health Organization (WHO) de-fines green space as public green spaces of at least 10 000 m2 (Konijnendijk, C. C. 2023). Here we use the definition by SSB.</p>
+<p>A land resource map FKB-AR5 (NIBIO, 2020) and a land use map (Statistics Norway, 2022) are combined, and the different land use classes are translated to green space or no-green space. The classes forest, open land, wetland, bare rock, gravel- and stone, park, sport are-as, together with lakes and ponds smaller than 1 000 m2 are classified as green space (Ap-pendix X).</p>
+</section>
+</section>
+<section id="viewshed-exposure-modelling">
+<h2 id="viewshed-exposure-modelling">Viewshed exposure modelling<a class="headerlink" href="#viewshed-exposure-modelling" title="Link to this heading">¶</a></h2>
+<p>Visual exposure to urban trees was determined using the r.viewshed.exposure tool in GRASS GIS  (Cimburova and Blumentrath (2022) for all treecrown municipalities. The DSM-DTM and the tree crown binary raster served as inputs for the analysis. The default methods settings, which define a good balance between accuracy and processing time, were applied to all municipalities (Table X). The viewshed parametrisation function was set to distance decay, which means that the pixel’s weight decreases the further you move away from the tree. The resulting visual exposure raster quantifies the level of visual exposure to urban trees, ranging from 0 (no exposure) to high expo-sure values.</p>
+<p><strong>FIGURE HERE</strong></p>
+</section>
+<section id="visual-impact-modelling">
+<h2 id="visual-impact-modelling">Visual Impact Modelling<a class="headerlink" href="#visual-impact-modelling" title="Link to this heading">¶</a></h2>
+<p>The individual tree visibility of trees located in public and private spaces were modelled us-ing the r.viewshed.impact tool (Cimburovam, 2023). The viewshed impact tool differs from the viewshed exposure tool as it uses an additional exposure weight layer and results in an individual tree visibility attribute value. The DSM-DTM raster was used as elevation data and the tree crown binary raster as the input source. The model was run two times, with first the public open space and second the private open space binary raster as exposure weight lay-er. The viewshed parametrisation function, radius and sampling density are set to the same values as for the visual exposure modelling. This resulted in a public tree visibility value and a private tree visibility value for each tree located in in the Ulven study area.</p>
+<p><strong>FIGURE HERE</strong></p>
+<p><strong>TABLE WITH PARAMETERS</strong></p>
+</section>
+<section id="calculating-measures-for-the-3-30-300-rule">
+<h2 id="calculating-measures-for-the-3-30-300-rule">Calculating measures for the 3-30-300 rule<a class="headerlink" href="#calculating-measures-for-the-3-30-300-rule" title="Link to this heading">¶</a></h2>
+<p>Within this study we calculated the three indicators of the 3-30-300 rule for each district (grunnkrets) within the study area. Code is documented on GitHub (link to notebook).</p>
+<section id="tree-visibility-count-for-residential-buildings-per-district-rule-3">
+<h3 id="tree-visibility-count-for-residential-buildings-per-district-rule-3">Tree visibility count for residential buildings per district (rule 3)<a class="headerlink" href="#tree-visibility-count-for-residential-buildings-per-district-rule-3" title="Link to this heading">¶</a></h3>
+<p>As an indicator for rule 3, all residents should be able to see at least 3 trees from their home, we tested two different measures: (i) tree buffer count and (ii) viewshed count per district.</p>
+<p>Tree crown buffer count
+The buffer count is a measure of the amount of green space accessible to residents of a given area. The buffer count is calculated by counting the number of green spaces within a specified buffer distance of each residential address (Nieuwenhuijsen et al., 2022). This study calculated the number of tree canopies that intersect with a buffer distance of 15 me-ters of residential buildings. The output is a new attribute named “count_crown_buffer” as-signed to each district polygon.</p>
+<p><strong>WORKFLOW HERE</strong></p>
+</section>
+<section id="tree-crown-area-percentage-per-district-rule-30">
+<h3 id="tree-crown-area-percentage-per-district-rule-30">Tree crown area percentage per district (rule 30)<a class="headerlink" href="#tree-crown-area-percentage-per-district-rule-30" title="Link to this heading">¶</a></h3>
+<p>The total crown area percentage is calculated per district as an indicator for rule 30, all neighbourhoods should have 30% tree canopy cover.</p>
+</section>
+<section id="green-area-proximity-for-residential-buildings-per-district-rule-300">
+<h3 id="green-area-proximity-for-residential-buildings-per-district-rule-300">Green area proximity for residential buildings per district (rule 300)<a class="headerlink" href="#green-area-proximity-for-residential-buildings-per-district-rule-300" title="Link to this heading">¶</a></h3>
+<p>We calculated the percentage of residential buildings per district that are located within a 300 m distance of green space as an indicator for rule 300. First, the distance from each residential building to a green space is calculated in meters. This value is added to the green_area_proximity attribute in the residential buildings’ dataset. Then, we count the number of residential houses per district that are located within 300m of green areas. The count and percentage are added as attributes to the district dataset, n_green_space_buildings and proc_green_space_buildings.</p>
+</section>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="../03_urban_climate/01_FROST_extract_climate_data.html" title="Extract historical climate data from the Norwegian Meteorological Institute (MET)"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Extract historical climate data from the Norwegian Meteorological Institute (MET) </span>
+              </div>
+            </a>
+          
+          
+            <a href="../sphinx_dev_info.html" title="Sphinx Developer Information"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Sphinx Developer Information </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
