@@ -1,8 +1,28 @@
 # Trekroner Documentation
 
-This repository contains the documentation for the Trekroner project.
+This repository contains the documentation for the Trekroner project. The map results are presented in AGOL-apps and the documentation is available as a hosted website on GitHub pages.
 
-**[Link to documentation](https://ninanor.github.io/trekroner-docs/html/index.html)**
+**Documentation website:** [https://ninanor.github.io/trekroner-docs/](https://ninanor.github.io/trekroner-docs/html/index.html)
+**NINA Rapport:** [link to be added](https://www.nina.no/)
+
+**AGOL-apps:**
+| kommune | Bytre-atlas |
+| --- | --- |
+| Bodø | [Bytre-atlas Bodø](https://experience.arcgis.com/experience/5191adc2c4b34658aea227c9853c6ebb) |
+| Bærum | [Bytre-atlas Bærum](https://experience.arcgis.com/experience/8e112760eff34fd5b9176cefb7d31eb3) |
+| Kristiansand | [Bytre-atlas Kristiansand](https://experience.arcgis.com/experience/6e047c5432e64b3f9abb1592d7907ff6) |
+| Oslo | [Bytre-atlas Oslo](https://experience.arcgis.com/experience/aa5030c8735946949086e4ee3dd7638b) |
+
+**repo structure:**
+
+```bash
+|-- AGOL_bytreatlas             # AGOL manual in PDF-format
+|-- docs                        # documentation source files
+|-- ES_icons                    # ecosystem services icons in PNG-format 
+|-- QField_treregisteringsapp   # QField manual and template-app
+|-- R_summary_stat              # Rmd scripts for summary statistics, knitt to md and add to docs
+```
+
 
 ## How to contribute to the documentation?
 
@@ -16,7 +36,6 @@ Install Sphinx and other dependencies listed in `pyproject.toml`. Run `make html
 
 **Deploy the documentation to GitHub pages:**
 Push the updated documentation to the remote repository. The documentation is automatically deployed to GitHub pages using GitHub actions.
-
 
 **Sphinx project structure:**
 
@@ -63,10 +82,10 @@ More detailed information about the project structure can be found in the [Sphin
 
 - Bart Immerzeel (NINA), bart.immerzeel@nina.no
 
-### **Acknowledgments**
+</br>
 
 *This repository is part of the project:*
 
-**TREKRONER Prosjektet** | Trærs betydning for klimatilpasning, karbonbinding, økosystemtjenester og biologisk mangfold.
+**TREKRONER Prosjektet** | bistand til i å synliggjøre bytrærs rolle i klimatilpasning i kommuner. 
 
 ----------------
