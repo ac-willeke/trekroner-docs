@@ -1,0 +1,66 @@
+# ${PROJECT}: path/to/local/project/catalog
+# stored in user-dir/.env
+# ----------------------------
+# DATA CATALOG
+# ----------------------------
+
+# example_file
+example_file:
+  type: excel
+  filepath: ${TEMP}/path/to/excel
+
+# fonts (../AppData/Local/Microsoft/Windows/Fonts)
+fonts:
+  type: ttf
+  filepath: ${CUSTOM_FONTS}
+
+# in situ trees (df)
+baerum:
+  bytraer:
+    type: excel
+    filepath: ${TREKRONER}/data/baerum/general/CSV/baerum_registered_trees.csv
+    filepath_parquet: ${TREKRONER}/data/baerum/general/PARQUET/baerum_registered_trees.parquet
+  trekroner:
+    type: csv
+    filepath: ${TREKRONER}/baerum/general/CSV/baerum_tree_crowns.csv
+    filepath_parquet: ${TREKRONER}/data/baerum/general/PARQUET/baerum_tree_crowns.parquet
+
+bodo:
+  bytraer:
+    type: excel
+    filepath: ${TREKRONER}/data/bodo/general/CSV/bodo_registered_trees.csv
+    filepath_parquet: ${TREKRONER}/data/bodo/general/PARQUET/bodo_registered_trees.parquet
+  trekroner:
+    type: csv
+    filepath: ${TREKRONER}data/bodo/general/CSV/bodo_tree_crowns.csv
+    filepath_parquet: ${TREKRONER}/data/bodo/general/PARQUET/bodo_tree_crowns.parquet
+
+kristiansand:
+  bytraer:
+    type: excel
+    filepath: ${TREKRONER}/data/kristiansand/general/CSV/kristiansand_registered_trees.csv
+    filepath_parquet: ${TREKRONER}/data/kristiansand/general/PARQUET/kristiansand_registered_trees.parquet
+  trekroner:
+    type: csv
+    filepath: ${TREKRONER}/data/kristiansand/general/CSV/kristiansand_tree_crowns.csv
+    filepath_parquet: ${TREKRONER}/data/kristiansand/general/PARQUET/kristiansand_tree_crowns.parquet
+
+oslo:
+  bytraer:
+    type: csv
+    filepath: ${TREKRONER}/data/oslo/general/CSV/oslo_registered_trees.csv
+    filepath_parquet: ${TREKRONER}/data/oslo/general/PARQUET/oslo_registered_trees.parquet
+  trekroner: 
+    type: csv
+    filepath: ${TREKRONER}/data/oslo/general/CSV/oslo_tree_crowns.csv
+    filepath_parquet: ${TREKRONER}/data/oslo/general/PARQUET/oslo_tree_crowns.parquet
+    
+# lookup table (lut)
+lookup_attr:
+  type: excel
+  filepath: ${TREKRONER}/data/lookup_tables/lookup_attribute_fields.xlsx
+  sheet_1: complete_fields
+  sheet_2: oslo_fields
+
+
+# ----------------------------

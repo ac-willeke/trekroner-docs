@@ -1,0 +1,227 @@
+study_area: ["baerum", "bodo", "kristiansand", "oslo"]
+
+# coordinate system
+spatial_reference:
+  utm32: "ETRS 1989 UTM Zone 32N"
+  utm33: "ETRS 1989 UTM Zone 33N"
+  utm35: "ETRS 1989 UTM Zone 35N"
+
+es_columns: ["tree_id", "norwegian_name", "dbh", 
+  "dbh_class", "crown_area", "CA_class",
+  "height_total_tree", "H_class", 
+  "co2_storage_kg", "co2_storage_nkr", 
+  "co2_seq_kg_yr", "co2_seq_nkr_yr", 
+  "runoff_m3", "runoff_nkr_yr", 
+  "co2_avoided_kg_yr", "co2_avoided_nkr_yr", 
+  "pollution_g", "pollution_nkr_yr", 
+  "energy_nkr_yr", "totben_cap"]
+
+es_columns_oslo: ["tree_id", "norwegian_name", "dbh", 
+  "dbh_class", "crown_area", "CA_class",
+  "height_total_tree", "H_class", 
+  "co2_storage_kg", 
+  "co2_seq_kg_yr", "co2_seq_nkr_yr", 
+  "runoff_m3", "runoff_nkr_yr", 
+  "co2_avoided_kg_yr", "co2_avoided_nkr_yr", 
+  "pollution_g", "pollution_nkr_yr", 
+  "energy_nkr_yr", "totben_cap"]
+
+colors:
+  pal_1: ["#BB0011", "#d1561c", "#bd8f39", "#e3aa66", "#436d53", "#034e4a",
+           "#035b6b"]
+  pal_2: ["#117733","#44AA66","#55AA22","#668822","#99BB55","#558877","#88BBAA"
+           ,"#AADDCC","#44AA88", "#A3CDED","#BB0011", "#004F71", "#5566AA",
+           "#FFDD44", "#E57200","#FFEE88"]
+  pal_3: ["#004022","#117733","#44AA66","#55AA22","#668822",
+  "#99BB55","#558877","#88BBAA","#AADDCC","#44AA88","#DDCC66","#FFDD44",
+  "#FFEE88", "#E57200","#BB0011"]
+  # https://kwstat.github.io/pals/reference/discrete.html#arguments
+  pal_lc: ["#5566AA","#117733","#44AA66","#55AA22","#668822","#99BB55"
+            ,"#558877","#88BBAA","#AADDCC","#44AA88","#DDCC66","#FFDD44",
+            "#FFEE88","#BB0011"]
+  greens: ["#004022","#48a179", "#a4d4be"]
+  gr_yw: ["#015c55","#7da37b", "#fae9a0"]
+  blues: ["#08306B", "#4292C6","#C6DBEF"]
+  pr_yw: ["#2E1161", "#E44E66","#FDFEC0"]
+
+bodo:
+  norwegian_name:  # species
+    classify_other: TRUE
+    ymax: 25
+  crown_area:
+    title: ["Alle traer", "i-Tree Eco", "Sone 1", "Sone 2"]
+    x_axis_title: "Kroneareal (m2)"
+    bin_max: [252, 252, 252, 164]
+    bin_step: [4, 4, 4, 4]
+    ymax: [600, 600, 600, 600]
+  height_total_tree:
+    title: ["Alle traer", "i-Tree Eco", "Sone 1", "Sone 2"]
+    x_axis_title: "Høyde (m)"
+    bin_max: [25, 25, 25, 16]
+    bin_step: [1, 1, 1, 2]
+    ymax: [1700, 1700, 1700, 1700]
+  dbh:
+    title: ["Alle traer", "i-Tree Eco", "Sone 1", "Sone 2"]
+    x_axis_title: "Stammediameter (cm)"
+    bin_max: [116, 116, 116, 64]
+    bin_step: [2, 2, 2, 4]
+    ymax: [1000, 1000, 1000, 1000]
+  co2_storage_kg:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Gjennomsnittlig karbonlagring (kg)"
+    mean_threshold: 100
+    ymax: 100
+    colors: ["#004022","#48a179", "#a4d4be"]
+  co2_seq_kg_yr:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Gjennomsnittlig årlig karbonbinding (kg/år)"
+    mean_threshold: 5
+    ymax: 10
+    colors: ["#015c55","#7da37b", "#fae9a0"]
+  co2_avoided_kg_yr:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "CO2-utslipp unngått (kg/år)"
+    mean_threshold: 5
+    ymax: 100
+    colors: ["#015c55","#7da37b", "#fae9a0"]
+  runoff_m3:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Reduksjon av overflateavrenning (m3/år)"
+    mean_threshold: 0.1
+    ymax: 0.5
+    colors: ["#08306B", "#4292C6","#C6DBEF"]
+  pollution_g:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Reduksjon av luftforurensning (g/år)"
+    mean_threshold: 25
+    ymax: 25
+    colors: ["#2E1161", "#E44E66","#FDFEC0"]
+
+baerum:
+  norwegian_name:  # species
+    classify_other: FALSE
+    ymax: 40
+  crown_area:
+    title: ["Alle traer", "Sone 1", "Sone 2", "Sone 3"]
+    x_axis_title: "Kroneareal (m2)"
+    bin_max: [240, 240, 240, 160]
+    bin_step: [20, 20, 20, 20]
+    ymax: [250, 250, 50, 50]
+  height_total_tree:
+    title: ["Alle traer", "Sone 1", "Sone 2", "Sone 3"]
+    x_axis_title: "Høyde (m)"
+    bin_max: [60, 60, 60, 60]
+    bin_step: [4, 4, 4, 2]
+    ymax: [250, 250, 50, 10]
+  dbh:
+    title: ["Alle traer", "Sone 1", "Sone 2", "Sone 3"]
+    x_axis_title: "Stammediameter (cm)"
+    bin_max: [116, 116, 116, 64]
+    bin_step: [2, 2, 2, 4]
+    ymax: [200, 200, 50, 50]
+
+kristiansand:
+  norwegian_name:  # species
+    classify_other: FALSE
+    ymax: 60
+  crown_area:
+    title: ["Alle traer", "i-Tree Eco", "Sone 1", "Sone 2"]
+    x_axis_title: "Kroneareal (m2)"
+    bin_max: [300, 300, 300, 250]
+    bin_step: [15, 15, 15, 5]
+    ymax: [25, 25, 25, 25]
+  height_total_tree:
+    title: ["Alle traer", "i-Tree Eco", "Sone 1", "Sone 2"]
+    x_axis_title: "Høyde (m)"
+    bin_max: [28, 28, 28, 13]
+    bin_step: [2, 2, 1, 1]
+    ymax: [50, 50, 50, 50]
+  dbh:
+    title: ["Alle traer", "i-Tree Eco", "Sone 1", "Sone 2"]
+    x_axis_title: "Stammediameter (cm)"
+    bin_max: [160, 160, 160, 80]
+    bin_step: [8, 8, 8, 5]
+    ymax: [25, 25, 25, 25]
+  co2_storage_kg:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Gjennomsnittlig karbonlagring (kg)"
+    mean_threshold: 100
+    ymax: 100
+    colors: ["#004022","#48a179", "#a4d4be"]
+  co2_seq_kg_yr:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Gjennomsnittlig årlig karbonbinding (kg/år)"
+    mean_threshold: 5
+    ymax: 10
+    colors: ["#015c55","#7da37b", "#fae9a0"]
+  co2_avoided_kg_yr:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "CO2-utslipp unngått (kg/år)"
+    mean_threshold: 5
+    ymax: 100
+    colors: ["#015c55","#7da37b", "#fae9a0"]
+  runoff_m3:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Reduksjon av overflateavrenning (m3/år)"
+    mean_threshold: 0.1
+    ymax: 10
+    colors: ["#08306B", "#4292C6","#C6DBEF"]
+  pollution_g:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Reduksjon av luftforurensning (g/år)"
+    mean_threshold: 25
+    ymax: 50
+    colors: ["#2E1161", "#E44E66","#FDFEC0"]
+
+oslo:
+  norwegian_name:  # species
+    classify_other: TRUE
+    ymax: 60
+  crown_area:
+    title: ["Alle traer", "i-Tree Eco", "Skole Trær", "Sone 1", "Sone 2", "Sone 3"]
+    x_axis_title: "Kroneareal (m2)"
+    bin_max: [400, 400, 400, 400, 400, 400]
+    bin_step: [10, 10, 10, 10, 10, 10]
+    ymax: [3000, 2000, 40, 2000, 2000, 200]
+  height_total_tree:
+    title: ["Alle traer", "i-Tree Eco", "Skole Trær", "Sone 1", "Sone 2", "Sone 3"]
+    x_axis_title: "Høyde (m)"
+    bin_max: [42, 42, 42, 42, 42, 42]
+    bin_step: [2, 2, 2, 2, 2, 2]
+    ymax: [4000, 2500, 50, 2000, 2000, 300]
+  dbh:
+    title: ["Alle traer", "i-Tree Eco", "Skole Trær", "Sone 1", "Sone 2", "Sone 3"]
+    x_axis_title: "Stammediameter (cm)"
+    bin_max: [120, 120, 120, 120, 120, 120]
+    bin_step: [5, 5, 5, 5, 5, 5]
+    ymax: [4000, 3000, 60, 2000, 2000, 300]
+  co2_storage_kg:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Gjennomsnittlig \nkarbonlagring (kg)"
+    mean_threshold: 500
+    ymax: 100
+    colors: ["#004022","#48a179", "#a4d4be"]
+  co2_seq_kg_yr:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Gjennomsnittlig \nårlig karbonbinding (kg/år)"
+    mean_threshold: 8
+    ymax: 10
+    colors: ["#015c55","#7da37b", "#fae9a0"]
+  co2_avoided_kg_yr:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "CO2-utslipp unngått (kg/år)"
+    mean_threshold: 5
+    ymax: 100
+    colors: ["#015c55","#7da37b", "#fae9a0"]
+  runoff_m3:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Reduksjon av \noverflateavrenning (m3/år)"
+    mean_threshold: 2
+    ymax: 20
+    colors: ["#08306B", "#4292C6","#C6DBEF"]
+  pollution_g:
+    y_axis_title: ["Treslag*", "Stammediameter (cm)", "Kroneareal (m2)", "Høyde (m)"]
+    x_axis_title: "Reduksjon av \nluftforurensning (g/år)"
+    mean_threshold: 800
+    ymax: 25
+    colors: ["#2E1161", "#E44E66","#FDFEC0"]

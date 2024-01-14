@@ -34,8 +34,8 @@ params:
 
 ```{r "SETUP", echo=FALSE, results='hide',message=FALSE, warning=FALSE}
 cwd <- getwd()
-project_path <- dirname(dirname(cwd))
-logger::log_info(paste0("Project path: ", project_path))
+project_path <- cwd #dirname(cwd)
+
 
 # INSTALL AND LOAD R PACKAGES
 # ---------------------------
@@ -47,7 +47,7 @@ libs <- c("modules", "logger", "extrafont", "ggplot2", "arrow", "magrittr")
 
 
 if (any(.installed_libs == FALSE)) {
-    install.packages(libs[!installed_libs])
+    install.packages(libs[!.installed_libs])
 }
 
 invisible(lapply(
@@ -56,6 +56,7 @@ invisible(lapply(
     character.only = TRUE
 ))
 
+logger::log_info(paste0("Project path: ", project_path))
 logger::log_info(paste0("R packages loaded: ", paste(libs, collapse = ", ")))
 
 # LOAD LOCAL MODULES

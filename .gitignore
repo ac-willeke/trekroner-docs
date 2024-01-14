@@ -173,3 +173,11 @@ mnt/**
 
 # docker
 devcontainer.json
+
+# R 
+.Rhistory
+.RData
+.Rproj
+.Rproj.user
+.Rprofile
+*.Rproj
