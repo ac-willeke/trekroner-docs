@@ -5,7 +5,7 @@ i-Tree Support Tools
    :maxdepth: 1
 
    README
-   installation
    project_structure
+   extrapolation
 
 

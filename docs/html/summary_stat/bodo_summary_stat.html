@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Sammendragsstatistikk | Registrerte trær i Bodø &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sammendragsstatistikk | Registrerte trær i Bærum" href="baerum_summary_stat.html" />
+    <link rel="prev" title="Sammendragsstatistikk (NO)" href="index.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#summary_stat/bodo_summary_stat" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> Sammendragsstatistikk | Registrerte trær i Bodø </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Sammendragsstatistikk (NO)</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#summary-stat-bodo-summary-stat--page-root" class="md-nav__link">Sammendragsstatistikk | Registrerte trær i Bodø</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#treslagsfordeling-i-bodo" class="md-nav__link">Treslagsfordeling i Bodø</a>
+        </li>
+        <li class="md-nav__item"><a href="#tre-egenskaper" class="md-nav__link">Tre egenskaper</a>
+        </li>
+        <li class="md-nav__item"><a href="#regulerende-okosystemtjenester" class="md-nav__link">Regulerende økosystemtjenester</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="sammendragsstatistikk-registrerte-traer-i-bodo">
+<h1 id="summary-stat-bodo-summary-stat--page-root">Sammendragsstatistikk | Registrerte trær i Bodø<a class="headerlink" href="#summary-stat-bodo-summary-stat--page-root" title="Link to this heading">¶</a></h1>
+<p>Dette dokumentet viser sammendragstatistikken for registrerte trær innenfor Bodø’s byggesone. Tilknyttede kartprodukter er synlige i bytræratlaset: <a class="reference external" href="https://experience.arcgis.com/experience/5191adc2c4b34658aea227c9853c6ebb/">Bytræratlas Bodø</a></p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gruppe</p></th>
+<th class="head"><p>Beskrivelse</p></th>
+<th class="head"><p>Antall</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Totalt registerte trær</p></td>
+<td><p>Totalt antall registrerte trær i Bodø</p></td>
+<td><p>6184</p></td>
+</tr>
+<tr class="row-odd"><td><p>i-Tree Eco</p></td>
+<td><p>Totalt antall trær brukt i i-Tree Eco</p></td>
+<td><p>6131</p></td>
+</tr>
+<tr class="row-even"><td><p>Sone 1</p></td>
+<td><p>Trær i forurensnings sone 1 (grønn)</p></td>
+<td><p>5813</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sone 2</p></td>
+<td><p>Trær i forurensnings sone 2 (gull)</p></td>
+<td><p>371</p></td>
+</tr>
+<tr class="row-even"><td><p>Sone 3</p></td>
+<td><p>Trær i forurensnings sone 3 (rød)</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Totalt trebestand</p></td>
+<td><p>Totalt antall trær i bestanden (basert på laserdata)</p></td>
+<td><p>103504</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+<section id="treslagsfordeling-i-bodo">
+<h2 id="treslagsfordeling-i-bodo">Treslagsfordeling i Bodø<a class="headerlink" href="#treslagsfordeling-i-bodo" title="Link to this heading">¶</a></h2>
+<p>Treslag som har en sannsynlighet på mindre enn 3% er klassifisert som “Andre treslag”.</p>
+<p><img alt="species probability" src="../_images/SPECIES_PROBABILITY-11.png"/></p>
+<p><font face="Arial" size="2.0">*Treslag klassifisert som ‘Andre treslag’ er: Alm, Alpeasal, Amerikahagtorn, Anna Art, Ask, Blodbøk, Dunpil, Eple, Gran, Gråor, Gråselje, Gullregn, Hagtorn, Hegg, Hestekastanje, Hvitpil, Istervier, Katsuratre, Kurvpil, Lerk, Morell, Neverhegg, Ornäsbjørk, Prydeple, Rognasal, Rød spisslønn, Rødhyll, Sargentkirsebær, Sitkagran, Spisslønn, Sølvasal, Sølvpil, Tartarlønn, Ukjent, Ullungrogn, Valnøtt </font></p>
+<br/>
+</section>
+<section id="tre-egenskaper">
+<h2 id="tre-egenskaper">Tre egenskaper<a class="headerlink" href="#tre-egenskaper" title="Link to this heading">¶</a></h2>
+<p><img alt="TREE ATTRIBUTES 1" src="../_images/TREE_ATTRIBUTES-11.png"/>
+<img alt="TREE ATTRIBUTES 2" src="../_images/TREE_ATTRIBUTES-21.png"/>
+<img alt="TREE ATTRIBUTES 3" src="../_images/TREE_ATTRIBUTES-3.png"/>
+<br/></p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Treslag</p></th>
+<th class="head text-right"><p>Antall Trær</p></th>
+<th class="head text-right"><p>Kroneareal (m2)</p></th>
+<th class="head text-right"><p>Høyde (m)</p></th>
+<th class="head text-right"><p>Stammediameter (cm)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Alm</p></td>
+<td class="text-right"><p>33</p></td>
+<td class="text-right"><p>44.08</p></td>
+<td class="text-right"><p>11.69</p></td>
+<td class="text-right"><p>29.13</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Alpeasal</p></td>
+<td class="text-right"><p>34</p></td>
+<td class="text-right"><p>38.56</p></td>
+<td class="text-right"><p>5.10</p></td>
+<td class="text-right"><p>13.67</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Amerikahagtorn</p></td>
+<td class="text-right"><p>5</p></td>
+<td class="text-right"><p>29.16</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>5.41</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Anna Art</p></td>
+<td class="text-right"><p>55</p></td>
+<td class="text-right"><p>30.76</p></td>
+<td class="text-right"><p>6.89</p></td>
+<td class="text-right"><p>13.02</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Ask</p></td>
+<td class="text-right"><p>89</p></td>
+<td class="text-right"><p>57.26</p></td>
+<td class="text-right"><p>11.20</p></td>
+<td class="text-right"><p>29.78</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Balsampoppel</p></td>
+<td class="text-right"><p>304</p></td>
+<td class="text-right"><p>43.22</p></td>
+<td class="text-right"><p>12.86</p></td>
+<td class="text-right"><p>31.48</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Bjørk</p></td>
+<td class="text-right"><p>1274</p></td>
+<td class="text-right"><p>23.98</p></td>
+<td class="text-right"><p>8.95</p></td>
+<td class="text-right"><p>17.18</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Blodbøk</p></td>
+<td class="text-right"><p>29</p></td>
+<td class="text-right"><p>39.95</p></td>
+<td class="text-right"><p>8.22</p></td>
+<td class="text-right"><p>12.51</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Dunpil</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-right"><p>52.85</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>9.55</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Eple</p></td>
+<td class="text-right"><p>7</p></td>
+<td class="text-right"><p>25.57</p></td>
+<td class="text-right"><p>6.26</p></td>
+<td class="text-right"><p>10.23</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Furu</p></td>
+<td class="text-right"><p>200</p></td>
+<td class="text-right"><p>20.32</p></td>
+<td class="text-right"><p>11.38</p></td>
+<td class="text-right"><p>29.95</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Gran</p></td>
+<td class="text-right"><p>22</p></td>
+<td class="text-right"><p>35.19</p></td>
+<td class="text-right"><p>11.45</p></td>
+<td class="text-right"><p>28.94</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Gråor</p></td>
+<td class="text-right"><p>9</p></td>
+<td class="text-right"><p>46.27</p></td>
+<td class="text-right"><p>9.56</p></td>
+<td class="text-right"><p>29.71</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Gråselje</p></td>
+<td class="text-right"><p>15</p></td>
+<td class="text-right"><p>35.39</p></td>
+<td class="text-right"><p>6.57</p></td>
+<td class="text-right"><p>16.02</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Gullregn</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-right"><p>55.84</p></td>
+<td class="text-right"><p>8.04</p></td>
+<td class="text-right"><p>22.24</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Hagtorn</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-right"><p>22.53</p></td>
+<td class="text-right"><p>5.67</p></td>
+<td class="text-right"><p>9.55</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Hegg</p></td>
+<td class="text-right"><p>19</p></td>
+<td class="text-right"><p>28.73</p></td>
+<td class="text-right"><p>6.35</p></td>
+<td class="text-right"><p>11.90</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Hengebjørk</p></td>
+<td class="text-right"><p>304</p></td>
+<td class="text-right"><p>33.23</p></td>
+<td class="text-right"><p>9.55</p></td>
+<td class="text-right"><p>19.67</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Hestekastanje</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>99.86</p></td>
+<td class="text-right"><p>11.08</p></td>
+<td class="text-right"><p>49.87</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Hvitpil</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>44.37</p></td>
+<td class="text-right"><p>8.33</p></td>
+<td class="text-right"><p>8.49</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Istervier</p></td>
+<td class="text-right"><p>29</p></td>
+<td class="text-right"><p>21.11</p></td>
+<td class="text-right"><p>5.47</p></td>
+<td class="text-right"><p>6.42</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Katsuratre</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-right"><p>65.76</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>12.73</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Kurvpil</p></td>
+<td class="text-right"><p>2</p></td>
+<td class="text-right"><p>44.47</p></td>
+<td class="text-right"><p>7.50</p></td>
+<td class="text-right"><p>12.73</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Lerk</p></td>
+<td class="text-right"><p>176</p></td>
+<td class="text-right"><p>26.60</p></td>
+<td class="text-right"><p>14.24</p></td>
+<td class="text-right"><p>32.79</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Morell</p></td>
+<td class="text-right"><p>21</p></td>
+<td class="text-right"><p>27.83</p></td>
+<td class="text-right"><p>5.64</p></td>
+<td class="text-right"><p>4.55</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Neverhegg</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>34.22</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Ornäsbjørk</p></td>
+<td class="text-right"><p>95</p></td>
+<td class="text-right"><p>38.46</p></td>
+<td class="text-right"><p>5.50</p></td>
+<td class="text-right"><p>8.20</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Osp</p></td>
+<td class="text-right"><p>377</p></td>
+<td class="text-right"><p>20.39</p></td>
+<td class="text-right"><p>9.98</p></td>
+<td class="text-right"><p>19.37</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Platanlønn</p></td>
+<td class="text-right"><p>262</p></td>
+<td class="text-right"><p>52.21</p></td>
+<td class="text-right"><p>7.65</p></td>
+<td class="text-right"><p>18.88</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Prydeple</p></td>
+<td class="text-right"><p>5</p></td>
+<td class="text-right"><p>24.40</p></td>
+<td class="text-right"><p>7.26</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Rogn</p></td>
+<td class="text-right"><p>686</p></td>
+<td class="text-right"><p>22.79</p></td>
+<td class="text-right"><p>7.29</p></td>
+<td class="text-right"><p>12.35</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Rognasal</p></td>
+<td class="text-right"><p>34</p></td>
+<td class="text-right"><p>35.16</p></td>
+<td class="text-right"><p>5.68</p></td>
+<td class="text-right"><p>10.35</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Rød spisslønn</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-right"><p>38.83</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Rødhyll</p></td>
+<td class="text-right"><p>4</p></td>
+<td class="text-right"><p>20.04</p></td>
+<td class="text-right"><p>5.18</p></td>
+<td class="text-right"><p>7.56</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Sargentkirsebær</p></td>
+<td class="text-right"><p>8</p></td>
+<td class="text-right"><p>27.62</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Selje</p></td>
+<td class="text-right"><p>558</p></td>
+<td class="text-right"><p>33.12</p></td>
+<td class="text-right"><p>8.11</p></td>
+<td class="text-right"><p>18.81</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Sitkagran</p></td>
+<td class="text-right"><p>17</p></td>
+<td class="text-right"><p>23.68</p></td>
+<td class="text-right"><p>7.91</p></td>
+<td class="text-right"><p>15.26</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Spisslønn</p></td>
+<td class="text-right"><p>31</p></td>
+<td class="text-right"><p>51.23</p></td>
+<td class="text-right"><p>6.87</p></td>
+<td class="text-right"><p>11.40</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Svensk asal</p></td>
+<td class="text-right"><p>925</p></td>
+<td class="text-right"><p>41.54</p></td>
+<td class="text-right"><p>7.18</p></td>
+<td class="text-right"><p>23.86</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Syrin</p></td>
+<td class="text-right"><p>456</p></td>
+<td class="text-right"><p>17.77</p></td>
+<td class="text-right"><p>5.51</p></td>
+<td class="text-right"><p>6.09</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Sølvasal</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>49.59</p></td>
+<td class="text-right"><p>5.87</p></td>
+<td class="text-right"><p>20.16</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Sølvpil</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>32.04</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Tartarlønn</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>14.94</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Ullungrogn</p></td>
+<td class="text-right"><p>16</p></td>
+<td class="text-right"><p>31.81</p></td>
+<td class="text-right"><p>6.67</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Valnøtt</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-right"><p>38.83</p></td>
+<td class="text-right"><p>5.00</p></td>
+<td class="text-right"><p>6.37</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+<section id="regulerende-okosystemtjenester">
+<h2 id="regulerende-okosystemtjenester">Regulerende økosystemtjenester<a class="headerlink" href="#regulerende-okosystemtjenester" title="Link to this heading">¶</a></h2>
+<p><img alt="KARBON LAGRING" src="../_images/KARBON_LAGRING-1.png"/></p>
+<p><font face="Arial" size="2.0">*Treslag med gjennomsnittlig karbonlagring &lt; 100 kg vises ikke i plottet. </font></p>
+<p><img alt="KARBON BINDING" src="../_images/KARBON_BINDING-1.png"/></p>
+<p><font face="Arial" size="2.0">*Treslag med årlig karbonbinding &lt; 5 kg/år vises ikke i plottet. </font></p>
+<p><img alt="OVERFLATEAVRENNING" src="../_images/OVERFLATEAVRENNING-1.png"/></p>
+<p><font face="Arial" size="2.0">*Treslag med gjennomsnittlig reduksjon av overflateavrenning &lt; 0.1 m3/år vises ikke i plottet. </font></p>
+<p><img alt="POLLUTION" src="../_images/POLLUTION-1.png"/></p>
+<p><font face="Arial" size="2.0">*Treslag med gjennomsnittlig reduksjon av luftforurensing &lt; 25 g/år vises ikke i plottet. </font></p>
+<br/>
+<table>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Kroneareal (m2)</p></th>
+<th class="head text-right"><p>Antall Trær</p></th>
+<th class="head text-right"><p>Karbonlagring (kg)</p></th>
+<th class="head text-right"><p>Årlig karbonbinding (kg/år)</p></th>
+<th class="head text-right"><p>Årlig karbonbinding (NKr/år)</p></th>
+<th class="head text-right"><p>CO2-utslipp unngått (kg/år)</p></th>
+<th class="head text-right"><p>CO2-utslipp unngått (NKr/år)</p></th>
+<th class="head text-right"><p>Reduksjon av overflateavrenning (m3/år)</p></th>
+<th class="head text-right"><p>Reduksjon av overflateavrenning (NKr/år)</p></th>
+<th class="head text-right"><p>Reduksjon av luftforurensing (g/år)</p></th>
+<th class="head text-right"><p>Reduksjon av luftforurensing (NKr/år)</p></th>
+<th class="head text-right"><p>Energibesparelse (Nkr/år)</p></th>
+<th class="head text-right"><p>Totalverdi Økosystemtjenester (NKr/år)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>0-50</p></td>
+<td class="text-right"><p>5064</p></td>
+<td class="text-right"><p>103.27</p></td>
+<td class="text-right"><p>6.09</p></td>
+<td class="text-right"><p>11.46</p></td>
+<td class="text-right"><p>8.73</p></td>
+<td class="text-right"><p>17.75</p></td>
+<td class="text-right"><p>0.05</p></td>
+<td class="text-right"><p>0.44</p></td>
+<td class="text-right"><p>21.50</p></td>
+<td class="text-right"><p>14.62</p></td>
+<td class="text-right"><p>177.10</p></td>
+<td class="text-right"><p>52.85</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>50-100</p></td>
+<td class="text-right"><p>951</p></td>
+<td class="text-right"><p>204.31</p></td>
+<td class="text-right"><p>8.21</p></td>
+<td class="text-right"><p>15.47</p></td>
+<td class="text-right"><p>11.89</p></td>
+<td class="text-right"><p>22.61</p></td>
+<td class="text-right"><p>0.15</p></td>
+<td class="text-right"><p>1.17</p></td>
+<td class="text-right"><p>49.05</p></td>
+<td class="text-right"><p>33.29</p></td>
+<td class="text-right"><p>221.37</p></td>
+<td class="text-right"><p>101.64</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>100-150</p></td>
+<td class="text-right"><p>102</p></td>
+<td class="text-right"><p>469.81</p></td>
+<td class="text-right"><p>12.31</p></td>
+<td class="text-right"><p>23.18</p></td>
+<td class="text-right"><p>18.72</p></td>
+<td class="text-right"><p>35.25</p></td>
+<td class="text-right"><p>0.20</p></td>
+<td class="text-right"><p>1.59</p></td>
+<td class="text-right"><p>66.87</p></td>
+<td class="text-right"><p>45.39</p></td>
+<td class="text-right"><p>338.81</p></td>
+<td class="text-right"><p>160.11</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>150-200</p></td>
+<td class="text-right"><p>10</p></td>
+<td class="text-right"><p>699.60</p></td>
+<td class="text-right"><p>15.30</p></td>
+<td class="text-right"><p>28.79</p></td>
+<td class="text-right"><p>8.73</p></td>
+<td class="text-right"><p>16.39</p></td>
+<td class="text-right"><p>0.37</p></td>
+<td class="text-right"><p>2.92</p></td>
+<td class="text-right"><p>88.58</p></td>
+<td class="text-right"><p>59.86</p></td>
+<td class="text-right"><p>126.39</p></td>
+<td class="text-right"><p>134.40</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>200-250</p></td>
+<td class="text-right"><p>3</p></td>
+<td class="text-right"><p>1758.53</p></td>
+<td class="text-right"><p>19.53</p></td>
+<td class="text-right"><p>36.84</p></td>
+<td class="text-right"><p>61.45</p></td>
+<td class="text-right"><p>115.62</p></td>
+<td class="text-right"><p>0.20</p></td>
+<td class="text-right"><p>1.60</p></td>
+<td class="text-right"><p>111.30</p></td>
+<td class="text-right"><p>75.90</p></td>
+<td class="text-right"><p>1042.30</p></td>
+<td class="text-right"><p>886.27</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>250-300</p></td>
+<td class="text-right"><p>1</p></td>
+<td class="text-right"><p>3160.00</p></td>
+<td class="text-right"><p>50.00</p></td>
+<td class="text-right"><p>94.14</p></td>
+<td class="text-right"><p>NaN</p></td>
+<td class="text-right"><p>NaN</p></td>
+<td class="text-right"><p>0.20</p></td>
+<td class="text-right"><p>1.76</p></td>
+<td class="text-right"><p>122.60</p></td>
+<td class="text-right"><p>83.58</p></td>
+<td class="text-right"><p>NaN</p></td>
+<td class="text-right"><p>179.49</p></td>
+</tr>
+</tbody>
+</table>
+<br/>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="index.html" title="Sammendragsstatistikk (NO)"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Sammendragsstatistikk (NO) </span>
+              </div>
+            </a>
+          
+          
+            <a href="baerum_summary_stat.html" title="Sammendragsstatistikk | Registrerte trær i Bærum"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Sammendragsstatistikk | Registrerte trær i Bærum </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

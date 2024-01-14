@@ -1,6 +1,6 @@
-====================
-Urban Tree Detection
-====================
+=============================
+Task 1 | Urban Tree Detection
+=============================
 
 *work in progress, move word docs to rst*
 
@@ -43,7 +43,7 @@ Installation
 .. toctree::
    :maxdepth: 1 
 
-   installation
+   ../05_installation_manuals/01_tree_detection_installation
    project_structure
 
 

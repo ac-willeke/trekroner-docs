@@ -30,10 +30,10 @@ Innhold
 .. toctree::
    :maxdepth: 1
 
-   app_instruks/qfield_instruks
-   app_instruks/agol_instruks
+   app_instructions/qfield
+   app_instructions/agol
    methods/index
-   Rmd/index
+   summary_stat/index
    ES_icons/ES_icons.md
 
 .. raw:: html

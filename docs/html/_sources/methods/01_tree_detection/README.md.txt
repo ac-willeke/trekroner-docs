@@ -1,4 +1,4 @@
-# Readme
+# Task 1 | Urban Tree Detection
 
 This project provides a workflow for detecting trees in urban areas using Airborne Laser Scanning (ALS) data and national geographic datasets. The output is a tree database with **tree crown** polygons and **tree top** points per neighbourhood. 
 

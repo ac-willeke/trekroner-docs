@@ -1,0 +1,28 @@
+# Instruks | QField Treregisteringsapp (NO)
+
+*arbeid pågår*
+
+QField Treregisteringsapp er et feltregisteringsverktøy til bruk i treregistering etter feltmetoder
+for i-Tree Eco og Verdsetting av Trær (VAT). QField Treregisteringsappen er utviklet av NINA i
+2021 (Nollet et al., 2021) og oppdatert under Trekroner-prosjektet i 2023.
+
+Appen er koblet til et kartgrensesnitt i kommunen og en tilhørende database i QGIS. Dette gjør at
+man slipper å bruke papirskjema i felt, taste inn data i Excel og laste dem opp til GIS-programvare.
+I stedet hentes dataene direkte ut i i-Tree-format. Dette reduserer ressursbruken for kommunens
+feltarbeidere og risikoen for feil ved dataoverføring.
+
+Appen brukes til å innhente bakkedata som ikke er tilgjengelige fra Lidar-kartlegging eller i kommunenes
+tredatabaser. Dette gjelder spesielt data om treslag, stammeomkrets, trekronens høyde
+over bakken og trærs tilsands variabler. I tillegg er det mulig å registrere data som brukes til i
+Verdisetting av Trær (VAT). VAT samler inn tilleggsdata som kan brukes til å vurdere treets helsetilstand,
+som anslått alder og betydning som biotop for andre arter. Dette er variabler som er til
+vurdering i en standardisering av Standard Norge.
+
+Vi har testet QField appen på Android nettbrett i prosjektet. Detaljerte instrukser for hvordan man
+bruker appen fra felt-til-GIS er tilgjengelige **[her](https://github.com/NINAnor/trekroner-docs/blob/main/QField_treregistreringsapp/QField_app_treregistrering_v3.pdf)**. I tillegg finnes det informasjon om hvordan man oppretter et nytt prosjekt med samme mal for å kartlegge et nytt område i kommunen.
+
+
+```{note}
+Last ned instruks og QField mal-prosjektet fra [GitHub](https://github.com/NINAnor/trekroner-docs/tree/main/QField_treregistreringsapp)
+```
+

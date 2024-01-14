@@ -6,8 +6,3 @@ Tree Visibility and Impact Modelling
 
    README
    installation
-   project_structure
-
-
-3-30-300 Rule
-------------------------------------

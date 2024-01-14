@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Extract historical climate data from the Norwegian Meteorological Institute (MET) &#8212; Trekroner  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sammendragsstatistikk (NO)" href="../../summary_stat/index.html" />
+    <link rel="prev" title="Notebooks" href="index.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#methods/notebooks/01_FROST_extract_climate_data" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Trekroner  documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Trekroner  documentation</span>
+          <span class="md-header-nav__topic"> Extract historical climate data from the Norwegian Meteorological Institute (MET) </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Notebooks</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Trekroner documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="Trekroner documentation">Trekroner  documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-notebooks-01-frost-extract-climate-data--page-root" class="md-nav__link">Extract historical climate data from the Norwegian Meteorological Institute (MET)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#Stations-Request" class="md-nav__link">Stations Request</a>
+        </li>
+        <li class="md-nav__item"><a href="#Observations-Request" class="md-nav__link">Observations Request</a>
+        </li>
+        <li class="md-nav__item"><a href="#Oslo-and-Bærums-Hottest-Summer-on-Record" class="md-nav__link">Oslo and Bærums Hottest Summer on Record</a>
+        </li>
+        <li class="md-nav__item"><a href="#Kristiansand-Hottest-summer-on-record" class="md-nav__link">Kristiansand Hottest summer on record</a>
+        </li>
+        <li class="md-nav__item"><a href="#Bodø-Hottest-summer-on-record" class="md-nav__link">Bodø Hottest summer on record</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="Extract-historical-climate-data-from-the-Norwegian-Meteorological-Institute-(MET)">
+<h1 id="methods-notebooks-01-frost-extract-climate-data--page-root">Extract historical climate data from the Norwegian Meteorological Institute (MET)<a class="headerlink" href="#methods-notebooks-01-frost-extract-climate-data--page-root" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/ac-willeke/urban-climate/blob/main/notebooks/01_FROST_extract_climate_data.ipynb"><img alt="colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a class="reference external" href="https://github.com/ac-willeke/"><img alt="github" src="https://img.shields.io/badge/GitHub-View%20on%20GitHub-blue?logo=github"/></a></p>
+<p><strong>Author</strong>: Willeke A’Campo</p>
+<p><strong>Description:</strong> This notebook extracts historical climate data from the Norwegian Meteorological Institute (MET) using the FROST API. The data is stored in a pandas dataframe and saved as a csv file. The data is used to detect the hottest summer on record in Bærum, Bodø, Kristiansand, and Oslo.</p>
+<p><strong>Data source:</strong> <a class="reference external" href="https://frost.met.no/index.html">Documentation Frost MET</a></p>
+<p><strong>Result Summary:</strong></p>
+<p>The table shows hottest summer on record in Bærum, Bodø, Kristiansand, and Oslo.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>City</p></th>
+<th class="head"><p>Station</p></th>
+<th class="head"><p>SourceID</p></th>
+<th class="head"><p>Coordinates</p></th>
+<th class="head"><p>Hottest Summer during Landsat-8 observation period</p></th>
+<th class="head"><p>Temperature</p></th>
+<th class="head"><p>Hottest Summer on record</p></th>
+<th class="head"><p>Temperature</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bærum</p></td>
+<td><p>Oslo (Blindern)</p></td>
+<td><p>SN18700</p></td>
+<td><p>10.723072, 59.940625</p></td>
+<td><p>2018</p></td>
+<td><p>18.8</p></td>
+<td><p>1997</p></td>
+<td><p>18.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bodø</p></td>
+<td><p>Bodø (Lufthavn)</p></td>
+<td><p>SN82310</p></td>
+<td><p>14.375128, 67.282669</p></td>
+<td><p>2023</p></td>
+<td><p>14.1</p></td>
+<td><p>2023</p></td>
+<td><p>14.1</p></td>
+</tr>
+<tr class="row-even"><td><p>Kristiansand</p></td>
+<td><p>Kristiansand (Lufthavn)</p></td>
+<td><p>SN39040</p></td>
+<td><p>7.995733, 58.14615</p></td>
+<td><p>2018</p></td>
+<td><p>17.5</p></td>
+<td><p>2018</p></td>
+<td><p>17.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Oslo</p></td>
+<td><p>Oslo (Blindern)</p></td>
+<td><p>SN18700</p></td>
+<td><p>10.723072, 59.940625</p></td>
+<td><p>2018</p></td>
+<td><p>18.8</p></td>
+<td><p>1997</p></td>
+<td><p>18.8</p></td>
+</tr>
+</tbody>
+</table>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">project_path</span><span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">credentials_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_path</span><span class="p">,</span> <span class="s1">'conf/local/credentials.yml'</span><span class="p">)</span>
+
+<span class="c1"># read client id from conf/local/credentials.yml</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">credentials_file</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">credentials</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">client_id</span> <span class="o">=</span> <span class="n">credentials</span><span class="p">[</span><span class="s1">'frost_api'</span><span class="p">][</span><span class="s1">'client_id'</span><span class="p">]</span>
+    <span class="n">client_key</span> <span class="o">=</span> <span class="n">credentials</span><span class="p">[</span><span class="s1">'frost_api'</span><span class="p">][</span><span class="s1">'client_key'</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<section id="Stations-Request">
+<h2 id="Stations-Request">Stations Request<a class="headerlink" href="#Stations-Request" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define stations endpoint</span>
+<span class="n">endpoint_stations</span> <span class="o">=</span> <span class="s1">'https://frost.met.no/locations/v0.jsonld'</span>
+<span class="c1"># Issue an HTTP GET request</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint_stations</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span><span class="s1">''</span><span class="p">))</span>
+<span class="c1"># Extract JSON data</span>
+<span class="n">json_stations</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># search for station with name Oslo, Kristiansand, Bodø and Bæerum</span>
+<span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">json_stations</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]:</span>
+    <span class="c1"># print station name and coordinates</span>
+    <span class="k">if</span> <span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Oslo'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span> <span class="n">station</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">][</span><span class="s1">'coordinates'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Kristiansand'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span> <span class="n">station</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">][</span><span class="s1">'coordinates'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Bodø'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span> <span class="n">station</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">][</span><span class="s1">'coordinates'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Blindern'</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">station</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span> <span class="n">station</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">][</span><span class="s1">'coordinates'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Blindern [10.723072, 59.940625]
+Bodø [14.375128, 67.282669]
+Kristiansand [7.995733, 58.14615]
+Oslo [10.746092, 59.912728]
+</pre></div></div>
+</div>
+</section>
+<section id="Observations-Request">
+<h2 id="Observations-Request">Observations Request<a class="headerlink" href="#Observations-Request" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define endpoint and parameters</span>
+<span class="n">endpoint_observations</span> <span class="o">=</span> <span class="s1">'https://frost.met.no/observations/v0.jsonld'</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'sources'</span><span class="p">:</span> <span class="s1">'SN18700,SN39040,SN82310'</span><span class="p">,</span> <span class="c1"># oslo/bærum, kristiansand, bodø</span>
+    <span class="s1">'elements'</span><span class="p">:</span> <span class="s1">'mean(air_temperature P3M)'</span><span class="p">,</span> <span class="c1"># best_estimate_mean(air_temperature P3M)</span>
+    <span class="s1">'referencetime'</span><span class="p">:</span> <span class="s1">'1900-01-01/2023-10-01'</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint_observations</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="n">client_id</span><span class="p">,</span><span class="s1">''</span><span class="p">))</span>
+<span class="n">json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if the request worked, print out any errors</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="p">[</span><span class="s1">'data'</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Data retrieved from frost.met.no!'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Error! Returned status code </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Message: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">json</span><span class="p">[</span><span class="s1">'error'</span><span class="p">][</span><span class="s1">'message'</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Reason: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">json</span><span class="p">[</span><span class="s1">'error'</span><span class="p">][</span><span class="s1">'reason'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Data retrieved from frost.met.no!
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return a Dataframe with all of the observations in a table format</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'observations'</span><span class="p">])</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">'referenceTime'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'referenceTime'</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">[</span><span class="s1">'sourceId'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">'sourceId'</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">row</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These columns will be kept</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sourceId'</span><span class="p">,</span><span class="s1">'referenceTime'</span><span class="p">,</span><span class="s1">'elementId'</span><span class="p">,</span><span class="s1">'value'</span><span class="p">,</span><span class="s1">'unit'</span><span class="p">,</span><span class="s1">'timeOffset'</span><span class="p">]</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Convert the time value to Python standard datetime format</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">'referenceTime'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">'referenceTime'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># only show the data for the summer months</span>
+<span class="n">df_summer</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[(</span><span class="n">df2</span><span class="p">[</span><span class="s1">'referenceTime'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">'referenceTime'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Oslo-and-Bærums-Hottest-Summer-on-Record">
+<h2 id="Oslo-and-Bærums-Hottest-Summer-on-Record">Oslo and Bærums Hottest Summer on Record<a class="headerlink" href="#Oslo-and-Bærums-Hottest-Summer-on-Record" title="Link to this heading">¶</a></h2>
+<p>The hottes summer on record for Bærum and Oslo during Landsat 8 observation period (2013 - present) is 2018.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate df for oslo</span>
+<span class="n">df_oslo</span> <span class="o">=</span> <span class="n">df_summer</span><span class="p">[</span><span class="n">df_summer</span><span class="p">[</span><span class="s1">'sourceId'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'SN18700:0'</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_oslo</span> <span class="o">=</span> <span class="n">df_oslo</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="c1"># sort by warmest summer</span>
+<span class="n">df_oslo</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'value'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_oslo</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>index</th>
+<th>sourceId</th>
+<th>referenceTime</th>
+<th>elementId</th>
+<th>value</th>
+<th>unit</th>
+<th>timeOffset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>60</th>
+<td>241</td>
+<td>SN18700:0</td>
+<td>1997-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>18.8</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+<tr>
+<th>81</th>
+<td>325</td>
+<td>SN18700:0</td>
+<td>2018-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>18.8</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+<tr>
+<th>10</th>
+<td>41</td>
+<td>SN18700:0</td>
+<td>1947-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>18.7</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Kristiansand-Hottest-summer-on-record">
+<h2 id="Kristiansand-Hottest-summer-on-record">Kristiansand Hottest summer on record<a class="headerlink" href="#Kristiansand-Hottest-summer-on-record" title="Link to this heading">¶</a></h2>
+<p>The hottest summer on record for Kristiansand during Landsat 8 observation period (2013 - present) is 2018.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate df for kristiansand</span>
+<span class="n">df_kristiansand</span> <span class="o">=</span> <span class="n">df_summer</span><span class="p">[</span><span class="n">df_summer</span><span class="p">[</span><span class="s1">'sourceId'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'SN39040:0'</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_kristiansand</span> <span class="o">=</span> <span class="n">df_kristiansand</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="c1"># sort by warmest summer</span>
+<span class="n">df_kristiansand</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'value'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_kristiansand</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>index</th>
+<th>sourceId</th>
+<th>referenceTime</th>
+<th>elementId</th>
+<th>value</th>
+<th>unit</th>
+<th>timeOffset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>77</th>
+<td>655</td>
+<td>SN39040:0</td>
+<td>2018-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>17.5</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+<tr>
+<th>56</th>
+<td>572</td>
+<td>SN39040:0</td>
+<td>1997-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>17.4</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+<tr>
+<th>6</th>
+<td>372</td>
+<td>SN39040:0</td>
+<td>1947-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>17.2</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Bodø-Hottest-summer-on-record">
+<h2 id="Bodø-Hottest-summer-on-record">Bodø Hottest summer on record<a class="headerlink" href="#Bodø-Hottest-summer-on-record" title="Link to this heading">¶</a></h2>
+<p>The hottest summer on record for Bodø during Landsat 8 observation period (2013 - present) is 2023.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate df for bodø</span>
+<span class="n">df_bodø</span> <span class="o">=</span> <span class="n">df_summer</span><span class="p">[</span><span class="n">df_summer</span><span class="p">[</span><span class="s1">'sourceId'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'SN82310:0'</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_bodø</span> <span class="o">=</span> <span class="n">df_bodø</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="c1"># sort by warmest summer</span>
+<span class="n">df_bodø</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'value'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_bodø</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>index</th>
+<th>sourceId</th>
+<th>referenceTime</th>
+<th>elementId</th>
+<th>value</th>
+<th>unit</th>
+<th>timeOffset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>5</th>
+<td>697</td>
+<td>SN82310:0</td>
+<td>2023-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>14.1</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+<tr>
+<th>3</th>
+<td>689</td>
+<td>SN82310:0</td>
+<td>2020-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>13.5</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+<tr>
+<th>2</th>
+<td>685</td>
+<td>SN82310:0</td>
+<td>2019-06-01 00:00:00+00:00</td>
+<td>mean(air_temperature P3M)</td>
+<td>13.2</td>
+<td>degC</td>
+<td>PT0H</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="index.html" title="Notebooks"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Notebooks </span>
+              </div>
+            </a>
+          
+          
+            <a href="../../summary_stat/index.html" title="Sammendragsstatistikk (NO)"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Sammendragsstatistikk (NO) </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2023, Willeke A&#39;Campo.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
