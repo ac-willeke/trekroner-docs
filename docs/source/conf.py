@@ -39,6 +39,7 @@ extensions = [
     "nbsphinx",
     "myst_parser",
     "sphinx_copybutton",
+    "sphinxcontrib.xlsxtable",
 ]
 
 templates_path = ['_templates']

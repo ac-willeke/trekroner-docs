@@ -13,7 +13,7 @@ The resulting products of the task are:
 
 ## Installation
 
-Installation instructions can be found **[HERE](../05_installation_manuals/04_tree_visibility_installation.md)**.
+Installation instructions can be found **[HERE](../installation_manuals/04_tree_visibility_installation.md)**.
 
 ## Data 
 
@@ -21,11 +21,11 @@ The following data sources were used within this project task.
 
 **Building footprints** 
 
-The FKB-Buildings vector map (Kartverket, 2020) was used to extract building footprints from the map layer ‘fkb_bygning_omrade’. In addition, we classified these footprints into residential and non-residential buildings using the bygningstype attribute (EXCEL TABLE). 
+The FKB-Buildings vector map (Kartverket, 2023a) was used to extract building footprints from the map layer ‘fkb_bygning_omrade’. In addition, we classified these footprints into residential and non-residential buildings using the bygningstype attribute (**[Table 1](tables.rst)**). 
 
 **Water bodies**
 
-Water bodies were derived from the land resource map FKB-AR5 (NIBIO, 2020), category freshwater and sea.
+Water bodies were derived from the land resource map FKB-AR5 (Ahlstrøm et al. 2019), category freshwater and sea (**[Table 2](tables.rst)**). .
 
 **Digital surface model, digital terrain difference model (DSM-DTM)**
 
@@ -33,17 +33,17 @@ The Digital Surface Model (DSM) and Digital Terrain Model (DTM) are created from
 
 **Tree crown polygons and binary raster**
 
-Vector map of tree crown polygons detected from municipal laser data created in task 1 ([see urban-tree-detection](../01_tree_detection/README.md)). The crown polygons were converted into a binary raster of 1 meter resolution, where 1 represents pixels covered by tree crown and NA represent pixels without tree crown coverage. 
+Vector map of tree crown polygons detected from municipal laser data created in **[Task 1](../01_tree_detection/README.md)**. The crown polygons were converted into a binary raster of 1 meter resolution, where 1 represents pixels covered by tree crown and NA represent pixels without tree crown coverage. 
 
 **Open Space**
 
-Here open space is defined as any space within the study area which is not a building footprint, a tree canopy or a water surface as recommended by Cimburova et al. (2023). Areas smaller than 1 m² were excluded from the open space dataset. The open space dataset was classified into public and private open space using a land resource map FKB-AR5 (NIBIO, 2020) and a land use map (Statistics Norway, 2022). The classes transport, open land, green areas, wetlands, forest and unclassified were classified as open space. Private space was classified as any open space that is not public (EXCEL TABLE)
+Here open space is defined as any space within the study area which is not a building footprint, a tree canopy or a water surface as recommended by Cimburova et al. (2023). Areas smaller than 1 m² were excluded from the open space dataset. The open space dataset was classified into public and private open space using a land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b)and a land use map (Statistisk sentralbyrå (SSB), 2022). The classes transport, open land, green areas, wetlands, forest and unclassified were classified as open space. Private space was classified as any open space that is not public (**[Table 3](tables.rst)**). 
 
 **Green space**
 
 Green space is defined by Statistics Norway (Statistisk sentralbyrå, SSB) as urban nature areas, nærturterreng, larger than 200 000 m2 and urban recreation areas ,leke- rekreasjon-sareal, between 5 000 – 200 000 m2 ([SSB definition](https://www.ssb.no/natur-og-miljo/areal/statistikk/rekreasjonsareal-og-naerturterreng)). The World Health Organization (WHO) defines green space as public green spaces of at least 10 000 m2 (Konijnendijk, C. C. 2023). Here we use the definition by SSB. 
 
-A land resource map FKB-AR5 (NIBIO, 2020) and a land use map (Statistics Norway, 2022) are combined, and the different land use classes are translated to green space or no-green space. The classes forest, open land, wetland, bare rock, gravel- and stone, park, sport areas, together with lakes and ponds smaller than 1 000 m2 are classified as green space (EXCEL TABLE). 
+A land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and a land use map (Statistisk sentralbyrå (SSB), 2022) are combined, and the different land use classes are translated to green space or no-green space. The classes forest, open land, wetland, bare rock, gravel- and stone, park, sport areas, together with lakes and ponds smaller than 1 000 m2 are classified as green space (**[Table 3](tables.rst)**). 
 
 
 ## Methods
@@ -51,7 +51,7 @@ A land resource map FKB-AR5 (NIBIO, 2020) and a land use map (Statistics Norway,
 ### Viewshed exposure modelling
 **github-repo**: [r.viewshed.exposure](https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure)
 
-Visual exposure to urban trees was determined using the r.viewshed.exposure tool in GRASS GIS  developed by Cimburova and Blumentrath (2022) for all treecrown municipalities. The DSM-DTM and the tree crown binary raster served as inputs for the analysis. The default methods settings, which define a good balance between accuracy and processing time, were applied to all municipalities (Table X). The viewshed parametrisation function was set to distance decay, which means that the pixel’s weight decreases the further you move away from the tree. The resulting visual exposure raster quantifies the level of visual exposure to urban trees, ranging from 0 (no exposure) to high exposure values.
+Visual exposure to urban trees was determined using the r.viewshed.exposure tool in GRASS GIS  developed by Cimburova and Blumentrath (2022) for all treecrown municipalities. The DSM-DTM and the tree crown binary raster served as inputs for the analysis. The default methods settings, which define a good balance between accuracy and processing time, were applied to all municipalities (**[Table 1](params.rst)**).  The viewshed parametrisation function was set to distance decay, which means that the pixel’s weight decreases the further you move away from the tree. The resulting visual exposure raster quantifies the level of visual exposure to urban trees, ranging from 0 (no exposure) to high exposure values.
 
 
 ![viewshed exposure](img/visual_exposure_graphical_abstract.png)
@@ -61,7 +61,7 @@ Visual exposure to urban trees was determined using the r.viewshed.exposure tool
 ### Visual Impact Modelling
 **github-repo**: [r.viewshed.impact](https://github.com/zofie-cimburova/r.viewshed.impact)
 
-The individual tree visibility of trees located in public and private spaces were modelled us-ing the r.viewshed.impact tool (Cimburovam, 2023). The viewshed impact tool differs from the viewshed exposure tool as it uses an additional exposure weight layer and results in an individual tree visibility attribute value. The DSM-DTM raster was used as elevation data and the tree crown binary raster as the input source. The model was run two times, with first the public open space and second the private open space binary raster as exposure weight lay-er. The viewshed parametrisation function, radius and sampling density are set to the same values as for the visual exposure modelling. This resulted in a public tree visibility value and a private tree visibility value for each tree located in in the Ulven study area. 
+The individual tree visibility of trees located in public and private spaces were modelled using the r.viewshed.impact tool (Cimburovam, 2023). The viewshed impact tool differs from the viewshed exposure tool as it uses an additional exposure weight layer and results in an individual tree visibility attribute value. The DSM-DTM raster was used as elevation data and the tree crown binary raster as the input source. The model was run two times, with first the public open space and second the private open space binary raster as exposure weight layer. The viewshed parametrisation function, radius and sampling density are set to the same values as for the visual exposure modelling (**[Table 1](params.rst)**). This resulted in a public tree visibility value and a private tree visibility value for each tree located in in the Ulven study area. 
 
 ![visual impact modelling](img/visual_impact.png)
 *Processing workflow of the r.viewshed.impact tool in GRASS GIS. Figure is taken from Cimburova et al. (2023).*
@@ -96,15 +96,14 @@ The total crown area percentage is calculated per district as an indicator for r
 **Rule 300: Green area proximity for residential buildings per district (rule 300)**
 We calculated the percentage of residential buildings per district that are located within a 300 m euclidean distance of green space as an indicator for rule 300. First, the *Euclidean distance* from each residential building to a green space is calculated in meters. Then, we count the number of residential houses per district that are located within 300 m of green spaces. 
 
-
 ### **References**
-- Cimburova, Z. and Blumentrath, S., 2022. Viewshed-based modelling of visual exposure to urban greenery – An efficient GIS tool for practical planning applications. Landscape and Urban Planning, Volume 222,104395. https://doi.org/10.1016/j.landurbplan.2022.104395
-- Cimburova, Z., Blumentrath, S., Barton, D.N., 2023. Making trees visible: A GIS method and tool for modelling visibility in the valuation of urban trees. Urban Forestry & Urban Greening 81, 127839. https://doi.org/10.1016/j.ufug.2023.127839
-- Konijnendijk, C.C. 2023. Evidence-based guidelines for greener, healthier, more resilient neighbourhoods: Introducing the 3–30–300 rule. J. For. Res. 34, 821–830. https://doi.org/10.1007/s11676-022-01523-z 
-- FKB-Bygg (Kartverket, 2020)
-- FKB-AR5 (NIBIO, 2020)
-- SSB arealbruk(Statistics Norway, 2022)
-
+- Ahlstrøm, A., Bjørkelo, K., Fadnes, K.D. 2019. AR5 Klassifikasjonssystem. Klassifisering av arealressurser. NIBIO BOK 5 (5) 2019. <http://hdl.handle.net/11250/2596511>
+- Cimburova, Z. and Blumentrath, S., 2022. Viewshed-based modelling of visual exposure to urban greenery – An efficient GIS tool for practical planning applications. Landscape and Urban Planning, Volume 222,104395. <https://doi.org/10.1016/j.landurbplan.2022.104395>
+- Cimburova, Z., Blumentrath, S., Barton, D.N., 2023. Making trees visible: A GIS method and tool for modelling visibility in the valuation of urban trees. Urban Forestry & Urban Greening 81, 127839. <https://doi.org/10.1016/j.ufug.2023.127839>
+- Kartverket 2023a. FKB-Bygninger. Geografisk vektordatasett. <https://kartkatalog.Geonorge.no/metadata/fkb-bygning/8b4304ea-4fb0-479c-a24d-fa225e2c6e97>
+- Kartverket 2023b FKB-AR5. Geografisk vektordatasett. <https://kartkatalog.geonorge.no/metadata/fkb-ar5/166382b4-82d6-4ea9-a68e-6fd0c87bf788>
+- Konijnendijk, C.C. 2023. Evidence-based guidelines for greener, healthier, more resilient neighbourhoods: Introducing the 3–30–300 rule. J. For. Res. 34, 821–830. <https://doi.org/10.1007/s11676-022-01523-z> 
+- Statistisk sentralbyrå (SSB) 2022: Arealbruk 2022. Geografisk vektordatasett. <https://kartkatalog.Geonorge.no/metadata/arealbruk-2022/a965a979-c12a-4b26-90a0-f09de47dbecd>
 
 ### **Contributors**
 

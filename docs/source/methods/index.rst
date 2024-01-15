@@ -14,6 +14,7 @@ Contents
    06_tree_visibility/README
    installation_manuals/index
    notebooks/index
+   tables
 
 Summary 
 -------
