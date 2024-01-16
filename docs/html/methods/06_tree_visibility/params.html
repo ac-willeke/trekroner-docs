@@ -198,7 +198,7 @@
   <section id="parameters-viewshed-exposure-and-impact">
 <h1 id="methods-06-tree-visibility-params--page-root">Parameters - Viewshed exposure and impact<a class="headerlink" href="#methods-06-tree-visibility-params--page-root" title="Link to this heading">¶</a></h1>
 <table id="id1">
-<caption><span class="caption-text"><strong>Table 1.</strong> Overview of r.viewshed.exposure and r.viewhsed.impact settings (Cimburova and Blumentrath, 2022; Cimburova et al. 2023).</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<caption><span class="caption-text"><strong>Table 1.</strong> Settings for r.viewshed.exposure, default values are used for the other parameters.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Variable</p></th>
 <th class="head"><p>Description</p></th>
@@ -209,37 +209,18 @@
 <tbody>
 <tr class="row-even"><td><p>input</p></td>
 <td><p>Digital elevation map, in this study a DSM-DTM raster map is used.</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>%municipality%_dsm_dtm_1m_utm32.tif</p></td>
+<td></td>
+<td><p>%municipality%_dsmdtm_1m_utmxx.tif</p></td>
 </tr>
 <tr class="row-odd"><td><p>output</p></td>
-<td><p>output raster map</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>%municipality%_viewshed_exposure_1m_utm32.tif</p></td>
+<td><p>Viewshed exposure output raster map</p></td>
+<td></td>
+<td><p>%municipality%_viewshed_exposure_1m_utmxx.tif</p></td>
 </tr>
 <tr class="row-even"><td><p>source</p></td>
 <td><p>Exposure source, in this study a tree crown raster map is used (1 = crown coverage, NA = no crown coverage)</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>%municipality%_tree_crown_mask_1m_utm32.tif</p></td>
-</tr>
-<tr class="row-odd"><td><p>c</p></td>
-<td><p>Consider the curvature of the earth (current ellipsoid)</p></td>
-<td><p>Yes, No</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="row-even"><td><p>observer_elevation</p></td>
-<td><p>Observer elevation above the ground</p></td>
-<td><p>&gt;= 0.0</p></td>
-<td><p>1.5m</p></td>
+<td></td>
+<td><p>%municipality%_tree_crown_mask_1m_utmxx.tif</p></td>
 </tr>
 <tr class="row-odd"><td><p>range</p></td>
 <td><p>Maximum viewshed radius</p></td>
@@ -259,17 +240,7 @@
 <tr class="row-even"><td><p>seed</p></td>
 <td><p>Random seed</p></td>
 <td><p>&gt;= 0</p></td>
-<td><p>random</p></td>
-</tr>
-<tr class="row-odd"><td><p>r</p></td>
-<td><p>Consider the effect of atmospheric refraction in viewshed modelling</p></td>
-<td><p>Yes, No</p></td>
-<td><p>No</p></td>
-</tr>
-<tr class="row-even"><td><p>refraction_coeff</p></td>
-<td><p>Refraction coefficient</p></td>
-<td><p>0.0 – 1.0</p></td>
-<td><p>0.14286</p></td>
+<td><p>1</p></td>
 </tr>
 <tr class="row-odd"><td><p>memory</p></td>
 <td><p>Amount of memory to use in MB</p></td>
@@ -280,6 +251,91 @@
 <td><p>Number of cores to parallelise r.viewshed.exposure</p></td>
 <td><p>&gt;= 1</p></td>
 <td><p>40</p></td>
+</tr>
+<tr class="row-odd"><td><p>example command</p></td>
+<td colspan="3"><p>r.viewshed.exposure.py <a class="reference external" href="mailto:input=dsmdtm_1m_utm32_flt%40oslo">input=dsmdtm_1m_utm32_flt<span>@</span>oslo</a> output=visual_exposure_1m_utm32 <a class="reference external" href="mailto:source=treecrown_1m_utm32_int%40oslo">source=treecrown_1m_utm32_int<span>@</span>oslo</a>
+range=100 function=Distance_decay sample_density=25 seed=1 memory=200000 nprocs=40</p></td>
+</tr>
+</tbody>
+</table>
+<table id="id2">
+<caption><span class="caption-text"><strong>Table 2.</strong> Settings for r.viewshed.impact, default values are used for the other parameters. Note that r.viewshed.impact is ran 3 times. Round 1: open space as weight layer, Round 2: open public space as weight layer and, Round 3: open private space as weight layer.</span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Value range</p></th>
+<th class="head"><p>Value used</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>exposure</p></td>
+<td><p>Exposure source locations, in this study the tree crown polygons are used.</p></td>
+<td></td>
+<td><p>%municipality%_treecrowns_utmxx.shp</p></td>
+</tr>
+<tr class="row-odd"><td><p>column</p></td>
+<td><p>Name of attribute column to store visual impact values</p></td>
+<td></td>
+<td><ul class="simple">
+<li><p>v_open,</p></li>
+<li><p>v_public</p></li>
+<li><p>v_private</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>dsm</p></td>
+<td><p>Digital elevation map, in this study a DSM-DTM raster map is used.</p></td>
+<td></td>
+<td><p>%municipality%_dsmdtm_1m_utmxx.tif</p></td>
+</tr>
+<tr class="row-odd"><td><p>weight</p></td>
+<td><p>Input weights raster map</p></td>
+<td></td>
+<td><ul class="simple">
+<li><p>%municipality%_open_space_1m_utmxx.tif</p></li>
+<li><p>%municipality%_public_space_1m_utmxx.tif</p></li>
+<li><p>%municipality%_private_space_1m_utmxx.tif</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>range</p></td>
+<td><p>Maximum viewshed radius</p></td>
+<td><p>&gt;= 0.0</p></td>
+<td><p>100m</p></td>
+</tr>
+<tr class="row-odd"><td><p>function</p></td>
+<td><p>Viewshed parametrisation function</p></td>
+<td><p>None, Binary, Distance decay, Visual magnitude, Solid angle</p></td>
+<td><p>Distance decay</p></td>
+</tr>
+<tr class="row-even"><td><p>sample_density</p></td>
+<td><p>Density of sampling points</p></td>
+<td><p>0.0 – 100.0</p></td>
+<td><p>25</p></td>
+</tr>
+<tr class="row-odd"><td><p>seed</p></td>
+<td><p>Random seed</p></td>
+<td><p>&gt;= 0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>memory</p></td>
+<td><p>Amount of memory to use in MB</p></td>
+<td><p>&gt;= 1MB</p></td>
+<td><p>200000</p></td>
+</tr>
+<tr class="row-odd"><td><p>cores_e</p></td>
+<td><p>Number of cores to parallelise r.viewshed.exposure</p></td>
+<td><p>&gt;= 1</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>cores_i</p></td>
+<td><p>Number of cores to parallelise r.viewshed.impact</p></td>
+<td><p>&gt;= 1</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-odd"><td><p>example command</p></td>
+<td colspan="3"><p>r.viewshed.impact.py <a class="reference external" href="mailto:exposure=treecrowns%40impact">exposure=treecrowns<span>@</span>impact</a> column=v_public <a class="reference external" href="mailto:dsm=dsmdtm_1m_utm32_flt%40impact">dsm=dsmdtm_1m_utm32_flt<span>@</span>impact</a> <a class="reference external" href="mailto:weight=public_space_1m_utm32_int%40oslo_impact">weight=public_space_1m_utm32_int<span>@</span>oslo_impact</a>
+Range=100 seed=1 memory=200000 cores_e=10 cores_i=20</p></td>
 </tr>
 </tbody>
 </table>

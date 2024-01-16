@@ -1,10 +1,15 @@
 Parameters - Viewshed exposure and impact
 =========================================
 
-.. xlsx-table:: **Table 1.** Overview of r.viewshed.exposure and r.viewhsed.impact settings (Cimburova and Blumentrath, 2022; Cimburova et al. 2023). 
-    :file: tbl/params_viewshed.xlsx
+.. xlsx-table:: **Table 1.** Settings for r.viewshed.exposure, default values are used for the other parameters. 
+    :file: tbl/params_viewshed_exposure.xlsx
+    :sheet: r.viewshed.exposure
     :header-rows: 1
 
+.. xlsx-table:: **Table 2.** Settings for r.viewshed.impact, default values are used for the other parameters. Note that r.viewshed.impact is ran 3 times. Round 1: open space as weight layer, Round 2: open public space as weight layer and, Round 3: open private space as weight layer. 
+    :file: tbl/params_viewshed_impact.xlsx
+    :sheet: r.viewshed.impact
+    :header-rows: 1
 
 **References**
 

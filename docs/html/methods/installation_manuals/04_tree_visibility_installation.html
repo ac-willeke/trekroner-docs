@@ -193,19 +193,23 @@
         </li>
         <li class="md-nav__item"><a href="#install-grass-gis-with-docker" class="md-nav__link">Install GRASS GIS with Docker</a>
         </li>
-        <li class="md-nav__item"><a href="#open-the-grass-gis-command-line-interface-cli-and-graphical-user-interface-gui" class="md-nav__link">Open the GRASS GIS Command Line Interface (CLI) and Graphical User Interface (GUI)</a>
+        <li class="md-nav__item"><a href="#install-grass-gis-addons" class="md-nav__link">Install GRASS GIS Addons</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#using-grass-gui" class="md-nav__link"><strong>Using GRASS GUI</strong></a>
         </li>
-        <li class="md-nav__item"><a href="#install-grass-gis-addons" class="md-nav__link">Install GRASS GIS Addons</a>
+        <li class="md-nav__item"><a href="#using-grass-cli" class="md-nav__link"><strong>Using GRASS CLI</strong></a>
+        </li></ul>
+            </nav>
         </li>
-        <li class="md-nav__item"><a href="#create-new-grass-database" class="md-nav__link">Create new GRASS database</a>
+        <li class="md-nav__item"><a href="#install-grass-gis-addons-as-a-local-module" class="md-nav__link">Install GRASS GIS Addons as a local module</a>
         </li>
-        <li class="md-nav__item"><a href="#import-data-into-your-grass-mapset" class="md-nav__link">Import data into your GRASS Mapset</a>
+        <li class="md-nav__item"><a href="#grass-gis-tasks-used-in-this-project" class="md-nav__link">GRASS GIS Tasks used in this project</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link"><strong>Using GRASS GUI</strong></a>
         </li>
-        <li class="md-nav__item"><a href="#set-processing-extent" class="md-nav__link">Set Processing extent</a>
-        </li>
-        <li class="md-nav__item"><a href="#run-r-viewshed-exposure-tool" class="md-nav__link">Run r.viewshed.exposure tool</a>
-        </li>
-        <li class="md-nav__item"><a href="#export-rasters-to-geotiff" class="md-nav__link">Export rasters to GeoTIFF</a>
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link"><strong>Using GRASS CLI</strong></a>
+        </li></ul>
+            </nav>
         </li></ul>
             </nav>
         </li>
@@ -222,8 +226,8 @@
 <h1 id="methods-installation-manuals-04-tree-visibility-installation--page-root">GRASS GIS and GRASS Addonns installation<a class="headerlink" href="#methods-installation-manuals-04-tree-visibility-installation--page-root" title="Link to this heading">¶</a></h1>
 <section id="computer-specifications">
 <h2 id="computer-specifications">Computer specifications<a class="headerlink" href="#computer-specifications" title="Link to this heading">¶</a></h2>
-<p>The tools r.viewshed.exposure and r.viewshed.impact were run on a server with the following specifications (Table 1).</p>
-<p>Table 1. Computer specifications.</p>
+<p>The tools <em>r.viewshed.exposure</em> and <em>r.viewshed.impact</em> were run on a server with the following specifications (Table 1).</p>
+<p><strong>Table 1.</strong> Computer specifications.</p>
 <table>
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -261,46 +265,72 @@
 </section>
 <section id="install-grass-gis-with-docker">
 <h2 id="install-grass-gis-with-docker">Install GRASS GIS with Docker<a class="headerlink" href="#install-grass-gis-with-docker" title="Link to this heading">¶</a></h2>
-<p>Pull official <a class="reference external" href="https://grass.osgeo.org/download/docker/#GRASS-GIS-current">OSGEO GRASS</a>
-<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui</span></code></p>
-<p>Enter container from <strong>Command Line Interface (CLI)</strong>
-<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui</span></code></p>
+<p>Pull official <a class="reference external" href="https://grass.osgeo.org/download/docker/#GRASS-GIS-current">OSGEO GRASS</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui</span></code></p>
+<p>Enter container from <strong>Command Line Interface (CLI)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui</span></code></p>
 <p>Enter Container from <strong>Visual Studio Code</strong></p>
 <ul class="simple">
 <li><p>CTRL + ALT + P</p></li>
 <li><p>add the .devcontainer.json to your .devcontainer folder</p></li>
 </ul>
-</section>
-<section id="open-the-grass-gis-command-line-interface-cli-and-graphical-user-interface-gui">
-<h2 id="open-the-grass-gis-command-line-interface-cli-and-graphical-user-interface-gui">Open the GRASS GIS Command Line Interface (CLI) and Graphical User Interface (GUI)<a class="headerlink" href="#open-the-grass-gis-command-line-interface-cli-and-graphical-user-interface-gui" title="Link to this heading">¶</a></h2>
 <p>Inside your container start GRASS</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Grass
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grass
 g.gui<span class="w"> </span>wxpython
 </pre></div>
 </div>
-<p><em>Common Error:</em> “Unable to access the X Display”</p>
-<ul class="simple">
-<li><p>Stop containers</p></li>
-<li><p>outside container check whom has access to xhost <code class="docutils literal notranslate"><span class="pre">xhost</span></code></p></li>
-<li><p>Prune docker <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">system</span> <span class="pre">prune</span></code></p></li>
-<li><p>Recreate your grass container</p></li>
-</ul>
 </section>
 <section id="install-grass-gis-addons">
 <h2 id="install-grass-gis-addons">Install GRASS GIS Addons<a class="headerlink" href="#install-grass-gis-addons" title="Link to this heading">¶</a></h2>
-<p><strong>Using GRASS GUI</strong></p>
+<p>Official GRASS documentation on how to install addons is available <strong><a class="reference external" href="https://grass.osgeo.org/grass83/manuals/g.extension.html">HERE</a></strong>.</p>
+<section id="using-grass-gui">
+<h3 id="using-grass-gui"><strong>Using GRASS GUI</strong><a class="headerlink" href="#using-grass-gui" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Settings &gt; Addons Extension</p></li>
 <li><p>Search for extension</p></li>
 <li><p>Install</p></li>
 <li><p>Check that extension is installed</p></li>
 </ul>
-<p><strong>Using GRASS CLI</strong>
-<code class="docutils literal notranslate"><span class="pre">g.extension.install</span> <span class="pre">source=path/to/extension,</span> <span class="pre">destination=/path/to/volume/extension</span></code></p>
 </section>
-<section id="create-new-grass-database">
-<h2 id="create-new-grass-database">Create new GRASS database<a class="headerlink" href="#create-new-grass-database" title="Link to this heading">¶</a></h2>
-<p>GRASS GIS Database - GRASS GIS Manual (osgeo.org)</p>
+<section id="using-grass-cli">
+<h3 id="using-grass-cli"><strong>Using GRASS CLI</strong><a class="headerlink" href="#using-grass-cli" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if addonn is already installed </span>
+g.extension<span class="w"> </span>-a<span class="w"> </span>
+g.extension<span class="w"> </span>-a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"r.viewshed.exposure"</span>
+
+<span class="c1"># install extension using GRASS CLI </span>
+g.extension<span class="w"> </span><span class="nv">extension</span><span class="o">=</span>r.viewhsed.exposure
+
+<span class="c1"># install from GITHUB</span>
+<span class="c1"># r.viewshed.exposure is part of grass-addons</span>
+g.extension<span class="w"> </span><span class="nv">extension</span><span class="o">=</span>r.viewshed.exposure<span class="w"> </span><span class="nv">url</span><span class="o">=</span>https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure
+
+<span class="c1"># r.viewshed.impact is unreleased addon</span>
+g.extension<span class="w"> </span><span class="nv">extension</span><span class="o">=</span>r.viewshed.impact<span class="w"> </span><span class="nv">url</span><span class="o">=</span>https://github.com/zofie-cimburova/r.viewshed.impact<span class="w"> </span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="install-grass-gis-addons-as-a-local-module">
+<h2 id="install-grass-gis-addons-as-a-local-module">Install GRASS GIS Addons as a local module<a class="headerlink" href="#install-grass-gis-addons-as-a-local-module" title="Link to this heading">¶</a></h2>
+<p>In case you want to modify the code of the addon or you want to use an unreleased addon, you can install the addon as a local module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># clone the addon code from GITHUB</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/OSGeo/grass-addons.git<span class="w"> </span>grass-addons
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zofie-cimburova/r.viewshed.impact<span class="w"> </span>r.viewshed.impact
+
+<span class="c1"># install the addon by pointing to the local folder</span>
+g.extension<span class="w"> </span><span class="nv">extension</span><span class="o">=</span>r.viewshed.impact<span class="w"> </span><span class="nv">url</span><span class="o">=</span>/path/to/local/git-repo/r.viewshed.impact/
+</pre></div>
+</div>
+</section>
+<section id="grass-gis-tasks-used-in-this-project">
+<h2 id="grass-gis-tasks-used-in-this-project">GRASS GIS Tasks used in this project<a class="headerlink" href="#grass-gis-tasks-used-in-this-project" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3 id="id1"><strong>Using GRASS GUI</strong><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Create new GRASS database
+GRASS GIS Database - GRASS GIS Manual (osgeo.org)</p></li>
+</ol>
 <ul class="simple">
 <li><p>New database &gt; your grassdata directory</p></li>
 <li><p>Name your location folder UTMxx or WGSxx</p></li>
@@ -313,42 +343,94 @@ g.gui<span class="w"> </span>wxpython
 <li><p>Apply transformation.</p></li>
 <li><p>Finish</p></li>
 </ul>
-</section>
-<section id="import-data-into-your-grass-mapset">
-<h2 id="import-data-into-your-grass-mapset">Import data into your GRASS Mapset<a class="headerlink" href="#import-data-into-your-grass-mapset" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple" start="2">
+<li><p>Import data into your GRASS Mapset</p></li>
+</ol>
 <ul class="simple">
 <li><p>Import dsm_dtm</p></li>
-<li><p>Import trecrown binary raster</p></li>
-<li><p>ensure that 0 is set to NA</p></li>
+<li><p>Import treecrown binary raster</p></li>
+<li><p>Import treecrown vector</p></li>
+<li><p>Import public space binary raster</p></li>
+<li><p>Import private space binary raster</p></li>
 </ul>
-</section>
-<section id="set-processing-extent">
-<h2 id="set-processing-extent">Set Processing extent<a class="headerlink" href="#set-processing-extent" title="Link to this heading">¶</a></h2>
-<p><strong>Using GUI</strong></p>
+<ol class="arabic simple" start="3">
+<li><p>Set computational region</p></li>
+</ol>
 <ul class="simple">
 <li><p>Settings</p></li>
 <li><p>Computational region</p></li>
 <li><p>Set region [g.region]</p></li>
 <li><p>Set elevation model as g.region</p></li>
 </ul>
-<p><strong>Using CLI</strong>
-<code class="docutils literal notranslate"><span class="pre">gs.run_command('g.region',</span> <span class="pre">raster='%municipality%_dsmdtm_1m_utm32_flt@%MAPSET%’)</span></code></p>
-</section>
-<section id="run-r-viewshed-exposure-tool">
-<h2 id="run-r-viewshed-exposure-tool">Run r.viewshed.exposure tool<a class="headerlink" href="#run-r-viewshed-exposure-tool" title="Link to this heading">¶</a></h2>
-<p><strong>Using GUI</strong></p>
+<ol class="arabic simple" start="4">
+<li><p>Run r.viewshed.exposure tool</p></li>
+</ol>
 <ul class="simple">
 <li><p>Tools</p></li>
 <li><p>Search for <code class="docutils literal notranslate"><span class="pre">r.viewshed.exposure</span></code></p></li>
 <li><p>Fill in parameters</p></li>
 </ul>
-<p><strong>Using CLI</strong>
-<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">/user/.grass8/addons/scripts/r.viewshed.exposure.py</span> <span class="pre">input=%municipality%_dsmdtm_1m_utmXX_flt@%MAPSET%</span> <span class="pre">out-put=%municipality%_visual_exposure_1m_utmXX</span> <span class="pre">source=%municipality%_treecrown_1m_utmXX_int@%MAPSET%</span> <span class="pre">range=100</span> <span class="pre">func-tion=Distance_decay</span> <span class="pre">sample_density=25</span> <span class="pre">seed=1</span> <span class="pre">memory=200000</span> <span class="pre">nprocs=40</span></code></p>
+<ol class="arabic simple" start="4">
+<li><p>Run r.viewshed.exposure tool</p></li>
+</ol>
+<ul class="simple">
+<li><p>go to Python console</p></li>
+<li><p>import local grass.script</p></li>
+<li><p>click run &gt; GUI opens fill in params</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Export results</p></li>
+</ol>
+<ul class="simple">
+<li><p>File &gt; Export raster map (visual exposure raster)</p></li>
+<li><p>File &gt; Export vector map (tree crowns with public/private visibility values)</p></li>
+</ul>
 </section>
-<section id="export-rasters-to-geotiff">
-<h2 id="export-rasters-to-geotiff">Export rasters to GeoTIFF<a class="headerlink" href="#export-rasters-to-geotiff" title="Link to this heading">¶</a></h2>
-<p>Set 0 to NA (for better visualisation)
-File &gt; Export raster map</p>
+<section id="id2">
+<h3 id="id2"><strong>Using GRASS CLI</strong><a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create new grass database</span>
+mkdir<span class="w"> </span>/path/to/dir/grassdata
+
+<span class="c1"># start grass session</span>
+grass<span class="w"> </span>/path/to/dir/grassdata
+
+<span class="c1"># create new grass location</span>
+grass<span class="w"> </span>-c<span class="w"> </span>EPSG:xxxxx<span class="w"> </span>/grassdata/new_location
+grass<span class="w"> </span>-c<span class="w"> </span>EPSG:25832<span class="w"> </span>/workspaces/urban-tree-visibility/grassdata/utm32
+
+<span class="c1"># init existing grass session </span>
+grass<span class="w"> </span>/path/to/grassdata/location
+
+<span class="c1"># check if addonn is installed </span>
+g.extension<span class="w"> </span>-a<span class="w"> </span>
+g.extension<span class="w"> </span>-a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"r.viewshed.exposure"</span>
+
+<span class="c1"># install r.viewshed.exposure </span>
+g.extension<span class="w"> </span><span class="nv">extension</span><span class="o">=</span>r.viewshed.exposure
+
+<span class="c1"># install r.viewshed.impact as a local module</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zofie-cimburova/r.viewshed.impact<span class="w"> </span>r.viewshed.impact
+
+<span class="c1"># install the addon by pointing to the local folder</span>
+g.extension<span class="w"> </span><span class="nv">extension</span><span class="o">=</span>r.viewshed.impact<span class="w"> </span><span class="nv">url</span><span class="o">=</span>/path/to/local/git-repo/r.viewshed.impact/
+
+<span class="c1"># Set computational region </span>
+g.region<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>dsmdtm_1m_utm32_flt@<span class="nv">$MAPSET</span><span class="w"> </span>-p
+
+<span class="c1"># Run r.viewshed.exposure tool</span>
+r.viewshed.exposure<span class="w"> </span><span class="nv">input</span><span class="o">=</span>dsmdtm_1m_utm32_flt@oslo<span class="w"> </span><span class="nv">output</span><span class="o">=</span>visual_exposure_1m_utm32<span class="w"> </span><span class="nv">source</span><span class="o">=</span>treecrown_1m_utm32_int@oslo<span class="w"> </span><span class="nv">range</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="k">function</span><span class="o">=</span>Distance_decay<span class="w"> </span><span class="nv">sample_density</span><span class="o">=</span><span class="m">25</span><span class="w"> </span><span class="nv">seed</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">memory</span><span class="o">=</span><span class="m">200000</span><span class="w"> </span><span class="nv">nprocs</span><span class="o">=</span><span class="m">40</span>
+
+<span class="c1"># Export visual exposure raster</span>
+r.out.gdal<span class="w"> </span><span class="nv">input</span><span class="o">=</span>visual_exposure_1m_utm32@oslo<span class="w"> </span><span class="nv">output</span><span class="o">=</span>path/to/output/visual_exposure_1m_utm32.tif<span class="w"> </span><span class="nv">format</span><span class="o">=</span>GTiff<span class="w"> </span><span class="nv">type</span><span class="o">=</span>Float32<span class="w"> </span><span class="nv">nodata</span><span class="o">=</span>-9999
+
+<span class="c1"># Run r.viewshed.impact tool</span>
+r.viewshed.impact<span class="w"> </span><span class="nv">exposure</span><span class="o">=</span>treecrowns@impact<span class="w"> </span><span class="nv">column</span><span class="o">=</span>v_public<span class="w"> </span><span class="nv">dsm</span><span class="o">=</span>dsmdtm_1m_utm32_flt@impact<span class="w"> </span><span class="nv">weight</span><span class="o">=</span>public_space_1m_utm32_int@oslo_impact<span class="w"> </span><span class="nv">Range</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">seed</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">memory</span><span class="o">=</span><span class="m">200000</span><span class="w"> </span><span class="nv">cores_e</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">cores_i</span><span class="o">=</span><span class="m">20</span>
+
+<span class="c1"># Export tree crowns with public/private visibility values</span>
+v.out.ogr<span class="w"> </span><span class="nv">input</span><span class="o">=</span>treecrowns@impact<span class="w"> </span><span class="nv">output</span><span class="o">=</span>path/to/output/treecrowns_public_private.shp<span class="w"> </span><span class="nv">format</span><span class="o">=</span>ESRI_Shapefile<span class="w"> </span><span class="nv">type</span><span class="o">=</span>auto
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 

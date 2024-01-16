@@ -240,7 +240,7 @@
 </ol>
 <section id="installation">
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<p>Installation instructions can be found <strong><a class="reference internal" href="../installation_manuals/04_tree_visibility_installation.html"><span class="std std-doc">HERE</span></a></strong>.</p>
+<p>GRASS GIS and GRASS Addon installation instructions can be found <strong><a class="reference internal" href="../installation_manuals/04_tree_visibility_installation.html"><span class="std std-doc">HERE</span></a></strong>.</p>
 </section>
 <section id="data">
 <h2 id="data">Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h2>
@@ -252,49 +252,73 @@
 <p><strong>Digital surface model, digital terrain difference model (DSM-DTM)</strong></p>
 <p>The Digital Surface Model (DSM) and Digital Terrain Model (DTM) are created from the laser point cloud data delivered by the municipalities. The DSM includes all points in the cloud, while the DTM only includes points classified as bare earth. The DSM-DTM is created by subtracting the DTM from the DSM, and it shows the height of all objects above the ground. The DSM-DTM model is down sampled to 1-meter resolution to improve processing speed.</p>
 <p><strong>Tree crown polygons and binary raster</strong></p>
-<p>Vector map of tree crown polygons detected from municipal laser data created in <strong><a class="reference internal" href="../01_tree_detection/README.html"><span class="std std-doc">Task 1</span></a></strong>. The crown polygons were converted into a binary raster of 1 meter resolution, where 1 represents pixels covered by tree crown and NA represent pixels without tree crown coverage.</p>
+<p>Vector map of tree crown polygons detected from municipal laser data created in <strong><a class="reference internal" href="../01_tree_detection/README.html"><span class="std std-doc">Task 1</span></a></strong>. The crown polygons were converted into a binary raster of 1-meter resolution, where 1 represents pixels covered by tree crown and NA represent pixels without tree crown coverage.</p>
 <p><strong>Open Space</strong></p>
-<p>Here open space is defined as any space within the study area which is not a building footprint, a tree canopy or a water surface as recommended by Cimburova et al. (2023). Areas smaller than 1 m² were excluded from the open space dataset. The open space dataset was classified into public and private open space using a land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b)and a land use map (Statistisk sentralbyrå (SSB), 2022). The classes transport, open land, green areas, wetlands, forest and unclassified were classified as open space. Private space was classified as any open space that is not public (<strong><a class="reference internal" href="tables.html"><span class="std std-doc">Table 3</span></a></strong>).</p>
+<p>Here open space is defined as any space within the study area which is not a building footprint, a tree canopy or a water surface as recommended by Cimburova et al. (2023). Areas smaller than 1 m² were excluded from the open space dataset. The open space dataset was classified into public and private open space using a land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and a land use map (Statistisk sentralbyrå (SSB), 2022). The classes transport, open land, green areas, wetlands, forest and unclassified were classified as open space. Private space was classified as any open space that is not public (<strong><a class="reference internal" href="tables.html"><span class="std std-doc">Table 3</span></a></strong>).</p>
 <p><strong>Green space</strong></p>
-<p>Green space is defined by Statistics Norway (Statistisk sentralbyrå, SSB) as urban nature areas, nærturterreng, larger than 200 000 m2 and urban recreation areas ,leke- rekreasjon-sareal, between 5 000 – 200 000 m2 (<a class="reference external" href="https://www.ssb.no/natur-og-miljo/areal/statistikk/rekreasjonsareal-og-naerturterreng">SSB definition</a>). The World Health Organization (WHO) defines green space as public green spaces of at least 10 000 m2 (Konijnendijk, C. C. 2023). Here we use the definition by SSB.</p>
-<p>A land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and a land use map (Statistisk sentralbyrå (SSB), 2022) are combined, and the different land use classes are translated to green space or no-green space. The classes forest, open land, wetland, bare rock, gravel- and stone, park, sport areas, together with lakes and ponds smaller than 1 000 m2 are classified as green space (<strong><a class="reference internal" href="tables.html"><span class="std std-doc">Table 3</span></a></strong>).</p>
+<p>Green space is defined by Statistics Norway (Statistisk sentralbyrå, SSB) as urban nature areas, <em>nærturterreng</em>, larger than 200 000 m2 and urban recreation areas, <em>leke- rekreasjon-sareal</em>, between 5 000 – 200 000 m2 (<a class="reference external" href="https://www.ssb.no/natur-og-miljo/areal/statistikk/rekreasjonsareal-og-naerturterreng">SSB definition</a>). The World Health Organization (WHO) defines green space as public green spaces of at least 10 000 m2 (Konijnendijk, C. C. 2023). Here we use the definition by SSB.</p>
+<p>The land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and the land use map from SSB (2022) are combined, and the different land use classes are translated to green space or no-green space. The classes forest, open land, wetland, bare rock, gravel- and stone, park, sport areas, together with lakes and ponds smaller than 1 000 m2 are classified as green space (<strong><a class="reference internal" href="tables.html"><span class="std std-doc">Table 3</span></a></strong>).</p>
 </section>
 <section id="methods">
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
 <section id="viewshed-exposure-modelling">
 <h3 id="viewshed-exposure-modelling">Viewshed exposure modelling<a class="headerlink" href="#viewshed-exposure-modelling" title="Link to this heading">¶</a></h3>
+<p>Visual exposure to urban trees was determined using the <em>r.viewshed.exposure</em> tool in GRASS GIS  developed by Cimburova and Blumentrath (2022) for all treecrown municipalities. The DSM-DTM and the tree crown binary raster served as inputs for the analysis. The default methods settings, which define a good balance between accuracy and processing time, were applied to all municipalities (<strong><a class="reference internal" href="params.html"><span class="std std-doc">Table 1</span></a></strong>).  The viewshed parametrisation function was set to distance decay, which means that the pixel’s weight decreases the further you move away from the tree. The resulting visual exposure raster quantifies the level of visual exposure to urban trees, ranging from 0 (no exposure) to high exposure values.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example run of the r.viewshed.exposure tool</span>
+
+<span class="c1"># Set computational region </span>
+g.region<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>dsmdtm_1m_utm32_flt@<span class="nv">$MAPSET</span><span class="w"> </span>-p
+
+<span class="c1"># Run r.viewshed.exposure tool</span>
+r.viewshed.exposure<span class="w"> </span><span class="nv">input</span><span class="o">=</span>dsmdtm_1m_utm32_flt@oslo<span class="w"> </span><span class="nv">output</span><span class="o">=</span>visual_exposure_1m_utm32<span class="w"> </span><span class="nv">source</span><span class="o">=</span>treecrown_1m_utm32_int@oslo<span class="w"> </span><span class="nv">range</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="k">function</span><span class="o">=</span>Distance_decay<span class="w"> </span><span class="nv">sample_density</span><span class="o">=</span><span class="m">25</span><span class="w"> </span><span class="nv">seed</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">memory</span><span class="o">=</span><span class="m">200000</span><span class="w"> </span><span class="nv">nprocs</span><span class="o">=</span><span class="m">40</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The r.viewshed.exposure tool is a GRASS GIS addon tool. The tool is available in the GRASS GIS 8. Detailed instructions on how to install the tool can be found <strong><a class="reference internal" href="../installation_manuals/04_tree_visibility_installation.html"><span class="std std-doc">HERE</span></a></strong>.</p>
 <p><strong>github-repo</strong>: <a class="reference external" href="https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure">r.viewshed.exposure</a></p>
-<p>Visual exposure to urban trees was determined using the r.viewshed.exposure tool in GRASS GIS  developed by Cimburova and Blumentrath (2022) for all treecrown municipalities. The DSM-DTM and the tree crown binary raster served as inputs for the analysis. The default methods settings, which define a good balance between accuracy and processing time, were applied to all municipalities (<strong><a class="reference internal" href="params.html"><span class="std std-doc">Table 1</span></a></strong>).  The viewshed parametrisation function was set to distance decay, which means that the pixel’s weight decreases the further you move away from the tree. The resulting visual exposure raster quantifies the level of visual exposure to urban trees, ranging from 0 (no exposure) to high exposure values.</p>
+</div>
 <p><img alt="viewshed exposure" src="../../_images/visual_exposure_graphical_abstract.png"/>
-<em>Processing workflow of the r.viewshed.exposure tool  in GRASS GIS, along with its accuracy &amp; performance assessment. Figure is taken from Cimburova and Blumentrath (2022).</em></p>
+<strong>Figure 1.</strong> Processing workflow of the r.viewshed.exposure tool  in GRASS GIS, along with its accuracy &amp; performance assessment. The figure is taken from Cimburova and Blumentrath (2022).</p>
 </section>
 <section id="visual-impact-modelling">
 <h3 id="visual-impact-modelling">Visual Impact Modelling<a class="headerlink" href="#visual-impact-modelling" title="Link to this heading">¶</a></h3>
-<p><strong>github-repo</strong>: <a class="reference external" href="https://github.com/zofie-cimburova/r.viewshed.impact">r.viewshed.impact</a></p>
-<p>The individual tree visibility of trees located in public and private spaces were modelled using the r.viewshed.impact tool (Cimburovam, 2023). The viewshed impact tool differs from the viewshed exposure tool as it uses an additional exposure weight layer and results in an individual tree visibility attribute value. The DSM-DTM raster was used as elevation data and the tree crown binary raster as the input source. The model was run two times, with first the public open space and second the private open space binary raster as exposure weight layer. The viewshed parametrisation function, radius and sampling density are set to the same values as for the visual exposure modelling (<strong><a class="reference internal" href="params.html"><span class="std std-doc">Table 1</span></a></strong>). This resulted in a public tree visibility value and a private tree visibility value for each tree located in in the Ulven study area.</p>
+<p>The individual tree visibility of trees located in public and private spaces were modelled using the <em>r.viewshed.impact</em> tool (Cimburova, 2023). The viewshed impact tool differs from the viewshed exposure tool as it uses an additional exposure weight layer and results in an individual tree visibility attribute value. The DSM-DTM raster was used as elevation data and the tree crown binary raster as the input source. The model was run two times, with first the public open space and second the private open space binary raster as exposure weight layer. The viewshed parametrisation function, radius and sampling density are set to the same values as for the visual exposure modelling (<strong><a class="reference internal" href="params.html"><span class="std std-doc">Table 2</span></a></strong>). This resulted in a public tree visibility value and a private tree visibility value for each tree.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example run of the r.viewshed.exposure tool</span>
+
+<span class="c1"># Set computational region </span>
+g.region<span class="w"> </span><span class="nv">raster</span><span class="o">=</span>dsmdtm_1m_utm32_flt@<span class="nv">$MAPSET</span><span class="w"> </span>-p
+
+<span class="c1"># Run r.viewshed.exposure tool</span>
+r.viewshed.impact<span class="w"> </span><span class="nv">exposure</span><span class="o">=</span>treecrowns@impact<span class="w"> </span><span class="nv">column</span><span class="o">=</span>v_public<span class="w"> </span><span class="nv">dsm</span><span class="o">=</span>dsmdtm_1m_utm32_flt@impact<span class="w"> </span><span class="nv">weight</span><span class="o">=</span>public_space_1m_utm32_int@oslo_impact<span class="w"> </span><span class="nv">Range</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">seed</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">memory</span><span class="o">=</span><span class="m">200000</span><span class="w"> </span><span class="nv">cores_e</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">cores_i</span><span class="o">=</span><span class="m">20</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The r.viewshed.exposure tool is currently under development and is not yet available as an offical GRASS GIS addon tool. However, the tool can be downloaded from GitHub, <a class="reference external" href="https://github.com/zofie-cimburova/r.viewshed.impact">r.viewshed.impact</a>, and can be installed as a local module. Detailed instructions on how to install a local module can be found <strong><a class="reference internal" href="../installation_manuals/04_tree_visibility_installation.html"><span class="std std-doc">HERE</span></a></strong>.</p>
+</div>
 <p><img alt="visual impact modelling" src="../../_images/visual_impact.png"/>
-<em>Processing workflow of the r.viewshed.impact tool in GRASS GIS. Figure is taken from Cimburova et al. (2023).</em></p>
+<strong>Figure 2.</strong> Processing workflow of the r.viewshed.impact tool in GRASS GIS. Figure is taken from Cimburova et al. (2023).</p>
 </section>
 <section id="calculating-measures-for-the-3-30-300-rule">
 <h3 id="calculating-measures-for-the-3-30-300-rule">Calculating measures for the 3-30-300 rule<a class="headerlink" href="#calculating-measures-for-the-3-30-300-rule" title="Link to this heading">¶</a></h3>
-<p><strong>github-repo</strong>: <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p>
 <p>Within this study we calculated the three indicators of the 3-30-300 rule for each district (grunnkrets) within the study area.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>The 3-30-300 green space rule</strong></p>
-<p>The 3-30-300 green space proposed by Cecil Konijnendijk, is an evidence-based guideline for guideline for creating healthier and more sustainable cities through the strategic use of urban green spaces (Konijnendijk, C.C. 2023). The rule outlies three key objectives:</p>
+<p>The 3-30-300 green space proposed by Konijnendijk (2023), is an evidence-based guideline for guideline for creating healthier and more sustainable cities through the strategic use of urban green spaces. The rule outlies three key objectives:</p>
 <p><strong>Rule 3:</strong> all residents should be able to see at least 3 trees from their home.</p>
 <p><strong>Rule 30:</strong> all neighbourhoods should have 30% tree canopy cover.</p>
 <p><strong>Rule 300:</strong>  all residents should be able to access a green area within 300 m from their home.</p>
 </div>
-<p><strong>Rule 3: Tree visibility count for residential buildings per district</strong>
-As an indicator for rule 3, we used a tree buffer count to estimate the number of trees visible from each residential building. The tree buffer count is calculated by counting the number of tree crowns within a specified buffer distance of each residential address (Nieuwenhuijsen et al., 2022). This study calculated the number of tree canopies that intersect with a buffer distance of 15 meters of residential buildings. The output is a new attribute assigned to each district polygon.</p>
+<p><strong>Rule 3: Tree visibility count for residential buildings per district</strong></p>
+<p>As an indicator for rule 3, we used a tree buffer count to estimate the number of trees visible from each residential building. The tree buffer count is calculated by counting the number of tree crowns within a specified buffer distance of each residential address (Nieuwenhuijsen et al., 2022). This study calculated the number of tree canopies that intersect with a buffer distance of 15 meters of residential buildings. The output is a new attribute assigned to each district polygon.</p>
 <p><img alt="buffer count" src="../../_images/buffer_count.png"/>
-<em>Workflow diagram illustrating the calculation of tree crown buffer count per district.</em></p>
-<p><strong>Rule 30: Tree crown area percentage per district (rule 30)</strong>
-The total crown area percentage is calculated per district as an indicator for rule 30, all neighbourhoods should have 30% tree canopy cover.</p>
-<p><strong>Rule 300: Green area proximity for residential buildings per district (rule 300)</strong>
-We calculated the percentage of residential buildings per district that are located within a 300 m euclidean distance of green space as an indicator for rule 300. First, the <em>Euclidean distance</em> from each residential building to a green space is calculated in meters. Then, we count the number of residential houses per district that are located within 300 m of green spaces.</p>
+**Figure 3. Workflow diagram illustrating the calculation of tree crown buffer count per district.</p>
+<p><strong>Rule 30: Tree crown area percentage per district (rule 30)</strong></p>
+<p>The total crown area percentage is calculated per district as an indicator for rule 30, all neighbourhoods should have 30% tree canopy cover.</p>
+<p><strong>Rule 300: Green area proximity for residential buildings per district (rule 300)</strong></p>
+<p>We calculated the percentage of residential buildings per district that are located within a 300 m euclidean distance of green space as an indicator for rule 300. First, the <em>Euclidean distance</em> from each residential building to a green space is calculated in meters. Then, we count the number of residential houses per district that are located within 300 m of green spaces.</p>
 </section>
 <section id="references">
 <h3 id="references"><strong>References</strong><a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>

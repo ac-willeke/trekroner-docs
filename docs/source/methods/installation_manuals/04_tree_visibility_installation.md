@@ -2,9 +2,9 @@
 
 ## Computer specifications
 
-The tools r.viewshed.exposure and r.viewshed.impact were run on a server with the following specifications (Table 1).
+The tools *r.viewshed.exposure* and *r.viewshed.impact* were run on a server with the following specifications (Table 1).
 
-Table 1. Computer specifications.
+**Table 1.** Computer specifications.
 ||Visual Exposure|Visual Impact|
 |---|---|---|
 |Server|HPE ProLiant DL360 Gen 10|HPE ProLiant DL360 Gen 10|
@@ -18,42 +18,69 @@ Table 1. Computer specifications.
 ## Install GRASS GIS with Docker
 
 Pull official [OSGEO GRASS](https://grass.osgeo.org/download/docker/#GRASS-GIS-current) 
+
 `docker pull osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui`
 
 Enter container from **Command Line Interface (CLI)**
+
 `docker run -it osgeo/grass-gis:releasebranch_8_3-ubuntu_wxgui`
 
 Enter Container from **Visual Studio Code**
 - CTRL + ALT + P 
 - add the .devcontainer.json to your .devcontainer folder 
 
-
-## Open the GRASS GIS Command Line Interface (CLI) and Graphical User Interface (GUI)
-
 Inside your container start GRASS 
+
 ```bash	
-Grass
+grass
 g.gui wxpython
 ```
 
-*Common Error:* “Unable to access the X Display” 
-- Stop containers
-- outside container check whom has access to xhost `xhost`
-- Prune docker `docker system prune`
-- Recreate your grass container 
-
 ## Install GRASS GIS Addons
 
-**Using GRASS GUI**
+Official GRASS documentation on how to install addons is available **[HERE](https://grass.osgeo.org/grass83/manuals/g.extension.html)**.
+
+### **Using GRASS GUI**
 - Settings > Addons Extension 
 - Search for extension 
 - Install 
 - Check that extension is installed
 
-**Using GRASS CLI** 
-`g.extension.install source=path/to/extension, destination=/path/to/volume/extension`
+### **Using GRASS CLI** 
 
-## Create new GRASS database
+```bash
+# check if addonn is already installed 
+g.extension -a 
+g.extension -a | grep "r.viewshed.exposure"
+
+# install extension using GRASS CLI 
+g.extension extension=r.viewhsed.exposure
+
+# install from GITHUB
+# r.viewshed.exposure is part of grass-addons
+g.extension extension=r.viewshed.exposure url=https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure
+
+# r.viewshed.impact is unreleased addon
+g.extension extension=r.viewshed.impact url=https://github.com/zofie-cimburova/r.viewshed.impact 
+```
+
+## Install GRASS GIS Addons as a local module
+
+In case you want to modify the code of the addon or you want to use an unreleased addon, you can install the addon as a local module.
+
+```bash
+# clone the addon code from GITHUB
+git clone https://github.com/OSGeo/grass-addons.git grass-addons
+git clone https://github.com/zofie-cimburova/r.viewshed.impact r.viewshed.impact
+
+# install the addon by pointing to the local folder
+g.extension extension=r.viewshed.impact url=/path/to/local/git-repo/r.viewshed.impact/
+```
+
+## GRASS GIS Tasks used in this project
+
+### **Using GRASS GUI**
+1. Create new GRASS database
 GRASS GIS Database - GRASS GIS Manual (osgeo.org)
 - New database > your grassdata directory 
 - Name your location folder UTMxx or WGSxx
@@ -63,34 +90,74 @@ GRASS GIS Database - GRASS GIS Manual (osgeo.org)
 - Apply transformation. 
 - Finish 
 
-## Import data into your GRASS Mapset
+2. Import data into your GRASS Mapset
 - Import dsm_dtm 
-- Import trecrown binary raster 
-- ensure that 0 is set to NA 
+- Import treecrown binary raster 
+- Import treecrown vector
+- Import public space binary raster
+- Import private space binary raster 
 
-## Set Processing extent
-
-**Using GUI**
+3. Set computational region
 - Settings
 - Computational region
 - Set region [g.region]
 - Set elevation model as g.region
 
-**Using CLI**
-`gs.run_command('g.region', raster='%municipality%_dsmdtm_1m_utm32_flt@%MAPSET%’)`
-
-
-## Run r.viewshed.exposure tool 
-
-**Using GUI**
+4. Run r.viewshed.exposure tool 
 - Tools 
 - Search for `r.viewshed.exposure`
 - Fill in parameters 
 
-**Using CLI**
-`python3 /user/.grass8/addons/scripts/r.viewshed.exposure.py input=%municipality%_dsmdtm_1m_utmXX_flt@%MAPSET% out-put=%municipality%_visual_exposure_1m_utmXX source=%municipality%_treecrown_1m_utmXX_int@%MAPSET% range=100 func-tion=Distance_decay sample_density=25 seed=1 memory=200000 nprocs=40`
+4. Run r.viewshed.exposure tool 
+- go to Python console
+- import local grass.script
+- click run > GUI opens fill in params
 
-## Export rasters to GeoTIFF 
+5. Export results
+- File > Export raster map (visual exposure raster)
+- File > Export vector map (tree crowns with public/private visibility values)
 
-Set 0 to NA (for better visualisation)
-File > Export raster map 
+### **Using GRASS CLI**
+```bash
+# create new grass database
+mkdir /path/to/dir/grassdata
+
+# start grass session
+grass /path/to/dir/grassdata
+
+# create new grass location
+grass -c EPSG:xxxxx /grassdata/new_location
+grass -c EPSG:25832 /workspaces/urban-tree-visibility/grassdata/utm32
+
+# init existing grass session 
+grass /path/to/grassdata/location
+
+# check if addonn is installed 
+g.extension -a 
+g.extension -a | grep "r.viewshed.exposure"
+
+# install r.viewshed.exposure 
+g.extension extension=r.viewshed.exposure
+
+# install r.viewshed.impact as a local module
+git clone https://github.com/zofie-cimburova/r.viewshed.impact r.viewshed.impact
+
+# install the addon by pointing to the local folder
+g.extension extension=r.viewshed.impact url=/path/to/local/git-repo/r.viewshed.impact/
+
+# Set computational region 
+g.region raster=dsmdtm_1m_utm32_flt@$MAPSET -p
+
+# Run r.viewshed.exposure tool
+r.viewshed.exposure input=dsmdtm_1m_utm32_flt@oslo output=visual_exposure_1m_utm32 source=treecrown_1m_utm32_int@oslo range=100 function=Distance_decay sample_density=25 seed=1 memory=200000 nprocs=40
+
+# Export visual exposure raster
+r.out.gdal input=visual_exposure_1m_utm32@oslo output=path/to/output/visual_exposure_1m_utm32.tif format=GTiff type=Float32 nodata=-9999
+
+# Run r.viewshed.impact tool
+r.viewshed.impact exposure=treecrowns@impact column=v_public dsm=dsmdtm_1m_utm32_flt@impact weight=public_space_1m_utm32_int@oslo_impact Range=100 seed=1 memory=200000 cores_e=10 cores_i=20
+
+# Export tree crowns with public/private visibility values
+v.out.ogr input=treecrowns@impact output=path/to/output/treecrowns_public_private.shp format=ESRI_Shapefile type=auto
+```
+
