@@ -1,4 +1,4 @@
-# GRASS GIS and GRASS Addonns installation
+# GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact
 
 ## Computer specifications
 
@@ -13,6 +13,16 @@ The tools *r.viewshed.exposure* and *r.viewshed.impact* were run on a server wit
 |Random Access Memory|370 GB|377 GB|
 |SSD|960 GB|960 GB|
 |Fie System|Ubuntu 18.04.5 LTS|Ubuntu 18.04.5 LTS|
+
+**Table 2.** Time used for r.viewshed.exposure processing.
+|Municipality|Processing time|
+|---|---|
+|Bodø|211 min|
+|Bærum|692 min|
+|Kristiansand|58 min|
+|Oslo|2078 min (34 hours 38 min)|
+
+The *r.viewhsed.impact* tool is more computationally demanding than *r.viewshed.exposure*. Due to resource restrictions, the tool was solely run on a test-site for the municipality of Oslo.
 
 
 ## Install GRASS GIS with Docker
@@ -78,6 +88,8 @@ g.extension extension=r.viewshed.impact url=/path/to/local/git-repo/r.viewshed.i
 ```
 
 ## GRASS GIS Tasks used in this project
+
+Note that processing costs a large amount of resources and time (Table 1 and 2). Therefore scheduling the tasks and disucssing resource allocation with your IT department is recommended.
 
 ### **Using GRASS GUI**
 1. Create new GRASS database

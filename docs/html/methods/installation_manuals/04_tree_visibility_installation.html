@@ -46,7 +46,7 @@
   
   
   
-    <title>GRASS GIS and GRASS Addonns installation &#8212; Trekroner  documentation</title>
+    <title>GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> GRASS GIS and GRASS Addonns installation </span>
+          <span class="md-header-nav__topic"> GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -187,7 +187,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#methods-installation-manuals-04-tree-visibility-installation--page-root" class="md-nav__link">GRASS GIS and GRASS Addonns installation</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#methods-installation-manuals-04-tree-visibility-installation--page-root" class="md-nav__link">GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#computer-specifications" class="md-nav__link">Computer specifications</a>
         </li>
@@ -222,8 +222,8 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="grass-gis-and-grass-addonns-installation">
-<h1 id="methods-installation-manuals-04-tree-visibility-installation--page-root">GRASS GIS and GRASS Addonns installation<a class="headerlink" href="#methods-installation-manuals-04-tree-visibility-installation--page-root" title="Link to this heading">¶</a></h1>
+  <section id="grass-gis-installation-manual-for-r-viewshed-exposure-and-r-viewshed-impact">
+<h1 id="methods-installation-manuals-04-tree-visibility-installation--page-root">GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact<a class="headerlink" href="#methods-installation-manuals-04-tree-visibility-installation--page-root" title="Link to this heading">¶</a></h1>
 <section id="computer-specifications">
 <h2 id="computer-specifications">Computer specifications<a class="headerlink" href="#computer-specifications" title="Link to this heading">¶</a></h2>
 <p>The tools <em>r.viewshed.exposure</em> and <em>r.viewshed.impact</em> were run on a server with the following specifications (Table 1).</p>
@@ -262,6 +262,29 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Table 2.</strong> Time used for r.viewshed.exposure processing.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Municipality</p></th>
+<th class="head"><p>Processing time</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bodø</p></td>
+<td><p>211 min</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bærum</p></td>
+<td><p>692 min</p></td>
+</tr>
+<tr class="row-even"><td><p>Kristiansand</p></td>
+<td><p>58 min</p></td>
+</tr>
+<tr class="row-odd"><td><p>Oslo</p></td>
+<td><p>2078 min (34 hours 38 min)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <em>r.viewhsed.impact</em> tool is more computationally demanding than <em>r.viewshed.exposure</em>. Due to resource restrictions, the tool was solely run on a test-site for the municipality of Oslo.</p>
 </section>
 <section id="install-grass-gis-with-docker">
 <h2 id="install-grass-gis-with-docker">Install GRASS GIS with Docker<a class="headerlink" href="#install-grass-gis-with-docker" title="Link to this heading">¶</a></h2>
@@ -325,6 +348,7 @@ g.extension<span class="w"> </span><span class="nv">extension</span><span class=
 </section>
 <section id="grass-gis-tasks-used-in-this-project">
 <h2 id="grass-gis-tasks-used-in-this-project">GRASS GIS Tasks used in this project<a class="headerlink" href="#grass-gis-tasks-used-in-this-project" title="Link to this heading">¶</a></h2>
+<p>Note that processing costs a large amount of resources and time (Table 1 and 2). Therefore scheduling the tasks and disucssing resource allocation with your IT department is recommended.</p>
 <section id="id1">
 <h3 id="id1"><strong>Using GRASS GUI</strong><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
