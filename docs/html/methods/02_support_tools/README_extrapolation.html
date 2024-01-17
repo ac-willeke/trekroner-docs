@@ -188,7 +188,25 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#methods-02-support-tools-readme-extrapolation--page-root" class="md-nav__link">Task 4 | Extrapolation of i-Tree Eco values</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#installation" class="md-nav__link">Installation</a>
+        </li>
+        <li class="md-nav__item"><a href="#data" class="md-nav__link">Data</a>
+        </li>
+        <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#data-preparation" class="md-nav__link">Data Preparation</a>
+        </li>
+        <li class="md-nav__item"><a href="#regression-modelling-random-forest-versus-linear-regression" class="md-nav__link">Regression modelling: Random Forest versus Linear Regression</a>
+        </li>
+        <li class="md-nav__item"><a href="#model-performance" class="md-nav__link">Model Performance</a>
+        </li>
+        <li class="md-nav__item"><a href="#calculation-of-monetary-values" class="md-nav__link">Calculation of monetary values</a>
+        </li>
         <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
+        </li>
+        <li class="md-nav__item"><a href="#contributors" class="md-nav__link"><strong>Contributors</strong></a>
+        </li></ul>
+            </nav>
         </li></ul>
             </nav>
         </li>
@@ -203,61 +221,243 @@
             
   <section id="task-4-extrapolation-of-i-tree-eco-values">
 <h1 id="methods-02-support-tools-readme-extrapolation--page-root">Task 4 | Extrapolation of i-Tree Eco values<a class="headerlink" href="#methods-02-support-tools-readme-extrapolation--page-root" title="Link to this heading">¶</a></h1>
-<p>We use regression models to predict the i-Tree Eco values for each tree in the study area (building zone extent of the municipality.)</p>
-<p>The study by Barton, D. and Venter, Z. (2022) and the study by Cimburova and Barton, D. (2020) uses a Bayesian network to predict the i-Tree Eco values for trees located within Oslo’s building zone.</p>
-<p>They find that tree height, crown area and air pollution variables are most important for predicting carbon storage, carbon sequestration, air pollution reduction and water runoff reduction (Barton, D. and Venter, Z. 2022). To predict the total benefits of trees, Cimburova and Barton (2020) add tree species and diameter at breast height (DBH) as predictors to the Bayesian network.</p>
-<p>In this study, we use regression models instead of Bayesian networks to predict the i-Tree Eco values for each tree in the study area.
-This enables us to simplify and automate the workflow and to use the same workflow for each tree crown municipality.
-The following i-Tree Eco Ecosystem Service values are predicted:</p>
+<p>The i-Tree Eco model provides valuable insights into the benefits of urban trees, including air pollution removal, stormwater infiltration, carbon storage and carbon sequestration. However, accurate modelling of these benefits requires detailed tree-level information, such as species information and diameter at breast height (DBH). This information is available for selected subset of trees, but it is not feasible to gather this data for every tree in a city.</p>
+<p>Within <strong><a class="reference internal" href="../01_tree_detection/README.html"><span class="std std-doc">Task 1</span></a></strong> of this project LiDAR data is used to detect tree crowns for the municipalities building zone extent. These tree crowns, in particular their tree height and crown area information, can be used to infer other relevant parameters, such as species and DBH. Prior studies have employed Bayesian networks to predict i-Tree Eco values for trees within Oslo’s building zone extent (Barton et al., 2022; Cimburova and Barton, 2020). These studies found that tree height, crown area, and air pollution variables were most important for predicting carbon storage, carbon sequestration, air pollution reduction, and water runoff reduction. To predict the total benefits of trees, Cimburova and Barton (2020) added tree species and diameter at breast height (DBH) as predictors to the Bayesian network. In this study, we use a regression model approach. Regression models offer several advantages, they are simpler to implement in an automated workflow and more computationally efficient.</p>
+<section id="installation">
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>The workflow is integrated into the <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a> GitHub repository. Python envionment setup and project configuration infomation can be found <strong><a class="reference internal" href="#../installation_manuals/02_itree_support_tools_installation.md"><span class="xref myst">HERE</span></a></strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The entrypoint to the extrapolation workflow is the <a class="reference external" href="https://github.com/NINAnor/itree-support-tools/blob/main/src/extrapolate_data.py">extrapolate_data.py</a> script located in the <code class="docutils literal notranslate"><span class="pre">src</span></code> folder of the itree-support-tools repository. It is important to check the data paths and parameters in the files <code class="docutils literal notranslate"><span class="pre">catalog.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">parameters.yaml</span></code> located in the <code class="docutils literal notranslate"><span class="pre">config</span></code> folder before running the workflow.</p>
+<p><strong>github-repo</strong>: <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p>
+</div>
+</section>
+<section id="data">
+<h2 id="data">Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h2>
+<p><strong>Table 1.</strong> Data sources used within this project task.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Source</p></th>
+<th class="head"><p>File name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Reference Data</strong></p></td>
+<td><p>Municipal tree inventory with ecosystem service values calculated using i-Tree Eco</p></td>
+<td><p><strong><a class="reference internal" href="README_integration.html"><span class="std std-doc">Task 2</span></a></strong></p></td>
+<td><p>%municipality%_registered_trees</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Target Data</strong></p></td>
+<td><p>Tree crowns extracted from LiDAR point cloud with crown area and height information.</p></td>
+<td><p><strong><a class="reference internal" href="../01_tree_detection/README.html"><span class="std std-doc">Task 1</span></a></strong></p></td>
+<td><p>%municipality%_tree_crowns</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The data files are delivered to the municpalities using SharePoint. They can also be downloaded in CSV or PARQUET format from the data folder of the <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a>.</p>
+</div>
+</section>
+<section id="methods">
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<p>The following physical values calculated using the i-Tree Eco model are extrapolated to the municipality’s building zone extent:</p>
 <ul class="simple">
-<li><p>carbon storage</p></li>
-<li><p>carbon sequestration</p></li>
-<li><p>air pollution reduction</p></li>
+<li><p>carbon storage (kg)</p></li>
+<li><p>carbon sequestration (kg/year)</p></li>
+<li><p>air pollution reduction (g/year)</p></li>
 <li><p>water runoff reduction</p></li>
-<li><p>total benefits</p></li>
 </ul>
-<p>For Oslo also indiviual air pollution reduction values are predicted: NO2, PM2.5 and 03.</p>
-<p>For the total benefits we use the following predictors: tree species, dbh, tree height, crown area, crown diameter and pollution zone.
-For the individual ecosystem services we test different predictor combinations.</p>
+<p>For Oslo and Bærum also individual air pollution reduction values are predicted: NO2 (g/year), PM2.5 (g/year) and O3 (g/year).</p>
+<p>First, we prepared the reference and target datasets. Then, we tested different regression models using different predictor combinations. Next, we selected the optimal model for each ecosystem service and municipality. After that, we aggregated the values to the municipality’s building zone extent using the selected models. Finally, we calculated the monetary value of the ecosystem services using benefit prices.</p>
+<section id="data-preparation">
+<h3 id="data-preparation">Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">¶</a></h3>
+<p><strong>Reference Dataset</strong></p>
+<p>We use the in situ municipal tree inventory with i-Tree Eco values as reference data. First, we verify that each in situ tree stem contains the following predictor variables: species, dbh, height, crown_area, crown_diameter and pollution zone. In cases where DBH or height values are missing, we employ the following equations to impute them:</p>
 <ul class="simple">
-<li><p>tree height, crown area and pollution zone</p></li>
-<li><p>tree height, crown area, pollution zone and dbh</p></li>
-<li><p>tree height, crown area, pollution zone, dbh and tree species</p></li>
+<li><p><strong>Equation 1:</strong> dbh = 4.04 * height^0.82</p></li>
+<li><p><strong>Equation 2:</strong> dbh = (crown diameter^2.63)/(3.48^2.63)</p></li>
+<li><p><strong>Equation 3:</strong> height = (dbh*1.22)/(4.04^1.22)</p></li>
 </ul>
-<p>Workflow:</p>
-<ol class="arabic simple">
-<li><p>Data Preparation</p></li>
-</ol>
-<p>We use the in situ municipal tree inventory with i-Tree Eco values as reference data. First, we ensure that each in situ tree stem contains the following predictor variables: species, dbh, height, crown_area, crown_diameter and pollution zone.
-If DBH or height values are missing we fill them using the following formulas:
-Equation 1: dbh = 4.04 * height^0.82
-Equation 2: dbh = (crown_diam^2.63)/(3.48^2.63)
-Equation 3: height = (dbh*1.22)/(4.04^1.22)</p>
-<p>If other predictor values are missing we fill them using the median value of the respective variable. We use the median value instead of the mean value as the median is less sensitive to outliers. Tree species are encoded as a categorical variable. Bærum municipality does not have sufficient DBH and species information, in addition is the data skewed to Large Oaks as the field data was not obtained specifically for i-Tree Eco modelling but for identifyting hollow oaks. We assume that the tree species distribution is similar to Oslo and use Oslo’s municipal tree inventory as reference dataset for Bærum.</p>
-<ol class="arabic simple" start="2">
-<li><p>Regressor selection: Random Forest vs Linear Regression</p></li>
-</ol>
-<p>We use a Random Forest Regressor if the reference datast contains more than 1000 trees (Bodø and Oslo), otherwise we use a Linear Regression model (Kristiansand). A Random Forest Regressor is a non-parametric model that can capture non-linear relationships between the predictor and response variables. A Random Forest (REF) builds multiple decision trees, with each tree being trained on a random subset of the training data. The Random Forest Regressor then averages the predictions of each tree to make a final prediction (REF). The number of trees in the fores (N estimators) and the maximum features considered for splitting a node (Max features) are parameters that can be tuned. Random Forest models can be prone to overfitting, therefore it is recommended to tune the parameters of the model and to test the model on unseen data (REF).</p>
-<p>We split our reference dataset into a training (80%) and test (20%) dataset. A grid search is implemented to tune the parameters Max features and N estimators. Within this grid-search a 10-fold cross-validation is used to evaluate the performance of each model. The optimal model, i.e. the model with the highest R2 score, is then evaluated against an external test dataset.</p>
-<p>A linear regression model is a parametric model that assumes a linear relationship between the predictor and response variables (REF). A linear regression model is better suited for small datasets as it is less prone to overfitting than a Random Forest Regressor (REF). The linear models on this study are trained on the training (80%) dataset and evaluated against the test (20%) dataset.</p>
-<ol class="arabic simple" start="3">
-<li><p>Predict i-Tree Eco values for each tree crown</p></li>
-</ol>
-<p>The target dataset consists of the tree crowns segmented from the lidar point cloud. The target dataset contains the following predictor variables: tree height, crown area, crown diameter and pollution zone. Tree species is predicted from the tree species distribution of the reference dataset, DBH is predicted using tree height (Eq 1.). Other missing values are filled using the median value of the respective variable.
-Thereafter categorical variables are encoded and the optimal model is used to predict the i-Tree Eco values for each tree crown.</p>
-<p>Model Peformance</p>
-<p>Oslo:</p>
-<p>Table 1 shows the model performance of the Random Forest Regressor using different predictor combinations. The model performance is evaluated using the R2 score and the root mean squared error (RMSE). The R2 score is a measure of how well the model fits the data. The R2 score is between 0 and 1, with 1 indicating a perfect fit (REF). The RMSE is a measure of how well the model predicts the data. The RMSE is between 0 and infinity, with 0 indicating a perfect prediction (REF).</p>
-<p>Table 1: Model performance of the Random Forest Regressor using different predictor combinations.</p>
-<p>For the indiviual ecosystem models the best R2 and RMSE values are obtained with all predictor variables. The model performance slightly decreases when using only tree height, crown area and pollution zone and DBH as predictor variables. The model performance decreases further when using only tree height, crown area and pollution zone for the carbon storage and carbon sequestration models.</p>
-<p>For the water runoff redcution and pollution reduction models the model performance we select the model with height, crown area and pollution zone as predictor variables. The model performance is slighlty lower than the model with all predictor variables but the model is simpler and DBH and tree species information are not required. Which is a pluss as DBH and species information are not directly available in the target dataset but estimated from other variables. For the carbon storage and carbon sequestation models we see that DBH is important, and that importance drops when removing this variable. Therefore we select the model with tree height, crown area, pollution zone and DBH as predictor variables.</p>
-<p>Bodø:</p>
+<p>If other predictor values are missing, we fill them using the median value of the respective variable. We opt for the median value instead of the mean value due to its robustness against outliers. The categorical variables tree species and pollution zone are encoded. Bærum municipality lacks sufficient DBH and species information, additionally, the data is skewed towards Large Oaks since the field data was not specifically collected for i-Tree Eco modelling but rather for identifying nature types with a special interest for management purposes. We assume that the tree species distribution is similar to Oslo and employ Oslo’s municipal tree inventory as reference dataset for Bærum.</p>
+<p><strong>Target Dataset</strong></p>
+<p>The target dataset comprises the tree crowns extracted from the LiDAR point cloud. This dataset includes the following variables: tree height, crown area, crown diameter, and pollution zone. Tree species is inferred from the tree species distribution of the reference dataset, while DBH is estimated using tree height (Equation 1). Missing values are imputed using the median value of the respective variable. Categorical variables are encoded, and the optimal model is then employed to predict the i-Tree Eco values for each tree crown.</p>
+</section>
+<section id="regression-modelling-random-forest-versus-linear-regression">
+<h3 id="regression-modelling-random-forest-versus-linear-regression">Regression modelling: Random Forest versus Linear Regression<a class="headerlink" href="#regression-modelling-random-forest-versus-linear-regression" title="Link to this heading">¶</a></h3>
+<p>The choice between Random Forest Regressor and Linear Regression is determined by the size of the reference dataset. For municipalities that have more than 1000 trees registered in their inventory (Bodø and Oslo), we employ a Random Forest Regressor. For municipalities with fewer than 1000 trees (Kristiansand), we opt for a Linear Regression model.</p>
+<p>We split the reference dataset into 80% training and 20% testing sets.
+For the Random Forest models a grid search algorithm is implemented to optimize Max features and N estimators, utilizing a 10-fold cross-validation to evaluate each model’s performance. The optimal model, selected based on the highest R-squared score, is further evaluated using an external test dataset. The linear models for Kristiansand are trained on the training (80%) dataset and evaluated against the test (20%) dataset.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Random Forest Regressor</strong></p>
+<p>A Random Forest Regressor is a non-parametric model that can capture non-linear relationships between the predictor and response variables. A Random Forest (REF) builds multiple decision trees, with each tree being trained on a random subset of the training data. The Random Forest Regressor then averages the predictions of each tree to make a final prediction (REF). The number of trees in the forest (N estimators) and the maximum features considered for splitting a node (Max features) are parameters that can be tuned. Random Forest models can be prone to overfitting; therefore it is recommended to tune the parameters of the model and to test the model on unseen data (REF).</p>
+<p><strong>Linear Regression</strong></p>
+<p>A linear regression model is a parametric model that assumes a linear relationship between the predictor and response variables (REF). A linear regression model is better suited for small datasets as it is less prone to overfitting than a Random Forest Regressor (REF).</p>
+</div>
+</section>
+<section id="model-performance">
+<h3 id="model-performance">Model Performance<a class="headerlink" href="#model-performance" title="Link to this heading">¶</a></h3>
+<p><strong>Oslo and Bærum</strong></p>
+<p>Table 1 presents the model performance of the Random Forest Regressor using three different predictor combinations:</p>
+<ul class="simple">
+<li><p><strong>Feature set 1 (FS1):</strong> Species, DBH, Height, Crown Area and Pollution Zone</p></li>
+<li><p><strong>Feature set 2 (FS2):</strong> DBH, Height, Crown Area and Pollution Zone</p></li>
+<li><p><strong>Feature set 3 (FS3):</strong> Height, Crown Area and Pollution Zone</p></li>
+</ul>
+<p>The model performance is evaluated using the R2 score, and the root mean squared error (RMSE). For the water runoff reduction and pollution reduction models, we select the model trained on <strong>FS3</strong>, despite having a slightly lower performance than the model trained on FS1. This decision is based on the model’s simplicity and the fact that DBH and tree species information are not required. This is an advantage since DBH and species information are not directly available in the target dataset but must be inferred from other variables. For the carbon storage and carbon sequestration models, we observe that DBH is crucial, and the performance drops when removing this variable. Therefore, we opt for feature set <strong>FS2</strong>.</p>
+<p><strong>Tabel 2.</strong> Random Forest model performance results for the three different feature sets applied on Oslo’s reference dataset. The final models that are applied to the all tree crowns located in the building zone of Oslo and Bærum are highlighted in bold text.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature Set</p></th>
+<th class="head"><p>FS1</p></th>
+<th class="head"><p>FS1</p></th>
+<th class="head"><p>FS2</p></th>
+<th class="head"><p>FS2</p></th>
+<th class="head"><p>FS3</p></th>
+<th class="head"><p>FS3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p><em>R2</em></p></td>
+<td><p><em>RMSE</em></p></td>
+<td><p><em>R2</em></p></td>
+<td><p><em>RMSE</em></p></td>
+<td><p><em>R2</em></p></td>
+<td><p><em>RMSE</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Carbon Storage (kg)</p></td>
+<td><p>0.98</p></td>
+<td><p>89.97</p></td>
+<td><p><strong>0.95</strong></p></td>
+<td><p><strong>144.84</strong></p></td>
+<td><p>0.37</p></td>
+<td><p>506.34</p></td>
+</tr>
+<tr class="row-even"><td><p>Carbon Sequestration (kg/yr)</p></td>
+<td><p>0.90</p></td>
+<td><p>2.11</p></td>
+<td><p><strong>0.78</strong></p></td>
+<td><p><strong>3.05</strong></p></td>
+<td><p>0.48</p></td>
+<td><p>4.73</p></td>
+</tr>
+<tr class="row-odd"><td><p>Runoff (m3/yr)</p></td>
+<td><p>0.87</p></td>
+<td><p>0.46</p></td>
+<td><p>0.81</p></td>
+<td><p>0.57</p></td>
+<td><p><strong>0.81</strong></p></td>
+<td><p><strong>0.57</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Reduction of NO2 pollution (g/yr)</p></td>
+<td><p>0.90</p></td>
+<td><p>79.98</p></td>
+<td><p>0.86</p></td>
+<td><p>97.59</p></td>
+<td><p><strong>0.86</strong></p></td>
+<td><p><strong>97.27</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Reduction of PM2.5 pollution (g/yr)</p></td>
+<td><p>0.90</p></td>
+<td><p>8.11</p></td>
+<td><p>0.86</p></td>
+<td><p>9.95</p></td>
+<td><p><strong>0.86</strong></p></td>
+<td><p><strong>9.87</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Reduction of SO2 pollution (g/yr)</p></td>
+<td><p>0.90</p></td>
+<td><p>5.90</p></td>
+<td><p>0.86</p></td>
+<td><p>7.22</p></td>
+<td><p><strong>0.85</strong></p></td>
+<td><p><strong>7.40</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Total pollution reduction (g/yr)</p></td>
+<td><p>0.90</p></td>
+<td><p>282.96</p></td>
+<td><p>0.85</p></td>
+<td><p>345.85</p></td>
+<td><p><strong>0.85</strong></p></td>
+<td><p><strong>349.26</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>R2 and RMSE</strong></p>
+<p>The R2 score is a measure of how well the model fits the data. The R2 score is between 0 and 1, with 1 indicating a perfect fit. The RMSE is a measure of how well the model predicts the data. The RMSE is between 0 and infinity, with 0 indicating a perfect prediction.</p>
+</div>
+<p><strong>Bodø</strong></p>
+<p><strong>Kristiansand</strong></p>
+</section>
+<section id="calculation-of-monetary-values">
+<h3 id="calculation-of-monetary-values">Calculation of monetary values<a class="headerlink" href="#calculation-of-monetary-values" title="Link to this heading">¶</a></h3>
+<p>The monetary values of the ecosystem services are calculated using benefit prices. An in-depth explanation of the selection of benefit prices is available in Appendix 10 “ “ of the <a class="reference external" href="https://www.nina.no/">NINA Rapport</a>. The benefit prices are presented in Table 3 and the formulas used to calculate the monetary values of the ecosystem services are presented in Table 4.</p>
+<p><strong>Table 3.</strong> Benefit prices used to calculate the monetary value of the ecosystem services.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ecosystem Service</p></th>
+<th class="head"><p>Benefit Price (NOK)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Carbon (ton)</p></td>
+<td><p>1883.00 Nkr</p></td>
+</tr>
+<tr class="row-odd"><td><p>Runoff reduction (m3)</p></td>
+<td><p>7.802  Nkr</p></td>
+</tr>
+<tr class="row-even"><td><p>Air pollution reduction (kg)</p></td>
+<td><p>6.37 Nkr</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 4.</strong> Formulas used to calculate the monetary value of the ecosystem services.</p>
+<table>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ecosystem Service</p></th>
+<th class="head"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Carbon storage (Nkr)</p></td>
+<td><p><em>Carbon storage (kg) * 1.883</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Carbon sequestration (Nkr/2023)</p></td>
+<td><p><em>Carbon sequestration (kg/yr) * 1.883</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Runoff reduction (Nkr/2023)</p></td>
+<td><p><em>Runoff reduction (m3/yr) * 7.802</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Air pollution reduction (Nkr/2023)</p></td>
+<td><p><em>Air pollution reduction (kg/yr) * 6.37</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Total annual benefits (2023)</p></td>
+<td><p><em>Carbon sequestration (Nkr/2023) + Runoff reduction (Nkr/2023) + Air pollution reduction (Nkr/2023)</em></p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="references">
-<h2 id="references">References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<h3 id="references">References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Barton, D. and Venter, Z., 2022. NINA Project memo 397</p></li>
 <li><p>Cimburova, Z., &amp; Barton, D. N. (2020). The potential of geospatial analysis and Bayesian networks to enable i-Tree Eco assessment of existing tree inventories. Urban Forestry &amp; Urban Greening, 55, 126801. https://doi.org/10.1016/j.ufug.2020.126801</p></li>
 </ul>
+</section>
+<section id="contributors">
+<h3 id="contributors"><strong>Contributors</strong><a class="headerlink" href="#contributors" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Willeke A’Campo (NINA), willeke.acampo@nina.no</p></li>
+<li><p>David Barton (NINA), david.barton@nina.no</p></li>
+<li><p>Bart Immerzeel (NINA), bart.immerzeel@nina.no</p></li>
+</ul>
+</section>
 </section>
 </section>
 
