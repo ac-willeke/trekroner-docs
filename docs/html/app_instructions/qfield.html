@@ -46,7 +46,7 @@
   
   
   
-    <title>Instruks | QField Treregisteringsapp (NO) &#8212; Trekroner  documentation</title>
+    <title>QField Tree Registration App (NO) &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> Instruks | QField Treregisteringsapp (NO) </span>
+          <span class="md-header-nav__topic"> QField Tree Registration App (NO) </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -183,7 +183,14 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#app-instructions-qfield--page-root" class="md-nav__link">QField Tree Registration App (NO)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#referanser" class="md-nav__link">Referanser</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -193,28 +200,525 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="instruks-qfield-treregisteringsapp-no">
-<h1 id="app-instructions-qfield--page-root">Instruks | QField Treregisteringsapp (NO)<a class="headerlink" href="#app-instructions-qfield--page-root" title="Link to this heading">¶</a></h1>
-<p><em>arbeid pågår</em></p>
-<p>QField Treregisteringsapp er et feltregisteringsverktøy til bruk i treregistering etter feltmetoder
-for i-Tree Eco og Verdsetting av Trær (VAT). QField Treregisteringsappen er utviklet av NINA i
-2021 (Nollet et al., 2021) og oppdatert under Trekroner-prosjektet i 2023.</p>
-<p>Appen er koblet til et kartgrensesnitt i kommunen og en tilhørende database i QGIS. Dette gjør at
-man slipper å bruke papirskjema i felt, taste inn data i Excel og laste dem opp til GIS-programvare.
-I stedet hentes dataene direkte ut i i-Tree-format. Dette reduserer ressursbruken for kommunens
-feltarbeidere og risikoen for feil ved dataoverføring.</p>
-<p>Appen brukes til å innhente bakkedata som ikke er tilgjengelige fra Lidar-kartlegging eller i kommunenes
-tredatabaser. Dette gjelder spesielt data om treslag, stammeomkrets, trekronens høyde
-over bakken og trærs tilsands variabler. I tillegg er det mulig å registrere data som brukes til i
-Verdisetting av Trær (VAT). VAT samler inn tilleggsdata som kan brukes til å vurdere treets helsetilstand,
-som anslått alder og betydning som biotop for andre arter. Dette er variabler som er til
-vurdering i en standardisering av Standard Norge.</p>
-<p>Vi har testet QField appen på Android nettbrett i prosjektet. Detaljerte instrukser for hvordan man
-bruker appen fra felt-til-GIS er tilgjengelige <strong><a class="reference external" href="https://github.com/NINAnor/trekroner-docs/blob/main/QField_treregistreringsapp/QField_app_treregistrering_v3.pdf">her</a></strong>. I tillegg finnes det informasjon om hvordan man oppretter et nytt prosjekt med samme mal for å kartlegge et nytt område i kommunen.</p>
+  <section id="qfield-tree-registration-app-no">
+<h1 id="app-instructions-qfield--page-root">QField Tree Registration App (NO)<a class="headerlink" href="#app-instructions-qfield--page-root" title="Link to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Last ned instruks og QField mal-prosjektet fra <a class="reference external" href="https://github.com/NINAnor/trekroner-docs/tree/main/QField_treregistreringsapp">GitHub</a></p>
+<p><strong>Last ned</strong> QField Treregisteringsappen og instruksen fra <a class="reference external" href="https://github.com/NINAnor/trekroner-docs/tree/main/QField_treregistreringsapp">GitHub</a>.</p>
 </div>
+<p>QField Treregisteringsapp er NINAs feltregistreringsverktøy for treregistrering i samsvar med i-Tree Eco og VAT19-instruksjonene (i-Tree Eco v.6, Randrup, T.B et al., 2018). Feltbaserte metoder er gunstige for variabler som ikke kan beregnes fra LiDAR- eller GIS-analyser, spesielt for treslag, treets helsetilstand og treets egenskaper som habitat for andre arter. QField Treregisteringsapp ble opprinnelig utviklet av Nollet et al. (2021) for et område i Oslo. Denne oppdaterte versjonen har en mal som kan brukes til å kartlegge nye områder. QField Treregisteringsappen ble testet i et pilotfeltbesøk i Sandvika i august 2023, og prosjektmalen er tilgjengelig på <a class="reference external" href="https://github.com/NINAnor/trekroner-docs/blob/main/QField_treregistreringsapp/QField_app_treregistrering_v3.pdf">GitHub</a>.</p>
+<p>App-instruksen viser QGIS-oppsettet på datamaskinen og gir veiledning i bruken av QField Treregisteringsappen i feltet. Kartleggingsprosessen involverer forberedelse av malen for det spesifikke feltområdet i QGIS, valg av et tilfeldig utvalg av laserdetekterte trekroner for registrering i feltet, installasjon av QField-applikasjonen på nettbrettet eller telefonen, og åpning av prosjektet i QField-appen. Deretter kan du begynne å registrere trær i feltet og overføre dataene tilbake til datamaskinen din.</p>
+<p>For å dra nytte av QField Treregisteringsappen, er kunnskap om QGIS, QField, GeoPackage-formatet, raster- og vektordata nødvendig. I tillegg forutsettes kjennskap til i-Tree Eco og VAT19-protokollene. Denne instruksjonen bør brukes sammen med de offisielle feltveiledningene for i-Tree Eco og VAT19 (i-Tree Eco v.6, Randrup, T.B et al., 2018).</p>
+<p><strong>Relevante hjelpemidler og dokumentasjon</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.itreetools.org/documents/274/EcoV6.FieldManual.2021.10.06.pdf">i-Tree Eco Field Guide</a></p></li>
+<li><p>VAT19 normbok av Randrup et al. (2018)</p></li>
+<li><p><a class="reference external" href="https://docs.qfield.org/">QField-dokumentasjon</a></p></li>
+<li><p><a class="reference external" href="lenke/kommer/her">NINA Rapport xxxx</a></p></li>
+</ul>
+<table id="id2">
+<caption><span class="caption-text"><strong>Tabell 1.</strong> Attributtskjema for treregistrering i QField appen</span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Nr.</p></th>
+<th class="head"><p>Category</p></th>
+<th class="head"><p>Sub-category</p></th>
+<th class="head"><p>Name (EN)</p></th>
+<th class="head"><p>Alias (NO)</p></th>
+<th class="head"><p>Domain</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>tree_id</p></td>
+<td><p>Tre ID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>crown_id</p></td>
+<td><p>Krone ID</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Admin</p></td>
+<td><p>Egenskaper fra Laserdata</p></td>
+<td><p>crown_area</p></td>
+<td><p>Trekroneareal (m2)</p></td>
+<td><p>1;0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Admin</p></td>
+<td><p>Egenskaper fra Laserdata</p></td>
+<td><p>height_total_tree</p></td>
+<td><p>Høyde laser (m)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Admin</p></td>
+<td><p>Egenskaper fra Laserdata</p></td>
+<td><p>dbh</p></td>
+<td><p>Predikert stammediameter (cm)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>registrant</p></td>
+<td><p>Kartlegger</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>registration_date</p></td>
+<td><p>Kartleggingsdato</p></td>
+<td><p>$now</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>status</p></td>
+<td><p>Status</p></td>
+<td><p>registrert; arbeid pågår; ikke registrert; ikke et tre</p></td>
+<td><p>symbology: registrert (grønn), arbeid pågår (gull), ikke registrert (rød), ikke et tre (rødkors)</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>field_question</p></td>
+<td><p>Feltspørsmål</p></td>
+<td></td>
+<td><p>if the field is not NULL, feature is flagged with a question mark.</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>field_comment</p></td>
+<td><p>Feltkommentar</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>itree_survey</p></td>
+<td><p>i-Tree instruks</p></td>
+<td><p>1;0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>vat19_survey</p></td>
+<td><p>VAT19 instruks</p></td>
+<td><p>1;0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>grunnkretsnummer</p></td>
+<td><p>Grunnkretsnummer (SSB)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>wgs84_lon</p></td>
+<td><p>Longitude</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>Admin</p></td>
+<td></td>
+<td><p>wgs84_lat</p></td>
+<td><p>Latitude</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>n_stems</p></td>
+<td><p>Antall stammer</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>tree_type</p></td>
+<td><p>Enkelt tre (stammer &lt; 7) eller Byskog (stammer ? 7)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>norwegian_name</p></td>
+<td><p>Treslag (stammer &lt;7)</p></td>
+<td><p>taxon:treslag</p></td>
+<td><p>Treslag (CON: n_stems &lt; 7), domain imported from csv: TABLES/lookup_taxon_treslag.csv</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>taxon_genus</p></td>
+<td><p>Genus</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>species_comment</p></td>
+<td><p>Treslag kommentar</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>biotope_class</p></td>
+<td><p>Byskogbiotop</p></td>
+<td><p>Blandet løvskog; furuskog; granskog; blandet barskog; blandet løv-barskog</p></td>
+<td><p>Byskog  (CON: n_stems ? 7)</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>species_distribution</p></td>
+<td><p>Treslag fordeling [instruks: beskriv fordeling i %]</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Art</p></td>
+<td><p>forest_comment</p></td>
+<td><p>Byskog kommentar</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_height</p></td>
+<td><p>Stammeomkrets målingshøyde [instruks: sammehøyde for alle stammer 1.3 m]</p></td>
+<td><p>1.3</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_comment</p></td>
+<td><p>Stammeomkrets kommentar</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>stem_circ_1</p></td>
+<td><p>Stamme 1 - omkrets (cm)</p></td>
+<td></td>
+<td><p>Stamme 1 (CON: n_stems = 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_1</p></td>
+<td><p>Stamme 1 - diameter (cm) [instruks: beregnes automatisk]</p></td>
+<td></td>
+<td><p>Stamme 1 (CON: n_stems = 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>stem_circ_2</p></td>
+<td><p>Stamme 2 - omkrets (cm)</p></td>
+<td></td>
+<td><p>Stamme 2 (CON: n_stems &gt; 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_2</p></td>
+<td><p>Stamme 2 - diameter (cm)</p></td>
+<td></td>
+<td><p>Stamme 2 (CON: n_stems &gt; 1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>stem_circ_3</p></td>
+<td><p>Stamme 3 - omkrets (cm)</p></td>
+<td></td>
+<td><p>Stamme 3 (CON: n_stems &gt; 2)</p></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_3</p></td>
+<td><p>Stamme 3 - diameter (cm)</p></td>
+<td></td>
+<td><p>Stamme 3 (CON: n_stems &gt; 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>stem_circ_4</p></td>
+<td><p>Stamme 4 - omkrets (cm)</p></td>
+<td></td>
+<td><p>Stamme 4 (CON: n_stems &gt; 3)</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_4</p></td>
+<td><p>Stamme 4 - diameter (cm)</p></td>
+<td></td>
+<td><p>Stamme 4 (CON: n_stems &gt; 3)</p></td>
+</tr>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>stem_circ_5</p></td>
+<td><p>Stamme 5 - omkrets (cm)</p></td>
+<td></td>
+<td><p>Stamme 5  (CON: n_stems &gt; 4)</p></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_5</p></td>
+<td><p>Stamme 5 - diameter (cm)</p></td>
+<td></td>
+<td><p>Stamme 5  (CON: n_stems &gt; 4)</p></td>
+</tr>
+<tr class="row-odd"><td><p>36</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>stem_circ_6</p></td>
+<td><p>Stamme 6 - omkrets (cm)</p></td>
+<td></td>
+<td><p>Stamme 6  (CON: n_stems &gt; 5)</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Stammeomkrets</p></td>
+<td><p>dbh_6</p></td>
+<td><p>Stamme 6 - diameter (cm)</p></td>
+<td></td>
+<td><p>Stamme 6  (CON: n_stems &gt; 5)</p></td>
+</tr>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Høyde</p></td>
+<td><p>tree_height_laser</p></td>
+<td><p>Høyde laser (m)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>39</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Høyde</p></td>
+<td><p>height_in_situ</p></td>
+<td><p>Høyde feltregistrering (m)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Høyde</p></td>
+<td><p>height_crown_base</p></td>
+<td><p>Trekrone-til-bakke høyde (m) [instruks: målt til lavest hovedgren]</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Høyde</p></td>
+<td><p>height_comment</p></td>
+<td><p>Høyde kommentar</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>42</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Trekrone tilstand</p></td>
+<td><p>crown_dieback</p></td>
+<td><p>Død trekrone areal (%)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>i-Tree Eco variabler</p></td>
+<td><p>Trekrone tilstand</p></td>
+<td><p>percent_crown_missing</p></td>
+<td><p>Manglende trekrone areal (%)</p></td>
+<td></td>
+<td><p>Default: 15-20%</p></td>
+</tr>
+<tr class="row-odd"><td><p>44</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Alder</p></td>
+<td><p>life_stage</p></td>
+<td><p>Treets livsfase</p></td>
+<td><p>etablering; vekst; klimaksfase; avviklingsfase;</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Alder</p></td>
+<td><p>actual_age</p></td>
+<td><p>Faktisk alder (år)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>46</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Alder</p></td>
+<td><p>expected_age</p></td>
+<td><p>Forventet alder (år)</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>47</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Tilstand</p></td>
+<td><p>condition_roots</p></td>
+<td><p>Mekanisk kvalitet, Røtter (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Tilstand</p></td>
+<td><p>condition_crown</p></td>
+<td><p>Mekanisk kvalitet, Krone (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Tilstand</p></td>
+<td><p>condition_stem</p></td>
+<td><p>Mekanisk kvalitet, Stamme (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Tilstand</p></td>
+<td><p>condition_vitality</p></td>
+<td><p>Vitalitet, hele treet (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_dbh</p></td>
+<td><p>Stammeomkrets &gt; 250 cm</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_substrate</p></td>
+<td><p>Akkumelering av substrat?</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_bark</p></td>
+<td><p>Sprukket bark &gt; 3 cm dypt i brysthøyde?</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_trunk</p></td>
+<td><p>Stamme &gt; 50% dekket i mose/lav?</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>55</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_hollows</p></td>
+<td><p>Hulerom, sprekker, rede, fuglekasser?</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_age</p></td>
+<td><p>Tre &gt; 170 år?</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Bidrag til biodiversitet / Levemiljø for andre arter</p></td>
+<td><p>habitat_value</p></td>
+<td><p>Habitatverdi [instruks: oppfyller minst 2/5 kriterier over]</p></td>
+<td><p>ja;nei</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>58</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Opplevelsestjenester</p></td>
+<td><p>experience_landscape</p></td>
+<td><p>Landskapsarkitektonisk element (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>59</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Opplevelsestjenester</p></td>
+<td><p>experience_ornament</p></td>
+<td><p>Prydverdi (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>VAT19 variabler</p></td>
+<td><p>Opplevelsestjenester</p></td>
+<td><p>experience_visibility</p></td>
+<td><p>Synlighet (1-5)</p></td>
+<td><p>1;2;3;4;5</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="referanser">
+<h2 id="referanser">Referanser<a class="headerlink" href="#referanser" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>i-Tree Eco v.6 [WWW Document], n.d. URL <a class="reference external" href="https://www.itreetools.org/documents/274/EcoV6.FieldManual.2021.10.06.pdf">https://www.itreetools.org/documents/274/EcoV6.FieldManual.2021.10.06.pdf</a> (accessed 10.10.23).</p></li>
+<li><p>Nollet, A., Barton, D.N., Cimburova, Z. &amp; Often, A. 2021. Accounting for amenities and regulating ecosystem ser-vices of urban trees. Testing a combined field protocol for VAT19 and i-Tree Eco valuation methods. NINA Report 1948. Norwegian Institute for Nature Research.</p></li>
+<li><p>Randrup, T.B., Bühler, O., Holgersen, S., 2018. VAT 19 - Værdisætning af træer. Forlaget Grønt Miljø.</p></li>
+</ul>
+</section>
 </section>
 
 
