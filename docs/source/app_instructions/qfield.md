@@ -26,3 +26,5 @@ bruker appen fra felt-til-GIS er tilgjengelige **[her](https://github.com/NINAno
 Last ned instruks og QField mal-prosjektet fra [GitHub](https://github.com/NINAnor/trekroner-docs/tree/main/QField_treregistreringsapp)
 ```
 
+
+
