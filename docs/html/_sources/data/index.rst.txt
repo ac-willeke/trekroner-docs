@@ -6,13 +6,6 @@ intro text here
 Geographical extent
 -------------------
 
-Area description and overview map 
-
-Indicate the geographical area in which the data has been collected. This should be stated as a textual description, and in addition preferably a "bounding box".
-Ex.
-Southern Norway, the coastline from Viken in the east to Rogaland in the west.
-
-Bounding Coordinates SW [58.021, 5.292], NE [59.469, 11.319]
 
 
 Data sources
@@ -25,16 +18,13 @@ Data sources
    tree_inventory_data
    remote_sensing_data
 
-Description of data sources used in the project.  Table: “Data sources and specifications”. 
 
-.. xlsx-table:: **Table X.** Data sources and specifications. 
+.. xlsx-table:: **Table X.** Overview of all datasources used within the project. 
     :file: tbl/LUT_building_footprints.xlsx
     :header-rows: 1
 
 Output data products
 --------------------
-
-Description output data. 
 
 .. xlsx-table:: **Table X.** Overview of all datasources used within the project. 
     :file: tbl/LUT_building_footprints.xlsx

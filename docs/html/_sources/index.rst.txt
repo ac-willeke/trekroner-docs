@@ -32,6 +32,7 @@ Innhold
 
    app_instructions/qfield
    app_instructions/agol
+   data/index
    methods/index
    summary_stat/index
    ES_icons/ES_icons.md
