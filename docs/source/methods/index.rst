@@ -9,7 +9,6 @@ Contents
    01_tree_detection/index
    02_support_tools/README_integration
    03_itree_eco/README
-   02_support_tools/README_extrapolation
    05_urban_climate/README
    06_tree_visibility/README
    installation_manuals/index
@@ -27,17 +26,35 @@ To create a workflow that can be applied to different input dataset from differe
 
 The workflow consists of the following tasks:
 
-1. **Urban Tree Detection:** tree crown polygons and tree top points are detected from Airborne Laser Scanning (ALS) data, following the tree detection method established by Hanssen et al. (2021).
-2. **Integration of Municipal Tree Databases:** Existing municipality tree inventories are integrated into one unified tree database for each municipality. The registered trees in the database are linked with the laser-detected tree crowns, and additional attributes are calculated using various GIS analyses.
-3. **I-Tree Eco Modelling:** Regulating services for the registered in situ trees are calculated using the i-Tree Eco model.
-4. **Extrapolation:** Linear regression models are used to extrapolate the regulating service values to the whole tree cover of the municipalities’ built up zone.
-5. **Local Climate Regulation:** The effect of tree crown coverage on land surface temperature (LST) is estimated using counterfactual modelling. The climate service of trees is calculated in terms of avoided heat risk persons.
-6. **Tree Visibility and Impact Modelling:** The visual exposure to urban trees is modelled using the r.viewshed.exposure GRASS GIS addon Cimburova and Blumentrath (2022). In addition, the public and private tree visibility value is calculated for a case study site using the r.viewshed.impact GRASS GIS addon (Cimburova et al. 2023).
-7. **3-30-300 Space Rule:** three indicators for the 3-30-300 rule are calculated per district (Konijnendijk, C. C. 2023). The indicators are:
-    - number of residential buildings with at least 3 trees within 15 meters
-    - crown cover percentage
-    - number of residential buildings within a distance of 300 meters to a green space
+1. **Urban Tree Detection**
+   
+   Tree crown polygons and tree top points are detected from Airborne Laser Scanning (ALS) data, following the tree detection method established by Hanssen et al. (2021).
 
+2. **Integration of Municipal Tree Databases**
+
+   Existing municipality tree inventories are integrated into one unified tree database for each municipality. The registered trees in the database are linked with the laser-detected tree crowns, and additional attributes are calculated using various GIS analyses.
+
+3. **I-Tree Eco Modelling**
+
+   Regulating services for the registered in situ trees are calculated using the i-Tree Eco model. Regression models are used to extrapolate the regulating service values to the whole tree cover of the municipalities’ built up zone.
+
+4. **Local Climate Regulation**
+
+   The effect of tree crown coverage on land surface temperature (LST) is estimated using counterfactual modelling. The climate service of trees is calculated in terms of avoided heat risk persons.
+
+5. **Mapping of Trees Visibility and Accessibility**
+
+   - **Tree Visibility and Impact Modelling**
+
+     The visual exposure to urban trees is modelled using the r.viewshed.exposure GRASS GIS addon Cimburova and Blumentrath (2022). In addition, the public and private tree visibility value is calculated for a case study site using the r.viewshed.impact GRASS GIS addon (Cimburova et al. 2023).
+
+   - **3-30-300 Space Rule**
+
+     Three indicators for the 3-30-300 rule are calculated per district (Konijnendijk, C. C. 2023). The indicators are:
+
+     - Number of residential buildings with at least 3 trees within 15 meters
+     - Crown cover percentage
+     - Number of residential buildings within a distance of 300 meters to a green space
 The methods are documented online and from there you are pointed to the correct GitHub repositories. Map results are presented in the municipalities Urban Tree Atlas and the project report.
 
 Table 1 shows each task and their corresponding GitHub-repository. Figure 2 shows the design of this semi-automatic workflow.
@@ -51,25 +68,25 @@ Table 1 shows each task and their corresponding GitHub-repository. Figure 2 show
      * - Task
        - GitHub Repository
        - Description
-     * - I
+     * - 1
        - `urban-tree-detection <https://github.com/NINAnor/urban-tree-detection>`_
        - **Tree detection** using a watershed segmentation model.
-     * - II
+     * - 2
        - `itree-support-tools <https://github.com/NINAnor/itree-support-tools>`_
        - **Cleaning** municipal tree datasets. **Joining** in situ tree stems with laser tree crowns. **Calculating** i-Tree Eco **attributes** using auxiliary GIS-data.
-     * - III
+     * - 3
        - Software not a GitHub repository
        - **Calculating** i-Tree Eco **regulating services** for the registered in situ trees.
-     * - IV
+     * - 3
        - `itree-support-tools <https://github.com/NINAnor/itree-support-tools>`_
        - **Extrapolating** i-Tree Eco regulating services to all tree crowns in the building zone.
-     * - V
+     * - 4
        - `urban-climate <https://github.com/NINAnor/urban-climate>`_
        - **Land Surface Temperature (LST)** counterfactual modelling. Ecosystem Service Calculation as avoided heat risk persons.
-     * - VI
+     * - 5
        - `r.viewshed.exposure <https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure>`_ and `r.viewshed.impact <https://github.com/zofie-cimburova/r.viewshed.impact>`_
        - **Visual exposure modelling** and **visual impact modelling**.
-     * - VII
+     * - 5
        - `itree-support-tools <https://github.com/NINAnor/itree-support-tools>`_
        - **Calculating** the 3-30-300 space rule.
 

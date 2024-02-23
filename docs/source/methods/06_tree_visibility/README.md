@@ -1,4 +1,4 @@
-# Task 6 | Mapping of trees visibility and accessibiltiy 
+# Task 5 | Mapping of trees visibility and accessibiltiy 
 
 This is the documentation page related to the task: **Tree Visibility** and **Impact Modelling**. 
 

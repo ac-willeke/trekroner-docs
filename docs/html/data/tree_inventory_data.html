@@ -58,6 +58,8 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remote Sensing data" href="remote_sensing_data.html" />
+    <link rel="prev" title="Climate data" href="climate_data.html" />
   
    
 
@@ -151,6 +153,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Data (EN)</a></li>
       </ul>
     </div>
   </nav>
@@ -181,7 +184,14 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#data-tree-inventory-data--page-root" class="md-nav__link">Tree inventory data (in situ)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#baerum-municipality-tree-inventory-data" class="md-nav__link">Bærum municipality tree inventory data</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -193,6 +203,76 @@
             
   <section id="tree-inventory-data-in-situ">
 <h1 id="data-tree-inventory-data--page-root">Tree inventory data (in situ)<a class="headerlink" href="#data-tree-inventory-data--page-root" title="Link to this heading">¶</a></h1>
+<section id="baerum-municipality-tree-inventory-data">
+<h2 id="baerum-municipality-tree-inventory-data">Bærum municipality tree inventory data<a class="headerlink" href="#baerum-municipality-tree-inventory-data" title="Link to this heading">¶</a></h2>
+<p>Bærum municipality provided four vector files with point data (Table 1). Each point represents a tree mapped according to the Natur i Norge (NiN) mapping manual or the håndbok 13 (DN13) mapping manual (Miljødirektoratet, 2021, Direktoratet for naturforvaltning, 2007). These trees were mapped for different purposes (monitoring of hollow oaks, old trees, or forest areas) than this project’s purpose (quantifying the benefits of trees). Note that this can overrepresent certain tree species, which could affect the outcomes of this study.</p>
+<table id="id1">
+<caption><span class="caption-text"><strong>Table 1.</strong> Bærum municipality tree inventory data.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>filename</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Object count</p></th>
+<th class="head"><p>Data owner</p></th>
+<th class="head"><p>Date received</p></th>
+<th class="head"><p>Received from</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DN13_DN12_store_gml_Tre.shp</p></td>
+<td><p>Store gamle trær – registrert etter Miljødirektoratets håndbok 13 (DN13)</p></td>
+<td><p>1260</p></td>
+<td><p>Miljødirektoratet</p></td>
+<td><p>2023-02-22 00:00:00</p></td>
+<td><p>Bjørn Christian Edvardsen</p></td>
+</tr>
+<tr class="row-odd"><td><p>NIN_hul_eik.shp</p></td>
+<td><p>Hule eiker – registrert etter Miljødirektoratets instruks – Natur i Norge (NIN)</p></td>
+<td><p>199</p></td>
+<td><p>Miljødirektoratet</p></td>
+<td><p>2023-02-22 00:00:00</p></td>
+<td><p>Bjørn Christian Edvardsen</p></td>
+</tr>
+<tr class="row-even"><td><p>NIN_SKOG.shp</p></td>
+<td><p>Skogsområder – registrert etter MD instruks – Natur i Norge (NIN)</p></td>
+<td><p>765</p></td>
+<td><p>Miljødirektoratet</p></td>
+<td><p>2023-02-22 00:00:00</p></td>
+<td><p>Bjørn Christian Edvardsen</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lommedalen_trær.shp</p></td>
+<td><p>Store gamle trær i Lommedalen – registrert etter Miljødirektoratets håndbok 13 (DN13)</p></td>
+<td><p>29</p></td>
+<td><p>Bærum Kommune</p></td>
+<td><p>2023-03-22 00:00:00</p></td>
+<td><p>Bjørn Christian Edvardsen</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cleaning of the tree inventory data</strong></p>
+<p>The tree inventory data was cleaned to ensure that only trees within the building zone of Bærum municipality were included in the analysis.
+The resulting cleaned dataset contained: 1465 single trees, 23 clustered trees and 765 urban forest areas. In this study we only consider the single tree localities registered within Bærums building zone, which are 1408 trees in total.
+Please refer to the <a class="reference external" href="https://ninanor.github.io/trekroner-docs/html/summary_stat/index.html">summary statistics</a> for more information on the tree inventory data.
+Specific cleaning tasks are described below.</p>
+<p><em>Manual cleaning tasks in ArcGIS Pro 3.0</em></p>
+<ul class="simple">
+<li><p>Remove trees outside the study area.</p></li>
+<li><p>Delete attributes not relevant for this study (ensure that lokalid and NaturbaseID are kept).</p></li>
+<li><p>Translate the naturtype code to the corresponding naturtype name.</p></li>
+<li><p>Register stem circumference (cm) in a separate column, if this value is registered in the field “naturmangfoldBeskrivelse” or in the rapport by Olberg, S. &amp; Nilsson, A. (2023).</p></li>
+<li><p>Classify the objects into “enkeltTre” (single tree), “klynge” (clustered trees) or “byskog” (urban forest area) and store in different feature classes.</p></li>
+</ul>
+<p><em>Automated cleaning tasks in Python</em></p>
+<ul class="simple">
+<li><p>set standard field design</p></li>
+<li><p>translate tree species</p></li>
+<li><p>ensure that each tree point contains: stem_id, dbh, height, crown_diameter</p></li>
+<li><p>group tree stem points by neighbourhood</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the script <a class="reference external" href="https://github.com/NINAnor/itree-support-tools/blob/main/src/data/clean.py">clean_tree_inventory.py</a> in the <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a> repository for more information on the automated cleaning tasks.</p>
+</div>
+</section>
 </section>
 
 
@@ -205,6 +285,30 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
+            <a href="climate_data.html" title="Climate data"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Climate data </span>
+              </div>
+            </a>
+          
+          
+            <a href="remote_sensing_data.html" title="Remote Sensing data"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Remote Sensing data </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
           
         </a>
         

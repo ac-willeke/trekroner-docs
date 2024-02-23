@@ -58,7 +58,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Task 4 | Extrapolation of i-Tree Eco values" href="../02_support_tools/README_extrapolation.html" />
+    <link rel="next" title="Task 3a | i-Tree Eco model" href="README_itree_eco.html" />
     <link rel="prev" title="Task 2 | Integration of Municipal Tree Data and ALS Data" href="../02_support_tools/README_integration.html" />
   
    
@@ -184,7 +184,14 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-03-itree-eco-readme--page-root" class="md-nav__link">Task 3 | i-Tree Eco Modelling</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#contents" class="md-nav__link">Contents</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -196,8 +203,19 @@
             
   <section id="task-3-i-tree-eco-modelling">
 <h1 id="methods-03-itree-eco-readme--page-root">Task 3 | i-Tree Eco Modelling<a class="headerlink" href="#methods-03-itree-eco-readme--page-root" title="Link to this heading">¶</a></h1>
-<p>The i-Tree Eco model is a tool for estimating the ecosystem services of trees in urban areas. The model is developed by the USDA Forest Service and is freely available for download at <a class="reference external" href="https://www.itreetools.org/tools/i-tree-eco">itreetools.org</a>.</p>
-<p>The project-specific documentation and software settings are provided in NINA rapport xxx Appendix xxx.</p>
+<p>The tree points of the municipality tree register that are cleaned and prepared in Task 2 are used as input for the i-Tree Eco model.
+This tool calculates ecosystem services and adds these physical and economic values as separate attributes to each tree point.</p>
+<p>However, the goal is to obtain an estimate of these ecosystem services for all trees within the city’s built-up area.
+Therefore, we use the tree points, which have been assessed by i-Tree Eco, along with machine learning techniques to predict the ecosystem services for all trees.</p>
+<section id="contents">
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README_itree_eco.html">Task 3a | i-Tree Eco model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README_extrapolation.html">Task 3b | Extrapolation of i-Tree Eco values</a></li>
+</ul>
+</div>
+</section>
 </section>
 
 
@@ -224,12 +242,12 @@
             </a>
           
           
-            <a href="../02_support_tools/README_extrapolation.html" title="Task 4 | Extrapolation of i-Tree Eco values"
+            <a href="README_itree_eco.html" title="Task 3a | i-Tree Eco model"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Task 4 | Extrapolation of i-Tree Eco values </span>
+                class="md-footer-nav__direction"> "Next" </span> Task 3a | i-Tree Eco model </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Task 1 | Urban Tree Detection" href="01_tree_detection/index.html" />
-    <link rel="prev" title="Remote Sensing data" href="../data/remote_sensing_data.html" />
+    <link rel="prev" title="Data (EN)" href="../data/index.html" />
   
    
 
@@ -213,9 +213,8 @@
 <li class="toctree-l1"><a class="reference internal" href="01_tree_detection/index.html">Task 1 | Urban Tree Detection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_support_tools/README_integration.html">Task 2 | Integration of Municipal Tree Data and ALS Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_itree_eco/README.html">Task 3 | i-Tree Eco Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_support_tools/README_extrapolation.html">Task 4 | Extrapolation of i-Tree Eco values</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_urban_climate/README.html">Task 5 | Local Climate Regulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_tree_visibility/README.html">Task 6 | Mapping of trees visibility and accessibiltiy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_urban_climate/README.html">Task 4 | Local Climate Regulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_tree_visibility/README.html">Task 5 | Mapping of trees visibility and accessibiltiy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation_manuals/index.html">Installation Manuals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/index.html">Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tables.html">Tables</a></li>
@@ -230,21 +229,33 @@
 <h2 id="a-semi-automatic-workflow-for-data-processing">A Semi-Automatic Workflow for Data Processing<a class="headerlink" href="#a-semi-automatic-workflow-for-data-processing" title="Link to this heading">¶</a></h2>
 <p>To create a workflow that can be applied to different input dataset from different geographic locations, we created a semi-automatic workflow. The workflow selects the most appropriate route based on the characteristics of the input dataset. For instance, laser data with lower point cloud density would follow a different processing path compared to data with higher density. The workflow builds upon existing workflows, leveraging their established methodologies and is programmed in Python.</p>
 <p>The workflow consists of the following tasks:</p>
-<ol class="arabic simple">
-<li><p><strong>Urban Tree Detection:</strong> tree crown polygons and tree top points are detected from Airborne Laser Scanning (ALS) data, following the tree detection method established by Hanssen et al. (2021).</p></li>
-<li><p><strong>Integration of Municipal Tree Databases:</strong> Existing municipality tree inventories are integrated into one unified tree database for each municipality. The registered trees in the database are linked with the laser-detected tree crowns, and additional attributes are calculated using various GIS analyses.</p></li>
-<li><p><strong>I-Tree Eco Modelling:</strong> Regulating services for the registered in situ trees are calculated using the i-Tree Eco model.</p></li>
-<li><p><strong>Extrapolation:</strong> Linear regression models are used to extrapolate the regulating service values to the whole tree cover of the municipalities’ built up zone.</p></li>
-<li><p><strong>Local Climate Regulation:</strong> The effect of tree crown coverage on land surface temperature (LST) is estimated using counterfactual modelling. The climate service of trees is calculated in terms of avoided heat risk persons.</p></li>
-<li><p><strong>Tree Visibility and Impact Modelling:</strong> The visual exposure to urban trees is modelled using the r.viewshed.exposure GRASS GIS addon Cimburova and Blumentrath (2022). In addition, the public and private tree visibility value is calculated for a case study site using the r.viewshed.impact GRASS GIS addon (Cimburova et al. 2023).</p></li>
-<li><dl class="simple">
-<dt><strong>3-30-300 Space Rule:</strong> three indicators for the 3-30-300 rule are calculated per district (Konijnendijk, C. C. 2023). The indicators are:</dt><dd><ul class="simple">
-<li><p>number of residential buildings with at least 3 trees within 15 meters</p></li>
-<li><p>crown cover percentage</p></li>
-<li><p>number of residential buildings within a distance of 300 meters to a green space</p></li>
+<ol class="arabic">
+<li><p><strong>Urban Tree Detection</strong></p>
+<p>Tree crown polygons and tree top points are detected from Airborne Laser Scanning (ALS) data, following the tree detection method established by Hanssen et al. (2021).</p>
+</li>
+<li><p><strong>Integration of Municipal Tree Databases</strong></p>
+<p>Existing municipality tree inventories are integrated into one unified tree database for each municipality. The registered trees in the database are linked with the laser-detected tree crowns, and additional attributes are calculated using various GIS analyses.</p>
+</li>
+<li><p><strong>I-Tree Eco Modelling</strong></p>
+<p>Regulating services for the registered in situ trees are calculated using the i-Tree Eco model. Regression models are used to extrapolate the regulating service values to the whole tree cover of the municipalities’ built up zone.</p>
+</li>
+<li><p><strong>Local Climate Regulation</strong></p>
+<p>The effect of tree crown coverage on land surface temperature (LST) is estimated using counterfactual modelling. The climate service of trees is calculated in terms of avoided heat risk persons.</p>
+</li>
+<li><p><strong>Mapping of Trees Visibility and Accessibility</strong></p>
+<ul>
+<li><p><strong>Tree Visibility and Impact Modelling</strong></p>
+<p>The visual exposure to urban trees is modelled using the r.viewshed.exposure GRASS GIS addon Cimburova and Blumentrath (2022). In addition, the public and private tree visibility value is calculated for a case study site using the r.viewshed.impact GRASS GIS addon (Cimburova et al. 2023).</p>
+</li>
+<li><p><strong>3-30-300 Space Rule</strong></p>
+<p>Three indicators for the 3-30-300 rule are calculated per district (Konijnendijk, C. C. 2023). The indicators are:</p>
+<ul class="simple">
+<li><p>Number of residential buildings with at least 3 trees within 15 meters</p></li>
+<li><p>Crown cover percentage</p></li>
+<li><p>Number of residential buildings within a distance of 300 meters to a green space</p></li>
 </ul>
-</dd>
-</dl>
+</li>
+</ul>
 </li>
 </ol>
 <p>The methods are documented online and from there you are pointed to the correct GitHub repositories. Map results are presented in the municipalities Urban Tree Atlas and the project report.</p>
@@ -263,31 +274,31 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>I</p></td>
+<tr class="row-even"><td><p>1</p></td>
 <td><p><a class="reference external" href="https://github.com/NINAnor/urban-tree-detection">urban-tree-detection</a></p></td>
 <td><p><strong>Tree detection</strong> using a watershed segmentation model.</p></td>
 </tr>
-<tr class="row-odd"><td><p>II</p></td>
+<tr class="row-odd"><td><p>2</p></td>
 <td><p><a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p></td>
 <td><p><strong>Cleaning</strong> municipal tree datasets. <strong>Joining</strong> in situ tree stems with laser tree crowns. <strong>Calculating</strong> i-Tree Eco <strong>attributes</strong> using auxiliary GIS-data.</p></td>
 </tr>
-<tr class="row-even"><td><p>III</p></td>
+<tr class="row-even"><td><p>3</p></td>
 <td><p>Software not a GitHub repository</p></td>
 <td><p><strong>Calculating</strong> i-Tree Eco <strong>regulating services</strong> for the registered in situ trees.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IV</p></td>
+<tr class="row-odd"><td><p>3</p></td>
 <td><p><a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p></td>
 <td><p><strong>Extrapolating</strong> i-Tree Eco regulating services to all tree crowns in the building zone.</p></td>
 </tr>
-<tr class="row-even"><td><p>V</p></td>
+<tr class="row-even"><td><p>4</p></td>
 <td><p><a class="reference external" href="https://github.com/NINAnor/urban-climate">urban-climate</a></p></td>
 <td><p><strong>Land Surface Temperature (LST)</strong> counterfactual modelling. Ecosystem Service Calculation as avoided heat risk persons.</p></td>
 </tr>
-<tr class="row-odd"><td><p>VI</p></td>
+<tr class="row-odd"><td><p>5</p></td>
 <td><p><a class="reference external" href="https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure">r.viewshed.exposure</a> and <a class="reference external" href="https://github.com/zofie-cimburova/r.viewshed.impact">r.viewshed.impact</a></p></td>
 <td><p><strong>Visual exposure modelling</strong> and <strong>visual impact modelling</strong>.</p></td>
 </tr>
-<tr class="row-even"><td><p>VII</p></td>
+<tr class="row-even"><td><p>5</p></td>
 <td><p><a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p></td>
 <td><p><strong>Calculating</strong> the 3-30-300 space rule.</p></td>
 </tr>
@@ -316,7 +327,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../data/remote_sensing_data.html" title="Remote Sensing data"
+            <a href="../data/index.html" title="Data (EN)"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -325,7 +336,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> Remote Sensing data </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Data (EN) </span>
               </div>
             </a>
           

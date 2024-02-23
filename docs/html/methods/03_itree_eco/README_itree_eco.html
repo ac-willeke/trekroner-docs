@@ -46,7 +46,7 @@
   
   
   
-    <title>Sphinx Developer Information &#8212; Trekroner  documentation</title>
+    <title>Task 3a | i-Tree Eco model &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -58,8 +58,8 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Notebooks" href="../notebooks/index.html" />
-    <link rel="prev" title="GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact" href="04_tree_visibility_installation.html" />
+    <link rel="next" title="Task 3b | Extrapolation of i-Tree Eco values" href="README_extrapolation.html" />
+    <link rel="prev" title="Task 3 | i-Tree Eco Modelling" href="README.html" />
   
    
 
@@ -78,7 +78,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#methods/installation_manuals/sphinx_dev_info" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#methods/03_itree_eco/README_itree_eco" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> Sphinx Developer Information </span>
+          <span class="md-header-nav__topic"> Task 3a | i-Tree Eco model </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -154,7 +154,7 @@
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Installation Manuals</a></li>
+          <li class="md-tabs__item"><a href="README.html" class="md-tabs__link">Task 3 | i-Tree Eco Modelling</a></li>
       </ul>
     </div>
   </nav>
@@ -185,16 +185,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#methods-installation-manuals-sphinx-dev-info--page-root" class="md-nav__link">Sphinx Developer Information</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#project-structure" class="md-nav__link">Project Structure</a>
-        </li>
-        <li class="md-nav__item"><a href="#r-markdown-html-files" class="md-nav__link">R Markdown HTML files</a>
-        </li></ul>
-            </nav>
-        </li>
   </ul>
 </nav>
               </div>
@@ -204,37 +195,10 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="sphinx-developer-information">
-<h1 id="methods-installation-manuals-sphinx-dev-info--page-root">Sphinx Developer Information<a class="headerlink" href="#methods-installation-manuals-sphinx-dev-info--page-root" title="Link to this heading">¶</a></h1>
-<p>This page contains information for contributors to the Sphinx project.</p>
-<section id="project-structure">
-<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>main index.rst file in docs/source</p></li>
-<li><p>subpages grouped in separate folders docs/source/%subpage%/%page%.md</p></li>
-</ul>
-</section>
-<section id="r-markdown-html-files">
-<h2 id="r-markdown-html-files">R Markdown HTML files<a class="headerlink" href="#r-markdown-html-files" title="Link to this heading">¶</a></h2>
-<ul>
-<li><p>write R Markdown files in /Rmd</p></li>
-<li><p>render R Markdown files to MD in R console</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">"knitr::knit('Rmd/example.Rmd', 'Rmd/md/output.md')"</span>
-</pre></div>
-</div>
-<p>This creates a markdown file in the Rmd/md folder, with images
-in the Rmd/md/figure folder. The images are referenced in the markdown filed.</p>
-</li>
-<li><p>copy the markdown file to the docs/source/Rmd folder</p>
-<ul class="simple">
-<li><p>ensure that the links to the images do not contain spaces in
-the file name and are relative to the markdown file</p></li>
-</ul>
-</li>
-<li><p>copy the images to the docs/source/Rmd/figure folder</p></li>
-<li><p>add the markdown file to the index.rst file in docs/source/Rmd</p></li>
-</ul>
-</section>
+  <section id="task-3a-i-tree-eco-model">
+<h1 id="methods-03-itree-eco-readme-itree-eco--page-root">Task 3a | i-Tree Eco model<a class="headerlink" href="#methods-03-itree-eco-readme-itree-eco--page-root" title="Link to this heading">¶</a></h1>
+<p>The i-Tree Eco model is a tool for estimating the ecosystem services of trees in urban areas. The model is developed by the USDA Forest Service and is freely available for download at itreetools.org.</p>
+<p>The project-specific documentation and software settings are provided in NINA rapport xxx Appendix xxx.</p>
 </section>
 
 
@@ -247,7 +211,7 @@ the file name and are relative to the markdown file</p></li>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="04_tree_visibility_installation.html" title="GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact"
+            <a href="README.html" title="Task 3 | i-Tree Eco Modelling"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -256,17 +220,17 @@ the file name and are relative to the markdown file</p></li>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Task 3 | i-Tree Eco Modelling </span>
               </div>
             </a>
           
           
-            <a href="../notebooks/index.html" title="Notebooks"
+            <a href="README_extrapolation.html" title="Task 3b | Extrapolation of i-Tree Eco values"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Notebooks </span>
+                class="md-footer-nav__direction"> "Next" </span> Task 3b | Extrapolation of i-Tree Eco values </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

@@ -3,49 +3,20 @@ Data (EN)
 
 intro text here
 
-Geographical extent
--------------------
-
-Area description and overview map 
-
-Indicate the geographical area in which the data has been collected. This should be stated as a textual description, and in addition preferably a "bounding box".
-Ex.
-Southern Norway, the coastline from Viken in the east to Rogaland in the west.
-
-Bounding Coordinates SW [58.021, 5.292], NE [59.469, 11.319]
-
 
 Data sources
 ------------
-.. toctree::
-   :maxdepth: 1 
-
-   base_data
-   climate_data
-   tree_inventory_data
-   remote_sensing_data
 
 Description of data sources used in the project.  Table: “Data sources and specifications”. 
 
-.. xlsx-table:: **Table X.** Data sources and specifications. 
-    :file: tbl/LUT_building_footprints.xlsx
-    :header-rows: 1
+
 
 Output data products
 --------------------
 
 Description output data. 
 
-.. xlsx-table:: **Table X.** Overview of all datasources used within the project. 
-    :file: tbl/LUT_building_footprints.xlsx
-    :header-rows: 1
-
-
 
 
 
 **References:**
-
-- Cimburova, Z. and Blumentrath, S., 2022. Viewshed-based modelling of visual exposure to urban greenery – An efficient GIS tool for practical planning applications. Landscape and Urban Planning, Volume 222,104395. `https://doi.org/10.1016/j.landurbplan.2022.104395 <https://doi.org/10.1016/j.landurbplan.2022.104395>`_
-- Cimburova, Z., Blumentrath, S., Barton, D.N., 2023. Making trees visible: A GIS method and tool for modelling visibility in the valuation of urban trees. Urban Forestry & Urban Greening 81, 127839. `https://doi.org/10.1016/j.ufug.2023.127839 <https://doi.org/10.1016/j.ufug.2023.127839>`_
-- Konijnendijk, C.C. 2023. Evidence-based guidelines for greener, healthier, more resilient neighbourhoods: Introducing the 3–30–300 rule. J. For. Res. 34, 821–830. `https://doi.org/10.1007/s11676-022-01523-z <https://doi.org/10.1007/s11676-022-01523-z>`_

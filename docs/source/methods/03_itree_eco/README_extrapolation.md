@@ -1,4 +1,4 @@
-# Task 4 | Extrapolation of i-Tree Eco values
+# Task 3b | Extrapolation of i-Tree Eco values
 
 The i-Tree Eco model provides valuable insights into the benefits of urban trees, including air pollution removal, stormwater infiltration, carbon storage and carbon sequestration. However, accurate modelling of these benefits requires detailed tree-level information, such as species information and diameter at breast height (DBH). This information is available for selected subset of trees, but it is not feasible to gather this data for every tree in a city. 
 
