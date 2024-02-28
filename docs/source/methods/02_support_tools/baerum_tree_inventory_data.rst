@@ -1,9 +1,5 @@
-Tree inventory data (in situ)
+Bærum | tree inventory data
 ==============================
-
-
-Bærum municipality tree inventory data
----------------------------------------
 
 Bærum municipality provided four vector files with point data (Table 1). Each point represents a tree mapped according to the Natur i Norge (NiN) mapping manual or the håndbok 13 (DN13) mapping manual (Miljødirektoratet, 2021, Direktoratet for naturforvaltning, 2007). These trees were mapped for different purposes (monitoring of hollow oaks, old trees, or forest areas) than this project's purpose (quantifying the benefits of trees). Note that this can overrepresent certain tree species, which could affect the outcomes of this study. 
 

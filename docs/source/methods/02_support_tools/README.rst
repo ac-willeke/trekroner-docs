@@ -33,6 +33,21 @@ Installation
 Data
 ----
 
+The following table provides an overview of the input data used in this project:
+
+
+Municipal Tree Inventory
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. toctree::
+   :maxdepth: 1 
+   :caption: Specific manual cleaning tasks for each municipality are described in the following documents:
+   
+   baerum_tree_inventory_data
+   bodo_tree_inventory_data
+   kristiansand_tree_inventory_data
+   oslo_tree_inventory_data
+
+
 
 Methods
 -------
@@ -51,7 +66,7 @@ The workflow consists of three main steps:
 
    c. clean the in situ tree stems
 
-      - manual municipality-specific cleaning tasks
+      - manual municipality-specific cleaning tasks (see Data)
       
       - automatic cleaning tasks:
          - set standard field design
