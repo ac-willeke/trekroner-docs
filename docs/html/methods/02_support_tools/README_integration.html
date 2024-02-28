@@ -46,7 +46,7 @@
   
   
   
-    <title>Task 2 | Integration of Municipal Tree Data and ALS Data &#8212; Trekroner  documentation</title>
+    <title>Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -58,8 +58,6 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Task 3 | i-Tree Eco Modelling" href="../03_itree_eco/README.html" />
-    <link rel="prev" title="Project Structure" href="../01_tree_detection/project_structure.html" />
   
    
 
@@ -96,7 +94,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> Task 2 | Integration of Municipal Tree Data and ALS Data </span>
+          <span class="md-header-nav__topic"> Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -153,7 +151,6 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
       </ul>
     </div>
   </nav>
@@ -186,10 +183,8 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#methods-02-support-tools-readme-integration--page-root" class="md-nav__link">Task 2 | Integration of Municipal Tree Data and ALS Data</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#methods-02-support-tools-readme-integration--page-root" class="md-nav__link">Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#project-installation-and-configuration" class="md-nav__link">Project Installation and Configuration</a>
-        </li>
         <li class="md-nav__item"><a href="#workflow-i-tree-eco-data-preparation" class="md-nav__link">Workflow | i-Tree Eco Data Preparation</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#workflow-i-tree-eco-extrapolation" class="md-nav__link">Workflow | i-Tree Eco Extrapolation</a>
@@ -211,58 +206,16 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="task-2-integration-of-municipal-tree-data-and-als-data">
-<h1 id="methods-02-support-tools-readme-integration--page-root">Task 2 | Integration of Municipal Tree Data and ALS Data<a class="headerlink" href="#methods-02-support-tools-readme-integration--page-root" title="Link to this heading">¶</a></h1>
-<p>This repository provides a workflow for preparing municipal tree data for i-Tree Eco analysis and extrapolating the results to full the study area extent, using lidar-segmented tree crowns and auxiliary GIS datasets.</p>
+  <section id="task-2-integration-of-municipal-tree-points-and-laser-detected-tree-crown-polygons">
+<h1 id="methods-02-support-tools-readme-integration--page-root">Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons<a class="headerlink" href="#methods-02-support-tools-readme-integration--page-root" title="Link to this heading">¶</a></h1>
+<p>This repository provides a workflow for preparing municipal tree data for i-Tree Eco analysis and extrapolating the results to full the study area extent, using the lidar-segmented tree crowns and auxiliary GIS datasets.</p>
 <hr class="docutils"/>
 <p>Code is provided for the following tasks:</p>
 <ol class="arabic simple">
 <li><p><strong>i-Tree Eco Data Preparation:</strong> preparing an input dataset for i-Tree Eco analysis by supplementing existing municipal tree inventories with crown geometry from the ALS data and auxiliary spatial datasets following the workflow by <em>Cimburova and Barton (2020).</em></p></li>
-<li><p><strong>i-Tree Eco Extrapolation:</strong> extrapolating the outputs from i-Tree Eco analysis to all trees in the study area following the workflow by Cimburova and Barton (2020).</p></li>
+<li><p><strong>i-Tree Eco Extrapolation:</strong> extrapolating the outputs from i-Tree Eco analysis to all trees in the study area.</p></li>
 </ol>
 <p>The repository is applied on the Norwegian municipalities: <em>Bærum, Bodø, Kristiansand</em> and <em>Oslo.</em></p>
-<hr class="docutils"/>
-<section id="project-installation-and-configuration">
-<h2 id="project-installation-and-configuration">Project Installation and Configuration<a class="headerlink" href="#project-installation-and-configuration" title="Link to this heading">¶</a></h2>
-<p>The code is build in an ArcGIS Pro 3.1.0. conda environment with the spatial analyst license enabled.</p>
-<ol class="arabic">
-<li><p>Clone the repository.</p></li>
-<li><p>Open <a class="reference internal" href="#docs/project_structure.md"><span class="xref myst">Project structure</span></a> to view the structure of the project.</p></li>
-<li><p>Set up your Python Environment:</p>
-<p>a. Create a new conda environment using the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file or clone the arcgispro-py3 environment from your ArcGIS Pro installation and install the required packages listed in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>path/to/project/folder
-<span class="w">    </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
-<span class="w">    </span>conda<span class="w"> </span>activate<span class="w"> </span>project-name
-</pre></div>
-</div>
-<p>b. (Optional) Install linters using pipx</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1"># install linters using pipx</span>
-<span class="w">    </span>make<span class="w"> </span>install-global
-<span class="w">    </span><span class="c1"># test linters</span>
-<span class="w">    </span>make<span class="w"> </span>codestyle
-</pre></div>
-</div>
-<p><strong>note:</strong> As <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> unfortunately often gives acces-denied errors on Windows OS, I would recommend to run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">codestyle</span></code> command before you commit your changes. This command runs black, isort and ruff on all files using the configuration specified in the <a class="reference internal" href="#pyproject.toml"><span class="xref myst">pyproject.toml</span></a> file.</p>
-<p>c. Install as a local package</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>.
-<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span><span class="c1"># for development</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>installs project packages in development mode</p></li>
-<li><p>creates a folder <strong>package-name.egg-info</strong></p></li>
-</ul>
-<p>d. Configure your project.</p>
-<ul class="simple">
-<li><p>Copy template.env to  $user/.env and fill in the variables.
-<em>ENSURE THAT YOU DO NOT COMMIT .ENV TO THE REPOSITORY</em></p></li>
-<li><p>check that your data is located in the correct folders, look at the <a class="reference internal" href="#docs/project_structure.md"><span class="xref myst">Project structure</span></a> and the <a class="reference internal" href="#config/catalog.yaml"><span class="xref myst">Catalog</span></a> for more details.</p></li>
-</ul>
-<p>e. Define your municipality in the <a class="reference internal" href="#config/parameters.yaml"><span class="xref myst">parameters</span></a> file.</p>
-<p>d. Run <code class="docutils literal notranslate"><span class="pre">config.py</span></code> in the conda env to test your project config.</p>
-</li>
-</ol>
-</section>
 <hr class="docutils"/>
 <section id="workflow-i-tree-eco-data-preparation">
 <h2 id="workflow-i-tree-eco-data-preparation">Workflow | i-Tree Eco Data Preparation<a class="headerlink" href="#workflow-i-tree-eco-data-preparation" title="Link to this heading">¶</a></h2>
@@ -344,30 +297,6 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../01_tree_detection/project_structure.html" title="Project Structure"
-               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-               rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span
-                      class="md-footer-nav__direction"> "Previous" </span> Project Structure </span>
-              </div>
-            </a>
-          
-          
-            <a href="../03_itree_eco/README.html" title="Task 3 | i-Tree Eco Modelling"
-               class="md-flex md-footer-nav__link md-footer-nav__link--next"
-               rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
-                class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Task 3 | i-Tree Eco Modelling </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink"><i
-                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           
         </a>
         

@@ -1,8 +1,11 @@
 
-# Project Structure
+# Project Structure | *urban-tree-detection*
 
+**GitHub Repository**: [urban-tree-detection](https://github.com/NINAnor/urban-tree-detection)
 
 ## Project folder structure
+
+**TODO** CHECK AND UPDATE PROJECT FOLDER STRUCTURE
 
 ```bash
 C:\path\to\project\folder	

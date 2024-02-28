@@ -1,5 +1,11 @@
 
-# Project Structure
+# Project Structure | *itree-support-tools*
+
+**GitHub Repository**: [itree-support-tools](https://github.com/NINAnor/itree-support-tools)
+
+## Project folder structure
+
+**TODO** CHECK AND UPDATE PROJECT FOLDER STRUCTURE
 
 ```bash
 C:\path\to\project\folder	
@@ -56,3 +62,21 @@ The following files are included in this template:
     - [decorators.py](src/decorators.py) project decorators.
 
 -------
+
+
+## Data folder structure
+Data is organized by municipality and has a similar sub-folder structure for each municipality. The data folder contains the following sub-folders:
+
+```shell
+path/to/urban-tree-detection/
+    ├── data
+    │   ├── bodo
+    │   │   ├── interim        <- Intermediate data that has been transformed.
+    │   │   ├── processed      <- The final, canonical data sets for modeling.
+    │   │   └── raw            <- The original, immutable data dump.
+    │   ├── baerum
+    │   ├── kristiansand
+    │   └── oslo
+    ├── ...
+    └── ...
+```

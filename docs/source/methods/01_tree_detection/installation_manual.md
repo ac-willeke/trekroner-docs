@@ -1,8 +1,8 @@
-# Urban Tree Detection Installation Manual
+# Installation Manual | *urban-tree-detection*
 
-## Environment Setup and Configuration
+**GitHub Repository**: [urban-tree-detection](https://github.com/NINAnor/urban-tree-detection)
 
-### Installation 
+## Installation 
 
 The code runs in an ArcGIS Pro 3.1.0. conda environment and depends on 3D analyst, image analyst, spatial analyst licenses. 
 
@@ -32,7 +32,7 @@ Here are the steps to create a conda env compatible with ArcGIS Pro 3.0.1 and to
         # verify name is deleted from list
         conda info --envs
 
-4.  Install linters using pipx 
+4.  (Optional) Install linters using pipx 
     ```bash
         # install linters using make
         make install-global
@@ -42,7 +42,7 @@ Here are the steps to create a conda env compatible with ArcGIS Pro 3.0.1 and to
 
     **note:** As `pre-commit` unfortunately gives acces-denied errors on Windows OS, I would recommend to run `make codestyle` command before you commit your changes. This command runs black, isort and ruff on all files.
 
-### Configuration
+## Configuration
 This project uses a .env and a config.yaml file to store configuration variables. The module `utils.config.py` and `yaml_utils.py` provides functions to read and write these files.
 
 Run `src/test/test_config.py` to test the configuration and logger.

@@ -46,7 +46,7 @@
   
   
   
-    <title>Task X | Title &#8212; Trekroner  documentation</title>
+    <title>Installation Manual | itree-support-tools &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -58,8 +58,8 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Installation Manual | itree-support-tools" href="installation_manual.html" />
-    <link rel="prev" title="Project Structure | urban-tree-detection" href="../01_tree_detection/project_structure.html" />
+    <link rel="next" title="Installation Manual | GRASS GIS Addons r.viewshed.exposure and r.viewshed.impact" href="../05_tree_visibility/installation_manual.html" />
+    <link rel="prev" title="Installation Manuals" href="../installation_manuals/index.html" />
   
    
 
@@ -78,7 +78,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#methods/02_support_tools/README" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#methods/02_support_tools/installation_manual" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> Task X | Title </span>
+          <span class="md-header-nav__topic"> Installation Manual | itree-support-tools </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -154,6 +154,7 @@
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
+          <li class="md-tabs__item"><a href="../installation_manuals/index.html" class="md-tabs__link">Installation Manuals</a></li>
       </ul>
     </div>
   </nav>
@@ -186,13 +187,11 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#methods-02-support-tools-readme--page-root" class="md-nav__link">Task X | Title</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#methods-02-support-tools-installation-manual--page-root" class="md-nav__link">Installation Manual | <em>itree-support-tools</em></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#installation" class="md-nav__link">Installation</a>
         </li>
-        <li class="md-nav__item"><a href="#data" class="md-nav__link">Data</a>
-        </li>
-        <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
+        <li class="md-nav__item"><a href="#configuration" class="md-nav__link">Configuration</a>
         </li></ul>
             </nav>
         </li>
@@ -205,39 +204,52 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="task-x-title">
-<h1 id="methods-02-support-tools-readme--page-root">Task X | Title<a class="headerlink" href="#methods-02-support-tools-readme--page-root" title="Link to this heading">¶</a></h1>
-<p>This repository provides a workflow for …</p>
-<p>Code is provided for the following tasks:</p>
-<ol class="arabic simple">
-<li><p><strong>Tekst here :</strong> …</p></li>
-<li><p><strong>Tekst here:</strong> …</p></li>
-</ol>
-<p>The repository is applied on the Norwegian municipalities: <em>Bærum, Bodø, Kristiansand</em> and <em>Oslo.</em></p>
+  <section id="installation-manual-itree-support-tools">
+<h1 id="methods-02-support-tools-installation-manual--page-root">Installation Manual | <em>itree-support-tools</em><a class="headerlink" href="#methods-02-support-tools-installation-manual--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>GitHub Repository</strong>: <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p>
 <section id="installation">
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">View the installation manual and project structure for instructions.</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation_manual.html">Installation Manual | <em>itree-support-tools</em></a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure | <em>itree-support-tools</em></a></li>
-</ul>
+<p>The code is build in an ArcGIS Pro 3.1.0. conda environment with the spatial analyst license enabled.</p>
+<ol class="arabic">
+<li><p>Clone the repository.</p></li>
+<li><p>Open <a class="reference internal" href="project_structure.html"><span class="std std-doc">Project structure</span></a> to view the structure of the project.</p></li>
+<li><p>Set up your Python Environment:</p>
+<p>a. Create a new conda environment using the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file or clone the arcgispro-py3 environment from your ArcGIS Pro installation and install the required packages listed in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>path/to/project/folder
+<span class="w">    </span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+<span class="w">    </span>conda<span class="w"> </span>activate<span class="w"> </span>project-name
+</pre></div>
 </div>
-</section>
-<section id="data">
-<h2 id="data">Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h2>
-</section>
-<section id="methods">
-<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
-<p><strong>References</strong></p>
+<p>b. (Optional) Install linters using pipx</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c1"># install linters using pipx</span>
+<span class="w">    </span>make<span class="w"> </span>install-global
+<span class="w">    </span><span class="c1"># test linters</span>
+<span class="w">    </span>make<span class="w"> </span>codestyle
+</pre></div>
+</div>
+<p><strong>note:</strong> As <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> unfortunately often gives acces-denied errors on Windows OS, I would recommend to run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">codestyle</span></code> command before you commit your changes. This command runs black, isort and ruff on all files using the configuration specified in the <a class="reference internal" href="#pyproject.toml"><span class="xref myst">pyproject.toml</span></a> file.</p>
+<p>c. Install as a local package</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>.
+<span class="w">    </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span><span class="c1"># for development</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>ref here</p></li>
-<li><p>ref here</p></li>
+<li><p>installs project packages in development mode</p></li>
+<li><p>creates a folder <strong>package-name.egg-info</strong></p></li>
 </ul>
-<p><strong>Contributors</strong></p>
-<ul class="simple">
-<li><p>Willeke A’Campo (NINA), <a class="reference external" href="mailto:willeke.acampo%40nina.no">willeke<span>.</span>acampo<span>@</span>nina<span>.</span>no</a></p></li>
-</ul>
+</li>
+</ol>
+</section>
+<section id="configuration">
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Copy template.env to  $user/.env and fill in the variables.
+<em>ENSURE THAT YOU DO NOT COMMIT .ENV TO THE REPOSITORY</em></p></li>
+<li><p>Check that your data is located in the correct folders, look at the <a class="reference internal" href="#docs/project_structure.md"><span class="xref myst">Project structure</span></a> and the <a class="reference internal" href="#config/catalog.yaml"><span class="xref myst">Catalog</span></a> for more details.</p></li>
+<li><p>Define your municipality in the <a class="reference internal" href="#config/parameters.yaml"><span class="xref myst">parameters</span></a> file.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">config.py</span></code> in the conda env to test your project config.</p></li>
+</ol>
+<hr class="docutils"/>
 </section>
 </section>
 
@@ -251,7 +263,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../01_tree_detection/project_structure.html" title="Project Structure | urban-tree-detection"
+            <a href="../installation_manuals/index.html" title="Installation Manuals"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -260,17 +272,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> Project Structure | <em>urban-tree-detection</em> </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Installation Manuals </span>
               </div>
             </a>
           
           
-            <a href="installation_manual.html" title="Installation Manual | itree-support-tools"
+            <a href="../05_tree_visibility/installation_manual.html" title="Installation Manual | GRASS GIS Addons r.viewshed.exposure and r.viewshed.impact"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Installation Manual | <em>itree-support-tools</em> </span>
+                class="md-footer-nav__direction"> "Next" </span> Installation Manual | GRASS GIS Addons <em>r.viewshed.exposure</em> and <em>r.viewshed.impact</em> </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

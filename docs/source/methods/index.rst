@@ -6,11 +6,11 @@ Contents
 .. toctree::
    :maxdepth: 1 
 
-   01_tree_detection/index
-   02_support_tools/README_integration
-   03_itree_eco/README
-   05_urban_climate/README
-   06_tree_visibility/README
+   01_tree_detection/README.rst
+   02_support_tools/README.rst
+   03_itree_eco/README.rst
+   04_urban_climate/README.md
+   05_tree_visibility/README.md
    installation_manuals/index
    notebooks/index
    tables
@@ -91,7 +91,7 @@ Table 1 shows each task and their corresponding GitHub-repository. Figure 2 show
        - **Calculating** the 3-30-300 space rule.
 
 
-.. figure:: img/dataflyt_trekroner.png
+.. figure:: img/workflow.png
      :alt: workflow
 
 

@@ -2,8 +2,6 @@
 Task 1 | Urban Tree Detection
 =============================
 
-*work in progress, move word docs to rst*
-
 This is the documentation page related to the GitHub repository: 
 `urban-tree-detection <https://github.com/NINAnor/urban-tree-detection>`_
 
@@ -42,11 +40,10 @@ Installation
 ------------
 .. toctree::
    :maxdepth: 1 
-
-   ../05_installation_manuals/01_tree_detection_installation
+   :caption: View the installation manual and project structure for instructions.
+   
+   installation_manual
    project_structure
-
-
 
 Data
 ----
@@ -56,8 +53,8 @@ Data
 
 
 
-Workflow
-----------
+Methods
+-------
 1. **Create a study area mask** (*optional manual action*)
    
    We recommend to create a study area mask manually, as it is specific to each municipality

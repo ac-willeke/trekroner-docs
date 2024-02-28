@@ -1,4 +1,4 @@
-# GRASS GIS installation manual for r.viewshed.exposure and r.viewshed.impact
+# Installation Manual | GRASS GIS Addons *r.viewshed.exposure* and *r.viewshed.impact*
 
 ## Computer specifications
 

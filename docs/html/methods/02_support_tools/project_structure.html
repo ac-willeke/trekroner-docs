@@ -46,7 +46,7 @@
   
   
   
-    <title>Project Structure &#8212; Trekroner  documentation</title>
+    <title>Project Structure | itree-support-tools &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -58,6 +58,8 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Task 3 | i-Tree Eco Modelling" href="../03_itree_eco/README.html" />
+    <link rel="prev" title="Installation Manual | itree-support-tools" href="installation_manual.html" />
   
    
 
@@ -94,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> Project Structure </span>
+          <span class="md-header-nav__topic"> Project Structure | itree-support-tools </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -151,6 +153,8 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
+          <li class="md-tabs__item"><a href="README.html" class="md-tabs__link">Task X | Title</a></li>
       </ul>
     </div>
   </nav>
@@ -181,7 +185,16 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#methods-02-support-tools-project-structure--page-root" class="md-nav__link">Project Structure | <em>itree-support-tools</em></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#project-folder-structure" class="md-nav__link">Project folder structure</a>
+        </li>
+        <li class="md-nav__item"><a href="#data-folder-structure" class="md-nav__link">Data folder structure</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -191,8 +204,12 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="project-structure">
-<h1 id="methods-02-support-tools-project-structure--page-root">Project Structure<a class="headerlink" href="#methods-02-support-tools-project-structure--page-root" title="Link to this heading">¶</a></h1>
+  <section id="project-structure-itree-support-tools">
+<h1 id="methods-02-support-tools-project-structure--page-root">Project Structure | <em>itree-support-tools</em><a class="headerlink" href="#methods-02-support-tools-project-structure--page-root" title="Link to this heading">¶</a></h1>
+<p><strong>GitHub Repository</strong>: <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a></p>
+<section id="project-folder-structure">
+<h2 id="project-folder-structure">Project folder structure<a class="headerlink" href="#project-folder-structure" title="Link to this heading">¶</a></h2>
+<p><strong>TODO</strong> CHECK AND UPDATE PROJECT FOLDER STRUCTURE</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\p</span>ath<span class="se">\t</span>o<span class="se">\p</span>roject<span class="se">\f</span>older<span class="w">	</span>
 ├──<span class="w"> </span>.gitignore
 ├──<span class="w"> </span>environment.yml<span class="w">                     </span><span class="c1"># conda env config</span>
@@ -251,7 +268,25 @@
 </ul>
 </li>
 </ol>
+</section>
 <hr class="docutils"/>
+<section id="data-folder-structure">
+<h2 id="data-folder-structure">Data folder structure<a class="headerlink" href="#data-folder-structure" title="Link to this heading">¶</a></h2>
+<p>Data is organized by municipality and has a similar sub-folder structure for each municipality. The data folder contains the following sub-folders:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>path/to/urban-tree-detection/
+<span class="w">    </span>├──<span class="w"> </span>data
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>bodo
+<span class="w">    </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>interim<span class="w">        </span>&lt;-<span class="w"> </span>Intermediate<span class="w"> </span>data<span class="w"> </span>that<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>transformed.
+<span class="w">    </span>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>processed<span class="w">      </span>&lt;-<span class="w"> </span>The<span class="w"> </span>final,<span class="w"> </span>canonical<span class="w"> </span>data<span class="w"> </span>sets<span class="w"> </span><span class="k">for</span><span class="w"> </span>modeling.
+<span class="w">    </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>raw<span class="w">            </span>&lt;-<span class="w"> </span>The<span class="w"> </span>original,<span class="w"> </span>immutable<span class="w"> </span>data<span class="w"> </span>dump.
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>baerum
+<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>kristiansand
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>oslo
+<span class="w">    </span>├──<span class="w"> </span>...
+<span class="w">    </span>└──<span class="w"> </span>...
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -264,6 +299,30 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
+            <a href="installation_manual.html" title="Installation Manual | itree-support-tools"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Installation Manual | <em>itree-support-tools</em> </span>
+              </div>
+            </a>
+          
+          
+            <a href="../03_itree_eco/README.html" title="Task 3 | i-Tree Eco Modelling"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Task 3 | i-Tree Eco Modelling </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
           
         </a>
         

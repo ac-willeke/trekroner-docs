@@ -89,7 +89,7 @@ This project utilizes the [Kedro Framework](https://docs.kedro.org/en/stable/ind
     kedro run
     ```
 
-3. ** Kedro | visualize the workflow**
+3. **Kedro | visualize the workflow**
 
     The workflow can be visualized using the Kedro Viz tool. This tool can be accessed by running `kedro viz` in the terminal.
 
@@ -97,7 +97,7 @@ This project utilizes the [Kedro Framework](https://docs.kedro.org/en/stable/ind
 
 ----------------
 
-## Input Data
+## Data
 The following table provides an overview of the input data used in this project.
 
 | Dataset | Norwegian Name | Type | Date | Description | Source|Download link|

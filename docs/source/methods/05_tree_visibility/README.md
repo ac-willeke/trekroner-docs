@@ -13,7 +13,7 @@ The resulting products of the task are:
 
 ## Installation
 
-GRASS GIS and GRASS Addon installation instructions can be found **[HERE](../installation_manuals/04_tree_visibility_installation.md)**.
+GRASS GIS and GRASS Addon installation instructions can be found **[HERE](installation_manual.md)**.
 
 ## Data 
 

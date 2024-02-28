@@ -58,6 +58,8 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Installation Manual | urban-tree-detection" href="installation_manual.html" />
+    <link rel="prev" title="Metoder (EN)" href="../index.html" />
   
    
 
@@ -151,6 +153,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
           <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Trekroner  documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Metoder (EN)</a></li>
       </ul>
     </div>
   </nav>
@@ -187,13 +190,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#installation" class="md-nav__link">Installation</a>
         </li>
-        <li class="md-nav__item"><a href="#workflow" class="md-nav__link">Workflow</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#references" class="md-nav__link">References</a>
+        <li class="md-nav__item"><a href="#data" class="md-nav__link">Data</a>
         </li>
-        <li class="md-nav__item"><a href="#acknowledgments" class="md-nav__link">Acknowledgments</a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
         </li></ul>
             </nav>
         </li>
@@ -208,63 +207,119 @@
             
   <section id="task-1-urban-tree-detection">
 <h1 id="methods-01-tree-detection-readme--page-root">Task 1 | Urban Tree Detection<a class="headerlink" href="#methods-01-tree-detection-readme--page-root" title="Link to this heading">¶</a></h1>
-<p>This project provides a workflow for detecting trees in urban areas using Airborne Laser Scanning (ALS) data and national geographic datasets. The output is a tree database with <strong>tree crown</strong> polygons and <strong>tree top</strong> points per neighbourhood.</p>
-<p>This tree database can be used as input for the <a class="reference external" href="https://www.itreetools.org/tools/i-tree-eco">i-Tree Eco</a> model to estimate the ecosystem services of trees in urban areas. However, the laser data must be supplemented with in situ tree data (e.g. tree species, dbh, etc.) and gis-derived data (e.g. land use, building footprints, etc.) to succesfully run the i-Tree Eco model. The repository <em><a class="reference external" href="https://github.com/ac-willeke/itree-supportTools">itree-supportTools</a></em> provides a workflow for preparing and linking in situ data and gis-derived data to the detected laser trees.</p>
-<p>In addition, the tree crowns can be used as an input to model other ecosystem services not included in the i-Tree Eco model, such as   local climate regulating services and tree crown visibility cultural services. These workflows are included in the following repositories:</p>
+<p>This is the documentation page related to the GitHub repository:
+<a class="reference external" href="https://github.com/NINAnor/urban-tree-detection">urban-tree-detection</a></p>
+<p>The repository provides a workflow for detecting trees in urban areas using
+Airborne Laser Scanning (ALS) data and national geographic datasets. The output
+is a tree database with <strong>tree crown</strong> polygons and <strong>tree top</strong> points per
+neighbourhood. This tree database can be used as input for the
+<a class="reference external" href="https://www.itreetools.org/tools/i-tree-eco">i-Tree Eco</a> model
+to estimate the ecosystem services of trees in urban areas. However, the laser
+data must be supplemented with in situ tree data (e.g. tree species, dbh, etc.)
+and gis-derived data (e.g. land use, building footprints, etc.) to successfully
+run the i-Tree Eco model. The repository
+<a class="reference external" href="https://github.com/NINAnor/itree-supportTools">itree-supportTools</a> provides
+a workflow for preparing and linking in situ data and gis-derived data to the
+detected laser trees.</p>
+<p>In addition, the tree crowns can be used as an input to model other ecosystem
+services not included in the i-Tree Eco model, such as local climate regulating s
+ervices and tree crown visibility cultural services. These workflows are included
+in the following repositories:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/ac-willeke">urban-climateServices</a> for urban heat modelling</p></li>
+<li><p><a class="reference external" href="https://github.com/NINAnor/urban-climate">urban-climate</a> for urban heat modelling</p></li>
 <li><p><a class="reference external" href="https://github.com/OSGeo/grass-addons/tree/grass8/src/raster/r.viewshed.exposure">r.viewshed.exposure</a> for estimating tree crown visibility.</p></li>
 <li><p><a class="reference external" href="https://github.com/zofie-cimburova/r.viewshed.impact">r.viewshed.impact</a> for estimating tree crown impact.</p></li>
 </ul>
-<hr class="docutils"/>
 <p>Code is provided for the following tasks:</p>
 <ol class="arabic simple">
-<li><p><strong>preparing Airborne laser scanning (ALS)</strong> data from <a class="reference external" href="https://hoydedata.no/">Kartverket</a>.</p></li>
+<li><p><strong>preparing Airborne laser scanning (ALS)</strong> data from Terratec AS</p></li>
 <li><p><strong>detecting tree crowns</strong> in the built-up zone of Norwegian municipalities using a watershed segmentation method following the workflow from <em>Hanssen et al. (2021)</em>.</p></li>
 <li><p><strong>detecing false positives</strong>  (e.g. objects that are detected as trees but are instead buildings, lamp posts, etc.) by identifying outliers in the geometrical shape of the tree crowns.</p></li>
 </ol>
 <p>The repository is applied on the Norwegian municipalities: <em>Bærum, Bodø, Kristiansand</em> and <em>Oslo.</em></p>
-<hr class="docutils"/>
 <section id="installation">
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
-<p>Clone the repository and follow the instructions in <a class="reference internal" href="#installation.md"><span class="xref myst">Installation</span></a> and <a class="reference internal" href="project_structure.html"><span class="std std-doc">Project structure</span></a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">View the installation manual and project structure for instructions.</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation_manual.html">Installation Manual | <em>urban-tree-detection</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project Structure | <em>urban-tree-detection</em></a></li>
+</ul>
+</div>
 </section>
-<section id="workflow">
-<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p><strong>TODO:</strong> Create Folder structure</p></li>
-<li><p><strong>TODO:</strong> Import Data using FME
-a. study area [vector - fileGDB feature class]
-b. laser data [laz - zipped las file]<br/>
-c. building footprints [vector - fileGDB feature class]
-d. water bodies [vector - fileGDB feature class]
-e. land use [vector - fileGDB feature class]</p></li>
-<li><p>Create a municipality-specific study area mask in ArcGIS Pro
-We recommend to create a study area mask manually, as it is specific to each municipality and you might want to mask out areas that are not relevant for your analysis (e.g. water bodies, buildings but that are not yet available in national datasets).
-<strong>Example of a mask formula:</strong>
-mask = study_area_200m_buffer - fkb_bygning_omr_1m_buffer - fkb_vann_omrade - ssb_lufthavn - ssb_bane</p></li>
-<li><p><strong>TODO:</strong> Pre-process the laser data
-script: <code class="docutils literal notranslate"><span class="pre">src\data\prepare_lidar.py</span></code></p></li>
-<li><p><strong>TODO:</strong> Detect tree crowns
-sub-package: <code class="docutils literal notranslate"><span class="pre">src\tree_detection</span></code>
-a. Create a Canopy Height Model (CHM) <code class="docutils literal notranslate"><span class="pre">model_chm.py</span></code>
-b. Detect trees using a watershed segmentation method <code class="docutils literal notranslate"><span class="pre">watershed_segmentation.py</span></code>
-c. Identify false positives <code class="docutils literal notranslate"><span class="pre">identify_false_positives.py</span></code></p></li>
+<section id="data">
+<h2 id="data">Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h2>
+<p><em>work in progress</em> load tables to restructred text</p>
+</section>
+<section id="methods">
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p><strong>Create a study area mask</strong> (<em>optional manual action</em>)</p>
+<p>We recommend to create a study area mask manually, as it is specific to each municipality
+and you might want to mask out areas that are not relevant for your analysis
+(e.g. water bodies, buildings but that are not yet available in national datasets).</p>
+<p><strong>Example of a mask formula:</strong></p>
+<p>mask = study_area_200m_buffer - buildin_footprints - waterbodes</p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p><strong>Pre-process the laser data</strong> (<em>semi-automatic</em>)</p>
+<p>Run the following scripts to pre-process the laser data:</p>
+<ol class="loweralpha simple">
+<li><p><cite>src/data/moveFile_lookUp.py</cite></p>
+<ul class="simple">
+<li><p>classifies the laser tiles into inside and outside the build-up zone (only pre-process tiles inside the build-up zone)</p></li>
+</ul>
+</li>
+<li><p><cite>src/data/extract_laz.bat</cite></p>
+<ul class="simple">
+<li><p>extracts the .laz files from the .zip files to .las files</p></li>
+</ul>
+</li>
+<li><p><cite>src/data/moveFile_substring.py</cite></p>
+<ul class="simple">
+<li><p>create a copy per XXX-YYY tile and move the .las files to the corresponding folder</p></li>
+</ul>
+</li>
+<li><p><cite>src/data/renameFile.bat</cite></p>
+<ul class="simple">
+<li><p>rename the .las files to utmxx_X_XXX_YYY_X.las to make them compatible with ArcGIS Pro (e.g. utm33_1_495_304_01.las)</p></li>
+</ul>
+</li>
+<li><p><cite>src/data/define_projection.py</cite></p>
+<ul class="simple">
+<li><p>define the projection of the .las files to EPSG:25833 or EPSG:25832</p></li>
+</ul>
+</li>
 </ol>
 <p><strong>TODO:</strong>
-Step 1 can be run using makefile <code class="docutils literal notranslate"><span class="pre">src\Makefile</span></code>
-Steps 4 and 5 can be run using subroutines in <code class="docutils literal notranslate"><span class="pre">src\main.py</span></code></p>
-<section id="references">
-<h3 id="references">References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
+move scripts as subroutines to <cite>src/prepare_lidar.py</cite></p>
+</li>
+<li><p><strong>Detect tree crowns</strong> (automatic)</p>
+<p>Run the following scripts to detect tree crowns:</p>
+<ol class="loweralpha simple">
+<li><p><cite>src/tree_detection/model_chm.py</cite></p>
 <ul class="simple">
-<li><p>Hanssen, F., Barton, D. N., Venter, Z. S., Nowell, M. S., &amp; Cimburova, Z. (2021). Utilizing LiDAR data to map tree canopy for urban ecosystem extent and condition accounts in Oslo. Ecological Indicators, 130, 108007. https://doi.org/10.1016/j.ecolind.2021.108007</p></li>
+<li><p>create a Canopy Height Model (CHM) from the laser data</p></li>
 </ul>
-</section>
-<section id="acknowledgments">
-<h3 id="acknowledgments">Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">¶</a></h3>
-<p><em>This repository is part of the project:</em></p>
-<p><strong>TREKRONER Prosjektet</strong> | Trærs betydning for klimatilpasning, karbonbinding, økosystemtjenester og biologisk mangfold.</p>
-</section>
+</li>
+<li><p><cite>src/tree_detection/watershed_segmentation.py</cite></p>
+<ul class="simple">
+<li><p>detect tree crowns using a watershed segmentation method</p></li>
+</ul>
+</li>
+<li><p><cite>src/tree_detection/identify_false_positives.py</cite></p>
+<ul class="simple">
+<li><p>identify false positives (e.g. objects that are detected as trees but are instead buildings, lamp posts, etc.) by identifying outliers in the geometrical shape of the tree crowns.</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>References:</strong></p>
+<ul class="simple">
+<li><p>Hanssen, F., Barton, D. N., Venter, Z. S., Nowell, M. S., &amp; Cimburova, Z. (2021). Utilizing LiDAR data to map tree canopy for urban ecosystem extent and condition accounts in Oslo. Ecological Indicators, 130, 108007. <a class="reference external" href="https://doi.org/10.1016/j.ecolind.2021.108007">https://doi.org/10.1016/j.ecolind.2021.108007</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -278,6 +333,30 @@ Steps 4 and 5 can be run using subroutines in <code class="docutils literal notr
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
+            <a href="../index.html" title="Metoder (EN)"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> Metoder (EN) </span>
+              </div>
+            </a>
+          
+          
+            <a href="installation_manual.html" title="Installation Manual | urban-tree-detection"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> Installation Manual | <em>urban-tree-detection</em> </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
           
         </a>
         
