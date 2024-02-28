@@ -46,7 +46,7 @@
   
   
   
-    <title>Task X | Title &#8212; Trekroner  documentation</title>
+    <title>Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons &#8212; Trekroner  documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -96,7 +96,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Trekroner  documentation</span>
-          <span class="md-header-nav__topic"> Task X | Title </span>
+          <span class="md-header-nav__topic"> Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -186,7 +186,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#methods-02-support-tools-readme--page-root" class="md-nav__link">Task X | Title</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#methods-02-support-tools-readme--page-root" class="md-nav__link">Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#installation" class="md-nav__link">Installation</a>
         </li>
@@ -205,14 +205,18 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="task-x-title">
-<h1 id="methods-02-support-tools-readme--page-root">Task X | Title<a class="headerlink" href="#methods-02-support-tools-readme--page-root" title="Link to this heading">¶</a></h1>
-<p>This repository provides a workflow for …</p>
+  <section id="task-2-integration-of-municipal-tree-points-and-laser-detected-tree-crown-polygons">
+<h1 id="methods-02-support-tools-readme--page-root">Task 2 | Integration of Municipal Tree points and Laser-detected Tree Crown polygons<a class="headerlink" href="#methods-02-support-tools-readme--page-root" title="Link to this heading">¶</a></h1>
+<p>This repository provides a workflow for preparing municipal tree data for
+i-Tree Eco analysis and extrapolating the results to full the study area
+extent, using the lidar-segmented tree crowns and auxiliary GIS datasets.</p>
 <p>Code is provided for the following tasks:</p>
-<ol class="arabic simple">
-<li><p><strong>Tekst here :</strong> …</p></li>
-<li><p><strong>Tekst here:</strong> …</p></li>
-</ol>
+<p>1. <strong>i-Tree Eco Data Preparation:</strong> preparing an input dataset for i-Tree
+Eco analysis by supplementing existing municipal tree inventories with
+crown geometry from the ALS data and auxiliary spatial datasets following
+the workflow by <em>Cimburova and Barton (2020).</em></p>
+<p>2. <strong>i-Tree Eco Extrapolation:</strong> extrapolating the outputs from i-Tree Eco
+analysis to all trees in the study area.</p>
 <p>The repository is applied on the Norwegian municipalities: <em>Bærum, Bodø, Kristiansand</em> and <em>Oslo.</em></p>
 <section id="installation">
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
@@ -229,10 +233,84 @@
 </section>
 <section id="methods">
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<p>The workflow consists of three main steps:</p>
+<ol class="arabic">
+<li><p>Prepare Data</p>
+<p><strong>entry point:</strong> <code class="docutils literal notranslate"><span class="pre">prepare_data.py</span></code></p>
+<p><strong>tasks:</strong></p>
+<ol class="loweralpha simple">
+<li><p>load the lidar-segmented tree crown polygons from the ALS data per neighbourhood</p></li>
+<li><p>load the in situ tree stems from the municipal tree inventory</p></li>
+<li><p>clean the in situ tree stems</p>
+<ul class="simple">
+<li><p>manual municipality-specific cleaning tasks</p></li>
+<li><dl class="simple">
+<dt>automatic cleaning tasks:</dt><dd><ul>
+<li><p>set standard field design</p></li>
+<li><p>translate tree species</p></li>
+<li><p>ensure that each tree stem contains: stem_id, dbh, height, crown_diameter</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>group tree stem points by neighbourhood</p></li>
+</ol>
+</li>
+<li><p>Join the in situ tree stems with the lidar-segmented tree crowns</p>
+<p><strong>entry point:</strong> <code class="docutils literal notranslate"><span class="pre">join_data.py</span></code></p>
+<p><strong>tasks:</strong></p>
+<ol class="loweralpha simple">
+<li><p>classify the geometrical relationship</p></li>
+<li><p>split lidar-segmented tree crowns that overlap with multiple tree stems</p></li>
+<li><p>model the crown geometry of tree stems that do not overlap with lidar-segmented trees</p></li>
+<li><p>quality control whether each crown polygon is assigned to a single tree stem</p></li>
+<li><p>join the in situ tree stems with the lidar-segmented tree crowns</p></li>
+</ol>
+<p><strong>Geometrical Relations:</strong></p>
+<ul class="simple">
+<li><p><strong>Case 1:</strong> one polygon contains one point (1:1), simple join.</p></li>
+<li><p><strong>Case 2:</strong> one polygon contains more than one point (1:n), split crown with voronoi tesselation.</p></li>
+<li><p><strong>Case 3:</strong> a point is not overlapped by any polygon (0:1), model tree crown using oslo formula.</p></li>
+<li><p><strong>Case 4:</strong> a polygon does not contain any point (1:0), not used to train i-tree eco/dataset for extrapolation.</p></li>
+</ul>
+</li>
+<li><p>Compute tree attributes and auxiliary attributes</p>
+<p><strong>entry point:</strong> <code class="docutils literal notranslate"><span class="pre">compute_attributes.py</span></code></p>
+<p><strong>tasks:</strong></p>
+<ol class="loweralpha simple">
+<li><p>compute tree crown attributes (all trees in the study area)</p>
+<ul class="simple">
+<li><p>overlay attributes (pollution zone, neighbourhood code)</p></li>
+<li><p>crown_id (based on neighbourhood code and objectid)</p></li>
+<li><p>tree height, crown area</p></li>
+</ul>
+</li>
+<li><p>compute tree stem attributes (in-situ trees)</p>
+<ul class="simple">
+<li><p>overlay attributes (e.g. pollution zone, neighbourhood code, land use)</p></li>
+<li><p>tree attributes (e.g. dbh, height, crown diameter)</p></li>
+<li><p>join crown attributes (e.g. crown_id, crown area, crown volume, crown shape)</p></li>
+<li><p>building-related attributes (e.g. building distance, building direction)</p></li>
+<li><p>crown condition (e.g. crown light exposure)</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Known Issues</strong></p>
+<ul class="simple">
+<li><p>RUN the <strong>building-related attributes</strong> and <strong>crown condition attributes</strong> separately.</p></li>
+<li><p>Make a backup of the input data before running the scripts.</p></li>
+<li><p>Note that calculating the crown condition attributes is extremely slow (e.g., it can take more than 12 hours to run).</p></li>
+</ul>
+</div>
 <p><strong>References</strong></p>
 <ul class="simple">
-<li><p>ref here</p></li>
-<li><p>ref here</p></li>
+<li><p>Cimburova, Z., &amp; Barton, D. N. (2020). The potential of geospatial analysis and Bayesian networks to enable i-Tree Eco assessment of existing tree inventories. Urban Forestry &amp; Urban Greening, 55, 126801. <a class="reference external" href="https://doi.org/10.1016/j.ufug.2020.126801">https://doi.org/10.1016/j.ufug.2020.126801</a></p></li>
 </ul>
 <p><strong>Contributors</strong></p>
 <ul class="simple">
