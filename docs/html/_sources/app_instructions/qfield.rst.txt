@@ -37,7 +37,7 @@ sammen med de offisielle feltveiledningene for i-Tree Eco og VAT
 
 **Relevante hjelpemidler og dokumentasjon**
 
-- `QField-instruks for QField Treregisteringsappen <https://github.com/NINAnor/QGIS-treregistrering/tree/main/QField_treregistreringsapp_v3>`_
+- `QField-instruks for QField Treregisteringsappen <https://github.com/NINAnor/QGIS-treregistrering/blob/main/QField_treregistreringsapp_v3/QField_treregistreringsapp_v3_instruks.pdf>`_
 - `QField-instruks fra Nollet et al. (2021) <https://brage.nina.no/nina-xmlui/handle/11250/2725332>`_
 - `QField-dokumentasjon <https://docs.qfield.org/>`_
 - `i-Tree Eco Field Guide <https://www.itreetools.org/documents/274/EcoV6.FieldManual.2021.10.06.pdf>`_
