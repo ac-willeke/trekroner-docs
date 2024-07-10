@@ -32,7 +32,9 @@ This repository contains the documentation for the Trekroner project. The map re
 Update or add a new page by creating a new rst or md file in the appropriate folder. Add the page to the index.rst file.
 
 **Building the documentation:**
-Install Sphinx and other dependencies listed in `pyproject.toml`. Run `make html` in the `docs` folder to build the html files. The output html files are located in `docs\html`.
+Install Sphinx and other dependencies using Poetry (`pyproject.toml`) or Conda (`environment.yml`). Run `make html` in the `docs` folder to build the html files. The output html files are located in `docs\html`.
+
+You can view the documentation locally by opening the `index.html` file in a web browser.
 
 **Deploy the documentation to GitHub pages:**
 Push the updated documentation to the remote repository. The documentation is automatically deployed to GitHub pages using GitHub actions.
