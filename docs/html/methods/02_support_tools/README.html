@@ -192,11 +192,15 @@
         </li>
         <li class="md-nav__item"><a href="#data" class="md-nav__link">Data</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#municipal-tree-inventory" class="md-nav__link">Municipal Tree Inventory</a>
+        <li class="md-nav__item"><a href="#land-use" class="md-nav__link">Land use</a>
+        </li>
+        <li class="md-nav__item"><a href="#municipal-tree-database" class="md-nav__link">Municipal Tree Database</a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
+        </li>
+        <li class="md-nav__item"><a href="#output" class="md-nav__link">Output</a>
         </li></ul>
             </nav>
         </li>
@@ -232,11 +236,17 @@ the workflow by <em>Cimburova and Barton (2020).</em></p>
 <section id="data">
 <h2 id="data">Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h2>
 <p>The following data sources were used within this project task.</p>
-<p><strong>Land use</strong></p>
+<section id="land-use">
+<h3 id="land-use">Land use<a class="headerlink" href="#land-use" title="Link to this heading">¶</a></h3>
 <p>In i-Tree Eco Land Use (LU) is defined as the land use type in which a tree is located. In i-Tree Eco, there are 13 default land use classes defined (see <a class="reference internal" href="tables.html"><span class="doc">Table 1</span></a>).
-The land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and the land use map from SSB (2022) are combined, and the different land use classes are translated to the Land Use classes defined in i-Tree Eco <a class="reference internal" href="tables.html"><span class="doc">Table 2</span></a> and <a class="reference internal" href="tables.html"><span class="doc">Table 3</span></a>.</p>
-<section id="municipal-tree-inventory">
-<h3 id="municipal-tree-inventory">Municipal Tree Inventory<a class="headerlink" href="#municipal-tree-inventory" title="Link to this heading">¶</a></h3>
+The land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and the land use map from SSB (2022) are combined, and the different land use classes are translated to the Land Use classes defined in i-Tree Eco using the lookup tables: <a class="reference internal" href="tables.html"><span class="doc">Table 2</span></a> and <a class="reference internal" href="tables.html"><span class="doc">Table 3</span></a>.</p>
+</section>
+<section id="municipal-tree-database">
+<h3 id="municipal-tree-database">Municipal Tree Database<a class="headerlink" href="#municipal-tree-database" title="Link to this heading">¶</a></h3>
+<p>The municipalities within the Trekroner-project each provided a tree inventory database.
+The tree inventory databases contain information about the trees in the municipality,
+such as tree species, tree height, tree diameter, and tree location.
+The tree inventory databases were cleaned and standardized to ensure that the data could be used in the i-Tree Eco analysis.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Specific manual cleaning tasks for each municipality are described in the following documents:</span></p>
 <ul>
@@ -325,9 +335,700 @@ The land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and the
 <li><p>Note that calculating the crown condition attributes is extremely slow (e.g., it can take more than 12 hours to run).</p></li>
 </ul>
 </div>
+</section>
+<section id="output">
+<h2 id="output">Output<a class="headerlink" href="#output" title="Link to this heading">¶</a></h2>
+<p>The output is a cleaned municipal tree dataset that contains the mandatory input attributes for the i-Tree Eco model.</p>
+<table id="id1">
+<caption><span class="caption-text"><strong>Table 1:</strong> Field design of the cleaned municipal tree inventory dataset.</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Atrribute category</p></th>
+<th class="head"><p>Nr.</p></th>
+<th class="head"><p>Name (EN)</p></th>
+<th class="head"><p>Alias (NO)</p></th>
+<th class="head"><p>data_type</p></th>
+<th class="head"><p>unit</p></th>
+<th class="head"><p>domain</p></th>
+<th class="head"><p>notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="5"><p>Tree identification</p></td>
+<td><p>1</p></td>
+<td><p>GlobalID</p></td>
+<td><p>GlobalID</p></td>
+<td><p>GUID</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>FKID_stem</p></td>
+<td><p>FKID_stem</p></td>
+<td><p>GUID</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>itree_spec</p></td>
+<td><p>i-Tree Eco (1/0)</p></td>
+<td><p>SHORT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>tree_id</p></td>
+<td><p>Tre ID</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>crown_id</p></td>
+<td><p>Krone ID</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="6"><p>Species</p></td>
+<td><p>6</p></td>
+<td><p>scientific_name</p></td>
+<td><p>Vitenskapelige navn</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>taxon_genus</p></td>
+<td><p>Genus</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>common_name</p></td>
+<td><p>Engelsk navn</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>norwegian_name</p></td>
+<td><p>Treslag</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>species_comment</p></td>
+<td><p>Treslag kommentar</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>species_origin</p></td>
+<td><p>Treslag kilde</p></td>
+<td><p>TEXT</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>feltregistering</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>Diameter at Breast
+Height (DBH)</p></td>
+<td><p>12</p></td>
+<td><p>stem_circumference</p></td>
+<td><p>Stammeomkrets (cm)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>cm</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>dbh</p></td>
+<td><p>Stammediameter (cm)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>cm</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>dbh_height</p></td>
+<td><p>DBH målingshøyde</p></td>
+<td><p>FLOAT</p></td>
+<td><p>cm</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>dbh_comment</p></td>
+<td><p>DBH kommentar</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>dbh_origin</p></td>
+<td><p>DBH kilde</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>feltregistering, regresjonsmodell</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td rowspan="7"><p>Tree Height</p></td>
+<td><p>17</p></td>
+<td><p>tree_height_laser</p></td>
+<td><p>Høyde (laser)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>height_in_situ</p></td>
+<td><p>Høyde (in situ)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>height_total_tree</p></td>
+<td><p>Høyde (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>height_live_tree</p></td>
+<td><p>Høyde levende tre (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>height_crown_base</p></td>
+<td><p>Høyde til krone (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>22</p></td>
+<td><p>height_comment</p></td>
+<td><p>Høyde kommentar</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>23</p></td>
+<td><p>height_origin</p></td>
+<td><p>Høyde kilde</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>laserdata, feltregistering, regresjonsmodell</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="12"><p>Crown Geometry</p></td>
+<td><p>24</p></td>
+<td><p>crown_diam_insitu</p></td>
+<td><p>Kronediameter (in situ)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>crown_diam</p></td>
+<td><p>Kronediameter (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>26</p></td>
+<td><p>crown_radius</p></td>
+<td><p>Krone radius (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>crown_vol</p></td>
+<td><p>Krone volum (m3)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m3</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>crown_area</p></td>
+<td><p>Kroneareal (m2)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m2</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>crown_peri</p></td>
+<td><p>Krone omkrets (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>EV_angle</p></td>
+<td><p>EV vinkel (°)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>geographic degrees</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>NS_width</p></td>
+<td><p>Krone bredde NS (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>EW_width</p></td>
+<td><p>Krone bredde ØV (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>crown_origin</p></td>
+<td><p>Krone kilde</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>laserdata year, feltregistering year, regresjonsmodell</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>34</p></td>
+<td><p>crown_comment</p></td>
+<td><p>Krone kommentar</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>35</p></td>
+<td><p>geo_relation</p></td>
+<td><p>Geometrisk relasjon</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>“Case 1”;”Case 2”;”Case 3”;”Case 4”;</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><p>Crown Condition</p></td>
+<td><p>36</p></td>
+<td><p>crown_dieback</p></td>
+<td><p>Krone skade</p></td>
+<td><p>TEXT</p></td>
+<td><p>%</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>percent_crown_missing</p></td>
+<td><p>Krone skade prosent</p></td>
+<td><p>TEXT</p></td>
+<td><p>%</p></td>
+<td><p>“15% - 20%”</p></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>38</p></td>
+<td><p>cle_class</p></td>
+<td><p>Krone lys klasse</p></td>
+<td><p>SHORT</p></td>
+<td></td>
+<td><p>1,2,3,4,5</p></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>39</p></td>
+<td><p>cle_perc</p></td>
+<td><p>Krone lys prosent</p></td>
+<td><p>FLOAT</p></td>
+<td><p>%</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="6"><p>Building Interaction (energy Impact)</p></td>
+<td><p>40</p></td>
+<td><p>bld_dir_1</p></td>
+<td><p>Bygg retning 1</p></td>
+<td><p>FLOAT</p></td>
+<td><p>degrees</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>bld_dir_2</p></td>
+<td><p>Bygg retning 2</p></td>
+<td><p>FLOAT</p></td>
+<td><p>degrees</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>42</p></td>
+<td><p>bld_dir_3</p></td>
+<td><p>Bygg retning 3</p></td>
+<td><p>FLOAT</p></td>
+<td><p>degrees</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>43</p></td>
+<td><p>bld_dist_1</p></td>
+<td><p>Bygg avstand 1 (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>44</p></td>
+<td><p>bld_dist_2</p></td>
+<td><p>Bygg avstand 2 (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>bld_dist_3</p></td>
+<td><p>Bygg avstand 3 (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="12"><p>Location
+Information</p></td>
+<td><p>46</p></td>
+<td><p>nb_code</p></td>
+<td><p>Bydelnummer</p></td>
+<td><p>SHORT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>47</p></td>
+<td><p>nb_name</p></td>
+<td><p>Bydelnavn</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>48</p></td>
+<td><p>polutizon_zone</p></td>
+<td><p>Luftsone</p></td>
+<td><p>SHORT</p></td>
+<td></td>
+<td><p>1 (grønn), 2 (gull), 3 (rød)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>address</p></td>
+<td><p>Vegadresse</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>street_tree</p></td>
+<td><p>Veg tre</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>“Y”, “N”</p></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>51</p></td>
+<td><p>private_public</p></td>
+<td><p>Privat/offentlig område</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>“privat omr”, “offentlig omr”</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>52</p></td>
+<td><p>SSB_hoved_underklasse</p></td>
+<td><p>SSB Arealbruk</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>AR5_arealtype</p></td>
+<td><p>AR5 Arealbruk kode</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>54</p></td>
+<td><p>AR5_arealtype_navn</p></td>
+<td><p>AR5 Arealbruk</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>55</p></td>
+<td><p>itree_LU</p></td>
+<td><p>i-Tree Arealbruk</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>56</p></td>
+<td><p>itree_LU_kode</p></td>
+<td><p>i-Tree Arealbruk kode</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>itree_ground_cover</p></td>
+<td><p>i-Tree Markdekke</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><p>Administration</p></td>
+<td><p>58</p></td>
+<td><p>registration_date</p></td>
+<td><p>Kartleggingsdato</p></td>
+<td><p>DATE</p></td>
+<td><p>yyyy.mm.dd</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>59</p></td>
+<td><p>registrant</p></td>
+<td><p>Kartlegger</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>creation_date</p></td>
+<td><p>Opprettelsesdato</p></td>
+<td><p>DATE</p></td>
+<td><p>yyyy.mm.dd</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>61</p></td>
+<td><p>creator</p></td>
+<td><p>Oppretter</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>“<a class="reference external" href="mailto:willeke.acampo%40nina.no_NINA">willeke<span>.</span>acampo<span>@</span>nina<span>.</span>no_NINA</a>”</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>62</p></td>
+<td><p>comment</p></td>
+<td><p>Kommentar</p></td>
+<td><p>TEXT</p></td>
+<td></td>
+<td><p>datetime.datetime.now()</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td rowspan="3"><p>Map Coordinates</p></td>
+<td><p>63</p></td>
+<td><p>wgs84_lat</p></td>
+<td><p>Latitude</p></td>
+<td><p>DOUBLE</p></td>
+<td><p>decimal degrees</p></td>
+<td><p>y-axis</p></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>64</p></td>
+<td><p>wgs84_lon</p></td>
+<td><p>Longitude</p></td>
+<td><p>DOUBLE</p></td>
+<td><p>decimal degrees</p></td>
+<td><p>x-axis</p></td>
+<td><p>i-Tree Eco input variable</p></td>
+</tr>
+<tr class="row-even"><td><p>65</p></td>
+<td><p>tree_altit</p></td>
+<td><p>Tre høyde over havet (m)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td rowspan="13"><p>Regulating Ecosystem Services (i-Tree Eco)</p></td>
+<td><p>66</p></td>
+<td><p>replacement_value_kr</p></td>
+<td><p>Erstatningsverdi (Nkr)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-even"><td><p>67</p></td>
+<td><p>co2_storage_kg</p></td>
+<td><p>Karbonlagring (kg)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>kg</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>68</p></td>
+<td><p>co2_storage_nkr</p></td>
+<td><p>Karbonlagring (NKr)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-even"><td><p>69</p></td>
+<td><p>co2_seq_kg_yr</p></td>
+<td><p>Årlig karbonbinding (kg/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>kg/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>70</p></td>
+<td><p>co2_seq_nkr_yr</p></td>
+<td><p>Årlig karbonbinding (Nkr/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-even"><td><p>71</p></td>
+<td><p>runoff_m3_yr</p></td>
+<td><p>Reduksjon av overflateavrenning (m3/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>m3/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>72</p></td>
+<td><p>runoff_nkr_yr</p></td>
+<td><p>Reduksjon av overflateavrenning (NKr/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-even"><td><p>73</p></td>
+<td><p>co2_avoided_kg_yr</p></td>
+<td><p>CO2-utslipp unngått (kg/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>kg/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>74</p></td>
+<td><p>co2_avoided_nkr_yr</p></td>
+<td><p>CO2-utslipp unngått (Nkr/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-even"><td><p>75</p></td>
+<td><p>pollution_g_yr</p></td>
+<td><p>Reduksjon av luftforurensing (g/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>g/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>76</p></td>
+<td><p>pollution_nkr_yr</p></td>
+<td><p>Reduksjon av luftforurensing (NKr/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-even"><td><p>77</p></td>
+<td><p>energy_nkr_yr</p></td>
+<td><p>Energibesparelse (Nkr/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+<tr class="row-odd"><td><p>78</p></td>
+<td><p>totben_cap_2023</p></td>
+<td><p>Totalverdi ØT (Nkr/år)</p></td>
+<td><p>FLOAT</p></td>
+<td><p>Nkr/år</p></td>
+<td></td>
+<td><p>i-Tree Eco output variable</p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>References</strong></p>
 <ul class="simple">
+<li><p>Ahlstrøm, A., Bjørkelo, K., Fadnes, K.D. 2019. AR5 Klassifikasjonssystem. Klassifisering av arealressurser. NIBIO BOK 5 (5) 2019. <a class="reference external" href="http://hdl.handle.net/11250/2596511">http://hdl.handle.net/11250/2596511</a></p></li>
 <li><p>Cimburova, Z., &amp; Barton, D. N. (2020). The potential of geospatial analysis and Bayesian networks to enable i-Tree Eco assessment of existing tree inventories. Urban Forestry &amp; Urban Greening, 55, 126801. <a class="reference external" href="https://doi.org/10.1016/j.ufug.2020.126801">https://doi.org/10.1016/j.ufug.2020.126801</a></p></li>
+<li><p>Kartverket 2023a. FKB-Bygninger. Geografisk vektordatasett. <a class="reference external" href="https://kartkatalog.Geonorge.no/metadata/fkb-bygning/8b4304ea-4fb0-479c-a24d-fa225e2c6e97">https://kartkatalog.Geonorge.no/metadata/fkb-bygning/8b4304ea-4fb0-479c-a24d-fa225e2c6e97</a></p></li>
+<li><p>Kartverket 2023b FKB-AR5. Geografisk vektordatasett. <a class="reference external" href="https://kartkatalog.geonorge.no/metadata/fkb-ar5/166382b4-82d6-4ea9-a68e-6fd0c87bf788">https://kartkatalog.geonorge.no/metadata/fkb-ar5/166382b4-82d6-4ea9-a68e-6fd0c87bf788</a></p></li>
+<li><p>Statistisk sentralbyrå (SSB) 2022: Arealbruk 2022. Geografisk vektordatasett. <a class="reference external" href="https://kartkatalog.Geonorge.no/metadata/arealbruk-2022/a965a979-c12a-4b26-90a0-f09de47dbecd">https://kartkatalog.Geonorge.no/metadata/arealbruk-2022/a965a979-c12a-4b26-90a0-f09de47dbecd</a></p></li>
 </ul>
 <p><strong>Contributors</strong></p>
 <ul class="simple">
