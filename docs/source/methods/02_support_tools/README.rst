@@ -13,12 +13,6 @@ Eco analysis by supplementing existing municipal tree inventories with
 crown geometry from the ALS data and auxiliary spatial datasets following 
 the workflow by *Cimburova and Barton (2020).* 
 
-2. **i-Tree Eco Extrapolation:** extrapolating the outputs from i-Tree Eco
-analysis to all trees in the study area.   
-
-The repository is applied on the Norwegian municipalities: *Bærum, Bodø, Kristiansand* and *Oslo.* 
-
-
 Installation
 ------------
 .. toctree::
@@ -28,12 +22,15 @@ Installation
    installation_manual
    project_structure
 
-
-
 Data
 ----
 
-The following table provides an overview of the input data used in this project:
+The following data sources were used within this project task.
+
+**Land use**
+
+In i-Tree Eco Land Use (LU) is defined as the land use type in which a tree is located. In i-Tree Eco, there are 13 default land use classes defined (see `Table 1 <tables.rst>`_).
+The land resource map FKB-AR5 (Ahlstrøm et al. 2019, Kartverket, 2023b) and the land use map from SSB (2022) are combined, and the different land use classes are translated to the Land Use classes defined in i-Tree Eco using the lookup tables: `Table 2 <tables.rst>`_ and `Table 3 <tables.rst>`_.
 
 
 Municipal Tree Inventory
@@ -129,5 +126,6 @@ The workflow consists of three main steps:
 **Contributors**
 
 - Willeke A'Campo (NINA), willeke.acampo@nina.no
+
 
 

@@ -58,7 +58,7 @@
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Task 4 | Local Climate Regulation" href="../05_urban_climate/README.html" />
+    <link rel="next" title="Task 4 | Local Climate Regulation" href="../04_urban_climate/README.html" />
     <link rel="prev" title="Task 3a | i-Tree Eco model" href="README_itree_eco.html" />
   
    
@@ -223,7 +223,7 @@
   <section id="task-3b-extrapolation-of-i-tree-eco-values">
 <h1 id="methods-03-itree-eco-readme-extrapolation--page-root">Task 3b | Extrapolation of i-Tree Eco values<a class="headerlink" href="#methods-03-itree-eco-readme-extrapolation--page-root" title="Link to this heading">¶</a></h1>
 <p>The i-Tree Eco model provides valuable insights into the benefits of urban trees, including air pollution removal, stormwater infiltration, carbon storage and carbon sequestration. However, accurate modelling of these benefits requires detailed tree-level information, such as species information and diameter at breast height (DBH). This information is available for selected subset of trees, but it is not feasible to gather this data for every tree in a city.</p>
-<p>Within <strong><a class="reference internal" href="../01_tree_detection/README.html"><span class="std std-doc">Task 1</span></a></strong> of this project LiDAR data is used to detect tree crowns for the municipalities building zone extent. These tree crowns, in particular their tree height and crown area information, can be used to infer other relevant parameters, such as species and DBH. Prior studies have employed Bayesian networks to predict i-Tree Eco values for trees within Oslo’s building zone extent (Barton et al., 2022; Cimburova and Barton, 2020). These studies found that tree height, crown area, and air pollution variables were most important for predicting carbon storage, carbon sequestration, air pollution reduction, and water runoff reduction. To predict the total benefits of trees, Cimburova and Barton (2020) added tree species and diameter at breast height (DBH) as predictors to the Bayesian network. In this study, we use a regression model approach. Regression models offer several advantages, they are simpler to implement in an automated workflow and more computationally efficient.</p>
+<p>Within <strong><a class="reference internal" href="#../01_tree_detection/README.md"><span class="xref myst">Task 1</span></a></strong> of this project LiDAR data is used to detect tree crowns for the municipalities building zone extent. These tree crowns, in particular their tree height and crown area information, can be used to infer other relevant parameters, such as species and DBH. Prior studies have employed Bayesian networks to predict i-Tree Eco values for trees within Oslo’s building zone extent (Barton et al., 2022; Cimburova and Barton, 2020). These studies found that tree height, crown area, and air pollution variables were most important for predicting carbon storage, carbon sequestration, air pollution reduction, and water runoff reduction. To predict the total benefits of trees, Cimburova and Barton (2020) added tree species and diameter at breast height (DBH) as predictors to the Bayesian network. In this study, we use a regression model approach. Regression models offer several advantages, they are simpler to implement in an automated workflow and more computationally efficient.</p>
 <section id="installation">
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
 <p>The workflow is integrated into the <a class="reference external" href="https://github.com/NINAnor/itree-support-tools">itree-support-tools</a> GitHub repository. Python envionment setup and project configuration infomation can be found <strong><a class="reference internal" href="#../installation_manuals/02_itree_support_tools_installation.md"><span class="xref myst">HERE</span></a></strong>.</p>
@@ -247,12 +247,12 @@
 <tbody>
 <tr class="row-even"><td><p><strong>Reference Data</strong></p></td>
 <td><p>Municipal tree inventory with ecosystem service values calculated using i-Tree Eco</p></td>
-<td><p><strong><a class="reference internal" href="../02_support_tools/README_integration.html"><span class="std std-doc">Task 2</span></a></strong></p></td>
+<td><p><strong><a class="reference internal" href="#../02_support_tools/README_integration.md"><span class="xref myst">Task 2</span></a></strong></p></td>
 <td><p>%municipality%_registered_trees</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Target Data</strong></p></td>
 <td><p>Tree crowns extracted from LiDAR point cloud with crown area and height information.</p></td>
-<td><p><strong><a class="reference internal" href="../01_tree_detection/README.html"><span class="std std-doc">Task 1</span></a></strong></p></td>
+<td><p><strong><a class="reference internal" href="#../01_tree_detection/README.md"><span class="xref myst">Task 1</span></a></strong></p></td>
 <td><p>%municipality%_tree_crowns</p></td>
 </tr>
 </tbody>
@@ -486,7 +486,7 @@ For the Random Forest models a grid search algorithm is implemented to optimize 
             </a>
           
           
-            <a href="../05_urban_climate/README.html" title="Task 4 | Local Climate Regulation"
+            <a href="../04_urban_climate/README.html" title="Task 4 | Local Climate Regulation"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
